@@ -1,7 +1,7 @@
 import React from 'react';
 import { Transition, TransitionGroup } from 'react-transition-group';
 
-import './Layout.scss';
+import './layout.scss';
 import Header from './scaffold/header'
 
 const Layout = ({ children, location }) => {
