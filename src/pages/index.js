@@ -28,12 +28,11 @@ section {
 }
 h1 {
   position: absolute;
-  bottom: 5vh;
-  width:100%;
+  bottom: 1vh;
+  width: 100%;
   font-family: "Megrim", sans-serif;
   font-size: 5rem;
   text-shadow: 1px 1px 0.5px #47E8B3; /* light bluegreen */
-
 }
 h2 {
   position: absolute;

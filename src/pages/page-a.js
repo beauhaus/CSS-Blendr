@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
 import CycleBtn from '../components/content/cyclebtn'
+import FlipScreen from '../components/content/flipscreen'
 
 import TestImg1 from '../../static/test_img_1.png';
 
@@ -50,11 +51,27 @@ section {
   }
   .flipper {
     border-radius: 12px;
-    box-shadow: inset 0 0 8px 0 navy;
+    display: grid;
+    border: 1px solid #fff;
+    overflow: hidden;
+    position: relative;
+    svg {
+     width: 100%;
+     height: 100%;
+    }
+    .frame {
+      position: absolute;
+      top:0;
+      left: 0;
+      width:100%;
+      height: 100%;
+      box-shadow: inset 0 0 8px 3px olive;
+      }
   }
   .cycler {
-    ${'' /* box-shadow: inset 0 0 0 2px pink; */}
+    box-shadow: inset 0 0 0 2px pink;
     display: grid;
+
   }
 }
 
@@ -86,7 +103,10 @@ const PageA = (props) => {
 
 
         <div className="blend-ctrl-btns">
-          <div className="flipper"></div>
+          <div className="flipper">
+          <FlipScreen/>
+          <div className="frame"></div>
+          </div>
           <div className="cycler">
             <CycleBtn/>
           </div>
