@@ -26,7 +26,7 @@ section {
   grid-row: 1;
   border:1px solid #fff;
   border-radius: 12px;
-  box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.7);
+  box-shadow: inset 0 0 8px 0 var(--text-primary);
   margin: 0 auto;
   display: grid;
   img {
@@ -43,7 +43,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2vw;
+  padding: 0 1vw;
   margin-top: 1vh;
   & div {
     height: 100%;
@@ -65,7 +65,7 @@ section {
       left: 0;
       width:100%;
       height: 100%;
-      box-shadow: inset 0 0 8px 3px olive;
+      box-shadow: inset 0 0 8px 0px var(--text-primary);
       }
   }
   .cycler {

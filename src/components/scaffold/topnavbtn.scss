@@ -27,22 +27,22 @@ button {
     top: 0;
     background: radial-gradient(ellipse at 20% 30%,
         rgba(255, 255, 255, 0.8) 5%,
-        rgba(237, 233, 232, 0.5) 40%,
+        rgba(237, 233, 232, 0.3) 40%,
         rgba(237, 233, 232, 0) 50%);
   }
   &.btn-off {
     box-shadow: inset 3px 3px 5px 0px #fff, 5px 5px 5px -2px #000;
     background: radial-gradient(closest-side,
-    var(--base-btn-color) 0%,
-    var(--base-btn-color) 30%,
+    // var(--base-btn-color) 0%,
+    // var(--base-btn-color) 30%,
 
-    var(--power-off-trim) 31%,
-    var(--power-off-trim) 32.5%,
-    var(--power-off) 33%,
-    var(--power-off) 38%,
-    var(--power-off-trim) 38.5%,
+    // var(--power-off-trim) 31%,
+    // var(--power-off-trim) 32.5%,
+    // var(--power-off) 33%,
+    var(--power-off) 39%,
+    var(--power-off-trim) 39.5%,
     
-    var(--base-btn-color) 40%,
+    var(--base-btn-color) 42%,
     var(--base-btn-color) 82.5%,
     var(--power-trim) 83%,
     var(--base-btn-color) 83.5%,
@@ -53,11 +53,11 @@ button {
   &.btn-on {
     box-shadow: inset 4px 4px 6px 0px #fff, 3px 3px 5px -3px #000;
     background: radial-gradient(closest-side,
-        var(--base-btn-color) 0%,
-        var(--power-on-glow) 31%,
-        var(--power-off-trim) 31.5%,
-        var(--power-off-trim) 32.5%,
-        var(--power-on) 33%,
+        // var(--base-btn-color) 0%,
+        // var(--power-on-glow) 31%,
+        // var(--power-off-trim) 31.5%,
+        // var(--power-off-trim) 32.5%,
+        // var(--power-on) 33%,
         var(--power-on) 38%,
         var(--power-off-trim) 38.5%,
         var(--power-off-trim) 39.5%,
