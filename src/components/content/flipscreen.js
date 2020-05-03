@@ -10,7 +10,7 @@ const FlipScreenWrap = styled.div`
     overflow: hidden;
     position: relative;
     box-shadow: inset 4px 10px 10px 0px rgba(255,255,255,1),
-    inset -4px -4px 10px 0px rgba(0,0,0,0.5);
+    inset -5px -5px 10px 0px rgba(0,0,0,0.7);
     perspective: 200px;
 
     .flip-screen-back {
@@ -24,6 +24,12 @@ const FlipScreenWrap = styled.div`
             stroke-width: 0.5;
             mix-blend-mode: color-burn;
         }
+    }
+    .reflection {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(235, 235, 235, 0.9) 0%,rgba(235, 235, 235, 0.1) 50%, transparent 100%);
     }
 `
 
@@ -46,6 +52,7 @@ const FlipScreen = () => (
             </g>
         </svg>
         <FlipImagePairs className="flip-img-pairs"/>
+        <div className="reflection"></div>
     </FlipScreenWrap>
 
 )
