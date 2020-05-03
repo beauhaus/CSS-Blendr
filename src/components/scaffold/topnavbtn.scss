@@ -12,6 +12,9 @@ button {
     height: inherit;
     margin: 0;
     border-radius: 50%;
+    &:active {
+      visibility: invisible;
+    }
   }
 
   &:focus {

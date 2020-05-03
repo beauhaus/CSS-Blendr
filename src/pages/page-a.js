@@ -10,83 +10,63 @@ import TestImg1 from '../../static/test_img_1.png';
 const PageAWrapper = styled.div`
 ${'' /* box-shadow: inset 0 0 0 4px brown; */}
 
+
 section {
-  width: 100vw;
-  height: 88vh;
-  position: relative;
-  ${'' /* border: 2px dashed green; */}
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 53vh 22vh 10vh;
-
-  .img-viewer {
-  background: #f0ebe8; /* --base-btn-color: */
-  width: 98%;
-  grid-column: 1;
-  grid-row: 1;
-  border:1px solid #fff;
-  border-radius: 12px;
-  box-shadow: inset 0 0 8px 0 var(--text-primary);
-  margin: 0 auto;
-  display: grid;
-  img {
-    margin: auto;
-    width: 96%;
-    height: 96%;
-  }
-}
-.blend-ctrl-btns {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  grid-row: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1vw;
-  margin-top: 1vh;
-  & div {
-    height: 100%;
-    width: 46vw;
-  }
-  .flipper {
-    border-radius: 12px;
-    display: grid;
-    border: 1px solid #fff;
-    overflow: hidden;
+    width: 100vw;
+    height: 88vh;
     position: relative;
-    svg {
-     width: 100%;
-     height: 100%;
+
+    $ {
+        ''
+        /* border: 2px dashed green; */
     }
-    .frame {
-      position: absolute;
-      top:0;
-      left: 0;
-      width:100%;
-      height: 100%;
-      box-shadow: inset 0 0 8px 0px var(--text-primary);
-      }
-  }
-  .cycler {
-    box-shadow: inset 0 0 0 2px pink;
+
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 53vh 22vh 10vh;
 
-  }
+    .img-viewer {
+        background: #f0ebe8;
+        /* --base-btn-color: */
+        width: 98%;
+        grid-column: 1;
+        grid-row: 1;
+        border: 1px solid #fff;
+        border-radius: 12px;
+        box-shadow: inset 0 0 8px 0 var(--text-primary);
+        margin: 0 auto;
+        display: grid;
+
+        img {
+            margin: auto;
+            width: 96%;
+            height: 96%;
+        }
+    }
+
+    .blend-ctrl-btns {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        grid-row: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1vw;
+        margin-top: 1vh;
+
+        & div {
+            height: 100%;
+            width: 46vw;
+        }
+        .cycler {
+            box-shadow: inset 0 0 0 2px pink;
+            display: grid;
+
+        }
+    }
+
 }
-
-}
-  
- 
-
-  /*erase later*/
-  section a { 
-    position: absolute;
-    color: black;
-    margin: -4vh 2vw;
-    z-index: 40;
-    ${'' /* top: 0; */}
-  }
 
 `
 const PageA = (props) => {
@@ -100,19 +80,12 @@ const PageA = (props) => {
         <div className="img-viewer">
           <img src={TestImg1} alt="test 1" />
         </div>
-
-
         <div className="blend-ctrl-btns">
-          <div className="flipper">
-          <FlipScreen/>
-          <div className="frame"></div>
-          </div>
+          <FlipScreen />
           <div className="cycler">
-            <CycleBtn/>
+            <CycleBtn />
           </div>
         </div>
-
-
       </section>
     </PageAWrapper>
   )

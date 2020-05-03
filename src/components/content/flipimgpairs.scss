@@ -1,0 +1,17 @@
+.top-img, .bot-img {
+  position: absolute;
+  width: 30vw;
+  height: 13vh;
+  transform: skew(0deg, 0deg) rotateX(46deg);
+}
+.top-img {
+top: 1vh;
+left: 4.5vw;
+opacity: 0.8;
+transform: skew(0deg, 0deg) rotateX(45deg);
+
+}
+.bot-img {
+  top: 6vh;
+  right: 5vw;
+}
