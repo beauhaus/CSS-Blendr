@@ -9,8 +9,8 @@ const FlipScreenWrap = styled.div`
     border: 0.5px solid #8a857c;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 4px 10px 10px 0px rgba(255,255,255,1),
-    inset -5px -5px 10px 0px rgba(0,0,0,0.7);
+    box-shadow: inset 10px 10px 10px 0px rgba(255, 255, 255, 1),
+    inset -5px -5px 10px 0px rgba(95, 0, 0, 0.8);
     perspective: 200px;
 
     .flip-screen-back {
@@ -29,7 +29,8 @@ const FlipScreenWrap = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        background: linear-gradient(120deg, rgba(235, 235, 235, 0.9) 0%,rgba(235, 235, 235, 0.1) 50%, transparent 100%);
+        background: linear-gradient(125deg, rgba(235, 235, 235, 0.6) 0%,rgba(235, 235, 235, 0.4) 38%, rgba(235, 235, 235, 0) 45%);
+        ${'' /* display: none; */}
     }
 `
 
@@ -38,13 +39,13 @@ const FlipScreen = () => (
     <FlipScreenWrap className="flipper">
         <svg xmlns="http://www.w3.org/2000/svg" className="flip-screen-back" x="0" y="0" version="1.1" viewBox="0 0 300 300" preserveAspectRatio="none">
 
-            <radialGradient id="flipscreen-grad" cx="150" cy="150" r="180" gradientUnits="userSpaceOnUse">
+            <radialGradient id="flipscreen-grad" cx="150" cy="120" r="180" gradientUnits="userSpaceOnUse">
                 <stop offset="0" stopColor="#a17342" />
                 <stop offset=".1" stopColor="#a47848" stopOpacity="1" />
-                <stop offset=".3" stopColor="#ad8559" stopOpacity=".8" />
-                <stop offset=".5" stopColor="#bb9c75" stopOpacity=".7" />
-                <stop offset=".7" stopColor="#cfbb9c" stopOpacity=".6" />
-                <stop offset="1" stopColor="#e8e2ce" stopOpacity=".5" />
+                <stop offset=".3" stopColor="#ad8559" stopOpacity=".9" />
+                <stop offset=".5" stopColor="#bb9c75" stopOpacity=".8" />
+                <stop offset=".7" stopColor="#cfbb9c" stopOpacity=".7" />
+                <stop offset="1" stopColor="#e8e2ce" stopOpacity=".7" />
             </radialGradient>
             <path fill="url(#flipscreen-grad)" d="M0 0h300v300H0z" />
             <g id="lines">

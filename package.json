@@ -13,12 +13,14 @@
   "dependencies": {
     "gatsby": "^2.3.25",
     "gatsby-plugin-layout": "^1.0.14",
+    "gatsby-plugin-react-helmet": "^3.3.0",
     "gatsby-plugin-sass": "^2.3.0",
     "gatsby-source-filesystem": "^2.3.0",
     "node-sass": "^4.14.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-helmet": "^6.0.0",
     "react-transition-group": "^4.0.0",
     "styled-components": "^5.1.0"
   },
