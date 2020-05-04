@@ -31,7 +31,7 @@ section {
         width: 98%;
         grid-column: 1;
         grid-row: 1;
-        border: 1px solid #fff;
+        ${'' /* border: 1px solid #fff; */}
         border-radius: 12px;
         box-shadow: inset 0 0 8px 0 var(--text-primary);
         margin: 0 auto;
@@ -52,7 +52,7 @@ section {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 1vw;
+        padding: 0 2vw;
         margin-top: 1vh;
 
         & div {
@@ -60,7 +60,7 @@ section {
             width: 46vw;
         }
         .cycler {
-            box-shadow: inset 0 0 0 2px pink;
+            ${'' /* box-shadow: inset 0 0 0 2px pink; */}
             display: grid;
 
         }

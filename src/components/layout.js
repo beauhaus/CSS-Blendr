@@ -4,7 +4,7 @@ import {Helmet} from 'react-helmet'
 
 import './layout.scss';
 import Header from './scaffold/header'
-import useSiteMetadata from '../hooks/use-site-metadata';
+import useSiteMetadata from './hooks/use-site-metadata';
 
 const Layout = ({ children, location }) => {
     // console.log("Layout loc: ", location)

@@ -29,7 +29,7 @@ const FlipScreenWrap = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        background: linear-gradient(125deg, rgba(235, 235, 235, 0.6) 0%,rgba(235, 235, 235, 0.4) 38%, rgba(235, 235, 235, 0) 45%);
+        background: linear-gradient(125deg, rgba(235, 235, 235, 0.5) 0%,rgba(235, 235, 235, 0.3) 38%, rgba(235, 235, 235, 0) 45%);
         ${'' /* display: none; */}
     }
 `
