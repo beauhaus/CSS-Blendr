@@ -3,7 +3,7 @@ import './modedirectory.scss'
 
 const ModeDirectory = ({mode, idx}) => {
 
-console.log("md: ", mode)
+// console.log("md: ", mode)
     return (
         <>
 

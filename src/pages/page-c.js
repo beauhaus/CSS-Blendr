@@ -18,7 +18,7 @@ pre {
 export default (props) => {
   // console.log("p> C: ", props)
   const modes = useModes();
-  console.log("MODES in C: ", modes)
+  // console.log("MODES in C: ", modes)
   return (
     <PageCWrapper className="page-c-wrapper">
       <h1 className="title">CCCC</h1>

@@ -1,17 +1,21 @@
-
+.title {
+    margin: 12vh 2vw;
+    color: #888;
+}
 h3, h4, p, sup{
      text-align: left;
-     margin-left: 2vw;
 }
 
 h3 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 500;
+    color: #444;
 }
 
 p {
     width: 90%;
     margin-left: 2vw !important;
-    color: #bbb;
     font-weight: 300;
+    font-size: 2rem;
+
 }

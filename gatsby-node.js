@@ -21,7 +21,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
             path: mode.frontmatter.slug,
             component: require.resolve('./src/autogen-template/mode.js'),
             context: {
-                slug: `/${mode.frontmatter.slug}`
+                slug: mode.frontmatter.slug
             }
         })
     });
