@@ -53,14 +53,15 @@ body {
         height: 100vh;
         padding-top: 12vh;
         position: absolute;
-
-        p {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        // h1 {
-        //     pos
-        // }
     }
+  button {padding: 0;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+//   cursor: pointer; /*TODO: enable for desktop */
+&:focus {
+    outline: none;
+}
+}
 }

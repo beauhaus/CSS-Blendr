@@ -5,7 +5,7 @@ import PanelBG from '../components/content/panelbg'
 import CycleBtn from '../components/content/cyclebtn'
 import FlipScreen from '../components/content/flipscreen'
 
-import TestImg1 from '../../static/test_img_1.png';
+import TestImg1 from '../../static/images/test_img_1.png';
 
 const PageAWrapper = styled.div`
 ${'' /* box-shadow: inset 0 0 0 4px brown; */}
@@ -47,23 +47,13 @@ section {
     .blend-ctrl-btns {
         width: 100%;
         height: 100%;
-        margin: auto;
+        margin: 0 auto;
         grid-row: 2;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 2vw;
-        margin-top: 1vh;
-
-        & div {
-            height: 100%;
-            width: 46vw;
-        }
-        .cycler {
-            ${'' /* box-shadow: inset 0 0 0 2px pink; */}
-            display: grid;
-
-        }
+        margin-top: 1vh;    
     }
 
 }
@@ -82,9 +72,7 @@ const PageA = (props) => {
         </div>
         <div className="blend-ctrl-btns">
           <FlipScreen />
-          <div className="cycler">
-            <CycleBtn />
-          </div>
+          <CycleBtn />
         </div>
       </section>
     </PageAWrapper>
