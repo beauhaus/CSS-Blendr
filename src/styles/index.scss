@@ -54,14 +54,17 @@ body {
         padding-top: 12vh;
         position: absolute;
     }
-  button {padding: 0;
-  border: none;
-  font-family: inherit;
-  color: inherit;
-  background-color: transparent;
-//   cursor: pointer; /*TODO: enable for desktop */
-&:focus {
-    outline: none;
-}
-}
+
+    button {
+        padding: 0;
+        border: none;
+        font-family: inherit;
+        color: inherit;
+        background-color: transparent;
+
+        //   cursor: pointer; /*TODO: enable for desktop */
+        &:focus {
+            outline: none;
+        }
+    }
 }
