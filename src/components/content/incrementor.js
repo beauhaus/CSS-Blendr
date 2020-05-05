@@ -1,28 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import CycleIcons from './cycleicons'
-import NormalIcon from '../mode-icons/normal'
+// import CycleIcons from './cycleicons'
+// import NormalIcon from '../mode-icons/normal'
 
 
-const CycleBtnWrapper = styled.div`
-    display: grid;
-    height: 100%;
-    width: 46vw;
-    position: relative;
-
-    .cycle-icons {
-
-    }
-    svg {
-      ${'' /* display: none; */}
-      margin: auto;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .cycle-increments {
+const IncrementWrapper = styled.svg`
+  
+    
+  transform-origin: 50% 50%;
+  transform: scale(1.65,1.65);
       
       .blend-inc{
         fill:var(--power-off);
@@ -34,19 +20,16 @@ const CycleBtnWrapper = styled.div`
       }
       .st2{
         fill:none;
-        stroke:#f0f;
+        stroke: yellow;
+        display: none;
       }
-    }
 `
-const CycleBtn = () => {
+const Incrementor = () => {
   // console.log("p> B: ", props)
-  const cycleBtnClickHandler = () => {
-    console.log("cycler clicked!")
-  }
+  
   return (
-    <CycleBtnWrapper className="cycler" onClick={cycleBtnClickHandler}>
-      <svg className="cycle-increments" xmlns="http://www.w3.org/2000/svg" viewBox="68 40 288 288">
-        {/* <path fill="#fff" d="M337 199.5c0-3.16-.12-6.29-.33-9.39-.11-1.67-.25-3.33-.42-4.98-1.28-12.27-4.17-24.06-8.46-35.16-.6-1.56-1.23-3.1-1.89-4.63-4.75-11.07-10.9-21.39-18.25-30.74-1.03-1.31-2.09-2.6-3.17-3.87-7.65-9.04-16.45-17.08-26.17-23.9-1.36-.96-2.75-1.89-4.14-2.8-10.26-6.65-21.46-11.97-33.36-15.71-1.59-.5-3.19-.97-4.8-1.41-11.03-3.03-22.62-4.72-34.57-4.89-.65-.01-1.29-.02-1.94-.02-1.02 0-2.04.02-3.06.04-12.9.28-25.36 2.34-37.15 5.94-1.6.49-3.18 1.01-4.75 1.55-11.78 4.07-22.83 9.7-32.91 16.64-1.37.95-2.73 1.91-4.07 2.91-9.74 7.24-18.48 15.73-26 25.24-1.03 1.31-2.04 2.64-3.02 3.98-7.08 9.66-12.93 20.27-17.31 31.61-.6 1.55-1.17 3.12-1.72 4.7-3.93 11.38-6.4 23.43-7.21 35.94-.11 1.66-.19 3.32-.24 4.99-.04 1.32-.06 2.64-.06 3.97 0 11.13 1.33 21.94 3.83 32.31.39 1.62.81 3.24 1.26 4.84 2.08 7.43 4.77 14.6 8.01 21.46 22 46.62 69.43 78.89 124.41 78.89 48.91 0 91.84-25.54 116.22-64 8.44-13.31 14.64-28.17 18.11-44.05.35-1.62.69-3.26.98-4.9 1.43-7.98 2.18-16.18 2.18-24.56z" /> */}
+    <IncrementWrapper className="incrementor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      
         <g id="inclights">
           <path id="inc14" d="M315.72 273l29.75 16.95c10.31-16.03 17.84-34 21.95-53.16l-33.59-7.84c-3.47 15.88-9.67 30.74-18.11 44.05z" className="blend-inc" />
           <path id="inc13" d="M337 199.5c0 8.38-.75 16.58-2.19 24.54l33.72 7.03c2.27-12.84 3.02-26.17 2.05-39.78-.09-1.29-.22-2.57-.34-3.86l-33.56 2.68c.2 3.1.32 6.23.32 9.39z" className="blend-inc" />
@@ -63,11 +46,10 @@ const CycleBtn = () => {
           <path id="inc2" d="M65.83 231.81C63.33 221.44 62 210.63 62 199.5c0-1.33.02-2.65.06-3.97l-7.56-.35c-.14 3.37-.18 6.77-.12 10.18.69 9.66 2.34 19.07 4.84 28.16l6.61-1.71z" className="blend-inc" />
           <path id="inc1" d="M67.08 236.65l-6.45 1.68c3.81 12.17 9.16 23.72 15.87 34.42l6.11.03c-2.81-4.71-5.31-9.61-7.53-14.67-3.23-6.86-5.92-14.04-8-21.46z" className="blend-inc" />
         </g>
-        {/* <path id="FOR ADJUSTMENT TESTS" strokeWidth="4" d="M200 0l-.02 399.94M0 200l399.94.02" className="st2" /> */}
-      </svg>
-      <CycleIcons/>
-    </CycleBtnWrapper>
+        <path  strokeWidth="4" d="M200 0l-.02 399.94M0 200l399.94.02" className="st2" />
+      
+    </IncrementWrapper>
   )
 };
 
-export default CycleBtn;
+export default Incrementor;

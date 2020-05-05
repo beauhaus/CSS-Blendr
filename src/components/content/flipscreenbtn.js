@@ -44,7 +44,7 @@ const FlipScreenWrap = styled.button`
     }
 `
 
-const FlipScreen = () => {
+const FlipScreenBtn = () => {
     const flipperClickHandler = () => {
         console.log("flipper clicked!")
     }
@@ -71,4 +71,4 @@ const FlipScreen = () => {
 
     )
 }
-export default FlipScreen;
+export default FlipScreenBtn;

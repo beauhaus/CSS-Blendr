@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const NormalWrapper = styled.svg`
+const NormalWrapper = styled.g`
    .st2{fill:none;stroke:#fff;stroke-width:3}
     .st4{stroke:#000;stroke-width:2}
     .st4,
@@ -10,12 +10,13 @@ const NormalWrapper = styled.svg`
     .st6,
     .st7{stroke:#000;}
     .st7{fill:none;stroke:#fff;stroke-width:5}
- 
+    #BG {
+        fill: #ddc4a5;
+    }
 `
 
 const NormalIcon = () => (
-    <NormalWrapper xmlns="http://www.w3.org/2000/svg" viewBox="-7 -41 342 342">
-        {/* <path id="guides" fill="#ffbaff" d="M0 0h300v300H0z" /> */}
+    <NormalWrapper>
         <circle id="BG" cx="150" cy="150" r="149" fill="#715657" />
         <g id="body">
             <g id="base">

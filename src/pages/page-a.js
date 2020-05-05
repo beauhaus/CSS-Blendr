@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import Link from 'gatsby-link';
 import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
-import CycleBtn from '../components/content/cyclebtn'
-import FlipScreen from '../components/content/flipscreen'
+import CyclerBtn from '../components/content/cyclerbtn'
+import FlipScreenBtn from '../components/content/flipscreenbtn'
 
 import TestImg1 from '../../static/images/test_img_1.png';
 
@@ -15,11 +15,6 @@ section {
     width: 100vw;
     height: 88vh;
     position: relative;
-
-    $ {
-        ''
-        /* border: 2px dashed green; */
-    }
 
     display: grid;
     grid-template-columns: 1fr;
@@ -61,18 +56,25 @@ section {
 `
 const PageA = (props) => {
   // console.log("p>A: ", props);
+  const [modeCount, setmodeCount] = useState(0);
+
+  // const bModes = ['normal', 'screen',  'multiply', 'lighten', 'darken', 'overlay', 'color', 'color-dodge', 'color-burn', 'difference', 'exclusion', 'luminosity', 'hue', 'saturation'];
+  const modeClickHandler = () => {
+      setmodeCount(((modeCount+1) % 15))
+      return modeCount
+  }
   return (
-    <PageAWrapper className="page-a-wrapper">
+    <PageAWrapper className="page-a-wrapper" >
       <PanelBG />
       <hr />
       <section>
-        {/* <Link to="/page-c">GOTO C</Link> */}
         <div className="img-viewer">
           <img src={TestImg1} alt="test 1" />
         </div>
-        <div className="blend-ctrl-btns">
-          <FlipScreen />
-          <CycleBtn />
+        <div className="blend-ctrl-btns" onClick={modeClickHandler}>
+          <FlipScreenBtn />
+          <CyclerBtn />
+          {console.log(`mode: ${modeCount}`)}
         </div>
       </section>
     </PageAWrapper>
