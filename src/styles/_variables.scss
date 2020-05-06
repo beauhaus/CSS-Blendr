@@ -34,6 +34,11 @@ $gameClass: #9096f8;
 
     --text-primaryA: #745959;
     --text-primary: #715657;
+    --inc-light-off: rgb(212, 202, 193);
+    --inc-light-off-stroke: rgb(202, 185, 171);
+    --inc-light-on: rgb(255, 133, 27);
+    --inc-light-glow: rgb(255, 182, 65);
+    
 }
 
 .test {
@@ -41,7 +46,7 @@ $gameClass: #9096f8;
         fill:#8a857c;
         fill: #dbc19f;
         fill: rgba(238, 214, 214, 0.712);
-        fill:  #dbc19f;
+        fill:  rgba(185, 167, 146, 0.883);
     }
 }
 

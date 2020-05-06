@@ -35,18 +35,18 @@ const FlipScreenWrap = styled.button`
         width: 100%;
         height: 100%;
         background: linear-gradient(125deg, rgba(235, 235, 235, 0.6) 0%,rgba(235, 235, 235, 0.2) 40%, rgba(235, 235, 235, 0) 45%);
-        box-shadow: inset 6px 6px 8px 0px rgba(255,255,255,0.6),
-                    inset -3px -3px 10px 0px rgba(95, 0, 0, 0.4);
+        box-shadow: inset 5px 5px 4px 0px rgba(255,255,255,0.6),
+                    inset -2px -2px 6px 0px rgba(95, 0, 0, 0.4);
         &:active {
-            box-shadow: inset 6px 6px 14px 0px rgba(255,255,255,0.8),
-                        inset -4px -4px 10px 0px  rgba(36, 31, 31, 0.5);
+            box-shadow: inset 5px 5px 7px 0px rgba(255,255,255,0.8),
+                        inset -3px -3px 6px 0px  rgba(36, 31, 31, 0.5);
         }
     }
 `
 
 const FlipScreenBtn = () => {
     const flipperClickHandler = () => {
-        console.log("flipper clicked!")
+        // console.log("flipper clicked!")
     }
     return (
         <FlipScreenWrap className="flipper" onClick={flipperClickHandler}>

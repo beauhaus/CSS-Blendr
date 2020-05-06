@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-// import Link from 'gatsby-link';
+import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
 import CyclerBtn from '../components/content/cyclerbtn'
@@ -7,10 +7,23 @@ import FlipScreenBtn from '../components/content/flipscreenbtn'
 
 import TestImg1 from '../../static/images/test_img_1.png';
 
+const useMdx = () => {
+  const data = useStaticQuery(graphql`
+  query {
+  allMdx {
+    nodes {
+      frontmatter {
+        title
+      }
+    }
+  }
+}
+`)
+  const resultArray = data.allMdx.nodes.map(item => item.frontmatter.title)
+  return resultArray;
+}
+
 const PageAWrapper = styled.div`
-${'' /* box-shadow: inset 0 0 0 4px brown; */}
-
-
 section {
     width: 100vw;
     height: 88vh;
@@ -54,14 +67,17 @@ section {
 }
 
 `
-const PageA = (props) => {
-  // console.log("p>A: ", props);
-  const [modeCount, setmodeCount] = useState(0);
 
-  // const bModes = ['normal', 'screen',  'multiply', 'lighten', 'darken', 'overlay', 'color', 'color-dodge', 'color-burn', 'difference', 'exclusion', 'luminosity', 'hue', 'saturation'];
+
+const PageA = (props) => {
+  const modesArray = useMdx();
+  const [modeNum, setModeNum] = useState(0);
+
+  // console.log("p>query: ", modesArray);
+
   const modeClickHandler = () => {
-      setmodeCount(((modeCount+1) % 15))
-      return modeCount
+    setModeNum((modeNum + 1) % 14)
+    return modeNum;
   }
   return (
     <PageAWrapper className="page-a-wrapper" >
@@ -71,10 +87,9 @@ const PageA = (props) => {
         <div className="img-viewer">
           <img src={TestImg1} alt="test 1" />
         </div>
-        <div className="blend-ctrl-btns" onClick={modeClickHandler}>
+        <div className="blend-ctrl-btns" >
           <FlipScreenBtn />
-          <CyclerBtn />
-          {console.log(`mode: ${modeCount}`)}
+          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/>
         </div>
       </section>
     </PageAWrapper>

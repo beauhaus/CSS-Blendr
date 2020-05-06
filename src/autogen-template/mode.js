@@ -1,7 +1,7 @@
 import React from 'react';
-import {graphql} from 'gatsby';
+import { graphql } from 'gatsby';
 // import {Link} from 'gatsby';
-import {MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import './mode.scss';
 
@@ -17,18 +17,14 @@ query($slug: String!){
   }
   `
 
-const ModeTemplate =({data: {mdx: mode}}) => {
-// console.log("props: ", pageContext.slug)
-    return (
-        <>
-        <h1 className="title">mode Title: {mode.frontmatter.title}</h1>
-        <hr/>
-
-        <MDXRenderer>{mode.body}</MDXRenderer>
-
-
-        </>
-    )
+const ModeTemplate = ({ data: { mdx: mode } }) => {
+  return (
+    <>
+      <h1 className="title">mode Title: {mode.frontmatter.title}</h1>
+      <hr />
+      <MDXRenderer>{mode.body}</MDXRenderer>
+    </>
+  )
 }
 
 export default ModeTemplate;

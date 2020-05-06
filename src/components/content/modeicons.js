@@ -2,17 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 // import {graphql} from 'gatsby';
 import NormalIcon from '../mode-icons/normal'
-
-
   
-  const ModeIconsGroup = styled.svg`
+const ModeIconsGroup = styled.svg`
   position: absolute;
   top:0;
   left:0;
   z-index: 0;
 `
 const ModeIcons = (props, query) => {
-  console.log("p>ModeIcons: ", props);
+  // console.log("p>ModeIcons: ", props);
   return (
     <ModeIconsGroup xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
      <NormalIcon/>
