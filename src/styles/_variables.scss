@@ -34,15 +34,17 @@ $gameClass: #9096f8;
 
     --text-primaryA: #745959;
     --text-primary: #715657;
-    --inc-light-off: rgb(212, 202, 193);
-    --inc-light-off-stroke: rgb(202, 185, 171);
-    --inc-light-on: rgb(255, 133, 27);
-    --inc-light-glow: rgb(255, 182, 65);
+    
+    --inc-light-off: rgb(218, 193, 171);
+    --inc-light-off-stroke: #f5efe0;
+    --inc-light-on: rgb(255, 157, 71);
+    --inc-light-on-stroke: rgb(139, 84, 39);
+    --inc-light-glow: rgb(255, 157, 65);
     
 }
 
 .test {
-    st4{fill:rgb(110, 110, 88);
+    st4{fill:#4b3814;
         fill:#8a857c;
         fill: #dbc19f;
         fill: rgba(238, 214, 214, 0.712);

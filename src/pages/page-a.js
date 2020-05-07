@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
@@ -72,7 +72,9 @@ section {
 const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
-
+useEffect(()=>{
+document.title = `CSS Blender - ${modesArray[modeNum]}`
+})
   // console.log("p>query: ", modesArray);
 
   const modeClickHandler = () => {

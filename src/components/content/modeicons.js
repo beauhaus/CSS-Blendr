@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 // import {graphql} from 'gatsby';
-import NormalIcon from '../mode-icons/normal'
-  
+// import NormalIcon from '../mode-icons/normal'
+// import ScreenIcon from '../mode-icons/screen'
+// import LightenIcon from '../mode-icons/lighten'
+// import DarkenIcon from '../mode-icons/darken'
+// import MultiplyIcon from '../mode-icons/multiply'
+// import OverlayIcon from '../mode-icons/overlay'
+import ExclusionIcon from '../mode-icons/exclusion'
+
 const ModeIconsGroup = styled.svg`
   position: absolute;
   top:0;
@@ -13,7 +19,14 @@ const ModeIcons = (props, query) => {
   // console.log("p>ModeIcons: ", props);
   return (
     <ModeIconsGroup xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-     <NormalIcon/>
+     {/* <NormalIcon/> */}
+     {/* <ScreenIcon/> */}
+     {/* <LightenIcon/> */}
+     {/* <DarkenIcon/> */}
+     {/* <MultiplyIcon/> */}
+     {/* <OverlayIcon/> */}
+     <ExclusionIcon/>
+
     </ModeIconsGroup>
   )
 };
