@@ -16,12 +16,12 @@ const ExclusionWrapper = styled.g`
 .st6,
 .st7,
 .st8,
-.st9{}
+.st9{ }
 .st7{display:inline;fill:#c1272d;stroke:#ccc}
 .st8,
 .st9{stroke:#fff}
 .st8{fill:none;stroke-width:3}
-.st9{stroke-width:4}
+.st9{stroke-width:5}
 .st11,
 .st9{fill:none}
 .st11,
@@ -35,11 +35,16 @@ const ExclusionWrapper = styled.g`
     ${'' /* #BG {
         fill: #ddc4a5;
     } */}
+    #one, #two, #three {
+        filter: url(#exclusionBlur);
+    }
 `
 
 const ExclusionIcon = () => (
     <ExclusionWrapper>
-
+<filter id="exclusionBlur" y="-5" x="-10" height="40" width="60">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+      </filter>
         <circle id="BG" cx="150" cy="150" r="149" fill="#382e20" />
         <g id="three">
             <g id="blenderbody_16_">

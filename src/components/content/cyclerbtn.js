@@ -26,7 +26,7 @@ const CyclerBtnWrapper = styled.div`
     position: relative;  
     padding: 0;
     border-radius: 50%;
-    margin: 2vh auto 0;
+    margin: 3vh auto 0;
     height: 35vw;
     width: 35vw;
     border: 1px solid #bbb;

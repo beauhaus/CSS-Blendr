@@ -7,7 +7,8 @@ import styled from 'styled-components';
 // import DarkenIcon from '../mode-icons/darken'
 // import MultiplyIcon from '../mode-icons/multiply'
 // import OverlayIcon from '../mode-icons/overlay'
-import ExclusionIcon from '../mode-icons/exclusion'
+// import ExclusionIcon from '../mode-icons/exclusion'
+import DifferenceIcon from '../mode-icons/difference'
 
 const ModeIconsGroup = styled.svg`
   position: absolute;
@@ -25,7 +26,8 @@ const ModeIcons = (props, query) => {
      {/* <DarkenIcon/> */}
      {/* <MultiplyIcon/> */}
      {/* <OverlayIcon/> */}
-     <ExclusionIcon/>
+     {/* <ExclusionIcon/> */}
+     <DifferenceIcon/>
 
     </ModeIconsGroup>
   )
