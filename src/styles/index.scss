@@ -46,6 +46,12 @@ body {
         user-select: none;
         -webkit-tap-highlight-color: transparent;
     }
+    button {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
 
     /*!doesn't target header!*/
     div[class$="wrapper"] {

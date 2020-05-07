@@ -29,21 +29,21 @@ const CyclerBtnWrapper = styled.div`
     margin: 3vh auto 0;
     height: 35vw;
     width: 35vw;
-    border: 1px solid #bbb;
-    box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.7);
+    border: 1px solid #724e0b;
+    box-shadow: 3px 3px 2px 0px rgba(255, 255, 250, 1);
 
     .cycler {
       position: absolute;
-      box-shadow: inset 3px 3px 5px 0 rgba(255, 247, 238, 0.5),
-      inset -2px -2px 4px 0 rgba(0,0,0,0.2);
+      box-shadow: inset 2px 2px 2px 0 rgba(255, 247, 238, 0.3),
+      inset -2px -2px 4px 0 rgba(0,0,0,0.1);
       border-radius: 50%;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
       &:active { 
-        box-shadow: inset 2px 2px 5px 0 rgba(255, 247, 238, 0.8),
-                    inset -1px -1px 4px 0 rgba(0,0,0,0.2); 
+        box-shadow: inset 4px 4px 7px 0 rgba(83, 57, 7, 0.5),
+                    inset -3px -3px 5px 0 rgba(83, 57, 7, 0.5); 
       }
     }
 `

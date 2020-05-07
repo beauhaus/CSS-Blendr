@@ -73,7 +73,7 @@ const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
 useEffect(()=>{
-document.title = `CSS Blender - ${modesArray[modeNum]}`
+document.title = `CSS Blendr - ${modesArray[modeNum]}`
 })
   // console.log("p>query: ", modesArray);
 
