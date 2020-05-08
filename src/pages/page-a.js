@@ -86,12 +86,12 @@ document.title = `CSS Blendr - ${modesArray[modeNum]}`
       <PanelBG />
       <hr />
       <section>
-        <div className="img-viewer">
+        {/* <div className="img-viewer">
           <img src={TestImg1} alt="test 1" />
-        </div>
+        </div> */}
         <div className="blend-ctrl-btns" >
-          <FlipScreenBtn />
-          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/>
+          {/* <FlipScreenBtn />
+          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/> */}
         </div>
       </section>
     </PageAWrapper>

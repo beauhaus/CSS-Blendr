@@ -29,13 +29,12 @@ const CyclerBtnWrapper = styled.div`
     margin: 3vh auto 0;
     height: 35vw;
     width: 35vw;
-    border: 1px solid #724e0b;
+    border: 2px solid #7c6a49;
     box-shadow: 3px 3px 2px 0px rgba(255, 255, 250, 1);
-
+    background: linear-gradient(180deg,  #cfb9a6 0%,  #f8f1ee 100%);
     .cycler {
       position: absolute;
-      box-shadow: inset 2px 2px 2px 0 rgba(255, 247, 238, 0.3),
-      inset -2px -2px 4px 0 rgba(0,0,0,0.1);
+      box-shadow: inset 4px 4px 4px 0 rgba(255, 247, 238, 0.5);
       border-radius: 50%;
       top: 0;
       left: 0;

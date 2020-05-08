@@ -28,7 +28,7 @@ const DifferenceWrapper = styled.g`
 const DifferenceIcon = () => (
     <DifferenceWrapper>
 
-        <circle id="BG" cx="150" cy="150" r="149" fill="#e3ab69" />
+        {/* <circle id="BG" cx="150" cy="150" r="149" fill="#e3ab69" /> */}
   {/* <path fill="#ffbaff" d="M0 0h300v300H0z"/>
   <path fill="#e3ab69" d="M150 1C67.71 1 1 67.71 1 150c0 49.11 23.76 92.66 60.4 119.8 2.08 1.09 4.05 2.64 5.81 4.1C90.9 289.75 119.37 299 150 299c82.29 0 149-66.71 149-149S232.29 1 150 1z"/> */}
   <g id="blenderLt">
@@ -103,7 +103,8 @@ const DifferenceIcon = () => (
     <path d="M233.08 179.23h3.17v5.17h-3.17z"  className="st15" transform="rotate(-86.864 234.67309435 181.81129302)"/>
     <path d="M230.5 123.82c-3.98 1.1-8.14-1.25-9.24-5.23l-11.62-41.97c-1.1-3.98 1.25-8.14 5.23-9.24 3.98-1.1 8.14 1.25 9.24 5.23l11.62 41.97c1.1 3.98-1.25 8.14-5.23 9.24z"  className="st8"/>
   </g>
-  <path d="M155 221c-5.15 4.81-11.72 9.76-16.87 14.57 1.77 2.68 5.33 3.15 5.33 3.15"  className="st3"/>
+  <path fill="none" stroke="#fff"  strokeWidth="5" d="M153 211c-5.15 4.81-11.72 9.76-16.87 14.57 1.77 2.68 5.33 3.15 5.33 3.15"/>
+
   <path d="M191 89l20 67"  className="st16"/>
   <path d="M180 92l11-3"  className="st16"/>
   <path d="M200 159l11-3"  className="st16"/>

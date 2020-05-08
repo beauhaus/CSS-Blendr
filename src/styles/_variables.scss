@@ -20,17 +20,17 @@ $gameClass: #9096f8;
 /**********STYLECODE VARS**********/
 
 :root {
-    --primary-color: rgba(143, 143, 143, 0.3);
-    --secondary-color: rgba(16, 104, 63, 0.5);
+    // --primary-color: rgba(143, 143, 143, 0.3);
+    // --secondary-color: rgba(16, 104, 63, 0.5);
     --power: #27EFF0;
-    --base-btn-color: #f0ebe8;
+    --base-btn-color: #536277;
     --power-off-trim: #01c7c7;
     --power-off: #82afaf;
     --power-on: #00fff2;
-    --power-on-glow: rgba(169, 255, 241, 0.7);
+    --power-on-glow: rgb(86, 172, 157);
     --power-on-active: rgb(69, 238, 210);
-    --power-trim: rgb(155, 150, 150);
-    --btn-edge: #e0ddd6;
+    --power-trim: rgb(0, 234, 255);
+    --btn-edge: #46505d;
 
     --text-primaryA: #745959;
     --text-primary: #715657;
@@ -44,9 +44,21 @@ $gameClass: #9096f8;
 }
 
 .test {
-    st4{fill:#4b3814;
-        fill:#8a857c;
+    st4{
+        // base:
+        fill:  #b3a090;
+        //basedark: 
+        fill: #f8f1ee;
+        //baselight:
         fill: #f0ebe8;
+        
+        //border
+        fill: #7c6a49;
+        fill:rgba(83, 57, 7, 0.712);
+        fill:#9c6600;
+        fill:#da2424;
+        fill: #b7c751;
+        fill: #141702;
         fill: rgba(238, 214, 214, 0.712);
         fill:  rgba(185, 167, 146, 0.883);
         fill: rgba(144, 144, 144, 0.787);

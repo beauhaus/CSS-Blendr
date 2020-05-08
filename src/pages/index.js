@@ -24,7 +24,10 @@ section {
     top: 0;
     left: -50%;
     ${'' /* opacity: 1; */}
-    mix-blend-mode: color-burn;
+    ${'' /* mix-blend-mode: exclusion; */}
+    mix-blend-mode: overlay;
+    ${'' /* mix-blend-mode: screen; */}
+
 }
 h1 {
   position: absolute;
@@ -53,10 +56,11 @@ h2 {
 const INDEXJS = () => (
   <IdxWrapper>
     <PanelBG />
+
     <section>
       <LandingLogo />
-      <h2>A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2>
-      <h1>CSS Blendr</h1>
+      {/* <h2>A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2>
+      <h1>CSS Blendr</h1> */}
     </section>
   </IdxWrapper>
 );
