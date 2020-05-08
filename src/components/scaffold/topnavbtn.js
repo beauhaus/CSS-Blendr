@@ -7,14 +7,14 @@ import './topnavbtn.scss'
 const TopNavBtn = ({ path }) => {
     return (path !== "/" ?
         <button className="top-nav-btn btn-on">
-            <div className="cast-light">
-                <Link to="/"></Link>
-            </div>
+                {/* <Link to="/"></Link> */}
+            {/* <div className="cast-light">
+            </div> */}
         </button> :
         <button className="top-nav-btn btn-off">
-            <div className="cast-light">
                 <Link to="/page-a"></Link>
-            </div>
+            {/* <div className="cast-light">
+            </div> */}
         </button>
     )
 };

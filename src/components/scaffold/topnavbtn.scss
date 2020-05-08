@@ -1,86 +1,94 @@
+// .top-nav-btn {
+//   position: relative;
+//   border: none;
+//   width: 11vh;
+//   height: 11vh;
+//   border-radius: 50%;
+//   padding: 0;
+//   a {
+//     width: inherit;
+//     height: inherit;
+//     margin: 0;
+//     border-radius: 50%;
+//     &:active {
+//       visibility: invisible;
+//     }
+//   }
+//   &:focus {
+//     outline: none;
+//     border: 3px solid palevioletred;
+//   }
+  // .cast-light {
+  //   width: inherit;
+  //   height: inherit;
+  //   border-radius: 50%;
+  //   position: absolute;
+  //   opacity: 0.2;
+  //   left: 0;
+  //   top: 0;
+  //   background: radial-gradient(ellipse at 20% 30%,
+  //       rgba(255, 255, 255, 0.8) 5%,
+  //       rgba(237, 233, 232, 0.3) 40%,
+  //       rgba(237, 233, 232, 0) 50%);
+  // }
+//   &.btn-off {
+//     opacity: 1;
+//   }
+//   &.btn-on {
+//    opacity: 1;
+//   }
+// }
+
 .top-nav-btn {
-  /*TODO: remove class? */
-  position: relative;
-  border: none;
-  width: 11vh;
-  height: 11vh;
+ padding: 0;
+ border: none;
+ margin-top: 1vh;
+ outline: none;
+ position: relative;
+ width: 11vh;
+ height: 11vh;
+ border-radius: 50%;
+ background: radial-gradient(
+  closest-side,
+  var(--base-btn-mid) 35%,
+  var(--power-off-trim) 36%,
+  var(--power-off-trim) 40%,
+  var(--base-btn-mid) 41%,
+  var(--base-btn-outer) 100%
+ );
+ box-shadow: inset 0 0 8px 2px rgba(15, 15, 15, 0.1);
+//  margin: 12vh auto;
+
+&:before {
+  content: "";
   border-radius: 50%;
-  padding: 0;
-  a {
-    width: inherit;
-    height: inherit;
-    margin: 0;
-    border-radius: 50%;
-    &:active {
-      visibility: invisible;
-    }
-  }
+  position: absolute;
+  top: -7%;
+  left: -7%;
+  background: white;
+  background: linear-gradient(135deg, #fff 30%, #000 70%);
+  width: 114%;
+  height: 114%;
+  z-index: -2;
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.7),
+   -3px -3px 5px 0px rgba(0, 0, 0, 0.7),
+   0px 0px 8px 8px rgba(125, 125, 125, 0.6);
+ }
 
-  &:focus {
-    outline: none;
-    border: 3px solid palevioletred;
-  }
-  .cast-light {
-    width: inherit;
-    height: inherit;
-    border-radius: 50%;
-    position: absolute;
-    opacity: 0.2;
-    left: 0;
-    top: 0;
-    background: radial-gradient(ellipse at 20% 30%,
-        rgba(255, 255, 255, 0.8) 5%,
-        rgba(237, 233, 232, 0.3) 40%,
-        rgba(237, 233, 232, 0) 50%);
-  }
-  &.btn-off {
-    box-shadow: inset 3px 3px 5px 0px rgb(130, 131, 136), 5px 5px 5px -2px #000;
-    background: radial-gradient(closest-side,
-    // var(--base-btn-color) 0%,
-    // var(--base-btn-color) 30%,
-
-    // var(--power-off-trim) 31%,
-    // var(--power-off-trim) 32.5%,
-    // var(--power-off) 33%,
-    var(--power-off) 39%,
-    var(--power-off-trim) 39.5%,
-    
-    var(--base-btn-color) 42%,
-    var(--base-btn-color) 82%,
-    var(--power-trim) 83%,
-    var(--base-btn-color) 84%,
-    var(--btn-edge) 100%);
-    
-  }
-
-  &.btn-on {
-    box-shadow: inset 4px 4px 6px 0px rgb(83, 96, 114), 3px 3px 5px -3px #000;
-    // background: radial-gradient(closest-side,
-        
-    //     var(--power-on) 38%,
-    //     var(--power-off-trim) 38.5%,
-    //     var(--power-off-trim) 39.5%,
-    //     var(--power-on-glow) 40%,
-    //     var(--base-btn-color) 65%,
-    //     var(--base-btn-color) 82.5%,
-    //     var(--power-trim) 83%,
-    //     var(--base-btn-color) 83.5%,
-    //     var(--btn-edge) 100%);
-        background: radial-gradient(closest-side,
-        
-        var(--power-on) 38%,
-        var(--power-off-trim) 38.5%,
-        var(--power-off-trim) 39.5%,
-        var(--power-on-glow) 40%,
-        var(--base-btn-color) 65%,
-        var(--base-btn-color) 82%,
-        var(--power-trim) 83%,
-        var(--base-btn-color) 84%,
-        var(--btn-edge) 100%);
-        .cast-light {
-          opacity: 0.2;
-        }
-  }
-
-  
+ &:after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  top: -4%;
+  left: -4%;
+  background: linear-gradient(135deg, #000 30%, #fff 70%);
+  width: 108%;
+  height: 108%;
+  z-index: -1;
+ }
+ &:active {
+  border: 12px sold #fff;
+  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+ }
 }

@@ -1,13 +1,4 @@
-$primary-midnightblue: #003865;
-$primary-magenta: #e10098;
-$primary-robinseggblue: #00c1d5;
-$primary-mistgrey: #babbb1;
 
-$secondary-electriclime: #d0df00;
-$secondary-internatorange: #7AC943;
-$secondary-weborange: #f2A900;
-$secondary-daisybushpurple: #5f259f;
-$secondary-abbeygrey: #4b4f54;
 
 /***************************/
 $icon-screen-green: rgb(146, 212, 146);
@@ -37,10 +28,25 @@ $gameClass: #9096f8;
     
     --inc-light-off: rgb(218, 193, 171);
     --inc-light-off-stroke: #f5efe0;
-    --inc-light-on: rgb(255, 157, 71);
+    --inc-light-on: #ff9232;
     --inc-light-on-stroke: rgb(139, 84, 39);
     --inc-light-glow: rgb(255, 157, 65);
     
+
+    /* new color palette */
+    --power: #27eff0;
+ --base-btn-color: #536277;
+ --power-off-trim: #dba956;
+ --power-off: #82afaf;
+ --power-on: #ff9232;
+ --power-on-glow: #ffb846;
+ --power-on-active: rgb(69, 238, 210);
+ --power-trim: rgb(0, 234, 255);
+ --btn-edge: #46505d;
+
+
+ --base-btn-outer: #5d5f62;
+ --base-btn-mid: #727578;
 }
 
 .test {
@@ -58,7 +64,7 @@ $gameClass: #9096f8;
         fill:#9c6600;
         fill:#da2424;
         fill: #b7c751;
-        fill: #141702;
+        fill: #3a4112;
         fill: rgba(238, 214, 214, 0.712);
         fill:  rgba(185, 167, 146, 0.883);
         fill: rgba(144, 144, 144, 0.787);
