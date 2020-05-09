@@ -57,7 +57,6 @@
   var(--base-btn-outer) 100%
  );
  box-shadow: inset 0 0 8px 2px rgba(15, 15, 15, 0.1);
-//  margin: 12vh auto;
 
 &:before {
   content: "";
@@ -70,9 +69,9 @@
   width: 114%;
   height: 114%;
   z-index: -2;
-  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.7),
-   -3px -3px 5px 0px rgba(0, 0, 0, 0.7),
-   0px 0px 8px 8px rgba(125, 125, 125, 0.6);
+  box-shadow: 2px 2px 3px -2px rgba(255, 255, 255, 0.7),
+   -2px -2px 5px 0px rgba(0, 0, 0, 0.6),
+   0px 0px 6px 5px rgba(125, 125, 125, 0.6);
  }
 
  &:after {
@@ -91,4 +90,19 @@
   box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
  }
+ &:focus {
+  box-shadow: 0 0 0 6px pink;
+ }
+   a {
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    border-radius: 50%;
+    &:active {
+      visibility: invisible;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
 }

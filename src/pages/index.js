@@ -33,9 +33,11 @@ h1 {
   position: absolute;
   bottom: 1vh;
   width: 100%;
-  font-family: "Megrim", sans-serif;
-  font-size: 5rem;
-  text-shadow: 1px 1px 0.5px #47E8B3; /* light bluegreen */
+  font-family: "Fugaz One", sans-serif;
+  font-size: 5.5rem;
+  color: #FDD492;
+  mix-blend-mode: difference;
+  letter-spacing: 2px;
 }
 h2 {
   position: absolute;
@@ -59,8 +61,8 @@ const INDEXJS = () => (
 
     <section>
       <LandingLogo />
-      {/* <h2>A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2>
-      <h1>CSS Blendr</h1> */}
+      {/* <h2>A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2> */}
+      <h1>CSS Blendr</h1>
     </section>
   </IdxWrapper>
 );

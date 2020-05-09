@@ -7,9 +7,7 @@ import './topnavbtn.scss'
 const TopNavBtn = ({ path }) => {
     return (path !== "/" ?
         <button className="top-nav-btn btn-on">
-                {/* <Link to="/"></Link> */}
-            {/* <div className="cast-light">
-            </div> */}
+                <Link to="/"></Link>
         </button> :
         <button className="top-nav-btn btn-off">
                 <Link to="/page-a"></Link>
