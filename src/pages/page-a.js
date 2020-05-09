@@ -90,8 +90,8 @@ document.title = `CSS Blendr - ${modesArray[modeNum]}`
           <img src={TestImg1} alt="test 1" />
         </div> */}
         <div className="blend-ctrl-btns" >
-          {/* <FlipScreenBtn />
-          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/> */}
+          <FlipScreenBtn />
+          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/>
         </div>
       </section>
     </PageAWrapper>

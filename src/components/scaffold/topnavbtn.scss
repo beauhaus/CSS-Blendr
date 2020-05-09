@@ -31,8 +31,8 @@
   height: 114%;
   z-index: -2;
   box-shadow: 2px 2px 3px -2px rgba(255, 255, 255, 0.7),
-   -2px -2px 5px 0px rgba(0, 0, 0, 0.6),
-   0px 0px 6px 5px rgba(125, 125, 125, 0.6);
+   -2px -2px 4px 0px rgba(0, 0, 0, 0.6),
+   0px 0px 5px 3px rgba(125, 125, 125, 0.6);
  }
 
  &:after {
@@ -80,9 +80,14 @@
   var(--base-btn-outer) 100%
  );
  a {
-  background: var(--power-on-glow);
-  filter: blur(6px);
-  width: 40%;
-  height: 40%;
+  background: radial-gradient(
+    closest-side,
+    #fff 0%,
+    var(--power-on-glow) 15%,
+    var(--power-on) 40%,
+    transparent 41%);  
+    filter: blur(6px);
+  width: 100%;
+  height: 100%;
   margin: auto;
 }}
