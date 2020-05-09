@@ -20,7 +20,7 @@ section {
 
 .landing-logo {
   position: absolute;
-  width: 123%;
+  width: 115%;
     top: 0;
     left: -50%;
     ${'' /* opacity: 1; */}
@@ -31,21 +31,22 @@ section {
 }
 h1 {
   position: absolute;
-  bottom: 1vh;
+  bottom: 4vh;
   width: 100%;
   font-family: "Fugaz One", sans-serif;
-  font-size: 5.5rem;
-  color: #FDD492;
+  font-size: 4.5rem;
+  color: var(--heading-color);
   mix-blend-mode: difference;
-  letter-spacing: 2px;
 }
-h2 {
+.landing-subheading {
   position: absolute;
   width: 73%;
   top: 30vh;
   text-align: right;
   padding: 1rem 1.2rem;
   right: 0;
+  color: var(--subheading-color);
+
   ${'' /* font-family: Roboto, sans-serif; */}
   font-weight: 200;
   i {
@@ -61,7 +62,7 @@ const INDEXJS = () => (
 
     <section>
       <LandingLogo />
-      {/* <h2>A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2> */}
+      <h2 className="landing-subheading">A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2>
       <h1>CSS Blendr</h1>
     </section>
   </IdxWrapper>

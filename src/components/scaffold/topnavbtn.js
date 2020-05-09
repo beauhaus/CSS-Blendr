@@ -11,8 +11,6 @@ const TopNavBtn = ({ path }) => {
         </button> :
         <button className="top-nav-btn btn-off">
                 <Link to="/page-a"></Link>
-            {/* <div className="cast-light">
-            </div> */}
         </button>
     )
 };
