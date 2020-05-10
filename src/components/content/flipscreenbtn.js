@@ -4,29 +4,33 @@ import styled from 'styled-components'
 import FlipImagePairs from './flipimagepairs'
 
 const FlipScreenWrap = styled.button`
- border-radius: 30px; /* 12px*/
+ border-radius: 20px; /* 12px*/
  width: 48vw; /* 46?*/
  height: 100%;
  position: relative;
- background: #3b3b3b;
- box-shadow: inset 0 4px 3px -2px #fff,
- inset 0 -4px 5px -3px #000;
+ background: linear-gradient(90deg, #2C3021 0%, #545D49 50%, #5F6B57 100%);
+/* NB: order top & left (inner) - right & bot (inner) */
+box-shadow: inset 2px 2px 3px 0 #fff,
+            inset -2px -2px 3px 0 #000,
+            0 0 3px 2px #333,
+            1px 1px 2px #fff,
+            -1px -1px 2px #000;
+
 
  perspective: 200px;
- overflow: hidden;
+ ${'' /* overflow: hidden; */}
  display: grid;
  &:before {
   content: "";
-  box-shadow: 0 -5px 6px 0 rgba(0,0,0,1),
-              0 4px 2px 0 #fff;
-  border-radius: 25px;
-  position: absolute;
-  top: 3%;
-  left: 2.5%;
+  box-shadow: -2px -2px 3px 0 #000,
+              2px 2px 2px 0 #fff;
+  border-radius: 15px;
   width: 95%;
   height: 93%;
+  opacity: .7;
+  margin: auto;
+  background: yellow;
   background: linear-gradient(90deg, #2C3021 0%, #545D49 50%, #5F6B57 100%);
-  opacity: 0.5;
  }   
 `
 
@@ -37,9 +41,9 @@ const FlipScreenBtn = () => {
     return (
         <FlipScreenWrap className="flipper" onClick={flipperClickHandler}>
 
+            <FlipImagePairs className="flip-img-pairs" />
         </FlipScreenWrap>
 
     )
 }
-{/* <FlipImagePairs className="flip-img-pairs" /> */}
 export default FlipScreenBtn;

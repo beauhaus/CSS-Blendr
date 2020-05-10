@@ -3,6 +3,10 @@
   width: 30vw;
   height: 13vh;
   transform: skew(0deg, 0deg) rotateX(46deg);
+  filter: sepia(.1);
+  mix-blend-mode: color-dodge;
+  mix-blend-mode: luminosity;
+  mix-blend-mode: hard-light;
 }
 .top-img {
 top: 1vh;
