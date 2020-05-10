@@ -5,15 +5,9 @@ import Reflection from './reflection';
 const PanelBGWrap = styled.div`
 width: 100vw;
  height: 200vh; /* TODO: adjust to auto? */
-${'' /* text-align: right; */}
 position: absolute;
 top:0;
 left: 0;
-${'' /* z-index: 0; */}
-
-${'' /* rect {
-  fill: #000;
-} */}
 `;
 const PanelBG = () => {
   return (
@@ -23,7 +17,7 @@ const PanelBG = () => {
           <feTurbulence type="turbulence" baseFrequency='.3' result='noise' numOctaves="1" />
           <feGaussianBlur in="noise" stdDeviation="20 0" result="blurred" />
           <feDiffuseLighting in='blurred' lightingColor='#ddd' surfaceScale="2.5" result='light'>
-            <feDistantLight azimuth='20' elevation='4' />
+            <feDistantLight azimuth='20' elevation='3' />
           </feDiffuseLighting>
         </filter>
         <filter id='brushed-steel-texture-moz'>
@@ -31,7 +25,7 @@ const PanelBG = () => {
           <feTurbulence type="turbulence" baseFrequency='.3' result='noise' numOctaves="1" />
           <feGaussianBlur in="noise" stdDeviation="20 0" result="blurred" />
           <feDiffuseLighting in='blurred' lightingColor='#ddd' surfaceScale="2.5" result='light'>
-            <feDistantLight azimuth='20' elevation='15' />
+            <feDistantLight azimuth='20' elevation='14' />
           </feDiffuseLighting>
         </filter>
      

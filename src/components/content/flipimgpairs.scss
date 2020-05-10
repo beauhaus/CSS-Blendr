@@ -3,12 +3,9 @@
   width: 30vw;
   height: 13vh;
   transform: skew(0deg, 0deg) rotateX(46deg);
-  filter: sepia(.1);
-  mix-blend-mode: color-dodge;
   mix-blend-mode: luminosity;
-  // mix-blend-mode: hard-light;
-  
-  
+  // filter: ;
+  filter: invert(100%);
 }
 .top-img {
 top: 1vh;
@@ -30,7 +27,7 @@ rect {
     stroke-dasharray: 40 20;
     stroke: #fff;
     fill: #000;
-    fill-opacity: 0.3;
+    fill-opacity: 0.4;
     stroke-width:3;
   }
 }
