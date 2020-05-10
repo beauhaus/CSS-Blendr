@@ -6,7 +6,9 @@
   filter: sepia(.1);
   mix-blend-mode: color-dodge;
   mix-blend-mode: luminosity;
-  mix-blend-mode: hard-light;
+  // mix-blend-mode: hard-light;
+  
+  
 }
 .top-img {
 top: 1vh;
@@ -17,7 +19,7 @@ rect {
   stroke-dasharray: 40 20;
   stroke: #fff;
   fill:transparent;
-  stroke-width:8;
+  stroke-width:4;
 }
 
 }
@@ -26,9 +28,9 @@ rect {
   right: 5vw;
   rect {
     stroke-dasharray: 40 20;
-    stroke: #00ffdd;
+    stroke: #fff;
     fill: #000;
     fill-opacity: 0.3;
-    stroke-width:5;
+    stroke-width:3;
   }
 }
