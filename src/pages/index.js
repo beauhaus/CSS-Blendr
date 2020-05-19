@@ -23,11 +23,7 @@ section {
   width: 115%;
     top: 0;
     left: -50%;
-    ${'' /* opacity: 1; */}
-    ${'' /* mix-blend-mode: exclusion; */}
     mix-blend-mode: overlay;
-    ${'' /* mix-blend-mode: screen; */}
-
 }
 h1 {
   position: absolute;

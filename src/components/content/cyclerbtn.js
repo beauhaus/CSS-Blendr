@@ -29,38 +29,21 @@ const CyclerBtnWrapper = styled.div`
     margin: 3vh auto 0;
     height: 35vw;
     width: 35vw;
-    border: 2px solid #7c6a49;
-    box-shadow: 3px 3px 2px 0px rgba(255, 255, 250, 1);
-    background: linear-gradient(180deg,  #cfb9a6 0%,  #f8f1ee 100%);
-    .cycler {
-      position: absolute;
-      box-shadow: inset 4px 4px 4px 0 rgba(255, 247, 238, 0.5);
-      border-radius: 50%;
-      top: 0;
-      left: 0;
+    box-shadow: 2px 2px 6px -3px #ddd, 
+    -3px -3px 4px -2px #000;
+   
+      & > svg {  
       height: 100%;
       width: 100%;
-      &:active { 
-        box-shadow: inset 4px 4px 7px 0 rgba(83, 57, 7, 0.5),
-                    inset -3px -3px 5px 0 rgba(83, 57, 7, 0.5); 
+      
       }
-    }
+     
 `
 const CyclerBtn = ({cycleclick, modeNum}) => {
-  // console.log("p> cyclerbtn: ", cycleclick, modeNum)
-  // const data = useMdx();
-  // console.log("p>query: ", data.allMdx.nodes);
-
-  // const cyclerClickHandler = () => {
-  //   console.log("cycler clicked!")
-  // }
-
   return (
-    <CyclerBtnWrapper>
-      <ModeIcons />
-      <button className="cycler" onClick={cycleclick} >
+    <CyclerBtnWrapper className="cycler" onClick={cycleclick} >
+        <ModeIcons modeNum={modeNum}/>
         <Incrementor modeNum={modeNum}/>
-      </button>
     </CyclerBtnWrapper>
   )
 };

@@ -10,14 +10,13 @@ const NormalWrapper = styled.g`
     .st6,
     .st7{stroke:#000;}
     .st7{fill:none;stroke:#fff;stroke-width:5}
-    #BG {
-        fill: #ddc4a5;
-    }
+    
 `
 
 const NormalIcon = () => (
     <NormalWrapper>
-        <circle id="BG" cx="150" cy="150" r="149" fill="#715657" />
+        <circle className="icon-bg" cx="150" cy="150" r="150" />
+        
         <g id="body">
             <g id="base">
                 <path d="M105.72 267.28c33.16 2.02 66.32 2.02 99.48 0 2.33 0 4.22-1.89 4.22-4.22 3.89-9.21-101.51-2.11-103.69-4.22-5.45-.07-5.5 8.52-.01 8.44z" className="st2" />
@@ -57,6 +56,7 @@ const NormalIcon = () => (
                 <path d="M209.17 210.67c9.42 6.86 18.35 14.38 26.72 22.48-6.72 4.85-15.21 9.69-21.94 14.54 2.08 3.16 6.51 4.05 6.51 4.05M116.72 203.73C87.42 189.64 50.4 176.21 20 173.34c3.55.33 19.51-31.6 23.59-56.88-.72-2.17-1.75-4.4-3.18-6.65" className="st7" />
             </g>
         </g>
+    
     </NormalWrapper>)
 
 export default NormalIcon;

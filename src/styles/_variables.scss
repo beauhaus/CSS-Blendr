@@ -11,46 +11,29 @@ $gameClass: #9096f8;
 /**********STYLECODE VARS**********/
 
 :root {
-    // --primary-color: rgba(143, 143, 143, 0.3);
-    // --secondary-color: rgba(16, 104, 63, 0.5);
-    --power: #27EFF0;
-    --base-btn-color: #536277;
-    --power-off-trim: #01c7c7;
-    --power-off: #82afaf;
-    --power-on: #00fff2;
-    --power-on-glow: rgb(86, 172, 157);
-    --power-on-active: rgb(69, 238, 210);
-    --power-trim: rgb(0, 234, 255);
-    --btn-edge: #46505d;
+--power-off-trim: #dba956;
+--power-off: #82afaf;
+--power-on: #ff9232;
+--power-on-glow: #ffdca4;
+--power-light-off: #5f594f;
 
-    --text-primaryA: #745959;
-    --text-primary: #715657;
-    
-    --inc-light-off: rgb(218, 193, 171);
-    --inc-light-off-stroke: #f5efe0;
-    --inc-light-on: #ff9232;
-    --inc-light-on-stroke: rgb(139, 84, 39);
-    --inc-light-glow: rgb(255, 157, 65);
-    
+--base-btn-color: #536277;
+--base-btn-outer: #5d5f62;
+--base-btn-mid: #727578;
 
-    /* new color palette */
-    --power: #27eff0;
- --base-btn-color: #536277;
- --power-off-trim: #dba956;
- --power-off: #82afaf;
- --power-on: #ff9232;
- --power-on-glow: #ffdca4;
- --power-on-active: rgb(69, 238, 210);
- --power-trim: rgb(0, 234, 255);
- --btn-edge: #46505d;
- --power-light-off: #5f594f;
+--inc-light-off-trim:  #5f594f;
+--inc-light-off:  #5f594f;
 
- --heading-color: #ffdca3;
- --subheading-color: #cfb58c;
+--inc-light-on: #BEECFF;
+--inc-light-glow: #BEECFF;
+--inc-light-on-trim:  #fff;
 
 
- --base-btn-outer: #5d5f62;
- --base-btn-mid: #727578;
+--heading-color: #ffdca3;
+--subheading-color: #cfb58c;
+
+--mode-icon-bg:  rgb(47, 50, 56);
+
 }
 
 .test {
@@ -60,15 +43,15 @@ $gameClass: #9096f8;
         //basedark: 
         fill: #f8f1ee;
         //baselight:
-        fill: #f0ebe8;
+        fill: #ff15fb;
         
         //border
         fill: #7c6a49;
         fill:rgba(83, 57, 7, 0.712);
         fill:#9c6600;
         fill:#da2424;
-        fill: #b7c751;
-        fill: #3a4112;
+        fill: #506d4f;
+        fill: #f0db96;
         fill: rgba(238, 214, 214, 0.712);
         fill:  rgba(185, 167, 146, 0.883);
         fill: rgba(144, 144, 144, 0.787);

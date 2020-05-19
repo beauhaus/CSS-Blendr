@@ -7,21 +7,16 @@ const LightenWrapper = styled.g`
    .st4,
    .st5{stroke:#000;}
    .st5{fill:none;stroke-width:2}
-   .st7{fill:#ccc}
+   .st7{fill:#fff}
    .st8{stroke:#fff;stroke-width:3;}
    .st10,
    .st8{fill:none}
-   .st15{opacity:.59}
-    #BG {
-        ${'' /* fill: brown;  */}
-        /*TODO: change or delete*/
-    }
+   .st15{opacity:.59}   
 `
 
 const LightenIcon = () => (
     <LightenWrapper>
-        <circle id="BG_1_" cx="150" cy="150" r="150" fill="#333" />
-
+        <circle className="icon-bg" cx="150" cy="150" r="150" />
         <g id="blender_1_">
             <g id="face_1_">
                 <path id="faceback_1_" fill="#fff" stroke="#fff" d="M96.12 245.14c13.69-.78 108.92 8.25 108.16-6.56l-4-32.64-11.21-34.64c0-3.62-3.03-6.56-6.76-6.56h-69.29c-3.73 0-6.76 2.94-6.76 6.56l-11.83 33.64-5.07 33.64c.01 3.62 3.03 6.56 6.76 6.56z" />
@@ -72,8 +67,8 @@ const LightenIcon = () => (
             <stop offset="1" stopColor="#2a4418" />
         </linearGradient>
         <linearGradient id="light-grad" x1="253.1737" x2="113.8924" y1="332.1808" y2="117.7065" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-opacity="0" />
-            <stop offset="1" stopColor="#fcee21" stop-opacity=".7" />
+            <stop offset="0" stopOpacity="0" />
+            <stop offset="1" stopColor="#fcee21" stopOpacity=".7" />
         </linearGradient>
         <path fill="url(#light-grad)" d="M289.15 206.09L71.83 39.25 55.45 54.19 24.13 83.28l45.42 111.47L111.1 294.9c10.89 2.92 22.27 4.64 33.99 5.02l9.68.01c60.95-1.92 112.73-40.18 134.38-93.84z" />
         <path d="M72.02 39.08L289.43 205.4c5.41-13.6 8.88-28.17 10.09-43.39V138C293.95 67.61 239.8 10.92 170.6 1.41h-41.2c-25.71 3.53-49.34 13.57-69.18 28.41l11.9 9.17-.1.09z" className="st15" />

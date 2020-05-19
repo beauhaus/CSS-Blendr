@@ -17,14 +17,12 @@ const MultiplyWrapper = styled.g`
 .st6,
 .st8{stroke:#b3b3b3}
 .st8{stroke:#fff}
-    #BG {
-        fill: #000; /*TODO: delete?*/
-    }
+   
 `
 
 const MultiplyIcon = () => (
     <MultiplyWrapper>
-        <circle id="BG" cx="150" cy="150" r="149" />
+        <circle className="icon-bg" cx="150" cy="150" r="150" />
         <g id="copy_2">
             <g id="faceparts_1_">
                 <g id="face_7_">

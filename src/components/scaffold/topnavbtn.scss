@@ -9,7 +9,6 @@
  border-radius: 50%;
  background: radial-gradient(
   closest-side,
-  
   var(--power-light-off) 34%,
   var(--base-btn-mid) 35%,
   var(--power-off-trim) 36%,
@@ -69,8 +68,7 @@
   
 }
 
-.btn-on{ 
-
+.btn-on{
   background: radial-gradient(
   closest-side,
   var(--power-on) 35%,
@@ -90,4 +88,5 @@
   width: 100%;
   height: 100%;
   margin: auto;
-}}
+}
+}

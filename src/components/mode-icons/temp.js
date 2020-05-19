@@ -6,13 +6,17 @@ const ScreenWrapper = styled.g`
     ${'' /* #BG {
         fill: #ddc4a5;
     } */}
+    text {
+        fill: #fff;
+        font-size: 3rem;
+    }
 `
 
 const ScreenIcon = () => (
     <ScreenWrapper>
-        
-        <circle id="BG" cx="150" cy="150" r="149" fill="#382e20" />
-        
+
+        <circle className="icon-bg" cx="150" cy="150" r="150" />
+        <text x="150" y="150">Screen</text>
 
     </ScreenWrapper>)
 

@@ -18,7 +18,7 @@ const DarkenWrapper = styled.g`
 const DarkenIcon = () => (
     <DarkenWrapper>
         
-        <circle id="BG_1_" cx="150" cy="150" r="149" />
+        <circle className="icon-bg" cx="150" cy="150" r="150" />
         <path d="M274.72 119.48h5.34v74.91h-5.34z" className="st1" />
         <linearGradient id="lamp-grad" x1="27.2455" x2="66.2235" y1="80.4913" y2="51.0092" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="#7ac943" />

@@ -78,7 +78,7 @@ document.title = `CSS Blendr - ${modesArray[modeNum]}`
   // console.log("p>query: ", modesArray);
 
   const modeClickHandler = () => {
-    setModeNum((modeNum + 1) % 14)
+    setModeNum((modeNum + 1) % 16)
     return modeNum;
   }
   return (

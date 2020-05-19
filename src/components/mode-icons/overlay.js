@@ -36,7 +36,7 @@ const ScreenWrapper = styled.g`
 const ScreenIcon = () => (
     <ScreenWrapper>
         
-        <circle id="BG" cx="150" cy="150" r="149" fill="#382e20" />
+        <circle className="icon-bg" cx="150" cy="150" r="150" fill="#382e20" />
      
   <g id="bananas">
     <g id="banana_1_">
