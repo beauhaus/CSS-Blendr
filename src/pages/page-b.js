@@ -19,7 +19,7 @@ const PageB = (props) => {
   return(
   <PageBWrapper className="page-b-wrapper">
     <h1 className="title">BBBB</h1>
-    <Link to="/page-a">GOTO A</Link>
+    ${'' /* <Link to="/page-a">GOTO A</Link> */}
     <Link to="/page-c">GOTO C</Link>
    <ColorDodgeIcon/>
   </PageBWrapper>

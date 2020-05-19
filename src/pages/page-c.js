@@ -22,7 +22,7 @@ export default (props) => {
   return (
     <PageCWrapper className="page-c-wrapper">
       <h1 className="title">CCCC</h1>
-      <Link to="/page-a">GOTO A</Link>
+      {/* <Link to="/page-a">GOTO A</Link> */}
       <Link to="/page-b">GOTO B</Link>
       {modes.map((mode, idx) =>
         <ModeDirectory key={mode.slug} mode={mode} idx={idx}/>
