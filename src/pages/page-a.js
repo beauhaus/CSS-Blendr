@@ -24,7 +24,8 @@ const useMdx = () => {
 }
 
 const PageAWrapper = styled.div`
-    ${'' /* border: 1px solid lightgreen; */}
+/* TODO: this image doesn't 'contain' the panel */
+    ${'' /* border: 3px solid lightgreen; */}
 
 .panel-section {
     width: 100vw;
@@ -45,7 +46,8 @@ const PageAWrapper = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 0 2vw;
-        margin-top: 1vh;    
+        margin-top: 1vh;   
+        ${'' /* border: 1px dashed white;  */}
     }
 
 }
