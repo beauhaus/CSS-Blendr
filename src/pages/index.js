@@ -3,6 +3,7 @@ import "normalize.css"
 import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
 
+import 'typeface-fugaz-one'
 import '../styles/index.scss'
 import LandingLogo from '../components/content/landinglogo'
 
@@ -29,8 +30,11 @@ h1 {
   position: absolute;
   bottom: 4vh;
   width: 100%;
-  font-family: "Fugaz One", sans-serif;
-  font-size: 4.5rem;
+  ${'' /* font-family: "Fugaz One", sans-serif; */}
+  ${'' /* font-size: 4.5rem; */}
+  font: normal 4.5rem "Fugaz One", -apple-system, Segoe UI, Roboto;
+  font-style: normal;
+  font-weight: normal; 
   color: var(--heading-color);
   mix-blend-mode: difference;
 }

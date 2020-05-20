@@ -14,6 +14,13 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "fonts",
+        path: `${__dirname}/src/fonts/`
+      }
+    },
+    {
       resolve: 'gatsby-plugin-layout',
       options: {
         component: require.resolve('./src/components/layout.js'),

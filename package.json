@@ -25,7 +25,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^6.0.0",
     "react-transition-group": "^4.0.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "typeface-fugaz-one": "0.0.72"
   },
   "license": "MIT"
 }
