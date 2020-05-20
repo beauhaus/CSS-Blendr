@@ -51,7 +51,7 @@ const FlipScreenBtn = () => {
         console.log("flipper clicked!")
     }
     return (
-        <FlipScreenWrap className="flipper" name="image-flipper" onClick={flipperClickHandler}>
+        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipperClickHandler}>
 
             <FlipImagePairs className="flip-img-pairs" />
             <svg xmlns="http://www.w3.org/2000/svg" className="line-grid" width="100%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="none">
