@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
 import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
+import ImageViewer from '../components/content/imageviewer'
 
 
 const useMdx = () => {
@@ -23,34 +24,18 @@ const useMdx = () => {
 }
 
 const PageAWrapper = styled.div`
-section {
+    ${'' /* border: 1px solid lightgreen; */}
+
+.panel-section {
     width: 100vw;
-    height: 88vh;
+    height: 85vh;
     position: relative;
 
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 53vh 22vh 10vh;
-
-    .img-viewer {
-        background: #f0ebe8;
-        /* --base-btn-color: */
-        width: 98%;
-        grid-column: 1;
-        grid-row: 1;
-        ${'' /* border: 1px solid #fff; */}
-        border-radius: 12px;
-        box-shadow: inset 0 0 8px 0 var(--text-primary);
-        margin: 0 auto;
-        display: grid;
-
-        img {
-            margin: auto;
-            width: 96%;
-            height: 96%;
-        }
-    }
-
+    ${'' /* border: 1px solid yellow; */}
+   
     .blend-ctrl-btns {
         width: 100%;
         height: 100%;
@@ -84,8 +69,9 @@ document.title = `CSS Blendr - ${modesArray[modeNum]}`
     <PageAWrapper className="page-a-wrapper" >
       <PanelBG />
       <hr />
-      <section>
-        
+      <section className="panel-section">
+        <div className="img-viewer"></div>
+        <ImageViewer/>
         <div className="blend-ctrl-btns" >
           <FlipScreenBtn />
           <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/>

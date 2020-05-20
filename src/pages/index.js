@@ -12,11 +12,11 @@ width: 100vw;
 height: 100vh;
 position: relative;
 ${'' /* z-index: 1; */}
-section {
+.landing-section {
   margin-top: 12vh;
   width: 100%;
-    position: absolute;
-    overflow: hidden;
+  position: absolute;
+  overflow: hidden;
   height: 80vh;
 
 .landing-logo {
@@ -60,7 +60,7 @@ const INDEXJS = () => (
   <IdxWrapper>
     <PanelBG />
 
-    <section>
+    <section className="landing-section">
       <LandingLogo />
       <h2 className="landing-subheading">A Web Appliance <br /> for learning<br />CSS <i>mix-blend-mode</i></h2>
       <h1>CSS Blendr</h1>

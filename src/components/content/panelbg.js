@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-// import Reflection from './reflection';
 
 const PanelBGWrap = styled.div`
 width: 100vw;
@@ -37,7 +36,6 @@ const PanelBG = () => {
         </radialGradient>
         <rect x="0" y="0" height="100%" width="100%" fill="url(#reflection-grad)" />
       </svg>
-      {/* <Reflection/> */}
     </PanelBGWrap>
   )
 }

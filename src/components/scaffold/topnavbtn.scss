@@ -1,93 +1,94 @@
 .top-nav-btn {
- padding: 0;
- border: none;
- margin-top: 1vh;
- outline: none;
- position: relative;
- width: 11vh;
- height: 11vh;
- border-radius: 50%;
- background: radial-gradient(
-  closest-side,
-  var(--power-light-off) 34%,
-  var(--base-btn-mid) 35%,
-  var(--power-off-trim) 36%,
-  var(--power-off-trim) 40%,
-  var(--base-btn-mid) 41%,
-  var(--base-btn-outer) 100%
- );
- box-shadow: inset 0 0 8px 2px rgba(15, 15, 15, 0.1);
+  padding: 0;
+  border: none;
+  margin-top: .5vh;
+  outline: none;
+  position: relative;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  background: radial-gradient(closest-side,
+      var(--power-light-off) 34%,
+      var(--base-btn-mid) 35%,
+      var(--power-off-trim) 36%,
+      var(--power-off-trim) 40%,
+      var(--base-btn-mid) 41%,
+      var(--base-btn-outer) 100%);
+  box-shadow: inset 0 0 8px 2px rgba(15, 15, 15, 0.1);
 
-&:before {
-  content: "";
-  border-radius: 50%;
-  position: absolute;
-  top: -7%;
-  left: -7%;
-  background: white;
-  background: linear-gradient(135deg, #fff 30%, #000 70%);
-  width: 114%;
-  height: 114%;
-  z-index: -2;
-  box-shadow: 2px 2px 3px -2px rgba(255, 255, 255, 0.7),
-   -2px -2px 4px 0px rgba(0, 0, 0, 0.6),
-   0px 0px 5px 3px rgba(125, 125, 125, 0.6);
- }
+  &:before {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: -7%;
+    left: -7%;
+    background: white;
+    background: linear-gradient(135deg, #fff 30%, #000 70%);
+    width: 114%;
+    height: 114%;
+    z-index: -2;
+    box-shadow: 2px 2px 3px -2px rgba(255, 255, 255, 0.7),
+      -2px -2px 4px 0px rgba(0, 0, 0, 0.6),
+      0px 0px 5px 3px rgba(125, 125, 125, 0.6);
+  }
 
- &:after {
-  content: "";
-  border-radius: 50%;
-  position: absolute;
-  top: -4%;
-  left: -4%;
-  background: linear-gradient(135deg, #000 30%, #fff 70%);
-  width: 108%;
-  height: 108%;
-  z-index: -1;
- }
- &:active {
-  border: 12px sold #fff;
-  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
- }
- &:focus {
-  box-shadow: 0 0 0 6px pink;
- }
-   a {
+  &:after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: -4%;
+    left: -4%;
+    background: linear-gradient(135deg, #000 30%, #fff 70%);
+    width: 108%;
+    height: 108%;
+    z-index: -1;
+  }
+
+  &:active {
+    border: 12px sold #fff;
+    box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 6px pink;
+  }
+
+  a {
     width: inherit;
     height: inherit;
     margin: 0;
     border-radius: 50%;
     color: transparent;
+
     &:active {
       visibility: invisible;
     }
+
     &:focus {
       outline: none;
     }
   }
-  
+
 }
 
-.btn-on{
-  background: radial-gradient(
-  closest-side,
-  var(--power-on) 35%,
-  var(--power-off-trim) 36%,
-  var(--power-off-trim) 40%,
-  var(--base-btn-mid) 41%,
-  var(--base-btn-outer) 100%
- );
- a {
-  background: radial-gradient(
-    closest-side,
-    #fff 0%,
-    var(--power-on-glow) 15%,
-    var(--power-on) 40%,
-    transparent 41%);  
+.btn-on {
+  background: radial-gradient(closest-side,
+      var(--power-on) 35%,
+      var(--power-off-trim) 36%,
+      var(--power-off-trim) 40%,
+      var(--base-btn-mid) 41%,
+      var(--base-btn-outer) 100%);
+
+  a {
+    background: radial-gradient(closest-side,
+        #fff 0%,
+        var(--power-on-glow) 15%,
+        var(--power-on) 40%,
+        transparent 41%);
     filter: blur(6px);
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
 }
