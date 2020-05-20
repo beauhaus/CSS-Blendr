@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Reflection from './reflection';
+// import Reflection from './reflection';
 
 const PanelBGWrap = styled.div`
 width: 100vw;

@@ -37,53 +37,37 @@ const ModeIcons = ({ modeNum }) => {
   const renderIcon = (param) => {
     switch (param) {
       case 0:
-        return <NormalIcon />;
-        break;
+        return <NormalIcon />
       case 1:
-        return <ScreenIcon />;
-        break;
+        return <ScreenIcon />
       case 2:
-        return <MultiplyIcon />;
-        break;
+        return <MultiplyIcon />
       case 3:
-        return <LightenIcon />;
-        break;
+        return <LightenIcon />
       case 4:
-        return <DarkenIcon />;
-        break;
+        return <DarkenIcon />
       case 5:
-        return <OverlayIcon />;
-        break;
+        return <OverlayIcon />
       case 6:
-        return <ColorIcon />;
-        break;
+        return <ColorIcon />
       case 7:
-        return <ColorDodgeIcon />;
-        break;
+        return <ColorDodgeIcon />
       case 8:
-        return <ColorBurnIcon />;
-        break;
+        return <ColorBurnIcon />
       case 9:
-        return <DifferenceIcon />;
-        break;
+        return <DifferenceIcon />
       case 10:
-        return <ExclusionIcon />;
-        break;
+        return <ExclusionIcon />
       case 11:
-        return <LuminosityIcon />;
-        break;
+        return <LuminosityIcon />
       case 12:
-        return <HueIcon />;
-        break;
+        return <HueIcon />
       case 13:
-        return <SaturationIcon />;
-        break;
+        return <SaturationIcon />
       case 14:
-        return <SoftLightIcon />;
-        break;
+        return <SoftLightIcon />
       case 15:
-        return <HardLightIcon />;
-        break;
+        return <HardLightIcon />
       default:
         break;
     }

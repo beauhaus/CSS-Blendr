@@ -5,7 +5,6 @@ import PanelBG from '../components/content/panelbg'
 import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
 
-import TestImg1 from '../../static/images/test_img_1.png';
 
 const useMdx = () => {
   const data = useStaticQuery(graphql`
@@ -86,9 +85,7 @@ document.title = `CSS Blendr - ${modesArray[modeNum]}`
       <PanelBG />
       <hr />
       <section>
-        {/* <div className="img-viewer">
-          <img src={TestImg1} alt="test 1" />
-        </div> */}
+        
         <div className="blend-ctrl-btns" >
           <FlipScreenBtn />
           <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/>

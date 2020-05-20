@@ -31,7 +31,6 @@ const SaturationWrapper = styled.g`
     }
 `
 
-{/* <filter id="blurFilter" y="-5" x="-10" height="40" width="60"> */}
 
 const SaturationIcon = () => (
     <SaturationWrapper>
