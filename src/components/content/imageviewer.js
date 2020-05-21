@@ -48,6 +48,13 @@ const ImageViewerWrapper = styled.div`
             ${'' /* border: 2px dashed fuchsia; */}
             
         }
+        .vert-roll-glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
 
 `
