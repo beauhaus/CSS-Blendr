@@ -40,7 +40,7 @@ const IncrementWrapper = styled.svg`
 }
 `
 const Incrementor = ({ modeNum }) => {
-  console.log("num: ", modeNum)
+  // console.log("num: ", modeNum)
   return (
     <IncrementWrapper className="incrementor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
       <filter id="blurFilter" y="-5" x="-10" height="40" width="60">

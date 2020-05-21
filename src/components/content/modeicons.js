@@ -39,15 +39,15 @@ const ModeIcons = ({ modeNum }) => {
       case 0:
         return <NormalIcon />
       case 1:
-        return <ScreenIcon />
-      case 2:
         return <MultiplyIcon />
+      case 2:
+        return <ScreenIcon />
       case 3:
-        return <LightenIcon />
-      case 4:
-        return <DarkenIcon />
-      case 5:
         return <OverlayIcon />
+      case 4:
+        return <LightenIcon />
+      case 5:
+        return <DarkenIcon />
       case 6:
         return <ColorIcon />
       case 7:
@@ -85,8 +85,8 @@ const ModeIcons = ({ modeNum }) => {
         <stop offset="1" stopOpacity="0" />
       </radialGradient>
       <g className="btn-cover">
-      <circle id="btn-shine" cx="150" cy="150" r="150" fill="url(#btn-shine)" />
-      <circle id="btn-shadow" cx="150" cy="150" r="150" fill="url(#btn-shadow)" />
+        <circle id="btn-shine" cx="150" cy="150" r="150" fill="url(#btn-shine)" />
+        <circle id="btn-shadow" cx="150" cy="150" r="150" fill="url(#btn-shadow)" />
       </g>
     </ModeIconsGroup>
   )

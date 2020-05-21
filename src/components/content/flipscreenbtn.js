@@ -42,19 +42,16 @@ const FlipScreenWrap = styled.button`
         stroke-width:1;
         mix-blend-mode: overlay;
         overflow: hidden;
-        display: none;
+        ${'' /* display: none; */}
         
     }
 `
 
-const FlipScreenBtn = () => {
-    const flipperClickHandler = () => {
-        console.log("flipper clicked!")
-    }
+const FlipScreenBtn = ({flipToggler, flipToggle}) => {
+    // console.log("flipToggle: ", flipToggle)
     return (
-        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipperClickHandler}>
+        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipToggler}>
 
-            <FlipImagePairs className="flip-img-pairs" />
             <svg xmlns="http://www.w3.org/2000/svg" className="line-grid" width="100%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="none">
                     <path d="M37.5 0v300" className="st1" />
                     <path d="M74.5 0v300" className="st1" />
@@ -71,6 +68,7 @@ const FlipScreenBtn = () => {
                     <path d="M0 221.5h300" className="st1" />
                     <path d="M0 258.5h300" className="st1" />
             </svg>
+            <FlipImagePairs className="flip-img-pairs" flipToggle={flipToggle}/>
         </FlipScreenWrap>
 
     )

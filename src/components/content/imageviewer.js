@@ -22,6 +22,7 @@ const ImageViewerWrapper = styled.div`
         display: grid;
         overflow: hidden;
         position: relative;
+        padding: 0;
         z-index: 1;
         &:after {
             content: '';
@@ -34,29 +35,43 @@ const ImageViewerWrapper = styled.div`
             width: 100%;
             height: 100%;
         }
-        img {
+        svg .image-container { 
             ${'' /* display: none; */}
             position: absolute;
             top: 0;
             left: 0;
             z-index: -2;
-            margin: auto;
+            ${'' /* margin: auto; */}
             width: 100%;
-            height: 100%;
-            &.img2 {
-                mix-blend-mode: difference;
-            }
+            height: auto;
+            ${'' /* height: 100%; */}
+            ${'' /* border: 2px dashed fuchsia; */}
+            
         }
 
 
 `
 
-const ImageViewer = () => (
-    <ImageViewerWrapper className="img-viewer">
+const ImageViewer = ({ mode, flipToggle }) => {
+    console.log("IMG VIEW: ", mode)
 
-<img className="img1" src={Image1} alt="magritte"/>
-<img className="img2" src={Image2} alt="tritone"/>
-        
-    </ImageViewerWrapper>)
+    return (
+        <ImageViewerWrapper className="img-viewer">
+        <svg className="image-container" viewBox="0 0 400 400" width="100%"  xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+            {flipToggle? 
+            <g>
+                <image className="img-back" xlinkHref={Image2}  />
+                <image className="img-front" xlinkHref={Image1}  style={{ mixBlendMode: mode }} />
+            </g>
+            : <g>
+            <image className="img-back" xlinkHref={Image1}  />
+            <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }}  />
+            </g>} 
+        </svg>
+            {/* <img className="img1" src={Image1} alt="magritte" />
+            <img className="img2" src={Image2} alt="tritone" /> */}
+
+        </ImageViewerWrapper>)
+}
 
 export default ImageViewer;

@@ -10,13 +10,13 @@ import ImageViewer from '../components/content/imageviewer'
 const useMdx = () => {
   const data = useStaticQuery(graphql`
   query {
-  allMdx {
-    nodes {
-      frontmatter {
-        title
+    allMdx(sort: {fields: frontmatter___display_order}) {
+      nodes {
+        frontmatter {
+          title
+        }
       }
     }
-  }
 }
 `)
   const resultArray = data.allMdx.nodes.map(item => item.frontmatter.title)
@@ -57,6 +57,8 @@ const PageAWrapper = styled.div`
 const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
+  const [flipToggle, setFlipToggle] = useState(false);
+  
   useEffect(() => {
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
   })
@@ -66,15 +68,19 @@ const PageA = (props) => {
     setModeNum((modeNum + 1) % 16)
     return modeNum;
   }
+  const flipToggleHandler = () => {
+    console.log("flipper clicked!")
+    setFlipToggle(!flipToggle)
+}
   return (
     <PageAWrapper className="page-a-wrapper" >
       <PanelBG />
       <hr />
       <section className="panel-section">
-        <div className="img-viewer"></div>
-        <ImageViewer />
+        {/* <div className="img-viewer"></div> */}
+        <ImageViewer mode={modesArray[modeNum]} flipToggle={flipToggle}/>
         <div className="blend-ctrl-btns" >
-          <FlipScreenBtn />
+          <FlipScreenBtn flipToggler={flipToggleHandler} flipToggle={flipToggle}/>
           <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler} />
         </div>
       </section>

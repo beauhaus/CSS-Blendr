@@ -5,12 +5,11 @@
   transform: skew(0deg, 0deg) rotateX(46deg);
   // mix-blend-mode: luminosity;
   // filter: ;
-  // filter: invert(100%);
+  filter: invert(10%);
 }
 .top-img {
 top: 1vh;
 left: 4.5vw;
-opacity: 0.8;
 transform: skew(0deg, 0deg) rotateX(45deg);
 rect {
   stroke-dasharray: 40 20;
