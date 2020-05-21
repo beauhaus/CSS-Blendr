@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // import Image1 from '../../static/images/magritte.jpg'
 import Image1 from '../../../static/images/magritte.jpg'
 import Image2 from '../../../static/images/tritone.jpg'
-import VertRollGlitch from './vertrollglitch'
+
 
 const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
@@ -36,7 +36,6 @@ const ImageViewerWrapper = styled.div`
             height: 100%;
         }
         svg .image-container { 
-            ${'' /* display: none; */}
             position: absolute;
             top: 0;
             left: 0;
@@ -44,9 +43,6 @@ const ImageViewerWrapper = styled.div`
             ${'' /* margin: auto; */}
             width: 100%;
             height: auto;
-            ${'' /* height: 100%; */}
-            ${'' /* border: 2px dashed fuchsia; */}
-            
         }
 
 
@@ -61,19 +57,17 @@ const ImageViewer = ({ mode, flipToggle }) => {
                 {flipToggle ?
                     <g>
                         <image className="img-back" xlinkHref={Image2} />
-                        {/* <VertRollGlitch toggle={flipToggle} /> */}
                         <image className="img-front" xlinkHref={Image1} style={{ mixBlendMode: mode }} />
                     </g>
                     : <g>
                         <image className="img-back" xlinkHref={Image1} />
-                        {/* <VertRollGlitch toggle={flipToggle} /> */}
                         <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }} />
                     </g>}
             </svg>
-            {/* <img className="img1" src={Image1} alt="magritte" />
-            <img className="img2" src={Image2} alt="tritone" /> */}
+            
 
         </ImageViewerWrapper>)
 }
 
 export default ImageViewer;
+
