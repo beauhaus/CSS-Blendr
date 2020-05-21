@@ -19,7 +19,7 @@ const VertGlitch = ({ mode }) => {
         gsap.set(glitchImage, { opacity: 0 })
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
-            .to(glitchImage, { duration: 0, opacity: .3 })
+            .to(glitchImage, { duration: 0, opacity: .6 })
             .to(headGlitch, { duration: .3, attr: { 'offset': '100%' } }, '-=0')
             .to(centerGlitch, { duration: .3, attr: { 'offset': '95%' } }, '-=0.3')
             .to(tailGlitch, { duration: .3, attr: { 'offset': '90%' } }, '-=.3')
