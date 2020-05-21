@@ -51,16 +51,15 @@ const PageAWrapper = styled.div`
     }
 
 }
-
 `
 
 
 const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
-useEffect(()=>{
-document.title = `CSS Blendr - ${modesArray[modeNum]}`
-})
+  useEffect(() => {
+    document.title = `CSS Blendr - ${modesArray[modeNum]}`
+  })
   // console.log("p>query: ", modesArray);
 
   const modeClickHandler = () => {
@@ -73,10 +72,10 @@ document.title = `CSS Blendr - ${modesArray[modeNum]}`
       <hr />
       <section className="panel-section">
         <div className="img-viewer"></div>
-        <ImageViewer/>
+        <ImageViewer />
         <div className="blend-ctrl-btns" >
           <FlipScreenBtn />
-          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler}/>
+          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler} />
         </div>
       </section>
     </PageAWrapper>

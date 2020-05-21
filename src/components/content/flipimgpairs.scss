@@ -3,9 +3,9 @@
   width: 30vw;
   height: 13vh;
   transform: skew(0deg, 0deg) rotateX(46deg);
-  mix-blend-mode: luminosity;
+  // mix-blend-mode: luminosity;
   // filter: ;
-  filter: invert(100%);
+  // filter: invert(100%);
 }
 .top-img {
 top: 1vh;
@@ -17,6 +17,7 @@ rect {
   stroke: #fff;
   fill:transparent;
   stroke-width:4;
+  // display: none;
 }
 
 }

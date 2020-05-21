@@ -15,33 +15,36 @@
       var(--base-btn-mid) 41%,
       var(--base-btn-outer) 100%);
   box-shadow: inset 0 0 8px 2px rgba(15, 15, 15, 0.1);
-
-  &:before {
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    top: -7%;
-    left: -7%;
-    background: white;
-    background: linear-gradient(135deg, #fff 30%, #000 70%);
-    width: 114%;
-    height: 114%;
-    z-index: -2;
-    box-shadow: 2px 2px 3px -2px rgba(255, 255, 255, 0.7),
-      -2px -2px 4px 0px rgba(0, 0, 0, 0.6),
-      0px 0px 5px 3px rgba(125, 125, 125, 0.6);
-  }
-
-  &:after {
+    // box-shadow: 2px 2px 3px -2px rgba(255, 255, 255, 0.7),
+    //   -2px -2px 4px 0px rgba(0, 0, 0, 0.6),
+    //   0px 0px 5px 3px rgba(125, 125, 125, 0.6);
+    &:before {
     content: "";
     border-radius: 50%;
     position: absolute;
     top: -4%;
     left: -4%;
     background: linear-gradient(135deg, #000 30%, #fff 70%);
+    // background: linear-gradient(135deg, red 30%, red 70%);
     width: 108%;
     height: 108%;
     z-index: -1;
+
+  }
+
+  &:after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: -7%;
+    left: -7%;
+    background: linear-gradient(135deg, #fff 30%, #000 70%);
+
+    // background: linear-gradient(135deg, lightgreen 30%, lightgreen 70%);
+
+    width: 114%;
+    height: 114%;
+    z-index: -2;
   }
 
   &:active {
@@ -73,12 +76,13 @@
 }
 
 .btn-on {
-  background: radial-gradient(closest-side,
-      var(--power-on) 35%,
-      var(--power-off-trim) 36%,
-      var(--power-off-trim) 40%,
-      var(--base-btn-mid) 41%,
-      var(--base-btn-outer) 100%);
+  // background: radial-gradient(closest-side,
+  //     var(--power-on) 35%,
+  //     var(--power-off-trim) 36%,
+  //     var(--power-off-trim) 40%,
+  //     var(--base-btn-mid) 41%,
+  //     var(--base-btn-outer) 100%);
+  //     z-index: 4;
 
   a {
     background: radial-gradient(closest-side,
@@ -89,6 +93,24 @@
     filter: blur(6px);
     width: 100%;
     height: 100%;
-    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    // opacity: 0.2;
+
   }
+  // &:after {
+  //   content: "";
+  //   border-radius: 50%;
+  //   position: absolute;
+  //   top: -4%;
+  //   left: -4%;
+  //   background: linear-gradient(135deg, #000 30%, #fff 70%);
+  //   background: linear-gradient(135deg, lightgreen 30%, lightgreen 70%);
+
+  //   width: 108%;
+  //   height: 108%;
+  //   z-index: 0;
+  // }
 }

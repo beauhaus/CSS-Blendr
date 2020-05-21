@@ -42,6 +42,7 @@ const FlipScreenWrap = styled.button`
         stroke-width:1;
         mix-blend-mode: overlay;
         overflow: hidden;
+        display: none;
         
     }
 `
