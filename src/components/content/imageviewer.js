@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // import Image1 from '../../static/images/magritte.jpg'
 import Image1 from '../../../static/images/magritte.jpg'
 import Image2 from '../../../static/images/tritone.jpg'
-
+import VertGlitch from './vertglitch'
 
 const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
@@ -44,6 +44,12 @@ const ImageViewerWrapper = styled.div`
             width: 100%;
             height: auto;
         }
+        .vert-glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
 
 
 `
@@ -63,8 +69,9 @@ const ImageViewer = ({ mode, flipToggle }) => {
                         <image className="img-back" xlinkHref={Image1} />
                         <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }} />
                     </g>}
+
             </svg>
-            
+            <VertGlitch mode={mode}/>
 
         </ImageViewerWrapper>)
 }
