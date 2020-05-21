@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // import Image1 from '../../static/images/magritte.jpg'
 import Image1 from '../../../static/images/magritte.jpg'
 import Image2 from '../../../static/images/tritone.jpg'
-
+import VertRollGlitch from './vertrollglitch'
 
 const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
@@ -57,17 +57,19 @@ const ImageViewer = ({ mode, flipToggle }) => {
 
     return (
         <ImageViewerWrapper className="img-viewer">
-        <svg className="image-container" viewBox="0 0 400 400" width="100%"  xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
-            {flipToggle? 
-            <g>
-                <image className="img-back" xlinkHref={Image2}  />
-                <image className="img-front" xlinkHref={Image1}  style={{ mixBlendMode: mode }} />
-            </g>
-            : <g>
-            <image className="img-back" xlinkHref={Image1}  />
-            <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }}  />
-            </g>} 
-        </svg>
+            <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+                {flipToggle ?
+                    <g>
+                        <image className="img-back" xlinkHref={Image2} />
+                        <image className="img-front" xlinkHref={Image1} style={{ mixBlendMode: mode }} />
+                        <VertRollGlitch mode={mode} />
+                    </g>
+                    : <g>
+                        <image className="img-back" xlinkHref={Image1} />
+                        <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }} />
+                        <VertRollGlitch mode={mode} />
+                    </g>}
+            </svg>
             {/* <img className="img1" src={Image1} alt="magritte" />
             <img className="img2" src={Image2} alt="tritone" /> */}
 
