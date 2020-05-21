@@ -77,7 +77,7 @@ const ImageViewer = ({ mode, flipToggle }) => {
                         <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }} />
                     </g>}
             </svg>
-            <VertRollGlitch mode={mode} />
+            {/* <VertRollGlitch mode={mode} /> */}
 
         </ImageViewerWrapper>)
 }
