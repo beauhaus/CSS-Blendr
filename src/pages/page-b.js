@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Link from 'gatsby-link';
+// import Link from 'gatsby-link';
 import styled from 'styled-components';
 // import ColorDodgeIcon from '../components/content/colordodgeicon';
 import Glitch from '../components/glitch'

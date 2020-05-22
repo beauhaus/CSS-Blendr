@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
-// import Image1 from '../../static/images/magritte.jpg'
+
 import Image1 from '../../../static/images/magritte.jpg'
 import Image2 from '../../../static/images/tritone.jpg'
 import VertGlitch from './vertglitch'
@@ -11,7 +12,6 @@ const ImageViewerWrapper = styled.div`
         width: 96%;
         grid-column: 1;
         grid-row: 1;
-        ${'' /* border: 1px solid #fff; */}
         border-radius: 12px;
         background: var(--base-btn-color);
         box-shadow: inset 1px 1px 2px 0 #000,
@@ -50,28 +50,43 @@ const ImageViewerWrapper = styled.div`
             left: 0;
             z-index: 1;
         }
-
-
 `
 
 const ImageViewer = ({ mode, flipToggle }) => {
-    console.log("IMG VIEW: ", mode)
+
+    let tailGlitch = useRef(null)
+    let headGlitch = useRef(null)
+
+    useEffect(() => {
+
+        gsap.set(tailGlitch, { attr: { 'offset': '0%' } })
+        gsap.set(headGlitch, { attr: { 'offset': '2%' } })
+    
+        const tl = gsap.timeline({ defaults: { delay: 0 } })
+        tl
+          .to(headGlitch, { duration: .5, attr: { 'offset': '105%' } }, '-=0')
+          .to(tailGlitch, { duration: .5, attr: { 'offset': '100%' } }, '-=.5')
+    
+      }, [flipToggle])
 
     return (
         <ImageViewerWrapper className="img-viewer">
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
-                {flipToggle ?
-                    <g>
-                        <image className="img-back" xlinkHref={Image2} />
-                        <image className="img-front" xlinkHref={Image1} style={{ mixBlendMode: mode }} />
-                    </g>
-                    : <g>
-                        <image className="img-back" xlinkHref={Image1} />
-                        <image className="img-front" xlinkHref={Image2} style={{ mixBlendMode: mode }} />
-                    </g>}
-
+                <linearGradient id="horizGrad">
+          <stop offset="0%" stopColor="#fff" id="leftstop" />
+          <stop offset="0%" stopColor="#fff" stopOpacity="1" ref={elem => tailGlitch = elem} />
+          <stop offset="5%" stopColor="#000" stopOpacity="1" ref={elem => headGlitch = elem} />
+          <stop offset="100%" stopColor="#000" id="rightstop" />
+        </linearGradient>
+                <mask id="horiz-roll-mask">
+                    <rect x="0" y="0" width="100%" height="100%" fill="url(#horizGrad)" />
+                </mask>
+                <g>
+                    <image className="img-back" xlinkHref={flipToggle ? Image2 : Image1} />
+                    <image className="img-front" xlinkHref={flipToggle ? Image1 : Image2} style={{ mixBlendMode: mode }} mask="url(#horiz-roll-mask)" />
+                </g>
             </svg>
-            <VertGlitch mode={mode}/>
+            <VertGlitch mode={mode} />
 
         </ImageViewerWrapper>)
 }

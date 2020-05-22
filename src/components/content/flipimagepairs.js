@@ -31,8 +31,6 @@ const FlipImagePairs = ({flipToggle}) => {
         <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
             <image width="100%" height="100%" xlinkHref={Image2}
                 preserveAspectRatio="none" />
-            {/* <rect width="100%" height="100%" /> */}
-
         </svg>
     </>
         
