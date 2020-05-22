@@ -3,20 +3,17 @@
   width: 30vw;
   height: 13vh;
   transform: skew(0deg, 0deg) rotateX(46deg);
-  // mix-blend-mode: luminosity;
-  // filter: ;
-  filter: invert(10%);
+  // filter: invert(100%);
 }
 .top-img {
 top: 1vh;
 left: 4.5vw;
-transform: skew(0deg, 0deg) rotateX(45deg);
-rect {
-  stroke-dasharray: 40 20;
-  stroke: #fff;
-  fill:transparent;
-  stroke-width:4;
-  // display: none;
+transform: skew(0deg, 0deg) rotateX(41deg);
+filter: drop-shadow(6px 22px 2px rgba(0,0,0,0.3));
+#test1 {
+  // stroke: #fff;
+  //   stroke-width:5;
+  overflow: visible;
 }
 
 }
@@ -26,8 +23,21 @@ rect {
   rect {
     stroke-dasharray: 40 20;
     stroke: #fff;
+    stroke-width:3;
     fill: #000;
     fill-opacity: 0.4;
-    stroke-width:3;
   }
+}
+
+@keyframes effect-anim {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.effect-animating-img {
+  stroke-dasharray: 40 20;
+  stroke: #fff;
+  stroke-width:5;
+  // display: none;
+  // filter:  hue(50%);
 }

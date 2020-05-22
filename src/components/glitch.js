@@ -6,7 +6,7 @@ import Image2 from '../../static/images/tritone.jpg'
 
 
 const HorizRoll = ({ toggle }) => {
-  console.log("from slider: toggle=", toggle)
+  // console.log("from slider: toggle=", toggle)
 
   let tailGlitch = useRef(null) // 0%
   let headGlitch = useRef(null) // 20%

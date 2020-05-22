@@ -69,7 +69,7 @@ const PageA = (props) => {
     return modeNum;
   }
   const flipToggleHandler = () => {
-    console.log("flipper clicked!")
+    // console.log("flipper clicked!")
     setFlipToggle(!flipToggle)
 }
   return (
@@ -80,7 +80,7 @@ const PageA = (props) => {
         {/* <div className="img-viewer"></div> */}
         <ImageViewer mode={modesArray[modeNum]} flipToggle={flipToggle}/>
         <div className="blend-ctrl-btns" >
-          <FlipScreenBtn flipToggler={flipToggleHandler} flipToggle={flipToggle}/>
+          <FlipScreenBtn flipToggler={flipToggleHandler} flipToggle={flipToggle} mode={modeNum}/>
           <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler} />
         </div>
       </section>

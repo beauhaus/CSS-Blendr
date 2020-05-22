@@ -5,7 +5,7 @@ import GlitchGif from '../../../static/images/glitchgif.gif'
 
 
 const VertGlitch = ({ mode }) => {
-    console.log("from slider: mode=", mode)
+    // console.log("from slider: mode=", mode)
 
     let tailGlitch = useRef(null) // 0%
     let centerGlitch = useRef(null) // 10%

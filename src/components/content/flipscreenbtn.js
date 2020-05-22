@@ -43,11 +43,10 @@ const FlipScreenWrap = styled.button`
         mix-blend-mode: overlay;
         overflow: hidden;
         ${'' /* display: none; */}
-        
     }
 `
 
-const FlipScreenBtn = ({flipToggler, flipToggle}) => {
+const FlipScreenBtn = ({flipToggler, flipToggle, mode}) => {
     // console.log("flipToggle: ", flipToggle)
     return (
         <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipToggler}>
@@ -68,7 +67,7 @@ const FlipScreenBtn = ({flipToggler, flipToggle}) => {
                     <path d="M0 221.5h300" className="st1" />
                     <path d="M0 258.5h300" className="st1" />
             </svg>
-            <FlipImagePairs className="flip-img-pairs" flipToggle={flipToggle}/>
+            <FlipImagePairs className="flip-img-pairs" flipToggle={flipToggle} modechange={mode}/>
         </FlipScreenWrap>
 
     )

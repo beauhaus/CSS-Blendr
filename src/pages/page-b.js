@@ -34,7 +34,7 @@ display: grid;
   const PageB = (props) => {
     const [flipToggle, setFlipToggle] = useState(false);
     const toggler = () => {
-        console.log("TOG clicked!")
+        // console.log("TOG clicked!")
         setFlipToggle(!flipToggle)
     }
     // console.log("p> B: ", props)

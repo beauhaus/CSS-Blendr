@@ -24,6 +24,7 @@ const ImageViewerWrapper = styled.div`
         position: relative;
         padding: 0;
         z-index: 1;
+
         &:after {
             content: '';
             border-radius: 12px;
@@ -50,23 +51,32 @@ const ImageViewerWrapper = styled.div`
             left: 0;
             z-index: 1;
         }
+        .img-front {
+            ${'' /* opacity: 0; */}
+        }
 `
 
 const ImageViewer = ({ mode, flipToggle }) => {
 
     let tailGlitch = useRef(null)
     let headGlitch = useRef(null)
+    let backImage = useRef(null)
+    let frontImage = useRef(null)
 
     useEffect(() => {
 
-        gsap.set(tailGlitch, { attr: { 'offset': '0%' } })
-        gsap.set(headGlitch, { attr: { 'offset': '2%' } })
+        gsap.set(tailGlitch, { attr: { 'offset': '-10%' } })
+        gsap.set(headGlitch, { attr: { 'offset': '-5%' } })
+        gsap.set(backImage, { opacity: 0 })
+        gsap.set(frontImage, { opacity: 0 })
     
-        const tl = gsap.timeline({ defaults: { delay: 0 } })
+        const tl = gsap.timeline({ defaults: { delay: .5 } })
         tl
-          .to(headGlitch, { duration: .5, attr: { 'offset': '105%' } }, '-=0')
-          .to(tailGlitch, { duration: .5, attr: { 'offset': '100%' } }, '-=.5')
-    
+        .to(backImage, { duration: .1, opacity:1 }, '-=0')
+        .to(frontImage, { duration: .1, opacity:1 }, '-=0')
+        .to(headGlitch, { duration: .5, attr: { 'offset': '105%' } }, '-=.5')
+        .to(tailGlitch, { duration: .5, attr: { 'offset': '100%' } }, '-=1')
+        
       }, [flipToggle])
 
     return (
@@ -82,9 +92,15 @@ const ImageViewer = ({ mode, flipToggle }) => {
                     <rect x="0" y="0" width="100%" height="100%" fill="url(#horizGrad)" />
                 </mask>
                 <g>
-                    <image className="img-back" xlinkHref={flipToggle ? Image2 : Image1} />
-                    <image className="img-front" xlinkHref={flipToggle ? Image1 : Image2} style={{ mixBlendMode: mode }} mask="url(#horiz-roll-mask)" />
+                    <image className="img-back" xlinkHref={flipToggle ? Image2 : Image1} ref={elem => backImage = elem} />
+                    <image className="img-front" xlinkHref={flipToggle ? Image1 : Image2} 
+                    style={{ mixBlendMode: mode }} 
+                    mask="url(#horiz-roll-mask)"
+                    ref={elem => frontImage = elem} 
+                     />
+                     
                 </g>
+                     {/* <rect className="cover-rect" fill="#bcbcbc" width="100%" height="100%" ref={elem => topImage = elem}/> */}
             </svg>
             <VertGlitch mode={mode} />
 

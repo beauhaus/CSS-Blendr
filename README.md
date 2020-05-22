@@ -40,3 +40,7 @@ Webfont script
 
 
 ```
+
+
+NOTE: TODO: use e.preventDefault() on buttons && || imageviewer
+to mitigate flash of content.
