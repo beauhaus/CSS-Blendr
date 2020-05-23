@@ -100,7 +100,6 @@ const ImageViewer = ({ mode, flipToggle }) => {
                      />
                      
                 </g>
-                     {/* <rect className="cover-rect" fill="#bcbcbc" width="100%" height="100%" ref={elem => topImage = elem}/> */}
             </svg>
             <VertGlitch mode={mode} />
 
