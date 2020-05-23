@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import { gsap } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 
@@ -57,48 +57,40 @@ const ImageViewerWrapper = styled.div`
 `
 
 const ImageViewer = ({ mode, flipToggle }) => {
+    const [flipTrigger, setFlipTrigger] = useState(true);
 
-    let tailGlitch = useRef(null)
-    let headGlitch = useRef(null)
-    let backImage = useRef(null)
-    let frontImage = useRef(null)
+  
+    let botImage = useRef(null)
+    let topImage = useRef(null)
 
+    const flipImages=()=>{
+        setFlipTrigger(!flipTrigger)
+    }
     useEffect(() => {
 
-        gsap.set(tailGlitch, { attr: { 'offset': '-10%' } })
-        gsap.set(headGlitch, { attr: { 'offset': '-5%' } })
-        gsap.set(backImage, { opacity: 0 })
-        gsap.set(frontImage, { opacity: 0 })
-    
-        const tl = gsap.timeline({ defaults: { delay: .5 } })
+         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
-        .to(backImage, { duration: .1, opacity:1 }, '-=0')
-        .to(frontImage, { duration: .1, opacity:1 }, '-=0')
-        .to(headGlitch, { duration: .5, attr: { 'offset': '105%' } }, '-=.5')
-        .to(tailGlitch, { duration: .5, attr: { 'offset': '100%' } }, '-=1')
+        .to(topImage, { duration: .5, x: -450 }, '-=0')
+        .to(botImage, { duration: .5, x: 450 }, '-=.5')
+
+        .call(flipImages)
+        .to(botImage, { duration: .5,  x: 0 }, '-=0')
+        .to(topImage, { duration: .5, x: 0 }, '-=.5')
+
+        
         
       }, [flipToggle])
 
     return (
         <ImageViewerWrapper className="img-viewer">
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
-                <linearGradient id="horizGrad">
-          <stop offset="0%" stopColor="#fff" id="leftstop" />
-          <stop offset="0%" stopColor="#fff" stopOpacity="1" ref={elem => tailGlitch = elem} />
-          <stop offset="5%" stopColor="#000" stopOpacity="1" ref={elem => headGlitch = elem} />
-          <stop offset="100%" stopColor="#000" id="rightstop" />
-        </linearGradient>
-                <mask id="horiz-roll-mask">
-                    <rect x="0" y="0" width="100%" height="100%" fill="url(#horizGrad)" />
-                </mask>
-                <g>
-                    <image className="img-back" xlinkHref={flipToggle ? Image2 : Image1} ref={elem => backImage = elem} />
-                    <image className="img-front" xlinkHref={flipToggle ? Image1 : Image2} 
+               <g>
+                    <image className="img-back" xlinkHref={flipTrigger ? Image2 : Image1} 
+                    ref={elem => botImage = elem} />
+                    <image className="img-front" xlinkHref={flipTrigger ? Image1 : Image2} 
                     style={{ mixBlendMode: mode }} 
-                    mask="url(#horiz-roll-mask)"
-                    ref={elem => frontImage = elem} 
+                    ref={elem => topImage = elem} 
                      />
-                     
                 </g>
             </svg>
             <VertGlitch mode={mode} />

@@ -44,6 +44,7 @@ const VertGlitch = ({ mode }) => {
             <mask id="Mask">
                 <rect x="-300" y="0" width="1200" height="600" fill="url(#vertGrad)" />
             </mask>
+            
             <image className="img-glitch" xlinkHref={GlitchGif} width="100%" height="100%" preserveAspectRatio="none" style={{ mixBlendMode: 'difference' }} mask="url(#Mask)" ref={elem => glitchImage = elem} />
         </svg>
 
