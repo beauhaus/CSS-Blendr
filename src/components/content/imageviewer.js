@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
+import ModeNameDisplay from './modenamedisplay'
 
 import Image1 from '../../../static/images/magritte.jpg'
 import Image2 from '../../../static/images/tritone.jpg'
@@ -59,40 +60,36 @@ const ImageViewerWrapper = styled.div`
 const ImageViewer = ({ mode, flipToggle }) => {
     const [flipTrigger, setFlipTrigger] = useState(true);
 
-  
+
     let botImage = useRef(null)
     let topImage = useRef(null)
 
-    const flipImages=()=>{
+    const flipImages = () => {
         setFlipTrigger(!flipTrigger)
     }
     useEffect(() => {
-
-         const tl = gsap.timeline({ defaults: { delay: 0 } })
+        const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
-        .to(topImage, { duration: .5, x: -450 }, '-=0')
-        .to(botImage, { duration: .5, x: 450 }, '-=.5')
-
-        .call(flipImages)
-        .to(botImage, { duration: .5,  x: 0 }, '-=0')
-        .to(topImage, { duration: .5, x: 0 }, '-=.5')
-
-        
-        
-      }, [flipToggle])
+            .to(topImage, { duration: .5, x: -450 }, '-=0')
+            .to(botImage, { duration: .5, x: 450 }, '-=.5')
+            .call(flipImages)
+            .to(botImage, { duration: .5, x: 0 }, '-=0')
+            .to(topImage, { duration: .5, x: 0 }, '-=.5')
+    }, [flipToggle])
 
     return (
         <ImageViewerWrapper className="img-viewer">
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
-               <g>
-                    <image className="img-back" xlinkHref={flipTrigger ? Image2 : Image1} 
-                    ref={elem => botImage = elem} />
-                    <image className="img-front" xlinkHref={flipTrigger ? Image1 : Image2} 
-                    style={{ mixBlendMode: mode }} 
-                    ref={elem => topImage = elem} 
-                     />
+                <g>
+                    <image className="img-back" xlinkHref={flipTrigger ? Image2 : Image1}
+                        ref={elem => botImage = elem} />
+                    <image className="img-front" xlinkHref={flipTrigger ? Image1 : Image2}
+                        style={{ mixBlendMode: mode }}
+                        ref={elem => topImage = elem}
+                    />
                 </g>
             </svg>
+            <ModeNameDisplay mode={mode}/>
             <VertGlitch mode={mode} />
 
         </ImageViewerWrapper>)

@@ -32,7 +32,7 @@ const FlipScreenWrap = styled.button`
             background: linear-gradient(90deg, #2C3021 0%, #545D49 50%, #5F6B57 100%);
         }   
     .line-grid{
-            margin: 2%;
+        margin: 2%;
         position: absolute;
         height: 94%;
         width: 96%;
