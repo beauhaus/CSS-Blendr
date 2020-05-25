@@ -34,8 +34,8 @@ const FlipImagePairs = ({ flipToggle, modechange }) => {
         // .to(botImage, { duration: .5,  x: 0 }, '-=0')
         // .to(topImage, { duration: .5,  x: 0 }, '-=.5')
         
-        .to(botImage, { duration: .5, ease: Back.easeOut.config(2) ,  x: 0 }, '-=0')
-        .to(topImage, { duration: .5, ease: Back.easeOut.config(2) , x: 0 }, '-=.5')
+        .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8) ,  x: 0 }, '-=0')
+        .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8) , x: 0 }, '-=.5')
     }, [flipToggle])
 
     return (
