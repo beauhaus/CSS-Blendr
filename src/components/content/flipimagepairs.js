@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { gsap } from "gsap"; //  , Power4, Expo
+import { gsap, Back } from "gsap"; //  , Power4, Expo
 
 import './flipimgpairs.scss'
 
@@ -28,11 +28,14 @@ const FlipImagePairs = ({ flipToggle, modechange }) => {
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
-        .to(botImage, { duration: .5,  x: 800 }, '-=0')
-        .to(topImage, { duration: .5,  x: -800 }, '-=.5')
+        .to(botImage, { duration: .3,  x: 800 }, '-=0')
+        .to(topImage, { duration: .3,  x: -800 }, '-=.5')
         .call(flipImages)
-        .to(botImage, { duration: .5,  x: 0 }, '-=0')
-        .to(topImage, { duration: .5,  x: 0 }, '-=.5')
+        // .to(botImage, { duration: .5,  x: 0 }, '-=0')
+        // .to(topImage, { duration: .5,  x: 0 }, '-=.5')
+        
+        .to(botImage, { duration: .5, ease: Back.easeOut.config(2) ,  x: 0 }, '-=0')
+        .to(topImage, { duration: .5, ease: Back.easeOut.config(2) , x: 0 }, '-=.5')
     }, [flipToggle])
 
     return (

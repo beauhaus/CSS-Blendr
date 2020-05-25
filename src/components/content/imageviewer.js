@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { gsap } from "gsap"; //  , Power4, Expo
+import { gsap, Back} from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
 
@@ -56,10 +56,10 @@ const ImageViewerWrapper = styled.div`
             ${'' /* opacity: 0; */}
         }
 `
+// "slow(0.7, 0.7, false)"
 
 const ImageViewer = ({ mode, flipToggle }) => {
     const [flipTrigger, setFlipTrigger] = useState(true);
-
 
     let botImage = useRef(null)
     let topImage = useRef(null)
@@ -70,11 +70,12 @@ const ImageViewer = ({ mode, flipToggle }) => {
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
-            .to(topImage, { duration: .5, x: -450 }, '-=0')
-            .to(botImage, { duration: .5, x: 450 }, '-=.5')
+            .to(topImage, { duration: .3, x: -400 }, '-=0')
+            .to(botImage, { duration: .3, x: 400 }, '-=.3')
             .call(flipImages)
-            .to(botImage, { duration: .5, x: 0 }, '-=0')
-            .to(topImage, { duration: .5, x: 0 }, '-=.5')
+            .to(botImage, { duration: .5, ease: Back.easeOut.config(2) ,  x: 0 }, '-=0')
+            .to(topImage, { duration: .5, ease: Back.easeOut.config(2) , x: 0 }, '-=.5')
+            
     }, [flipToggle])
 
     return (

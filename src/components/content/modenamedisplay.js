@@ -20,14 +20,24 @@ const ModeNameContainer = styled.div`
 
 const ModeNameDisplay = ({ mode }) => {
   let txtBox = useRef(null)
-  useEffect(()=> {
+  const doCoolStuff=(()=>{
     gsap.set(txtBox, { y:25})
-
+    
     const tl = gsap.timeline({ defaults: { delay: .3 } })
+    
+    // if (tl && tl.isActive()) {
+    //   console.log("progress 1")
+    //   tl.progress(1);
+    // }
+    
     tl
     .to(txtBox, { duration: .2, y: 0 }, '-=0')
-    .to(txtBox, { duration: 1, y: 25 }, '+=3')
+    // .to(txtBox, { duration: 1, y: 25 }, '+=3')
   })
+  useEffect(()=> {
+    doCoolStuff()
+  },[mode])
+
   return (
     <ModeNameContainer    ref={elem => txtBox = elem}>
       <h1 width="100%" height="100%">{mode}</h1>
