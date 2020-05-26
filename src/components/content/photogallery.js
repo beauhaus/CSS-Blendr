@@ -9,7 +9,7 @@ import Rouge from '../../../static/images/rouge.jpg'
 
 import Street from '../../../static/images/street.jpg'
 // import xxx from '../../../static/images/xxx.jpg'
-// import xxx from '../../../static/images/xxx.jpg'
+import Mondrian from '../../../static/images/mondrian.jpeg'
 import Flowers from '../../../static/images/flowers.jpg'
 import Claudia from '../../../static/images/claudia.jpg'
 import Eye from '../../../static/images/eye.jpg'
@@ -24,22 +24,24 @@ max-height: 100%;
 position: absolute;
 top: 0;
 left: 0;
-padding: 1%;
+padding: 2%;
 background: var(--photo-gallery-bg);
-overflow: scroll;
+overflow-y: scroll;
 z-index: 5;
 display: grid;
 grid-template-columns: repeat(3, 30vw);
 grid-template-rows: repeat(30, 15vh);
 ${'' /* align-items: center; */}
 justify-content: space-around;
-${'' /* grid-gap: 10px; */}
+${'' /* box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.9); */}
 img {
     width: 90%;
     height: 90%;
     margin: auto;
     border-radius: 10px;
 }
+
+    
 .close-btn {
     height: 12vh;
     width: 12vh;
@@ -52,6 +54,7 @@ img {
     h1 {
         fill: #fff;
         font-size: 3rem;
+        display: none;
     }
 `
 
@@ -70,6 +73,7 @@ const PhotoGallery = (galleryToggle) => (
     <img src={Tritone} alt="Tritone"/>
     <img src={Claudia} alt="Claudia"/>
     <img src={Flowers} alt="Flowers"/>
+    <img src={Mondrian} alt="Mondrian"/>
     {/* <img src={xxx} alt="xxx"/> */}
 
         <h1>PhotoGallery</h1>
@@ -109,6 +113,8 @@ const PhotoGallery = (galleryToggle) => (
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
+        
+
     </PhotoGalleryWrapper>
 )
 

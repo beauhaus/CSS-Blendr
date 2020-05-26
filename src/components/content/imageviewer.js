@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { gsap, Back} from "gsap"; //  , Power4, Expo
+import { gsap, Back } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
 
@@ -53,9 +53,16 @@ const ImageViewerWrapper = styled.div`
             left: 0;
             z-index: 1;
         }
-        .img-front {
-            ${'' /* opacity: 0; */}
-        }
+        
+    .inner-shad {
+        box-shadow: inset 0 0 20px 20px rgba(0,0,0,0.9);
+        width: 100%;
+        height: 100%;
+        display: absolute;
+        top:0;
+        left: 0;
+        background: red;
+    }
 `
 // "slow(0.7, 0.7, false)"
 
@@ -74,9 +81,9 @@ const ImageViewer = ({ mode, flipToggle, galleryopener, galleryOpenToggle }) => 
             .to(topImage, { duration: .3, x: -400 }, '-=0')
             .to(botImage, { duration: .3, x: 400 }, '-=.3')
             .call(flipImages)
-            .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8) ,  x: 0 }, '-=0')
-            .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8) , x: 0 }, '-=.5')
-            
+            .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
+            .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
+
     }, [flipToggle])
 
     return (
@@ -91,9 +98,12 @@ const ImageViewer = ({ mode, flipToggle, galleryopener, galleryOpenToggle }) => 
                     />
                 </g>
             </svg>
-            <ModeNameDisplay mode={mode}/>
+            <ModeNameDisplay mode={mode} />
             <VertGlitch mode={mode} />
-            {galleryOpenToggle && <PhotoGallery galleryopener={galleryopener}/>}
+            {galleryOpenToggle && 
+                <PhotoGallery galleryopener={galleryopener} />
+            
+            }
         </ImageViewerWrapper>)
 }
 
