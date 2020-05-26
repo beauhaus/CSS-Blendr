@@ -34,11 +34,11 @@ const HardLightIcon = () => (
       <feGaussianBlur stdDeviation="10"></feGaussianBlur>
     </filter>
     <linearGradient id="hat-grad" x1="113.2655" x2="186.4479" y1="95.1173" y2="183.401" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fffbe6" />
-      <stop offset=".0953" stop-color="#fae2c0" />
-      <stop offset=".2711" stop-color="#f2b780" />
-      <stop offset=".3996" stop-color="#ed9c58" />
-      <stop offset=".466" stop-color="#eb9249" />
+      <stop offset="0" stopColor="#fffbe6" />
+      <stop offset=".0953" stopColor="#fae2c0" />
+      <stop offset=".2711" stopColor="#f2b780" />
+      <stop offset=".3996" stopColor="#ed9c58" />
+      <stop offset=".466" stopColor="#eb9249" />
     </linearGradient>
 
     <linearGradient id="sky_2_" x1="171.4391" x2="169.8707" y1="27.0126" y2="292.8799" gradientTransform="matrix(-1 0 0 1 341.3187 0)" gradientUnits="userSpaceOnUse">
@@ -111,7 +111,7 @@ const HardLightIcon = () => (
       </g>
     </g>
 
-    <path fill="none" stroke="#603813" stroke-miterlimit="10" stroke-width="5" d="M230.48 271.39l-16.52 6.69-9.86.3-10.87-2.8-20.17 2.8-16.68-1.1-19.78-3.38-15.37.38-11.97.56" />
+    <path fill="none" stroke="#603813"  strokeWidth="5" d="M230.48 271.39l-16.52 6.69-9.86.3-10.87-2.8-20.17 2.8-16.68-1.1-19.78-3.38-15.37.38-11.97.56" />
 
     <path d="M127.74 278.25c-7.93-.42-15.87-.85-23.8-1.27 3.38-1.82 6.22-4.66 8.07-8.05-3.16 1.28-5.96 3.45-8 6.21.94-2.03 1.88-4.06 2.81-6.08-.6 2.57-2.27 4.86-4.52 6.18 2.61-6.67.26-15-5.45-19.23 2.74 5.54 3.97 11.84 3.52 18.02-.25-2.96-1.9-5.77-4.34-7.41 1.18 2.65 2.36 5.3 3.55 7.95-3.26-.18-6.52-.35-9.78-.53.78.29 1.55.59 2.33.88-5.04.45-10.09.89-15.13 1.34.54.23 1.09.46 1.63.69" className="st3" />
     <g id="grass">
@@ -157,11 +157,11 @@ export default HardLightIcon;
   <path fill="#ffbaff" d="M300 300l-300-1e-8 1e-8-300 300 1e-8z"/>
   <g id="hat_1_">
     <linearGradient id="SVGID_1_" x1="113.2655" x2="186.4479" y1="95.1173" y2="183.401" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fffbe6"/>
-      <stop offset=".0953" stop-color="#fae2c0"/>
-      <stop offset=".2711" stop-color="#f2b780"/>
-      <stop offset=".3996" stop-color="#ed9c58"/>
-      <stop offset=".466" stop-color="#eb9249"/>
+      <stop offset="0" stopColor="#fffbe6"/>
+      <stop offset=".0953" stopColor="#fae2c0"/>
+      <stop offset=".2711" stopColor="#f2b780"/>
+      <stop offset=".3996" stopColor="#ed9c58"/>
+      <stop offset=".466" stopColor="#eb9249"/>
     </linearGradient>
     <path fill="url(#SVGID_1_)" stroke="#000"  d="M84.67 142.73c3.39-33.08 29.01-58.61 60.86-63.85 2.12-.35 2.05-6.48 4.22-6.65 4.4-.33 27.24 2.07 31.76 3.44 1.71.52 1.43 6.54 3.08 7.17 30.22 11.55 50.2 41.8 46.8 74.94-.45 4.38-1.29 8.63-2.48 12.72-.6 2.06 6.7 4.8 5.21 6.51-3.9 4.45-23.21 22.17-23.21 22.17L96.09 187.7s-14.4-20.21-17.88-25.34c-1.59-2.34 6.53-3.88 6.32-6.48-.35-4.3-.32-8.7.14-13.15z"/>
     <path d="M189.9 148.74l-4.97-65.52" class="st2"/>

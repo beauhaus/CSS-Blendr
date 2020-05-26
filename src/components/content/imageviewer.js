@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
 
 import Image1 from '../../../static/images/magritte.jpg'
-import Image2 from '../../../static/images/tritone.jpg'
+import Image2 from '../../../static/images/testimg.jpg'
 import VertGlitch from './vertglitch'
 import PhotoGallery from './photogallery'
 

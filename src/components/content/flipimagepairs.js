@@ -4,7 +4,7 @@ import { gsap, Back } from "gsap"; //  , Power4, Expo
 import './flipimgpairs.scss'
 
 import Image1 from '../../../static/images/magritte.jpg'
-import Image2 from '../../../static/images/tritone.jpg'
+import Image2 from '../../../static/images/testimg.jpg'
 
 
 const FlipImagePairs = ({ flipToggle, modechange }) => {
@@ -31,9 +31,6 @@ const FlipImagePairs = ({ flipToggle, modechange }) => {
         .to(botImage, { duration: .3,  x: 800 }, '-=0')
         .to(topImage, { duration: .3,  x: -800 }, '-=.5')
         .call(flipImages)
-        // .to(botImage, { duration: .5,  x: 0 }, '-=0')
-        // .to(topImage, { duration: .5,  x: 0 }, '-=.5')
-        
         .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8) ,  x: 0 }, '-=0')
         .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8) , x: 0 }, '-=.5')
     }, [flipToggle])
