@@ -6,6 +6,7 @@ import ModeNameDisplay from './modenamedisplay'
 import Image1 from '../../../static/images/magritte.jpg'
 import Image2 from '../../../static/images/tritone.jpg'
 import VertGlitch from './vertglitch'
+import PhotoGallery from './photogallery'
 
 const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
@@ -58,7 +59,7 @@ const ImageViewerWrapper = styled.div`
 `
 // "slow(0.7, 0.7, false)"
 
-const ImageViewer = ({ mode, flipToggle }) => {
+const ImageViewer = ({ mode, flipToggle, galleryopener, galleryOpenToggle }) => {
     const [flipTrigger, setFlipTrigger] = useState(true);
 
     let botImage = useRef(null)
@@ -79,7 +80,7 @@ const ImageViewer = ({ mode, flipToggle }) => {
     }, [flipToggle])
 
     return (
-        <ImageViewerWrapper className="img-viewer">
+        <ImageViewerWrapper className="img-viewer" onClick={galleryopener}>
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                 <g>
                     <image className="img-back" xlinkHref={flipTrigger ? Image2 : Image1}
@@ -92,7 +93,7 @@ const ImageViewer = ({ mode, flipToggle }) => {
             </svg>
             <ModeNameDisplay mode={mode}/>
             <VertGlitch mode={mode} />
-
+            {galleryOpenToggle && <PhotoGallery galleryopener={galleryopener}/>}
         </ImageViewerWrapper>)
 }
 

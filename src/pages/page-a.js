@@ -58,6 +58,7 @@ const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
   const [flipToggle, setFlipToggle] = useState(false);
+  const [galleryOpenToggle, setGalleryOpenToggle] = useState(false);
   
   useEffect(() => {
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
@@ -72,13 +73,17 @@ const PageA = (props) => {
     // console.log("flipper clicked!")
     setFlipToggle(!flipToggle)
 }
+const galleryopener = () => {
+  console.log("galleryopener clicked!")
+  setGalleryOpenToggle(!galleryOpenToggle)
+}
   return (
     <PageAWrapper className="page-a-wrapper" >
       <PanelBG />
       <hr />
       <section className="panel-section">
         {/* <div className="img-viewer"></div> */}
-        <ImageViewer mode={modesArray[modeNum]} flipToggle={flipToggle}/>
+        <ImageViewer mode={modesArray[modeNum]} flipToggle={flipToggle} galleryopener={galleryopener} galleryOpenToggle={galleryOpenToggle}/>
         <div className="blend-ctrl-btns" >
           <FlipScreenBtn flipToggler={flipToggleHandler} flipToggle={flipToggle} mode={modeNum}/>
           <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler} />
