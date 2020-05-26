@@ -48,6 +48,19 @@ const PhotoGallery = (galleryToggle) => (
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1> 
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
+        <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>

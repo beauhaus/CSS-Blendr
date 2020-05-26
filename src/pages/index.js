@@ -10,6 +10,7 @@ import LandingLogo from '../components/content/landinglogo'
 const IdxWrapper = styled.div`
 width: 100vw;
 height: 100vh;
+overflow: hidden;
 position: relative;
 ${'' /* z-index: 1; */}
 .landing-section {
@@ -57,7 +58,7 @@ h1 {
 }
 `
 const INDEXJS = () => (
-  <IdxWrapper>
+  <IdxWrapper className="idx-container">
     <PanelBG />
 
     <section className="landing-section">

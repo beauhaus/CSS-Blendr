@@ -26,6 +26,10 @@ const useMdx = () => {
 const PageAWrapper = styled.div`
 /* TODO: this image doesn't 'contain' the panel */
     ${'' /* border: 3px solid lightgreen; */}
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
 
 .panel-section {
     width: 100vw;
