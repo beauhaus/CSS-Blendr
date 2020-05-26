@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
+// import {RemoveScroll} from 'react-remove-scroll';
 
 const PhotoGalleryWrapper = styled.div`
 width: 100%;
-min-height: 150%;
-${'' /* height: 100%; */}
+max-height: 100%;
 position: absolute;
 top: 0;
 background: var(--photo-gallery-bg);
-overflow-y: scroll;
-
+overflow: scroll;
+z-index: 5;
 left: 0;
 .close-btn {
     height: 12vh;
@@ -27,7 +27,10 @@ left: 0;
 `
 
 const PhotoGallery = (galleryToggle) => (
-    <PhotoGalleryWrapper>
+    
+    <PhotoGalleryWrapper className="phuck">
+{/* <RemoveScroll> */}
+  Only this content would be scrollable
     {/* <button className="close-btn" onClick={galleryToggle}>X</button> */}
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
@@ -66,6 +69,8 @@ const PhotoGallery = (galleryToggle) => (
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
         <h1>PhotoGallery</h1>
-    </PhotoGalleryWrapper>)
+    {/* </RemoveScroll>   */}
+    </PhotoGalleryWrapper>
+)
 
 export default PhotoGallery;
