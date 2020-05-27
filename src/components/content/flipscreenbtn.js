@@ -55,25 +55,21 @@ const FlipScreenWrap = styled.button`
     }
 `
 
-const FlipScreenBtn = ({flipToggler, flipToggle}) => {
-    const {mode} = useContext(ModeContext);
+const FlipScreenBtn = () => {
+    const {flipToggleVal,flipToggleHandler} = useContext(ModeContext);
 
     let flipArrows = useRef(null)
 
     useEffect(() => {
-        
         gsap.set(flipArrows, { opacity: .7, fillOpacity: .4 })
-
         const tl = gsap.timeline({ defaults: { delay: 0 } })
        tl
        .to(flipArrows, { duration: .5, opacity:1, fillOpacity: 1 }, '-=0')      
        .to(flipArrows, { duration: .5, opacity:.7, fillOpacity: .4 }, '-=0')
-       
-     }, [flipToggle])
+     }, [flipToggleVal])
 
     return (
-        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipToggler}>
-
+        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipToggleHandler}>
             <svg xmlns="http://www.w3.org/2000/svg" className="line-grid" width="100%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="none">
                     <g className="lines">
                     <path d="M37.5 0v300" className="st1" />
@@ -96,13 +92,8 @@ const FlipScreenBtn = ({flipToggler, flipToggle}) => {
                     ref={elem => flipArrows = elem}
                     d="M257.21 45.61s16.29 7.89 23.23 27.15c.06-16.26 7.45-37.67 7.45-37.67l-10.68 3.58-.06.02c-7.24-20.05-24.64-23.19-43.57-22.34 16.93-1.85 28.91 10.52 34.37 25.66l-10.74 3.6zM46.26 251.94s-17.61-4.21-28.52-21.53c3.43 15.9.81 38.39.81 38.39l9.67-5.79.05-.03c11.37 18.03 29.05 17.36 47.35 12.46-16.14 5.44-30.49-4.07-39.08-17.68l9.72-5.82z"  />
             </svg>
-            <FlipImagePairs
-                className="flip-img-pairs"
-                flipToggle={flipToggle}
-               
-            />
+            <FlipImagePairs className="flip-img-pairs" />
         </FlipScreenWrap>
-
     )
 }
 export default FlipScreenBtn;

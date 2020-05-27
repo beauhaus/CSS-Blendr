@@ -1,26 +1,25 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import styled from 'styled-components'
-import {ModeContext} from '../../pages/page-a'
+// import {ModeContext} from '../../pages/page-a'
 
-import Aqua from '../../../static/images/aqua.jpg'
-import Tiles1 from '../../../static/images/tiles1.jpeg'
-import Tiles2 from '../../../static/images/tiles2.jpeg'
-import Rouge from '../../../static/images/rouge.jpg'
+import Aqua from '../../../static/images/gallery-images/aqua.jpg'
+import Tiles1 from '../../../static/images/gallery-images/tiles1.jpeg'
+import Tiles2 from '../../../static/images/gallery-images/tiles2.jpeg'
+import Rouge from '../../../static/images/gallery-images/rouge.jpg'
 
-import Street from '../../../static/images/street.jpg'
-// import xxx from '../../../static/images/xxx.jpg'
-// import xxx from '../../../static/images/xxx.jpg'
-import DeadTrees from '../../../static/images/deadtrees.jpg'
-import Rose from '../../../static/images/rose.jpg'
-import Socrates from '../../../static/images/socrates.jpg'
-import Mondrian from '../../../static/images/mondrian.jpeg'
-import Flowers from '../../../static/images/flowers.jpg'
-import Claudia from '../../../static/images/claudia.jpg'
-import Eye from '../../../static/images/eye.jpg'
-import TestImg from '../../../static/images/testimg.jpg'
-import Tritone from '../../../static/images/tritone.jpg'
-import Magritte from '../../../static/images/magritte.jpg'
-
+import Street from '../../../static/images/gallery-images/street.jpg'
+// import xxx from '../../../static/images/gallery-images/xxx.jpg'
+// import xxx from '../../../static/images/gallery-images/xxx.jpg'
+import DeadTrees from '../../../static/images/gallery-images/deadtrees.jpg'
+import Rose from '../../../static/images/gallery-images/rose.jpg'
+import Socrates from '../../../static/images/gallery-images/socrates.jpg'
+import Mondrian from '../../../static/images/gallery-images/mondrian.jpeg'
+import Flowers from '../../../static/images/gallery-images/flowers.jpg'
+import Claudia from '../../../static/images/gallery-images/claudia.jpg'
+import Eye from '../../../static/images/gallery-images/eye.jpg'
+import TestImg from '../../../static/images/gallery-images/testimg.jpg'
+import Tritone from '../../../static/images/gallery-images/tritone.jpg'
+import Magritte from '../../../static/images/gallery-images/magritte.jpg'
 
 const PhotoGalleryWrapper = styled.div`
 width: 100%;
@@ -35,7 +34,6 @@ z-index: 5;
 display: grid;
 grid-template-columns: repeat(3, 30vw);
 grid-template-rows: repeat(30, 15vh);
-${'' /* align-items: center; */}
 justify-content: space-around;
 ${'' /* box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.9); */}
 img {
@@ -63,7 +61,7 @@ img {
 `
 
 const PhotoGallery = () => {
-    const {galleryToggle} = useContext(ModeContext);
+    // const {galleryToggleVal} = useContext(ModeContext);
 
     return (
     

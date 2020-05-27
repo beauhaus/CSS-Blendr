@@ -4,12 +4,9 @@ import {ModeContext} from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
-// import Image1 from '../../../static/images/magritte.jpg'
-// import Image2 from '../../../static/images/testimg.jpg'
 
-
-const FlipImagePairs = ({ flipToggle }) => {
-    const {mode, currentImage1,currentImage2} = useContext(ModeContext);
+const FlipImagePairs = () => {
+    const {mode, currentImage1,currentImage2,flipToggleVal} = useContext(ModeContext);
 
     const [flipTrigger, setFlipTrigger] = useState(true);
     let topImage = useRef(null)
@@ -36,7 +33,7 @@ const FlipImagePairs = ({ flipToggle }) => {
         .call(flipImages)
         .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8) ,  x: 0 }, '-=0')
         .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8) , x: 0 }, '-=.5')
-    }, [flipToggle])
+    }, [flipToggleVal])
 
     return (
         <>

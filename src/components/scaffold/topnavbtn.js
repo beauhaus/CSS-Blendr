@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Link from 'gatsby-link';
 import './topnavbtn.scss'
+import {NavContext} from '../layout'
 
- 
-/*TODO: remove btn and styled Link as button instead */
-const TopNavBtn = ({ path }) => {
-    return (path !== "/" ?
+
+const TopNavBtn = () => {
+    const {currentPath} = useContext(NavContext);
+    return (currentPath !== "/" ?
         <button name="blender-on" className="top-nav-btn btn-on">
                 <Link to="/">home</Link>
         </button> :

@@ -67,7 +67,7 @@ const ImageViewerWrapper = styled.div`
 // "slow(0.7, 0.7, false)"
 
 const ImageViewer = () => {
-    const {mode,flipToggle,galleryopener,currentImage1, currentImage2, galleryOpenToggle} = useContext(ModeContext);
+    const {mode,flipToggleVal,galleryOpener,currentImage1, currentImage2, galleryOpenToggleVal} = useContext(ModeContext);
 
     const [flipTrigger, setFlipTrigger] = useState(true);
     let botImage = useRef(null)
@@ -83,10 +83,10 @@ const ImageViewer = () => {
             .call(flipImages)
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
-    }, [flipToggle])
+    }, [flipToggleVal])
 
     return (
-        <ImageViewerWrapper className="img-viewer" onClick={galleryopener}>
+        <ImageViewerWrapper className="img-viewer" onClick={galleryOpener}>
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                 <g>
                     <image className="img-back" xlinkHref={flipTrigger ? currentImage2 : currentImage1}
@@ -99,7 +99,7 @@ const ImageViewer = () => {
             </svg>
             <ModeNameDisplay  />
             <VertGlitch mode={mode} />
-            {galleryOpenToggle && 
+            {galleryOpenToggleVal && 
                 <PhotoGallery  />
             }
         </ImageViewerWrapper>)

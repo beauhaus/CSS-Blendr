@@ -7,8 +7,11 @@ import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
 import ImageViewer from '../components/content/imageviewer'
 
-import CurrentImg1 from '../../static/images/rose.jpg'
-import CurrentImg2 from '../../static/images/testimg.jpg'
+// import CurrentImg1 from '../../static/images/galery-images/rose.jpg'
+// import CurrentImg2 from '../../static/images/galery-images/testimg.jpg'
+import CurrentImg1 from '../../static/images/gallery-images/rose.jpg'
+import CurrentImg2 from '../../static/images/gallery-images/testimg.jpg'
+
 
 
 const useMdx = () => {
@@ -67,10 +70,8 @@ const PageAWrapper = styled.div`
 const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
-  // const [displayImg1, setDisplayImg1] = useState(0);
-  // const [displayImg2, setDisplayImg2] = useState(0);
-  const [flipToggle, setFlipToggle] = useState(false);
-  const [galleryOpenToggle, setGalleryOpenToggle] = useState(false);
+  const [flipToggleVal, setFlipToggleVal] = useState(false);
+  const [galleryOpenToggleVal, setGalleryOpenToggleVal] = useState(false);
   
   useEffect(() => {
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
@@ -80,22 +81,26 @@ const PageA = (props) => {
     setModeNum((modeNum + 1) % 16)
     return modeNum;
   }
+
   const flipToggleHandler = () => {
     // console.log("flipper clicked!")
-    setFlipToggle(!flipToggle)
+    setFlipToggleVal(!flipToggleVal)
+
 }
-const galleryopener = () => {
-  // console.log("galleryopener clicked!")
-  setGalleryOpenToggle(!galleryOpenToggle)
+const galleryOpener = () => {
+  // console.log("galleryOpener clicked!")
+  setGalleryOpenToggleVal(!galleryOpenToggleVal)
 }
   return (
     <ModeContext.Provider
     value={{
       mode: modesArray[modeNum],
       modeNum,
-      flipToggle,
-      galleryopener,
-      galleryOpenToggle,
+      flipToggleVal,
+      flipToggleHandler,
+      modeClickHandler,
+      galleryOpener,
+      galleryOpenToggleVal,
       currentImage1: CurrentImg1,
       currentImage2: CurrentImg2
     }}>
@@ -103,22 +108,10 @@ const galleryopener = () => {
       <PanelBG />
       <hr />
       <section className="panel-section">
-        {/* <div className="img-viewer"></div> */}
-        <ImageViewer
-        // galleryopener={galleryopener}
-        // galleryOpenToggle={galleryOpenToggle}
-        // viewerImg1={Img1}
-        // viewerImg2={Img2}
-        />
+        <ImageViewer className="img-viewer"/>
         <div className="blend-ctrl-btns" >
-          <FlipScreenBtn
-          flipToggler={flipToggleHandler}
-          flipToggle={flipToggle}
-          mode={modeNum}
-          // viewerImg1={Img1}
-          // viewerImg2={Img2}
-          />
-          <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler} />
+          <FlipScreenBtn/>
+          <CyclerBtn />
         </div>
       </section>
     </PageAWrapper>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import styled from 'styled-components';
 import ModeIcons from './modeicons'
 // import { graphql, useStaticQuery } from 'gatsby';
 import Incrementor from './incrementor'
+import {ModeContext} from '../../pages/page-a'
 
 const CyclerBtnWrapper = styled.button`
     position: relative;  
@@ -20,9 +21,10 @@ const CyclerBtnWrapper = styled.button`
       }
      
 `
-const CyclerBtn = ({cycleclick, modeNum}) => {
+const CyclerBtn = () => {
+  const {modeClickHandler} = useContext(ModeContext);
   return (
-    <CyclerBtnWrapper className="cycler" aria-label="mode-cycler" onClick={cycleclick} >
+    <CyclerBtnWrapper className="cycler" aria-label="mode-cycler" onClick={modeClickHandler} >
         <ModeIcons />
         <Incrementor />
     </CyclerBtnWrapper>

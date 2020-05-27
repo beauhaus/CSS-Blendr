@@ -1,17 +1,22 @@
-import React from 'react';
+import React,{createContext } from 'react';
 import { Transition, TransitionGroup } from 'react-transition-group';
 import {Helmet} from 'react-helmet'
 
 import './layout.scss';
 import Header from './scaffold/header'
 import useSiteMetadata from './hooks/use-site-metadata';
+ 
+
+export const NavContext = createContext();
 
 const Layout = ({ children, location }) => {
-    // console.log("Layout loc: ", location)
 
     const {title, description} = useSiteMetadata
     return (
-        <>
+        <NavContext.Provider
+        value={{
+          currentPath:location.pathname
+        }}>
         <Helmet>
             <html lang="en"/>
             <title>CSS Blendr</title>
@@ -23,7 +28,7 @@ const Layout = ({ children, location }) => {
                         {status => <div className={`page ${status}`}>{children}</div>}
                     </Transition>
                 </TransitionGroup>
-        </>
+        </NavContext.Provider>
     )
 };
 

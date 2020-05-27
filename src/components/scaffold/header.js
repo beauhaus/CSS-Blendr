@@ -2,13 +2,10 @@ import React from 'react';
 import './header.scss'
 import TopNavBtn from './topnavbtn'
 
-const Header = (props) => {
-    const path = props.currentPath;
-    return (
+const Header = () => (
         <header className="header-wrapper">
-            <TopNavBtn path={path} />
+            <TopNavBtn/>
         </header>
-    )
-};
+    );
 
 export default Header;

@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef,useContext } from 'react'
 import { gsap } from "gsap"; //  , Power4, Expo
-
+import {ModeContext} from '../../pages/page-a'
 import GlitchGif from '../../../static/images/glitchgif.gif'
 
 
-const VertGlitch = ({ mode }) => {
+const VertGlitch = () => {
     // console.log("from slider: mode=", mode)
-
+const {mode} = useContext(ModeContext)
     let tailGlitch = useRef(null) // 0%
     let centerGlitch = useRef(null) // 10%
     let headGlitch = useRef(null) // 20%

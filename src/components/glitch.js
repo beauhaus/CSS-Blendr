@@ -1,10 +1,10 @@
 import React, { useEffect, useRef} from 'react'
 import { gsap } from "gsap"; //  , Power4, Expo
 
-import Image1 from '../../static/images/magritte.jpg'
-import Image2 from '../../static/images/tritone.jpg'
+import Image1 from '../../static/images/gallery-images/magritte.jpg'
+import Image2 from '../../static/images/gallery-images/tritone.jpg'
 
-
+// TODO: scrap this file?
 const HorizRoll = ({ toggle }) => {
   // console.log("from slider: toggle=", toggle)
 
