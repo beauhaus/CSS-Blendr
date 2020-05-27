@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import { gsap } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components';
 import 'typeface-iceland'
+import {ModeContext} from '../../pages/page-a'
+
+// import { useStaticQuery } from 'gatsby';
 
 const ModeNameContainer = styled.div`
   width: 50%;
@@ -18,28 +21,19 @@ const ModeNameContainer = styled.div`
   }
 `
 
-const ModeNameDisplay = ({ mode }) => {
+const ModeNameDisplay = () => {
+  // const [addClass, setAddClass] = useState(true)
+  const {mode} = useContext(ModeContext);
+
   let txtBox = useRef(null)
-  const doCoolStuff=(()=>{
-    gsap.set(txtBox, { y:25})
-    
-    const tl = gsap.timeline({ defaults: { delay: .3 } })
-    
-    // if (tl && tl.isActive()) {
-    //   console.log("progress 1")
-    //   tl.progress(1);
-    // }
-    
-    tl
-    .to(txtBox, { duration: .2, y: 0 }, '-=0')
-    // .to(txtBox, { duration: 1, y: 25 }, '+=3')
-  })
   useEffect(()=> {
-    doCoolStuff()
+    gsap.set(txtBox, { y:25})
+    const tl = gsap.timeline({ defaults: { delay: .5 } })   
+    tl.to(txtBox, { duration: .2, y: 0 }, '-=0')
   },[mode])
 
   return (
-    <ModeNameContainer    ref={elem => txtBox = elem}>
+    <ModeNameContainer ref={elem => txtBox = elem} className={`mode-name-container`}>
       <h1 width="100%" height="100%">{mode}</h1>
     </ModeNameContainer>
   );

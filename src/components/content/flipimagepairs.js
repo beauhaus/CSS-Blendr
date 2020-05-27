@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef,useContext } from 'react'
 import { gsap, Back } from "gsap"; //  , Power4, Expo
+import {ModeContext} from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
-import Image1 from '../../../static/images/magritte.jpg'
-import Image2 from '../../../static/images/testimg.jpg'
+// import Image1 from '../../../static/images/magritte.jpg'
+// import Image2 from '../../../static/images/testimg.jpg'
 
 
-const FlipImagePairs = ({ flipToggle, modechange }) => {
+const FlipImagePairs = ({ flipToggle }) => {
+    const {mode, currentImage1,currentImage2} = useContext(ModeContext);
+
     const [flipTrigger, setFlipTrigger] = useState(true);
     let topImage = useRef(null)
     let botImage = useRef(null)
@@ -22,7 +25,7 @@ const FlipImagePairs = ({ flipToggle, modechange }) => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl.to(imgEffect, { duration: .1, opacity: .7 }, '-=0')
         tl.to(imgEffect, { duration: 1, opacity: 0 }, '-=0')
-    }, [modechange])
+    }, [mode])
 
     /*slide-out animation */
     useEffect(() => {
@@ -38,12 +41,12 @@ const FlipImagePairs = ({ flipToggle, modechange }) => {
     return (
         <>
             <svg className="bot-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={flipTrigger ? Image2 : Image1}
+                <image width="100%" height="100%" xlinkHref={flipTrigger ? currentImage2 : currentImage1}
                     preserveAspectRatio="none" ref={elem => botImage = elem} />
             </svg>
 
             <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={flipTrigger ? Image1 : Image2} preserveAspectRatio="none" ref={elem => topImage = elem} />
+                <image width="100%" height="100%" xlinkHref={flipTrigger ? currentImage1 : currentImage2} preserveAspectRatio="none" ref={elem => topImage = elem} />
                 <rect id="test1" stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} />
             </svg>
         </>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components'
-// import {RemoveScroll} from 'react-remove-scroll';
+import {ModeContext} from '../../pages/page-a'
 
 import Aqua from '../../../static/images/aqua.jpg'
 import Tiles1 from '../../../static/images/tiles1.jpeg'
@@ -9,6 +9,10 @@ import Rouge from '../../../static/images/rouge.jpg'
 
 import Street from '../../../static/images/street.jpg'
 // import xxx from '../../../static/images/xxx.jpg'
+// import xxx from '../../../static/images/xxx.jpg'
+import DeadTrees from '../../../static/images/deadtrees.jpg'
+import Rose from '../../../static/images/rose.jpg'
+import Socrates from '../../../static/images/socrates.jpg'
 import Mondrian from '../../../static/images/mondrian.jpeg'
 import Flowers from '../../../static/images/flowers.jpg'
 import Claudia from '../../../static/images/claudia.jpg'
@@ -58,9 +62,12 @@ img {
     }
 `
 
-const PhotoGallery = (galleryToggle) => (
+const PhotoGallery = () => {
+    const {galleryToggle} = useContext(ModeContext);
+
+    return (
     
-    <PhotoGalleryWrapper className="phuck">
+    <PhotoGalleryWrapper className="photo-gallery-container">
     {/* <button className="close-btn" onClick={galleryToggle}>X</button> */}
     <img src={Aqua} alt="num1"/>
     <img src={Tiles1} alt="num2"/>
@@ -74,6 +81,10 @@ const PhotoGallery = (galleryToggle) => (
     <img src={Claudia} alt="Claudia"/>
     <img src={Flowers} alt="Flowers"/>
     <img src={Mondrian} alt="Mondrian"/>
+    <img src={Socrates} alt="Socrates"/>
+    <img src={Rose} alt="Rose"/>
+    <img src={DeadTrees} alt="DeadTrees"/>
+    {/* <img src={xxx} alt="xxx"/> */}
     {/* <img src={xxx} alt="xxx"/> */}
 
         <h1>PhotoGallery</h1>
@@ -116,6 +127,6 @@ const PhotoGallery = (galleryToggle) => (
         
 
     </PhotoGalleryWrapper>
-)
+)}
 
 export default PhotoGallery;

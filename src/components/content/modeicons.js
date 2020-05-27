@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {ModeContext} from '../../pages/page-a'
 
 import NormalIcon from '../mode-icons/normal'
 import ScreenIcon from '../mode-icons/screen'
@@ -32,7 +33,8 @@ const ModeIconsGroup = styled.svg`
     }
   }
 `
-const ModeIcons = ({ modeNum }) => {
+const ModeIcons = () => {
+  const {modeNum} = useContext(ModeContext);
 
   const renderIcon = (param) => {
     switch (param) {

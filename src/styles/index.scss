@@ -80,7 +80,15 @@ body {
         }
     }
 }
-
+@-webkit-keyframes fadeout {
+    0%{opacity: 1}
+    100% { opacity: 0; }
+  }
+  
+  @keyframes fadeout {
+    0%{opacity: 1}
+    100% { opacity: 0; }
+  }
 
     @supports (-moz-appearance:none) {
         .standard-BG {

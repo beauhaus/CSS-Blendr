@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
+
 import PanelBG from '../components/content/panelbg'
 import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
 import ImageViewer from '../components/content/imageviewer'
+
+import CurrentImg1 from '../../static/images/rose.jpg'
+import CurrentImg2 from '../../static/images/testimg.jpg'
 
 
 const useMdx = () => {
@@ -17,11 +21,13 @@ const useMdx = () => {
         }
       }
     }
-}
+  }
 `)
   const resultArray = data.allMdx.nodes.map(item => item.frontmatter.title)
   return resultArray;
 }
+
+export const ModeContext= createContext();
 
 const PageAWrapper = styled.div`
 /* TODO: this image doesn't 'contain' the panel */
@@ -61,13 +67,14 @@ const PageAWrapper = styled.div`
 const PageA = (props) => {
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
+  // const [displayImg1, setDisplayImg1] = useState(0);
+  // const [displayImg2, setDisplayImg2] = useState(0);
   const [flipToggle, setFlipToggle] = useState(false);
   const [galleryOpenToggle, setGalleryOpenToggle] = useState(false);
   
   useEffect(() => {
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
   })
-  // console.log("p>query: ", modesArray);
 
   const modeClickHandler = () => {
     setModeNum((modeNum + 1) % 16)
@@ -78,22 +85,44 @@ const PageA = (props) => {
     setFlipToggle(!flipToggle)
 }
 const galleryopener = () => {
-  console.log("galleryopener clicked!")
+  // console.log("galleryopener clicked!")
   setGalleryOpenToggle(!galleryOpenToggle)
 }
   return (
+    <ModeContext.Provider
+    value={{
+      mode: modesArray[modeNum],
+      modeNum,
+      flipToggle,
+      galleryopener,
+      galleryOpenToggle,
+      currentImage1: CurrentImg1,
+      currentImage2: CurrentImg2
+    }}>
     <PageAWrapper className="page-a-wrapper" >
       <PanelBG />
       <hr />
       <section className="panel-section">
         {/* <div className="img-viewer"></div> */}
-        <ImageViewer mode={modesArray[modeNum]} flipToggle={flipToggle} galleryopener={galleryopener} galleryOpenToggle={galleryOpenToggle}/>
+        <ImageViewer
+        // galleryopener={galleryopener}
+        // galleryOpenToggle={galleryOpenToggle}
+        // viewerImg1={Img1}
+        // viewerImg2={Img2}
+        />
         <div className="blend-ctrl-btns" >
-          <FlipScreenBtn flipToggler={flipToggleHandler} flipToggle={flipToggle} mode={modeNum}/>
+          <FlipScreenBtn
+          flipToggler={flipToggleHandler}
+          flipToggle={flipToggle}
+          mode={modeNum}
+          // viewerImg1={Img1}
+          // viewerImg2={Img2}
+          />
           <CyclerBtn modeNum={modeNum} cycleclick={modeClickHandler} />
         </div>
       </section>
     </PageAWrapper>
+    </ModeContext.Provider>
   )
 };
 

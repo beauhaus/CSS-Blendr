@@ -2,25 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ModeIcons from './modeicons'
 // import { graphql, useStaticQuery } from 'gatsby';
-
 import Incrementor from './incrementor'
-
-
-// const useMdx = () => {
-//   const data = useStaticQuery(graphql`
-//   query {
-//   allMdx {
-//     nodes {
-//       frontmatter {
-//         title
-//       }
-//     }
-//   }
-// }
-// `)
-//   return data;
-// }
-
 
 const CyclerBtnWrapper = styled.button`
     position: relative;  
@@ -41,8 +23,8 @@ const CyclerBtnWrapper = styled.button`
 const CyclerBtn = ({cycleclick, modeNum}) => {
   return (
     <CyclerBtnWrapper className="cycler" aria-label="mode-cycler" onClick={cycleclick} >
-        <ModeIcons modeNum={modeNum}/>
-        <Incrementor modeNum={modeNum}/>
+        <ModeIcons />
+        <Incrementor />
     </CyclerBtnWrapper>
   )
 };

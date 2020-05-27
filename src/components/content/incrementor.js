@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {ModeContext} from '../../pages/page-a'
 
 
 const IncrementWrapper = styled.svg`
@@ -39,8 +40,9 @@ const IncrementWrapper = styled.svg`
   100% { opacity: 1; }
 }
 `
-const Incrementor = ({ modeNum }) => {
-  // console.log("num: ", modeNum)
+const Incrementor = () => {
+  const {modeNum} = useContext(ModeContext);
+
   return (
     <IncrementWrapper className="incrementor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
       <filter id="blurFilter" y="-5" x="-10" height="40" width="60">
