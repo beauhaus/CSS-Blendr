@@ -1,25 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
+import Image from 'gatsby-image'
+import useGalleryImages from '../hooks/use-gallery-images'
 // import {ModeContext} from '../../pages/page-a'
-
-import Aqua from '../../../static/images/gallery-images/aqua.jpg'
-import Tiles1 from '../../../static/images/gallery-images/tiles1.jpeg'
-import Tiles2 from '../../../static/images/gallery-images/tiles2.jpeg'
-import Rouge from '../../../static/images/gallery-images/rouge.jpg'
-
-import Street from '../../../static/images/gallery-images/street.jpg'
-// import xxx from '../../../static/images/gallery-images/xxx.jpg'
-// import xxx from '../../../static/images/gallery-images/xxx.jpg'
-import DeadTrees from '../../../static/images/gallery-images/deadtrees.jpg'
-import Rose from '../../../static/images/gallery-images/rose.jpg'
-import Socrates from '../../../static/images/gallery-images/socrates.jpg'
-import Mondrian from '../../../static/images/gallery-images/mondrian.jpeg'
-import Flowers from '../../../static/images/gallery-images/flowers.jpg'
-import Claudia from '../../../static/images/gallery-images/claudia.jpg'
-import Eye from '../../../static/images/gallery-images/eye.jpg'
-import TestImg from '../../../static/images/gallery-images/testimg.jpg'
-import Tritone from '../../../static/images/gallery-images/tritone.jpg'
-import Magritte from '../../../static/images/gallery-images/magritte.jpg'
 
 const PhotoGalleryWrapper = styled.div`
 width: 100%;
@@ -30,20 +13,25 @@ left: 0;
 padding: 2%;
 background: var(--photo-gallery-bg);
 overflow-y: scroll;
+overflow-x: hidden;
 z-index: 5;
 display: grid;
-grid-template-columns: repeat(3, 30vw);
-grid-template-rows: repeat(30, 15vh);
+grid-template-columns: repeat(3, 28vw);
+grid-template-rows: repeat(20, 28vw);
+
 justify-content: space-around;
-${'' /* box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.9); */}
-img {
-    width: 90%;
-    height: 90%;
-    margin: auto;
-    border-radius: 10px;
+
+.gallery-thumb{
+    margin: .5rem 0;
+    position: relative;
+    border: 1px solid #fff;
+    padding: 1%;
+    .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
+    }
 }
 
-    
 .close-btn {
     height: 12vh;
     width: 12vh;
@@ -62,69 +50,46 @@ img {
 
 const PhotoGallery = () => {
     // const {galleryToggleVal} = useContext(ModeContext);
+    const thumbNails = useGalleryImages();
 
     return (
-    
-    <PhotoGalleryWrapper className="photo-gallery-container">
-    {/* <button className="close-btn" onClick={galleryToggle}>X</button> */}
-    <img src={Aqua} alt="num1"/>
-    <img src={Tiles1} alt="num2"/>
-    <img src={Tiles2} alt="num3"/>
-    <img src={Rouge} alt="rouge"/>
-    <img src={Eye} alt="Eye"/>
-    <img src={TestImg} alt="TestImg"/>
-    <img src={Street} alt="Street"/>
-    <img src={Magritte} alt="Magritte"/>
-    <img src={Tritone} alt="Tritone"/>
-    <img src={Claudia} alt="Claudia"/>
-    <img src={Flowers} alt="Flowers"/>
-    <img src={Mondrian} alt="Mondrian"/>
-    <img src={Socrates} alt="Socrates"/>
-    <img src={Rose} alt="Rose"/>
-    <img src={DeadTrees} alt="DeadTrees"/>
-    {/* <img src={xxx} alt="xxx"/> */}
-    {/* <img src={xxx} alt="xxx"/> */}
 
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1> 
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        <h1>PhotoGallery</h1>
-        
+        <PhotoGalleryWrapper className="photo-gallery-container">
 
-    </PhotoGalleryWrapper>
-)}
+            {thumbNails.map((imgObj, idx) => (
+                <div className="gallery-thumb"
+                    key={imgObj.id}
+                >
+                    <Image
+                        fluid={imgObj.img.fluid}
+                        alt={imgObj.id}
+                    />
+                </div>
+            ))}
+        </PhotoGalleryWrapper>
+    )
+}
 
 export default PhotoGallery;
+
+/*
+// import Aqua from '../../../images/gallery-images/aqua.jpg'
+
+// import Tiles1 from '../../../images/gallery-images/tiles1.jpeg'
+// import Tiles2 from '../../../images/gallery-images/tiles2.jpeg'
+// import Rouge from '../../../images/gallery-images/rouge.jpg'
+
+// import Street from '../../../images/gallery-images/street.jpg'
+// import xxx from '../../../images/gallery-images/xxx.jpg'
+// import xxx from '../../../images/gallery-images/xxx.jpg'
+// import DeadTrees from '../../../images/gallery-images/deadtrees.jpg'
+// import Rose from '../../../images/gallery-images/rose.jpg'
+// import Socrates from '../../../images/gallery-images/socrates.jpg'
+// import Mondrian from '../../../images/gallery-images/mondrian.jpeg'
+// import Flowers from '../../../images/gallery-images/flowers.jpg'
+// import Claudia from '../../../images/gallery-images/claudia.jpg'
+// import Eye from '../../../images/gallery-images/eye.jpg'
+// import TestImg from '../../../images/gallery-images/testimg.jpg'
+// import Tritone from '../../../images/gallery-images/tritone.jpg'
+// import Magritte from '../../../images/gallery-images/magritte.jpg'
+*/

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 // import Link from 'gatsby-link';
 import styled from 'styled-components';
 // import ColorDodgeIcon from '../components/content/colordodgeicon';
-import Glitch from '../components/glitch'
+// import Glitch from '../components/glitch'
 
 const PageBWrapper = styled.div`
 box-shadow: inset 0 0 0 4px slategrey;
@@ -44,7 +44,7 @@ display: grid;
     
      {/* <Link to="/page-a">GOTO A</Link> 
     <Link to="/page-c">GOTO C</Link> */}
-   <Glitch toggle={flipToggle}/>
+   {/* <Glitch toggle={flipToggle}/> */}
   </PageBWrapper>
 )};
 

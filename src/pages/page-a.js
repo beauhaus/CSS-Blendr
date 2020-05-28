@@ -9,8 +9,8 @@ import ImageViewer from '../components/content/imageviewer'
 
 // import CurrentImg1 from '../../static/images/galery-images/rose.jpg'
 // import CurrentImg2 from '../../static/images/galery-images/testimg.jpg'
-import CurrentImg1 from '../../static/images/gallery-images/rose.jpg'
-import CurrentImg2 from '../../static/images/gallery-images/testimg.jpg'
+import CurrentImg1 from '../../images/gallery-images/rose.jpg'
+import CurrentImg2 from '../../images/gallery-images/testimg.jpg'
 
 
 

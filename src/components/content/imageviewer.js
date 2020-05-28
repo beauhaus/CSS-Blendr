@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
 import {ModeContext} from '../../pages/page-a'
 
-
 import VertGlitch from './vertglitch'
 import PhotoGallery from './photogallery'
 
