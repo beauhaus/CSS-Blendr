@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef, useContext } from 'react'
 import styled from 'styled-components'
+import { gsap } from "gsap";
 import Image from 'gatsby-image'
 import useGalleryImages from '../hooks/use-gallery-images'
-// import {ModeContext} from '../../pages/page-a'
+import {ModeContext} from '../../pages/page-a'
+
 
 const PhotoGalleryWrapper = styled.div`
+opacity: 0;
 width: 100%;
 max-height: 100%;
 position: absolute;
@@ -14,7 +17,7 @@ padding: 2%;
 background: var(--photo-gallery-bg);
 overflow-y: scroll;
 overflow-x: hidden;
-z-index: 5;
+z-index: 4;
 display: grid;
 grid-template-columns: repeat(3, 28vw);
 grid-template-rows: repeat(20, 28vw);
@@ -31,36 +34,32 @@ justify-content: space-around;
         height: 100%;
     }
 }
-
-.close-btn {
-    height: 12vh;
-    width: 12vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: slategrey;
-    color: coral;
-}
-    h1 {
-        fill: #fff;
-        font-size: 3rem;
-        display: none;
-    }
 `
 
 const PhotoGallery = () => {
     // const {galleryToggleVal} = useContext(ModeContext);
-    const thumbNails = useGalleryImages();
+    const { galleryOpenToggleVal} = useContext(ModeContext);
 
+    const thumbNails = useGalleryImages();
+    let gallery = useRef(null)
+    useEffect(()=> {
+      gsap.set(gallery, { opacity: 0})
+      const tl = gsap.timeline({ defaults: { delay: .3 } })   
+      tl.to(gallery, { duration: .5, opacity: 1 }, '-=0')
+    },[galleryOpenToggleVal])
+  
+    const setTest = (payload) => {
+        console.log("set Test", payload)
+    }
     return (
 
-        <PhotoGalleryWrapper className="photo-gallery-container">
-
-            {thumbNails.map((imgObj, idx) => (
+        <PhotoGalleryWrapper className="photo-gallery-container" ref={elem => gallery = elem}>
+            {galleryOpenToggleVal && thumbNails.map(imgObj => (
                 <div className="gallery-thumb"
                     key={imgObj.id}
+                    onClick={e=>setTest(imgObj.id)}
                 >
-                    <Image
+                    <Image 
                         fluid={imgObj.img.fluid}
                         alt={imgObj.id}
                     />
@@ -71,25 +70,3 @@ const PhotoGallery = () => {
 }
 
 export default PhotoGallery;
-
-/*
-// import Aqua from '../../../images/gallery-images/aqua.jpg'
-
-// import Tiles1 from '../../../images/gallery-images/tiles1.jpeg'
-// import Tiles2 from '../../../images/gallery-images/tiles2.jpeg'
-// import Rouge from '../../../images/gallery-images/rouge.jpg'
-
-// import Street from '../../../images/gallery-images/street.jpg'
-// import xxx from '../../../images/gallery-images/xxx.jpg'
-// import xxx from '../../../images/gallery-images/xxx.jpg'
-// import DeadTrees from '../../../images/gallery-images/deadtrees.jpg'
-// import Rose from '../../../images/gallery-images/rose.jpg'
-// import Socrates from '../../../images/gallery-images/socrates.jpg'
-// import Mondrian from '../../../images/gallery-images/mondrian.jpeg'
-// import Flowers from '../../../images/gallery-images/flowers.jpg'
-// import Claudia from '../../../images/gallery-images/claudia.jpg'
-// import Eye from '../../../images/gallery-images/eye.jpg'
-// import TestImg from '../../../images/gallery-images/testimg.jpg'
-// import Tritone from '../../../images/gallery-images/tritone.jpg'
-// import Magritte from '../../../images/gallery-images/magritte.jpg'
-*/

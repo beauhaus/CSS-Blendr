@@ -62,8 +62,8 @@ const ImageViewerWrapper = styled.div`
         left: 0;
         background: red;
     }
+   
 `
-// "slow(0.7, 0.7, false)"
 
 const ImageViewer = () => {
     const {mode,flipToggleVal,galleryOpener,currentImage1, currentImage2, galleryOpenToggleVal} = useContext(ModeContext);
@@ -85,7 +85,8 @@ const ImageViewer = () => {
     }, [flipToggleVal])
 
     return (
-        <ImageViewerWrapper className="img-viewer" onClick={galleryOpener}>
+        <>
+        <ImageViewerWrapper className="img-viewer" >
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                 <g>
                     <image className="img-back" xlinkHref={flipTrigger ? currentImage2 : currentImage1}
@@ -97,11 +98,14 @@ const ImageViewer = () => {
                 </g>
             </svg>
             <ModeNameDisplay  />
-            <VertGlitch mode={mode} />
+            <VertGlitch />
             {galleryOpenToggleVal && 
                 <PhotoGallery  />
             }
-        </ImageViewerWrapper>)
+        </ImageViewerWrapper>
+        <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
+
+</>)
 }
 
 export default ImageViewer;

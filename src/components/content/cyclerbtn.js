@@ -22,9 +22,9 @@ const CyclerBtnWrapper = styled.button`
      
 `
 const CyclerBtn = () => {
-  const {modeClickHandler} = useContext(ModeContext);
+  const {modeSelectHandler} = useContext(ModeContext);
   return (
-    <CyclerBtnWrapper className="cycler" aria-label="mode-cycler" onClick={modeClickHandler} >
+    <CyclerBtnWrapper className="cycler" aria-label="mode-cycler" onClick={modeSelectHandler} >
         <ModeIcons />
         <Incrementor />
     </CyclerBtnWrapper>

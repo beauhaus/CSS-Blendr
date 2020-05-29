@@ -7,11 +7,9 @@ const useGaleryImages = () => {
         nodes {
           id
           image: childImageSharp {
-            #fluid(maxHeight: 600, maxWidth: 600)  {
-            #  ...GatsbyImageSharpFluid_withWebp
-            #}
             fluid  {
-              ...GatsbyImageSharpFluid_withWebp
+              #...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

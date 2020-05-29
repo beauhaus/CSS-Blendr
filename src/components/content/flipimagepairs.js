@@ -4,7 +4,6 @@ import {ModeContext} from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
-
 const FlipImagePairs = () => {
     const {mode, currentImage1,currentImage2,flipToggleVal} = useContext(ModeContext);
 

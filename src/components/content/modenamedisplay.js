@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext } from 'react'
-import { gsap } from "gsap"; //  , Power4, Expo
+import { gsap } from "gsap";
 import styled from 'styled-components';
 import 'typeface-iceland'
 import {ModeContext} from '../../pages/page-a'
@@ -22,18 +22,18 @@ const ModeNameContainer = styled.div`
 `
 
 const ModeNameDisplay = () => {
-  // const [addClass, setAddClass] = useState(true)
   const {mode} = useContext(ModeContext);
 
   let txtBox = useRef(null)
   useEffect(()=> {
     gsap.set(txtBox, { y:25})
-    const tl = gsap.timeline({ defaults: { delay: .5 } })   
+    const tl = gsap.timeline({ defaults: { delay: .3 } })   
     tl.to(txtBox, { duration: .2, y: 0 }, '-=0')
   },[mode])
 
   return (
-    <ModeNameContainer ref={elem => txtBox = elem} className={`mode-name-container`}>
+    <ModeNameContainer  className={`mode-name-container`}
+    ref={elem => txtBox = elem}>
       <h1 width="100%" height="100%">{mode}</h1>
     </ModeNameContainer>
   );
