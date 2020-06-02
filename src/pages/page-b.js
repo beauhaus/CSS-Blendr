@@ -40,7 +40,7 @@ display: grid;
     // console.log("p> B: ", props)
     return(
       <PageBWrapper className="page-b-wrapper">
-      <button className="toggler" onClick={toggler}>Effect</button>
+      {/* <button className="toggler" onClick={toggler}>Effect</button> */}
     
      {/* <Link to="/page-a">GOTO A</Link> 
     <Link to="/page-c">GOTO C</Link> */}

@@ -66,15 +66,23 @@ const ImageViewerWrapper = styled.div`
 `
 
 const ImageViewer = () => {
-    const {mode,flipToggleVal,galleryOpener,currentImage1, currentImage2, galleryOpenToggleVal} = useContext(ModeContext);
+    const {mode,
+           image1,
+           image2,
+           flipToggleVal,
+           galleryOpener,
+           selectedTop,
+           selectedBot,
+           galleryOpenVal
+        } = useContext(ModeContext);
 
     const [flipTrigger, setFlipTrigger] = useState(true);
     let botImage = useRef(null)
     let topImage = useRef(null)
-    const flipImages = () => {
-        setFlipTrigger(!flipTrigger)
-    }
     useEffect(() => {
+        const flipImages = () => {
+            setFlipTrigger(!flipTrigger)
+        }
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
             .to(topImage, { duration: .3, x: -400 }, '-=0')
@@ -89,9 +97,9 @@ const ImageViewer = () => {
         <ImageViewerWrapper className="img-viewer" >
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                 <g>
-                    <image className="img-back" xlinkHref={flipTrigger ? currentImage2 : currentImage1}
+                    <image className="img-back" xlinkHref={''}
                         ref={elem => botImage = elem} />
-                    <image className="img-front" xlinkHref={flipTrigger ? currentImage1 : currentImage2}
+                    <image className="img-front" xlinkHref={''}
                         style={{ mixBlendMode: mode }}
                         ref={elem => topImage = elem}
                     />
@@ -99,10 +107,11 @@ const ImageViewer = () => {
             </svg>
             <ModeNameDisplay  />
             <VertGlitch />
-            {galleryOpenToggleVal && 
+            {galleryOpenVal && 
                 <PhotoGallery  />
             }
         </ImageViewerWrapper>
+
         <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
 
 </>)

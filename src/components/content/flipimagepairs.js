@@ -4,9 +4,9 @@ import {ModeContext} from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
-const FlipImagePairs = () => {
-    const {mode, currentImage1,currentImage2,flipToggleVal} = useContext(ModeContext);
-
+const FlipImagePairs = ({selBot, selTop}) => {
+    const {mode, flipToggleVal, gallery} = useContext(ModeContext);
+    //  console.log("flipPairs selectedTop",  selBot.URL)
     const [flipTrigger, setFlipTrigger] = useState(true);
     let topImage = useRef(null)
     let botImage = useRef(null)
@@ -15,7 +15,7 @@ const FlipImagePairs = () => {
     const flipImages=()=>{
         setFlipTrigger(!flipTrigger)
     }
-    /* affordance for changing modes */
+    /* affordance animation (arrows) for changing modes */
     useEffect(() => {
         gsap.set(imgEffect, { opacity: 0 })
         const tl = gsap.timeline({ defaults: { delay: 0 } })
@@ -33,17 +33,25 @@ const FlipImagePairs = () => {
         .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8) ,  x: 0 }, '-=0')
         .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8) , x: 0 }, '-=.5')
     }, [flipToggleVal])
-
     return (
         <>
             <svg className="bot-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={flipTrigger ? currentImage2 : currentImage1}
-                    preserveAspectRatio="none" ref={elem => botImage = elem} />
+                <image width="100%" height="100%" xlinkHref={selTop.URL}
+                    preserveAspectRatio="none" 
+                    ref={elem => botImage = elem} 
+
+                    />
             </svg>
 
             <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={flipTrigger ? currentImage1 : currentImage2} preserveAspectRatio="none" ref={elem => topImage = elem} />
-                <rect id="test1" stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} />
+                <image width="100%" height="100%" xlinkHref={selBot.URL} preserveAspectRatio="none"
+                 ref={elem => topImage = elem} 
+
+                 />
+                <rect id="test1" stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen"
+                 ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} 
+                     
+                 />
             </svg>
         </>
 

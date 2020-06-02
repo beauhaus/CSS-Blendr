@@ -1,14 +1,13 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-
 import PanelBG from '../components/content/panelbg'
-import CyclerBtn from '../components/content/cyclerbtn'
+// import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
 import ImageViewer from '../components/content/imageviewer'
+import useGalleryImages from '../components/hooks/use-gallery-images'
 
-import CurrentImg1 from '../../images/gallery-images/rose.jpg'
-import CurrentImg2 from '../../images/gallery-images/testimg.jpg'
+// import {imageSelector, moddedArrayLoader} from '../components/hooks/use-image-selector'
 
 
 const useMdx = () => {
@@ -27,7 +26,7 @@ const useMdx = () => {
   return resultArray;
 }
 
-export const ModeContext= createContext();
+export const ModeContext = createContext();
 
 const PageAWrapper = styled.div`
 /* TODO: this image doesn't 'contain' the panel */
@@ -85,67 +84,134 @@ const PageAWrapper = styled.div`
 }
 `
 
-
 const PageA = (props) => {
+  const galleryImages = useGalleryImages();
+  const [rawGallery, setRawGallery] = useState([])
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
   const [flipToggleVal, setFlipToggleVal] = useState(false);
-  const [galleryOpenToggleVal, setGalleryOpenToggleVal] = useState(false);
-  const [currentImage1, setCurrentImage1] =useState(CurrentImg1)
-  const [currentImage2, setCurrentImage2] =useState(CurrentImg2)
+  const [galleryOpenVal, setGalleryOpenVal] = useState(false);
+  const [selectedTop, setSelectedTop] = useState('');
+  const [selectedBot, setSelectedBot] = useState('');
+  const [selectedTopURL, setSelectedTopURL] = useState('');
+  const [selectedBotURL, setSelectedBotURL] = useState('');
+
+  const [botImg, setBotImg] = useState('');
+
+
+  const [gallery, setGallery] = useState([])
+
   useEffect(() => {
+    //updates Title
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
-  })
-  const image1Setter = (img) => {
-    setCurrentImage1(img)
-  }
-  const image2Setter = (img) => {
-    setCurrentImage2(img)
-  }
-    
+  }, [])
+
+  useEffect(() => {
+    //sets init images (path-change-tolerant)
+    setRawGallery(galleryImages)
+  }, [])
+
+  useEffect(() => {
+    if (rawGallery) {
+      console.log("rawGallery exists")
+      let [top] = rawGallery.filter(img => img.top)
+      // console.log("top: ", top)
+      let [bot] = rawGallery.filter(img => img.bot)
+      // console.log("bot: ", bot)
+
+
+      setSelectedTop(top)
+      setSelectedBot(bot)
+
+    }
+
+  }, [galleryImages])
+
+  useEffect(() => {
+    if (rawGallery) {
+
+
+      let [topURL] = rawGallery.filter(img => img.URL)
+      console.log("topURL: ", topURL)
+      let botURL = rawGallery.filter(img => img.URL)
+      // console.log("botURL: ", botURL.URL)
+    }
+
+  }, [])
+
+
   const modeSelectHandler = () => {
     setModeNum((modeNum + 1) % 16)
     return modeNum;
   }
-
   const flipToggleHandler = () => {
     // console.log("flipper clicked!")
     setFlipToggleVal(!flipToggleVal)
+  }
 
-}
-const galleryOpener = () => {
-  // console.log("galleryOpener clicked!")
-  setGalleryOpenToggleVal(!galleryOpenToggleVal)
-}
+  const galleryOpener = () => {
+    // console.log("galleryOpener clicked!")
+    setGalleryOpenVal(!galleryOpenVal)
+  }
+
+  console.log("selected top", selectedBotURL)
+  
+
+
   return (
     <ModeContext.Provider
-    value={{
-      mode: modesArray[modeNum],
-      modeNum,
-      flipToggleVal,
-      flipToggleHandler,
-      modeSelectHandler,
-      galleryOpener,
-      galleryOpenToggleVal,
-      currentImage1,
-      currentImage2,
-      image1Setter,
-      image2Setter
-    }}>
-    <PageAWrapper className="page-a-wrapper" >
-      <PanelBG />
-      <hr />
-      <section className="panel-section">
-      <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
-        <ImageViewer className="img-viewer"/>
-        <div className="blend-ctrl-btns" >
-          <FlipScreenBtn/>
-          <CyclerBtn />
-        </div>
-      </section>
-    </PageAWrapper>
+      value={{
+        mode: modesArray[modeNum],
+        modeNum,
+        flipToggleVal,
+        flipToggleHandler,
+        modeSelectHandler,
+        galleryOpener,
+        galleryOpenVal,
+        rawGallery,
+        selectedTop,
+        selectedBot
+      }}>
+      <PageAWrapper className="page-a-wrapper" >
+        <PanelBG />
+        <hr />
+        <section className="panel-section">
+          <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
+          <ImageViewer className="img-viewer" />
+          <div className="blend-ctrl-btns" >
+          {/* {console.log("inrender selbot:", selectedBotURL)} */}
+            <FlipScreenBtn selTop={selectedTop} selBot={selectedBot}/>
+            {/* <CyclerBtn /> */}
+          </div>
+        </section>
+      </PageAWrapper>
     </ModeContext.Provider>
   )
 };
 
 export default PageA;
+
+
+
+/*
+
+// const [findImg, setFindImg] =useState('')
+
+<h1 className="hooktest">{console.log("found: ", findImg)}</h1>
+   <button  value ="claudia" className="hooktest" onClick={(e)=>hookTest(e.target.value)}>claudia</button>
+          <button value ="rose" className="hooktest" onClick={(e)=>hookTest2(e.target.value)}>rose</button>
+
+
+//   const hookTest = (newImg) => {
+//     // setFindImg("claudia")
+//     setFindImg(imageSelector(rawGallery, newImg))
+// }
+
+// const hookTest2 = (newImg) => {
+//   setFindImg(imageSelector(rawGallery, newImg))
+// }
+
+
+
+
+*/
