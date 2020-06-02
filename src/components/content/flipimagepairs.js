@@ -35,21 +35,11 @@ const FlipImagePairs = () => {
     return (
         <>
             <svg className="bot-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={selectedBot.url}
-                    preserveAspectRatio="none" 
-                    ref={elem => botImage = elem} 
-                    />
+                <image width="100%" height="100%" xlinkHref={selectedBot.url} preserveAspectRatio="none" ref={elem => botImage = elem}  />
             </svg>
-
             <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={selectedTop.url} preserveAspectRatio="none"
-                 ref={elem => topImage = elem} 
-
-                 />
-                <rect id="test1" stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen"
-                 ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} 
-                     
-                 />
+                <image width="100%" height="100%" xlinkHref={selectedTop.url} preserveAspectRatio="none" ref={elem => topImage = elem} />
+                <rect id="test1" stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} />
             </svg>
         </>
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
-import {ModeContext} from '../../pages/page-a'
+import { ModeContext } from '../../pages/page-a'
 
 import VertGlitch from './vertglitch'
 import PhotoGallery from './photogallery'
@@ -66,13 +66,13 @@ const ImageViewerWrapper = styled.div`
 `
 
 const ImageViewer = () => {
-    const {mode,
-           flipToggleVal,
-           galleryOpener,
-           selectedTop,
-           selectedBot,
-           galleryOpenVal
-        } = useContext(ModeContext);
+    const { mode,
+        flipToggleVal,
+        galleryOpener,
+        selectedTop,
+        selectedBot,
+        galleryOpenVal
+    } = useContext(ModeContext);
 
     const [flipTrigger, setFlipTrigger] = useState(true);
     let botImage = useRef(null)
@@ -92,27 +92,23 @@ const ImageViewer = () => {
 
     return (
         <>
-        <ImageViewerWrapper className="img-viewer" >
-            <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
-                <g>
-                    <image className="img-back" xlinkHref={selectedBot.url}
-                        ref={elem => botImage = elem} />
-                    <image className="img-front" xlinkHref={selectedTop.url}
-                        style={{ mixBlendMode: mode }}
-                        ref={elem => topImage = elem}
-                    />
-                </g>
-            </svg>
-            <ModeNameDisplay  />
-            <VertGlitch />
-            {galleryOpenVal && 
-                <PhotoGallery  />
-            }
-        </ImageViewerWrapper>
+            <ImageViewerWrapper className="img-viewer" >
+                <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+                    <g>
+                        <image className="img-back" width="100%" height="100%" xlinkHref={selectedBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
+                        <image className="img-front" width="100%" height="100%" xlinkHref={selectedTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
+                    </g>
+                </svg>
+                <ModeNameDisplay />
+                <VertGlitch />
+                {galleryOpenVal &&
+                    <PhotoGallery />
+                }
+            </ImageViewerWrapper>
 
-        <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
+            <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
 
-</>)
+        </>)
 }
 
 export default ImageViewer;
