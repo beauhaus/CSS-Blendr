@@ -4,9 +4,8 @@ import {ModeContext} from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
-const FlipImagePairs = ({selBot, selTop}) => {
-    const {mode, flipToggleVal, gallery} = useContext(ModeContext);
-    //  console.log("flipPairs selectedTop",  selBot.URL)
+const FlipImagePairs = () => {
+    const {mode, flipToggleVal, selectedBot, selectedTop} = useContext(ModeContext);
     const [flipTrigger, setFlipTrigger] = useState(true);
     let topImage = useRef(null)
     let botImage = useRef(null)
@@ -28,7 +27,7 @@ const FlipImagePairs = ({selBot, selTop}) => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
         .to(botImage, { duration: .3,  x: 800 }, '-=0')
-        .to(topImage, { duration: .3,  x: -800 }, '-=.5')
+        .to(topImage, { duration: .3,  x: -800 }, '-=.3')
         .call(flipImages)
         .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8) ,  x: 0 }, '-=0')
         .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8) , x: 0 }, '-=.5')
@@ -36,15 +35,14 @@ const FlipImagePairs = ({selBot, selTop}) => {
     return (
         <>
             <svg className="bot-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={selTop.URL}
+                <image width="100%" height="100%" xlinkHref={selectedBot.url}
                     preserveAspectRatio="none" 
                     ref={elem => botImage = elem} 
-
                     />
             </svg>
 
             <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={selBot.URL} preserveAspectRatio="none"
+                <image width="100%" height="100%" xlinkHref={selectedTop.url} preserveAspectRatio="none"
                  ref={elem => topImage = elem} 
 
                  />

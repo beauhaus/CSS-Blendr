@@ -2,13 +2,14 @@ import React, { useState, useEffect, createContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import PanelBG from '../components/content/panelbg'
-// import CyclerBtn from '../components/content/cyclerbtn'
+import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
 import ImageViewer from '../components/content/imageviewer'
 import useGalleryImages from '../components/hooks/use-gallery-images'
 
 // import {imageSelector, moddedArrayLoader} from '../components/hooks/use-image-selector'
 
+// import TestComponent from '../components/testcomponent'
 
 const useMdx = () => {
   const data = useStaticQuery(graphql`
@@ -74,11 +75,11 @@ const PageAWrapper = styled.div`
         margin: 0 auto;
         grid-row: 2;
         display: flex;
+        flex-direction: row-reverse;
         justify-content: space-between;
         align-items: center;
         padding: 0 2vw;
         margin-top: 1vh;   
-        ${'' /* border: 1px dashed white;  */}
     }
 
 }
@@ -86,59 +87,29 @@ const PageAWrapper = styled.div`
 
 const PageA = (props) => {
   const galleryImages = useGalleryImages();
-  const [rawGallery, setRawGallery] = useState([])
+  const [gallery, setGallery] = useState([])
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
   const [flipToggleVal, setFlipToggleVal] = useState(false);
   const [galleryOpenVal, setGalleryOpenVal] = useState(false);
   const [selectedTop, setSelectedTop] = useState('');
   const [selectedBot, setSelectedBot] = useState('');
-  const [selectedTopURL, setSelectedTopURL] = useState('');
-  const [selectedBotURL, setSelectedBotURL] = useState('');
-
-  const [botImg, setBotImg] = useState('');
-
-
-  const [gallery, setGallery] = useState([])
 
   useEffect(() => {
-    //updates Title
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
   }, [])
 
   useEffect(() => {
-    //sets init images (path-change-tolerant)
-    setRawGallery(galleryImages)
+  
+    setGallery(galleryImages)
   }, [])
 
   useEffect(() => {
-    if (rawGallery) {
-      console.log("rawGallery exists")
-      let [top] = rawGallery.filter(img => img.top)
-      // console.log("top: ", top)
-      let [bot] = rawGallery.filter(img => img.bot)
-      // console.log("bot: ", bot)
-
-
+      let [top] = gallery.filter(img => img.top)
+      let [bot] = gallery.filter(img => img.bot)
       setSelectedTop(top)
       setSelectedBot(bot)
-
-    }
-
-  }, [galleryImages])
-
-  useEffect(() => {
-    if (rawGallery) {
-
-
-      let [topURL] = rawGallery.filter(img => img.URL)
-      console.log("topURL: ", topURL)
-      let botURL = rawGallery.filter(img => img.URL)
-      // console.log("botURL: ", botURL.URL)
-    }
-
-  }, [])
-
+  }, [gallery])
 
   const modeSelectHandler = () => {
     setModeNum((modeNum + 1) % 16)
@@ -154,10 +125,6 @@ const PageA = (props) => {
     setGalleryOpenVal(!galleryOpenVal)
   }
 
-  console.log("selected top", selectedBotURL)
-  
-
-
   return (
     <ModeContext.Provider
       value={{
@@ -168,7 +135,7 @@ const PageA = (props) => {
         modeSelectHandler,
         galleryOpener,
         galleryOpenVal,
-        rawGallery,
+        gallery,
         selectedTop,
         selectedBot
       }}>
@@ -177,12 +144,12 @@ const PageA = (props) => {
         <hr />
         <section className="panel-section">
           <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
-          <ImageViewer className="img-viewer" />
+                      {(selectedTop && selectedBot)&& <ImageViewer className="img-viewer" />}
           <div className="blend-ctrl-btns" >
-          {/* {console.log("inrender selbot:", selectedBotURL)} */}
-            <FlipScreenBtn selTop={selectedTop} selBot={selectedBot}/>
-            {/* <CyclerBtn /> */}
+            <CyclerBtn />
+            <FlipScreenBtn/>
           </div>
+            {/* {(selectedTop && selectedBot)&& <TestComponent/>} */}
         </section>
       </PageAWrapper>
     </ModeContext.Provider>
@@ -204,11 +171,11 @@ export default PageA;
 
 //   const hookTest = (newImg) => {
 //     // setFindImg("claudia")
-//     setFindImg(imageSelector(rawGallery, newImg))
+//     setFindImg(imageSelector(gallery, newImg))
 // }
 
 // const hookTest2 = (newImg) => {
-//   setFindImg(imageSelector(rawGallery, newImg))
+//   setFindImg(imageSelector(gallery, newImg))
 // }
 
 

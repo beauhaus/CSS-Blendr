@@ -36,20 +36,21 @@ const PhotoGalleryWrapper = styled.div`
 `
 
 const PhotoGallery = () => {
-    const { galleryOpenVal, rawGallery } = useContext(ModeContext);
+    const { galleryOpenVal, gallery } = useContext(ModeContext);
 
-    let gallery = useRef(null)
+    let displayGallery = useRef(null)
 
     useEffect(() => {
-        gsap.set(gallery, { opacity: 0 })
+        gsap.set(displayGallery, { opacity: 0 })
         const tl = gsap.timeline({ defaults: { delay: .3 } })
-        tl.to(gallery, { duration: .5, opacity: 1 }, '-=0')
+        tl.to(displayGallery, { duration: .5, opacity: 1 }, '-=0')
     }, [galleryOpenVal])
 
     return (
-        <PhotoGalleryWrapper className="photo-gallery-container" ref={elem => gallery = elem}>
+        <PhotoGalleryWrapper className="photo-gallery-container" 
+        ref={elem => displayGallery = elem}>
             {galleryOpenVal &&
-                rawGallery.map(imgObj => (
+                gallery.map(imgObj => (
                     <GalleryThumbnailCard key={imgObj.name}
                         imagedata={imgObj}
                     />

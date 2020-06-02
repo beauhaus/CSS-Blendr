@@ -62,7 +62,7 @@ export { imageSelector, moddedArrayLoader };
 
 /*
 const outside = (name, arr) =>{
-  console.log("outside!")
+  // console.log("outside!")
   // console.log("outside: name: ", name, "arr:", arr)
 
  var item = arr.filter((item, idx) => arr[3])

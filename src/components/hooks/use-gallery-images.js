@@ -6,9 +6,10 @@ const useGalleryImages = () => {
    query {
       allFile(filter: {sourceInstanceName: {eq: "images"}}) {
         nodes {
-          id
           name
-          publicURL
+         # src: sourceInstanceName
+         # imgpath: relativePath
+          URL: publicURL
           image: childImageSharp {
             fluid  {
               #...GatsbyImageSharpFluid_withWebp
@@ -22,24 +23,23 @@ const useGalleryImages = () => {
 
   let imgArray = data.allFile.nodes;
 
-  let imgObj = {};
+  // let imgObj = {};
   let min = 0;
   let max = imgArray.length;
   let rand1 = Math.floor(Math.random() * (max - min) + min);
   let rand2 = Math.floor(Math.random() * (max - min) + min);
 
-  return imgArray.map((node, idx) => {
-    imgObj = {
-      img: node.image,
-      id: node.id,
-      URL: node.publicURL,
-      name: node.name,
-    }
-    imgObj.top = (idx === rand1 ? true : false);
-    imgObj.bot = (idx === rand2 ? true : false);
-    return imgObj;
-  })
-
+  // "src:" is a direct, unprocessed link to image
+  // "img:" is for gatsby-image -> fluid=(img.fluid)
+  return imgArray.map((node, idx) => ({
+    img: node.image,
+    name: node.name,
+    url: node.URL,
+    top: (idx === rand1 ? true : false),
+    bot: (idx === rand2 ? true : false),
+  }))
+  
+  // src: `/${node.src}/${node.imgpath}`
 }
 
 export default useGalleryImages;

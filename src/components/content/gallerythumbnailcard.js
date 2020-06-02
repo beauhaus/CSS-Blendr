@@ -12,9 +12,9 @@ ${'' /* border-color: ${props => props.primary ? "palevioletred" : "white"}; */}
 `
 
 const GalleryThumbnailCard = ({ imagedata }) => {
-    console.log("thumbsrefresh ")
+    // console.log("thumbsrefresh ")
     const handleClick = (nameInput) => {
-        console.log("imagedata:", nameInput)
+        // console.log("imagedata:", nameInput)
     
     }
     

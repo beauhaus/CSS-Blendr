@@ -67,8 +67,6 @@ const ImageViewerWrapper = styled.div`
 
 const ImageViewer = () => {
     const {mode,
-           image1,
-           image2,
            flipToggleVal,
            galleryOpener,
            selectedTop,
@@ -97,9 +95,9 @@ const ImageViewer = () => {
         <ImageViewerWrapper className="img-viewer" >
             <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                 <g>
-                    <image className="img-back" xlinkHref={''}
+                    <image className="img-back" xlinkHref={selectedBot.url}
                         ref={elem => botImage = elem} />
-                    <image className="img-front" xlinkHref={''}
+                    <image className="img-front" xlinkHref={selectedTop.url}
                         style={{ mixBlendMode: mode }}
                         ref={elem => topImage = elem}
                     />
