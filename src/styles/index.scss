@@ -1,13 +1,13 @@
 @import './variables.scss';
 // @font-face {
-    // font-family: 'Fugaz One';
-    // font-style: normal;
-    // font-weight: normal;
-    // src: local('Fugaz One'), local('FugazOne-Regular'),
-    //      url('../../static/fonts/') format('woff2'), 
-    //      url('../../static/fonts/fugaz-one-regular.woff') format('woff'), 
-    //       url('../../static/fonts/fugaz-one-regular.ttf') format('truetype');
-        //  url('../fonts/fugaz-one-regular.svg#FugazOne') format('svg'); 
+// font-family: 'Fugaz One';
+// font-style: normal;
+// font-weight: normal;
+// src: local('Fugaz One'), local('FugazOne-Regular'),
+//      url('../../static/fonts/') format('woff2'), 
+//      url('../../static/fonts/fugaz-one-regular.woff') format('woff'), 
+//       url('../../static/fonts/fugaz-one-regular.ttf') format('truetype');
+//  url('../fonts/fugaz-one-regular.svg#FugazOne') format('svg'); 
 //   }
 
 * {
@@ -52,6 +52,7 @@ body {
         user-select: none;
         -webkit-tap-highlight-color: transparent;
     }
+
     button {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -80,34 +81,69 @@ body {
         }
     }
 }
-@-webkit-keyframes fadeout {
-    0%{opacity: 1}
-    100% { opacity: 0; }
-  }
-  
-  @keyframes fadeout {
-    0%{opacity: 1}
-    100% { opacity: 0; }
-  }
 
-    @supports (-moz-appearance:none) {
-        .standard-BG {
-            display: none;
-        }
-        .moz-BG-fix {
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left:0;
-              background: red;
-            }
+@-webkit-keyframes fadeout {
+    0% {
+        opacity: 1
     }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@supports (-moz-appearance:none) {
+    .standard-BG {
+        display: none;
+    }
+
+    .moz-BG-fix {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: red;
+    }
+}
+
 .hooktest {
     color: #fff;
     border: 1px solid #fff;
     width: 22vw;
     height: 10vh;
     font-size: 1.5rem;
+}
+
+.tester2 {
+    margin: .5rem 0;
+    position: relative;
+    padding: 1%;
+
+    .selected-img-top {
+        box-shadow: 0px 0px 5px 5px coral;
+
+    }
+
+    .selected-img-bot {
+        box-shadow: 0px 0px 5px 5px yellow;
+
+    }
+
+    .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
 }

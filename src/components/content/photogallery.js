@@ -20,19 +20,6 @@ const PhotoGalleryWrapper = styled.div`
     grid-template-columns: repeat(3, 28vw);
     grid-template-rows: repeat(20, 28vw);
     justify-content: space-around;
-    .selectedImg{
-        box-shadow: 0px 0px 5px 5px yellow;
-    }
-    .gallery-thumb{
-        margin: .5rem 0;
-        position: relative;
-        ${'' /* border: 1px solid #fff; */}
-        padding: 1%;
-        .gatsby-image-wrapper {
-            width: 100%;
-            height: 100%;
-        }
-    }
 `
 
 const PhotoGallery = () => {
@@ -52,7 +39,7 @@ const PhotoGallery = () => {
             {galleryOpenVal &&
                 gallery.map(imgObj => (
                     <GalleryThumbnailCard key={imgObj.name}
-                        imagedata={imgObj}
+                        imgObj={imgObj}
                     />
                 ))}
         </PhotoGalleryWrapper>

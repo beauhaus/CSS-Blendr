@@ -92,20 +92,29 @@ const PageA = (props) => {
   const [modeNum, setModeNum] = useState(0);
   const [flipTriggerVal, setFlipTriggerVal] = useState(false);
   const [galleryOpenVal, setGalleryOpenVal] = useState(false);
-  const [selectedTop, setSelectedTop] = useState('');
-  const [selectedBot, setSelectedBot] = useState('');
+  // selTop setSelTop = "selTop"
+  const [selTop, setSelTop] = useState('');
+  const [selBot, setSelBot] = useState('');
   const [imgFlipperVal, setImgFlipperVal] = useState('');
 
 
   const imgFlipper = () => {
-
     setImgFlipperVal(!imgFlipperVal)
   }
 
-
+  // switcher
   useEffect(() => {
-    setSelectedTop(selectedBot)
-    setSelectedBot(selectedTop)
+    gallery.forEach(imgObj => {
+      if (imgObj.top !== imgObj.bot) {
+        imgObj.top = !imgObj.top;
+        imgObj.bot = !imgObj.bot;
+      }
+    })
+  setGallery(gallery)
+    let [top] = gallery.filter(img => img.top)
+    let [bot] = gallery.filter(img => img.bot)
+    setSelTop(top)
+    setSelBot(bot)
   }, [imgFlipperVal])
 
   useEffect(() => {
@@ -114,13 +123,14 @@ const PageA = (props) => {
 
   useEffect(() => {
     setGallery(galleryImages)
+
   }, [])
 
   useEffect(() => {
-    let [top] = gallery.filter(img => img.top)
+     let [top] = gallery.filter(img => img.top)
     let [bot] = gallery.filter(img => img.bot)
-    setSelectedTop(top)
-    setSelectedBot(bot)
+    setSelTop(top)
+    setSelBot(bot)
   }, [gallery])
 
   const modeSelectHandler = () => {
@@ -136,6 +146,7 @@ const PageA = (props) => {
     // console.log("galleryOpener clicked!")
     setGalleryOpenVal(!galleryOpenVal)
   }
+  console.log("selTop", selTop)
 
   return (
     <ModeContext.Provider
@@ -148,8 +159,10 @@ const PageA = (props) => {
         galleryOpener,
         galleryOpenVal,
         gallery,
-        selectedTop,
-        selectedBot,
+        selTop,
+        selBot,
+        setSelTop,
+        setSelBot,
         imgFlipper
       }}>
       <PageAWrapper className="page-a-wrapper" >
@@ -157,12 +170,12 @@ const PageA = (props) => {
         <hr />
         <section className="panel-section">
           <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
-          {(selectedTop && selectedBot) && <ImageViewer className="img-viewer" />}
+          {(selTop && selBot) && <ImageViewer className="img-viewer" />}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
             <FlipScreenBtn />
           </div>
-          {/* {(selectedTop && selectedBot)&& <TestComponent/>} */}
+          {/* {(selTop && selBot)&& <TestComponent/>} */}
         </section>
       </PageAWrapper>
     </ModeContext.Provider>

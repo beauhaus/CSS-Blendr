@@ -1,46 +1,56 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Image from 'gatsby-image'
 // import {imageSelector} from '../hooks/use-image-selector'
-
+import { ModeContext } from '../../pages/page-a'
 import styled from 'styled-components'
 
-const StyledThumbCard = styled.div`
-${'' /* border-color: ${props => props.primary ? "palevioletred" : "white"}; */}
-.selectedImg1, .selectedImg2 {
-    border: 3px solid red;
-}
+const StyledThumbCardBtn = styled.button`
+    margin: .5rem 0;
+    position: relative;
+    padding: 1%;
+    z-index: 10;
+    .selected-img-top {
+        box-shadow: 0px 0px 5px 5px coral;
+    }
+
+    .selected-img-bot {
+        box-shadow: 0px 0px 5px 5px yellow;
+    }
+
+    .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+    p {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+    }
 `
 
-const GalleryThumbnailCard = ({ imagedata }) => {
-    // console.log("thumbsrefresh ")
-    const handleClick = (nameInput) => {
-        // console.log("imagedata:", nameInput)
-    
+const GalleryThumbnailCardBtn = ({ imgObj }) => {
+    const { selBot, selTop, setSelTop, setSelBot} = useContext(ModeContext);
+
+    const handleClick = () => {
+        console.log("this img:", imgObj)
     }
-    
+
     return (
-        <StyledThumbCard className={
-            `${imagedata.top && `selectedImg`}
-             ${imagedata.bot && `selectedImg`} 
-             gallery-thumb`
-             }
-            onClick={ () => { handleClick(imagedata) }}
+        <StyledThumbCardBtn className={
+            `${(imgObj.top ? `selected-img-top` : '')}
+             ${(imgObj.bot ? `selected-img-bot` : '')}`
+        }
+            onClick={handleClick}
         >
-        {/* <h1>{(imagedata.selectedImg1 || imagedata.selectedImg2 )&& image1}</h1> */}
+            {/* <p>{imgObj.top} top</p> */}
             <Image
-                fluid={imagedata.img.fluid}
-                alt={imagedata.name}
+                fluid={imgObj.img.fluid}
+                alt={imgObj.name}
             />
-        </StyledThumbCard>
+        </StyledThumbCardBtn>
 
     )
 
 }
 
-// const Tab = ({ onClick, isSelected, children }) => {
-//     return <TabWrapper onClick={onClick}>{children}</TabWrapper>
-//   }
-  
-//   const X = <Tab onClick={() => console.log('clicked')} isSelected>Some Children</Tab>
-
-export default GalleryThumbnailCard;
+export default GalleryThumbnailCardBtn;

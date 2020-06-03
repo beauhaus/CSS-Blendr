@@ -19,7 +19,7 @@ const TestComponentWrapper = styled.div`
 // http://localhost:8000/images/gallery-images/rose.jpg
 
 const TestComponent = () => {
-    const { selectedTop } = useContext(ModeContext);
+    const { selTop } = useContext(ModeContext);
 
     return (
         <TestComponentWrapper>
@@ -29,9 +29,9 @@ const TestComponent = () => {
                         width="100%"
                         height="100%"
                         preserveAspectRatio="none"
-                        xlinkHref={selectedTop.url}
+                        xlinkHref={selTop.url}
                     />
-                    <text x="150" y="150" fill="red">{selectedTop.name}</text>
+                    <text x="150" y="150" fill="red">{selTop.name}</text>
                 </svg>)
 
 

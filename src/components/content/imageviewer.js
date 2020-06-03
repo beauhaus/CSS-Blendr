@@ -69,8 +69,8 @@ const ImageViewer = () => {
     const { mode,
         flipTriggerVal,
         galleryOpener,
-        selectedTop,
-        selectedBot,
+        selTop,
+        selBot,
         galleryOpenVal
     } = useContext(ModeContext);
 
@@ -90,8 +90,8 @@ const ImageViewer = () => {
             <ImageViewerWrapper className="img-viewer" >
                 <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                     <g>
-                        <image className="img-back" width="100%" height="100%" xlinkHref={selectedBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
-                        <image className="img-front" width="100%" height="100%" xlinkHref={selectedTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
+                        <image className="img-back" width="100%" height="100%" xlinkHref={selBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
+                        <image className="img-front" width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
                     </g>
                 </svg>
                 <ModeNameDisplay />
