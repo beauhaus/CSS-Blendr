@@ -17,16 +17,16 @@ var imageSelectUpdater = (displayArray, orientation, newImage) => {
   }
 }
 
-const imageSelector = (arr = '', newImage = '') => {
-  //check for img with same orientation
-  var found;
-  if (arr) {
-    [found] = arr.filter(img => img.name === newImage)
-  } else {
-    found = null;
-  }
-  return found;
-}
+// const imageSelector = (arr = '', newImage = '') => {
+//   //check for img with same orientation
+//   var found;
+//   if (arr) {
+//     [found] = arr.filter(img => img.name === newImage)
+//   } else {
+//     found = null;
+//   }
+//   return found;
+// }
 
 const topBotUpdater = (arr = '', newImage = '') => {
   var found;
@@ -41,13 +41,6 @@ const topBotUpdater = (arr = '', newImage = '') => {
 export { topBotFlipper };
 
 /*
-const outside = (name, arr) =>{
-  // console.log("outside!")
-  // console.log("outside: name: ", name, "arr:", arr)
-
- var item = arr.filter((item, idx) => arr[3])
-  // return "YES!"
 
 
-}
 */

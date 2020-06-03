@@ -28,6 +28,7 @@ const FlipImagePairs = () => {
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
     }, [flipTriggerVal])
+    
     return (
         <>
             <svg className="bot-img" x="0" y="0" viewBox="0 0 700 500" >

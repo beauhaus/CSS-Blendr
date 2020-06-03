@@ -45,6 +45,12 @@ TODO: add wildcard button (rand images & random blendmode) ?
 
 NOTE: TODO: use e.preventDefault() on buttons && || imageviewer
 to mitigate flash of content.
+TODO: true crimes stills from intro for explanations of exclusion or...
+
+TODO: add jackson pollack
+
+TODO: wildcard images and blend mode?
+
 
 // export {useSelectImg1}  //???
 

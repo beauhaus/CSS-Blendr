@@ -38,8 +38,6 @@ const useGalleryImages = () => {
     img: node.image,
     url: node.URL
   }))
-  
-  // src: `/${node.src}/${node.imgpath}`
 }
 
 export default useGalleryImages;

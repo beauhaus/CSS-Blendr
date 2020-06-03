@@ -6,7 +6,6 @@ import Image2 from '../../static/images/gallery-images/tritone.jpg'
 
 // TODO: scrap this file?
 const HorizRoll = ({ toggle }) => {
-  // console.log("from slider: toggle=", toggle)
 
   let tailGlitch = useRef(null) // 0%
   let headGlitch = useRef(null) // 20%

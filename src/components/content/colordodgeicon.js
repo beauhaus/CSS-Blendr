@@ -88,7 +88,6 @@ const ColorDodgeIconWrap = styled.svg`
 
 `;
 const ColorDodgeIcon = () => {
-  // console.log("ColorDodgeIconWrap: ")
   return (<ColorDodgeIconWrap xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320">
     <description>ColorDodge</description>
     <filter id="ball-blur">

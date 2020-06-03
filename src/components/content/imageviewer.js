@@ -62,6 +62,9 @@ const ImageViewerWrapper = styled.div`
         left: 0;
         background: red;
     }
+    .gallery-switch-btn {
+
+    }
    
 `
 
@@ -101,7 +104,7 @@ const ImageViewer = () => {
                 }
             </ImageViewerWrapper>
 
-            <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
+            <button className={galleryOpenVal ? 'gallery-switch-btn closed': 'gallery-switch-btn open'} onClick={galleryOpener}><p>+</p></button>
 
         </>)
 }

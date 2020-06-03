@@ -34,10 +34,8 @@ display: grid;
   const PageB = (props) => {
     const [flipToggle, setFlipToggle] = useState(false);
     const toggler = () => {
-        // console.log("TOG clicked!")
         setFlipToggle(!flipToggle)
     }
-    // console.log("p> B: ", props)
     return(
       <PageBWrapper className="page-b-wrapper">
       {/* <button className="toggler" onClick={toggler}>Effect</button> */}
