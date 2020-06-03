@@ -1,29 +1,42 @@
 import React, { useEffect, useState } from 'react'
 // import useGalleryImages from './use-gallery-images'
 
-const moddedArrayLoader = (imgArr, topImg = '', botImg ='') => {
-  // gets rand 2 nums in array
-  
+// const moddedArrayLoader = (imgArr, topImg = '', botImg ='') => {
+// gets rand 2 nums in array
 
-  // topImg = topImg || {};
-  // botImg = botImg || {};
-  
-  // imgArr.map((imgObj, idx) => {
-  //   // console.log(imgObj.top)
-  //   if (imgObj.name === topImg) {
-  //     imgObj.top = true;
-  //     topImg = imgObj;
-  //     // console.log(`top: ${topImg.name}`)
-  //   }
-  //   if (imgObj.name === botImg) {
-  //     imgObj.bot = true;
-  //     botImg = imgObj;
-  //     // console.log(`bot: ${botImg.name}`)
-  //   }
-    return [imgArr, topImg, botImg]
-  // })
-}
 
+// topImg = topImg || {};
+// botImg = botImg || {};
+
+// imgArr.map((imgObj, idx) => {
+//   // console.log(imgObj.top)
+//   if (imgObj.name === topImg) {
+//     imgObj.top = true;
+//     topImg = imgObj;
+//     // console.log(`top: ${topImg.name}`)
+//   }
+//   if (imgObj.name === botImg) {
+//     imgObj.bot = true;
+//     botImg = imgObj;
+//     // console.log(`bot: ${botImg.name}`)
+//   }
+// return [imgArr, topImg, botImg]
+// })
+// }
+
+// const topBotFlipper = (array) => {
+// console.log("flipper")
+//   array.forEach(imgObj => {
+//     if (imgObj.top) {
+//       imgObj.top = false;
+//       imgObj.bot = true;
+//     } else if (imgObj.bot) {
+//       imgObj.bot = false;
+//       imgObj.top = true;
+//     }
+//   })
+//   return array;
+// }
 
 var imageSelectUpdater = (displayArray, orientation, newImage) => {
   if (orientation === "top") {
@@ -58,7 +71,7 @@ const topBotUpdater = (arr = '', newImage = '') => {
   return found;
 }
 
-export { imageSelector, moddedArrayLoader };
+export { topBotFlipper };
 
 /*
 const outside = (name, arr) =>{

@@ -56,7 +56,7 @@ const FlipScreenWrap = styled.button`
 `
 
 const FlipScreenBtn = () => {
-    const {flipToggleVal,flipToggleHandler, selectedTop, selectedBot } = useContext(ModeContext);
+    const {flipTriggerVal,flipTriggerHandler, selectedTop, selectedBot } = useContext(ModeContext);
 
     let flipArrows = useRef(null)
 
@@ -66,10 +66,10 @@ const FlipScreenBtn = () => {
        tl
        .to(flipArrows, { duration: .5, opacity:1, fillOpacity: 1 }, '-=0')      
        .to(flipArrows, { duration: .5, opacity:.7, fillOpacity: .4 }, '-=0')
-     }, [flipToggleVal])
+     }, [flipTriggerVal])
 
     return (
-        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipToggleHandler}>
+        <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipTriggerHandler}>
             <svg xmlns="http://www.w3.org/2000/svg" className="line-grid" width="100%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="none">
                     <g className="lines">
                     <path d="M37.5 0v300" className="st1" />

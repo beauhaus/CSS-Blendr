@@ -67,28 +67,23 @@ const ImageViewerWrapper = styled.div`
 
 const ImageViewer = () => {
     const { mode,
-        flipToggleVal,
+        flipTriggerVal,
         galleryOpener,
         selectedTop,
         selectedBot,
         galleryOpenVal
     } = useContext(ModeContext);
 
-    const [flipTrigger, setFlipTrigger] = useState(true);
     let botImage = useRef(null)
     let topImage = useRef(null)
     useEffect(() => {
-        const flipImages = () => {
-            setFlipTrigger(!flipTrigger)
-        }
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
             .to(topImage, { duration: .3, x: -400 }, '-=0')
             .to(botImage, { duration: .3, x: 400 }, '-=.3')
-            .call(flipImages)
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
-    }, [flipToggleVal])
+    }, [flipTriggerVal])
 
     return (
         <>

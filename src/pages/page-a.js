@@ -7,7 +7,7 @@ import FlipScreenBtn from '../components/content/flipscreenbtn'
 import ImageViewer from '../components/content/imageviewer'
 import useGalleryImages from '../components/hooks/use-gallery-images'
 
-// import {imageSelector, moddedArrayLoader} from '../components/hooks/use-image-selector'
+// import { topBotFlipper } from '../components/hooks/use-image-selector'
 
 // import TestComponent from '../components/testcomponent'
 
@@ -90,34 +90,46 @@ const PageA = (props) => {
   const [gallery, setGallery] = useState([])
   const modesArray = useMdx();
   const [modeNum, setModeNum] = useState(0);
-  const [flipToggleVal, setFlipToggleVal] = useState(false);
+  const [flipTriggerVal, setFlipTriggerVal] = useState(false);
   const [galleryOpenVal, setGalleryOpenVal] = useState(false);
   const [selectedTop, setSelectedTop] = useState('');
   const [selectedBot, setSelectedBot] = useState('');
+  const [imgFlipperVal, setImgFlipperVal] = useState('');
+
+
+  const imgFlipper = () => {
+
+    setImgFlipperVal(!imgFlipperVal)
+  }
+
+
+  useEffect(() => {
+    setSelectedTop(selectedBot)
+    setSelectedBot(selectedTop)
+  }, [imgFlipperVal])
 
   useEffect(() => {
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
   }, [])
 
   useEffect(() => {
-  
     setGallery(galleryImages)
   }, [])
 
   useEffect(() => {
-      let [top] = gallery.filter(img => img.top)
-      let [bot] = gallery.filter(img => img.bot)
-      setSelectedTop(top)
-      setSelectedBot(bot)
+    let [top] = gallery.filter(img => img.top)
+    let [bot] = gallery.filter(img => img.bot)
+    setSelectedTop(top)
+    setSelectedBot(bot)
   }, [gallery])
 
   const modeSelectHandler = () => {
     setModeNum((modeNum + 1) % 16)
     return modeNum;
   }
-  const flipToggleHandler = () => {
-    // console.log("flipper clicked!")
-    setFlipToggleVal(!flipToggleVal)
+  const flipTriggerHandler = () => {
+    console.log("flipTriggerHandler")
+    setFlipTriggerVal(!flipTriggerVal)
   }
 
   const galleryOpener = () => {
@@ -130,26 +142,27 @@ const PageA = (props) => {
       value={{
         mode: modesArray[modeNum],
         modeNum,
-        flipToggleVal,
-        flipToggleHandler,
+        flipTriggerVal,
+        flipTriggerHandler,
         modeSelectHandler,
         galleryOpener,
         galleryOpenVal,
         gallery,
         selectedTop,
-        selectedBot
+        selectedBot,
+        imgFlipper
       }}>
       <PageAWrapper className="page-a-wrapper" >
         <PanelBG />
         <hr />
         <section className="panel-section">
           <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button>
-                      {(selectedTop && selectedBot)&& <ImageViewer className="img-viewer" />}
+          {(selectedTop && selectedBot) && <ImageViewer className="img-viewer" />}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
-            <FlipScreenBtn/>
+            <FlipScreenBtn />
           </div>
-            {/* {(selectedTop && selectedBot)&& <TestComponent/>} */}
+          {/* {(selectedTop && selectedBot)&& <TestComponent/>} */}
         </section>
       </PageAWrapper>
     </ModeContext.Provider>

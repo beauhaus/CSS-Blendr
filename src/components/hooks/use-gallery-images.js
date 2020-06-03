@@ -32,11 +32,11 @@ const useGalleryImages = () => {
   // "src:" is a direct, unprocessed link to image
   // "img:" is for gatsby-image -> fluid=(img.fluid)
   return imgArray.map((node, idx) => ({
-    img: node.image,
     name: node.name,
-    url: node.URL,
     top: (idx === rand1 ? true : false),
     bot: (idx === rand2 ? true : false),
+    img: node.image,
+    url: node.URL
   }))
   
   // src: `/${node.src}/${node.imgpath}`
