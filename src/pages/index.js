@@ -23,9 +23,9 @@ ${'' /* z-index: 1; */}
 .landing-logo {
   position: absolute;
   width: 115%;
-    top: 0;
-    left: -50%;
-    mix-blend-mode: overlay;
+  top: 0;
+  left: -50%;
+  mix-blend-mode: overlay;
 }
 h1 {
   position: absolute;

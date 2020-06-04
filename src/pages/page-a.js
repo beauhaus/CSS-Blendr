@@ -59,12 +59,10 @@ height: 100vh;
             border-radius: 6px;
 
             &.closed {
-                transform: rotate(45deg);
                 p {
-                color: brown;
+                color: lightgreen;
                 }
             }
-
             p {
                 color: rgba(0, 0, 0, .1);
                 font-size: 5rem;
@@ -72,19 +70,6 @@ height: 100vh;
                 font-weight: 100;
                 line-height: 0;
                 text-shadow: 1px 1px 1px #ccc;
-
-                $ {
-                    ''
-                    /* text-shadow: 1px 1px 1px 3px #fff; */
-                }
-
-                outline: 1px 1px 1px 1px #fff;
-
-                $ {
-                    ''
-                    /* filter: drop-shadow(2px 2px 2px red); */
-                }
-
             }
         }
 
@@ -172,8 +157,6 @@ const PageA = (props) => {
 
     setSelTop(imgObj)
     return gallery
-
-
   }
 
 
@@ -214,13 +197,11 @@ const PageA = (props) => {
         <PanelBG />
         <hr />
         <section className="panel-section">
-          {/* <button className="gallery-switch-btn" onClick={galleryOpener}><p>&#43;</p></button> */}
           {(selTop && selBot) && <ImageViewer className="img-viewer" />}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
             <FlipScreenBtn />
           </div>
-          {/* {(selTop && selBot)&& <TestComponent/>} */}
         </section>
       </PageAWrapper>
     </ModeContext.Provider>

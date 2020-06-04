@@ -62,9 +62,7 @@ const ImageViewerWrapper = styled.div`
         left: 0;
         background: red;
     }
-    .gallery-switch-btn {
-
-    }
+    
    
 `
 

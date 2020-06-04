@@ -66,7 +66,7 @@ const FlipScreenBtn = () => {
        tl
        .to(flipArrows, { duration: .5, opacity:1, fillOpacity: 1 }, '-=0')      
        .to(flipArrows, { duration: .5, opacity:.7, fillOpacity: .4 }, '-=0')
-     }, [flipTriggerVal])
+     }, [flipTriggerVal, selTop])
 
     return (
         <FlipScreenWrap className="flipper" aria-label="image-flipper" onClick={flipTriggerHandler}>
