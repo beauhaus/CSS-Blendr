@@ -159,11 +159,6 @@ const PageA = (props) => {
     return gallery
   }
 
-
-  //   useEffect((imgObj) => {
-
-  // }, [thumbClickVal])
-
   if (gallery && selBot && selTop) {
     // {console.log("@a_selTop", selTop.name)
     // console.log("@a_selBot", selBot.name)
