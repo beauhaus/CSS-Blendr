@@ -104,7 +104,7 @@ const PageA = (props) => {
 
   useEffect(() => {
     setGallery(galleryImages)
-    console.log('setGall', gallery.length)
+    // console.log('setGall', gallery.length)
   }, [])
 
   useEffect(() => {
@@ -113,7 +113,7 @@ const PageA = (props) => {
     let [bot] = gallery.filter(img => img.bot)
     setSelTop(top)
     setSelBot(bot)
-    console.log("T&B set", gallery.length)
+    // console.log("T&B set", gallery.length)
   }, [gallery, btReset, selTop, selBot])
 
   // topBot flipper
@@ -138,7 +138,7 @@ const PageA = (props) => {
     return modeNum;
   }
   const flipTriggerHandler = () => {
-    console.log("flipTriggerHandler")
+    // console.log("flipTriggerHandler")
     setFlipTriggerVal(!flipTriggerVal)
   }
 
@@ -162,11 +162,11 @@ const PageA = (props) => {
   if (gallery && selBot && selTop) {
     // {console.log("@a_selTop", selTop.name)
     // console.log("@a_selBot", selBot.name)
-    console.log("***from gallery***")
+    // console.log("***from gallery***")
     let [galtop] = gallery.filter(imgObj => imgObj.top === true)
-    console.log("top: ", galtop.name)
+    // console.log("top: ", galtop.name)
     let [galbot] = gallery.filter(imgObj => imgObj.bot === true)
-    console.log("bot: ", galbot.name)
+    // console.log("bot: ", galbot.name)
   }
 
 
