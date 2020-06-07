@@ -10,7 +10,7 @@ const VertGlitchContainer = styled.svg`
 width: 100%;
 height: 100%;
 mix-blend-mode: exclusion;
-opacity: .7;
+opacity: .5;
  image {
      transform: translate(0, 0);
      animation: glitcher 200ms steps(10) infinite;

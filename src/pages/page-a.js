@@ -47,25 +47,39 @@ height: 100vh;
         .gallery-switch-btn {
             width: 13vw;
             height: 13vw;
-            background: rgba(255, 255, 255, .0);
+            ${'' /* background: transparent; */}
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 2vw;
+            right: 2vw;
             z-index: 10;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 2vw;
             border-radius: 6px;
+            border: 1px solid lightgreen;
 
-            &.closed {
+            &.open {
+                background-color: rgba(28, 241, 28, 0.1);
                 p {
                 color: lightgreen;
                 }
             }
+            &.closed {
+              width: 100%;
+              height: 100%;
+              top: 0;
+              right: 0;
+              margin: 0;
+              border-radius: 0;
+              border-width: 0;
+              p {
+                display: none;
+              }
+            }
+
             p {
-                color: rgba(0, 0, 0, .1);
-                font-size: 5rem;
+                color: transparent;
+                font-size: 3rem;                
                 margin-bottom: 1vh;
                 font-weight: 100;
                 line-height: 0;
@@ -229,7 +243,5 @@ myArray[objIndex].name = "Laila"
 
 //Log object to console again.
 console.log("After update: ", myArray[objIndex])
-
-
 
 */
