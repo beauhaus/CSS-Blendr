@@ -4,21 +4,18 @@ const useGalleryImages = () => {
 
   const data = useStaticQuery(graphql`
    query {
-      allFile(filter: {sourceInstanceName: {eq: "images"}}) {
-        nodes {
-          name
-         # src: sourceInstanceName
-         # imgpath: relativePath
-          URL: publicURL
-          image: childImageSharp {
-            fluid  {
-              #...GatsbyImageSharpFluid_withWebp
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+    allFile(filter: {sourceInstanceName: {eq: "images"}, relativeDirectory: {eq: "gallery-images"}}) {
+      nodes {
+        name
+        URL: publicURL
+        image: childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
     }
+  }
 `)
 
   let imgArray = data.allFile.nodes;
