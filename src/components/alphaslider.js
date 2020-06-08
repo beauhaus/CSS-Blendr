@@ -5,6 +5,9 @@ import ReactSlider from 'react-slider'
 const StyledSlider = styled(ReactSlider)`
     width: 20vw;
     height: 200px;
+    &.vertical-slider {
+        background: pink;
+    }
 `;
 
 
