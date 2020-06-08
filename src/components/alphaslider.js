@@ -2,35 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import ReactSlider from 'react-slider'
 
-const StyledSlider = styled(ReactSlider)`
-border: 1px solid white;
-height: 12rem;
-width: 20vw;
-margin: 20vh auto;
-   &.slider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 12rem;
-  border: 1px solid purple
-}
-
-.sliderTrack {
-  width: 0.5rem;
-  background-color: red;
-}
-
-.sliderThumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1.5rem;
-  width: 1.5rem;
-  background-color: darkgray;
-}
-
-`;
-
 
 const AlphaSlider = () => {
 
@@ -49,7 +20,7 @@ const AlphaSlider = () => {
     //     return (val)
     // })
     return (
-        <StyledSlider
+        <ReactSlider
       className="slider"
       trackClassName={"sliderTrack"}
       thumbClassName={"sliderThumb"}
