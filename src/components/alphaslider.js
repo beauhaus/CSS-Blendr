@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import ReactSlider from 'react-slider'
 
 const StyledSlider = styled(ReactSlider)`
+
+    &.vertical-slider {
     height: 80vh;
     width: 15vw;
     margin-left: 2vw;
-    background: slategrey;
+    background: fuchsia;
+    }
 `;
 
 const StyledThumb = styled.div`
