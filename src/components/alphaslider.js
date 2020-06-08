@@ -3,11 +3,32 @@ import styled from 'styled-components';
 import ReactSlider from 'react-slider'
 
 const StyledSlider = styled(ReactSlider)`
-    width: 20vw;
-    height: 200px;
-    &.vertical-slider {
-        background: pink;
-    }
+border: 1px solid white;
+height: 12rem;
+width: 20vw;
+margin: 20vh auto;
+   &.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 12rem;
+  border: 1px solid purple
+}
+
+.sliderTrack {
+  width: 0.5rem;
+  background-color: red;
+}
+
+.sliderThumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: darkgray;
+}
+
 `;
 
 
@@ -29,16 +50,17 @@ const AlphaSlider = () => {
     // })
     return (
         <StyledSlider
-            className="vertical-slider"
-            thumbClassName="example-thumb"
-            trackClassName="example-track"
-            defaultValue={[50]}
-            ariaLabel={['Alpha Slider thumb']}
-            renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-            orientation="vertical"
-            invert
-
-        />
+      className="slider"
+      trackClassName={"sliderTrack"}
+      thumbClassName={"sliderThumb"}
+      renderThumb={(thumbProps, state) => (
+        <div {...thumbProps}>{state.valueNow}</div>
+      )}
+      min={0}
+      max={100}
+      orientation="vertical"
+      invert
+    />
     )
 }
 // {/* <StyledSlider
