@@ -3,90 +3,52 @@ import styled from 'styled-components';
 import ReactSlider from 'react-slider'
 
 const StyledSlider = styled(ReactSlider)`
-
-    &.vertical-slider {
-    height: 80vh;
-    width: 15vw;
-    margin-left: 2vw;
-    background: fuchsia;
-    }
+    width: 20vw;
+    height: 200px;
 `;
 
-const StyledThumb = styled.div`
-    width: 15vw;
-    height: 6.5vh;
-    line-height: 35px;
-    text-align: center;
-    cursor: grab;    
-    height: 4vh;
-    &.active {
-        outline-color: red;
-        outline-width: 0;
-        width: 15vw;
-        height: 6.5vh;
-        ${'' /* box-shadow: 2px 2px 2px 2px #000; */}
-        background: transparent;
-    }
-    &.thumb-0 {
-        width: 15vw;
-        height: 6.5vh;
-        
-    }
-`;
-
-const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}%</StyledThumb>;
-
-const StyledTrack = styled.div`
-    
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, ${props=> props.alpha/100 });
-`;
-
-const Track = (props, state) => {
-console.log("Tp&s: ", state.value)
-    return (
-        <StyledTrack
-            trackClassName="example-track"
-            {...props}
-            alpha={state.value}
-            index={state.index}
-        />
-    )
-};
 
 const AlphaSlider = () => {
 
 
 
-    const changeHandler = (val => {
-        return (val)
-    })
+    // const changeHandler = (val => {
+    //     return (val)
+    // })
 
-    const beforeChangeHandler = (val => {
-        console.log("B4 Change: ", val)
-        return (val)
-    })
-    const afterChangeHandler = (val => {
-        console.log("After Change: ", val)
-        return (val)
-    })
+    // const beforeChangeHandler = (val => {
+    //     console.log("B4 Change: ", val)
+    //     return (val)
+    // })
+    // const afterChangeHandler = (val => {
+    //     console.log("After Change: ", val)
+    //     return (val)
+    // })
     return (
         <StyledSlider
             className="vertical-slider"
+            thumbClassName="example-thumb"
+            trackClassName="example-track"
             defaultValue={[50]}
+            ariaLabel={['Alpha Slider thumb']}
+            renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
             orientation="vertical"
-            renderTrack={Track}
-            invert={true}
-            renderThumb={Thumb}
-            onBeforeChange={val => beforeChangeHandler(val)}
-            onAfterChange={val => afterChangeHandler(val)}
-            onChange={val => changeHandler(val)}
+            invert
+
         />
     )
 }
+// {/* <StyledSlider
+//     className="vertical-slider"
+//     defaultValue={[50]}
+//     orientation="vertical"
+//     renderTrack={Track}
+//     invert={true}
+//     renderThumb={Thumb}
+//     onBeforeChange={val => beforeChangeHandler(val)}
+//     onAfterChange={val => afterChangeHandler(val)}
+//     onChange={val => changeHandler(val)}
+// /> */}
 
 export default AlphaSlider;
 
