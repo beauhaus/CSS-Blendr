@@ -4,26 +4,37 @@ import ReactSlider from 'react-slider'
 
 const StyledSlider = styled(ReactSlider)`
     height: 80vh;
-    width: 20%;
+    width: 15vw;
     margin-left: 2vw;
     background: slategrey;
-    border: 1px solid #fff;
 `;
 
 const StyledThumb = styled.div`
-    width: 100%;
-    height: 4vh;
+    width: 15vw;
+    height: 6.5vh;
     line-height: 35px;
     text-align: center;
-    background-color: pink;
-    color: #777;
     cursor: grab;    
+    height: 4vh;
+    &.active {
+        outline-color: red;
+        outline-width: 0;
+        width: 15vw;
+        height: 6.5vh;
+        ${'' /* box-shadow: 2px 2px 2px 2px #000; */}
+        background: transparent;
+    }
+    &.thumb-0 {
+        width: 15vw;
+        height: 6.5vh;
+        
+    }
 `;
 
 const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}%</StyledThumb>;
 
 const StyledTrack = styled.div`
-    background: #888;
+    
     top: 0;
     bottom: 0;
     left: 0;
@@ -65,6 +76,7 @@ const AlphaSlider = () => {
             defaultValue={[50]}
             orientation="vertical"
             renderTrack={Track}
+            invert={true}
             renderThumb={Thumb}
             onBeforeChange={val => beforeChangeHandler(val)}
             onAfterChange={val => afterChangeHandler(val)}
