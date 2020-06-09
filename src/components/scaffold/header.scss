@@ -9,4 +9,9 @@ header.header-wrapper { /*TODO: remove class? */
   z-index: 10;
   padding-top: 1vh;
   // border: 1px solid #fff;
+  a {
+    border: 1px solid #fff;
+    width: 20vw;
+    float: right;
+  }
 }
