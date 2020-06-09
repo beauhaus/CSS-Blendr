@@ -6,8 +6,9 @@ import styled from 'styled-components';
 const sliderStyles = (props) => {
     console.log("p>SS: ", props)
     return (`
-    opacity: ${props.opacity};`
-    )
+    opacity: calc(${props.opacity}/100);
+    background: linear-gradient(90deg, #fff 0%, #fff ${props.opacity}%,transparent ${props.opacity}%, transparent 100%);
+`)
 }
 
 
@@ -89,7 +90,7 @@ const AlphaSlider = () => {
     }
 
     return (
-        <StyledSlider opacity={value/100}>
+        <StyledSlider opacity={value}>
             <input
                 type="range"
                 min={0}
