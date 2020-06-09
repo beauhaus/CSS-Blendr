@@ -102,8 +102,12 @@ const ImageViewer = () => {
                 {galleryOpenVal &&
                     <PhotoGallery />
                 }
-            <button className={galleryOpenVal ? 'gallery-switch-btn open': 'gallery-switch-btn closed'} onClick={galleryOpener}><p>&#x2713;</p></button>
-            <AlphaSlider className="alpha-slider" />
+            {galleryOpenVal? 
+                <button className={'gallery-switch-btn open'} onClick={galleryOpener}><p>&#x2713;</p></button>
+            :
+            <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><p>&#x2B1B;</p></button>
+            }
+            {galleryOpenVal && <AlphaSlider className="alpha-slider" />}
             </ImageViewerWrapper>
 
 

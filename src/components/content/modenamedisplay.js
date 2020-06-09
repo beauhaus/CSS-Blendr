@@ -14,7 +14,7 @@ const ModeNameContainer = styled.div`
   left: 25%;
   border-radius: 5px 5px 0 0;
   background: var(--primary-bluegrey);
-  z-index: 11;
+  z-index: 12;
   h1 {
     letter-spacing:1px;
     color: #fff;

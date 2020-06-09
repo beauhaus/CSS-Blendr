@@ -64,15 +64,16 @@ const PageAWrapper = styled.div`
                 }
             }
             &.closed {
-              width: 100%;
-              height: 100%;
+              width: 13vw;
+              height: 13vw;
               top: 0;
+              border: 1p solid #bcbcbc;
               right: 0;
               margin: 0;
               border-radius: 0;
               border-width: 0;
               p {
-                display: none;
+                ${'' /* display: none; */}
               }
             }
 

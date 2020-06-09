@@ -25,7 +25,7 @@ position: absolute;
 top: 18vh;
 
 left: calc(-1* var(--alpha-slider-height));
-z-index: 10;
+z-index: 11;
 display: flex;
 justify-content: center;
 align-items: center;
