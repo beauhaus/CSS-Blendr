@@ -107,7 +107,7 @@ const ImageViewer = () => {
             :
             <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><p>&#x2B1B;</p></button>
             }
-            {galleryOpenVal && <AlphaSlider className="alpha-slider" />}
+            {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
             </ImageViewerWrapper>
 
 
