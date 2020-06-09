@@ -11,7 +11,6 @@ const PageB = (props) => {
 
   return (
     <PageBWrapper className="page-b-wrapper">
-      PageB
       <Slider />
     </PageBWrapper>
   )
