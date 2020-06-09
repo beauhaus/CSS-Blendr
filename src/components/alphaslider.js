@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 
 
-// var(--alpha-slider-width)
-// var(--alpha-slider-height)
-// var(--alpha-slider-thumb-width)
-// var(--alpha-slider-thumb-height)
+const sliderStyles = (props) => {
+    console.log("p>SS: ", props)
+    return (`
+    opacity: ${props.opacity};`
+    )
+}
 
 
 const StyledSlider = styled.div`
@@ -24,7 +26,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 transform: rotate(270deg);
-background: rgba(255, 255,255,0.1);
+background: rgba(255, 255,255,1);
+${props=> sliderStyles(props)}
 h1 {
     position: absolute;
     top: 0;
@@ -73,7 +76,6 @@ input[type=range]{
     }
 }
 
-
 `
 
 const AlphaSlider = () => {
@@ -83,10 +85,11 @@ const AlphaSlider = () => {
     const handleOnChange = (e) => {
         console.log("onChange: ", e.target.value);
         setValue(e.target.value)
+        return value;
     }
 
     return (
-        <StyledSlider>
+        <StyledSlider opacity={value/100}>
             <input
                 type="range"
                 min={0}

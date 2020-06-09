@@ -1,7 +1,9 @@
 .page {
   top: 0;
   transition: opacity 1s;
+  overflow: hidden;
   position: relative;
+  height: 100vh; // customized (remove if needed)
 }
 
 .page.entering,
