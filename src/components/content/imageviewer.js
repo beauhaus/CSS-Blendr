@@ -6,6 +6,8 @@ import { ModeContext } from '../../pages/page-a'
 
 import VertGlitch from './vertglitch'
 import PhotoGallery from './photogallery'
+import AlphaSlider from '../alphaslider';
+
 
 const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
@@ -101,6 +103,7 @@ const ImageViewer = () => {
                     <PhotoGallery />
                 }
             <button className={galleryOpenVal ? 'gallery-switch-btn open': 'gallery-switch-btn closed'} onClick={galleryOpener}><p>&#x2713;</p></button>
+            <AlphaSlider className="alpha-slider" />
             </ImageViewerWrapper>
 
 

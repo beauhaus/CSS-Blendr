@@ -31,7 +31,7 @@ export const ModeContext = createContext();
 
 const PageAWrapper = styled.div`
 /* TODO: this image doesn't 'contain' the panel */
-height: 100vh;
+    height: 100vh;
     width: 100vw;
     overflow: hidden;
 
@@ -39,7 +39,6 @@ height: 100vh;
         width: 100vw;
         height: 85vh;
         position: relative;
-
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 53vh 22vh 10vh;
@@ -106,8 +105,8 @@ height: 100vh;
 
 const PageA = (props) => {
   const galleryImages = useGalleryImages();
-  const [gallery, setGallery] = useState([])
   const modesArray = useMdx();
+  const [gallery, setGallery] = useState([])
   const [modeNum, setModeNum] = useState(0);
   const [flipTriggerVal, setFlipTriggerVal] = useState(false);
   const [galleryOpenVal, setGalleryOpenVal] = useState(false);
@@ -206,7 +205,7 @@ const PageA = (props) => {
         <PanelBG />
         <hr />
         <section className="panel-section">
-          {(selTop && selBot) && <ImageViewer className="img-viewer" />}
+        {(selTop && selBot) && <ImageViewer className="img-viewer" />}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
             <FlipScreenBtn />

@@ -1,8 +1,6 @@
 import React, { Component, useState, setState } from 'react'
 import styled from 'styled-components';
 
-
-
 const sliderStyles = (props) => {
     console.log("p>SS: ", props)
     return (`
@@ -11,18 +9,23 @@ const sliderStyles = (props) => {
 `)
 }
 
-
 const StyledSlider = styled.div`
---alpha-slider-width: 50vh; 
---alpha-slider-height: 15vw; 
+--alpha-slider-width: 52vh; 
+--alpha-slider-height: 30vw; 
 --alpha-slider-thumb-width: 5vw; 
 --alpha-slider-thumb-height: 2vh;
 
+${'' /* border: 1px dashed #fff; */}
+
 width: var(--alpha-slider-width);
 height: var(--alpha-slider-height);
-margin: 30vh auto;
-padding: 2% 0;
-position: relative;
+${'' /* margin-top: 22vh auto 0 -24vh; */}
+${'' /* padding: 2% 0; */}
+position: absolute;
+top: 18vh;
+
+left: calc(-1* var(--alpha-slider-height));
+z-index: 10;
 display: flex;
 justify-content: center;
 align-items: center;

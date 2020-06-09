@@ -9,10 +9,12 @@ import {ModeContext} from '../../pages/page-a'
 const ModeNameContainer = styled.div`
   width: 50%;
   position: absolute;
+
   bottom:0;
   left: 25%;
   border-radius: 5px 5px 0 0;
   background: var(--primary-bluegrey);
+  z-index: 11;
   h1 {
     letter-spacing:1px;
     color: #fff;
