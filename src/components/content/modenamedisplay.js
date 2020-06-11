@@ -31,6 +31,10 @@ const ModeNameDisplay = () => {
     gsap.set(txtBox, { y:25})
     const tl = gsap.timeline({ defaults: { delay: .3 } })   
     tl.to(txtBox, { duration: .2, y: 0 }, '-=0')
+    console.log("a");
+    return ( )=> {
+      console.log("b");
+    }
   },[mode])
 
   return (
