@@ -114,7 +114,6 @@ const PageA = (props) => {
   const [selTop, setSelTop] = useState('');
   const [selBot, setSelBot] = useState('');
   const [btReset, setBtReset] = useState('');
-  const [thumbClickVal, setThumbClickVal] = useState('')
 
   useEffect(() => {
     setGallery(galleryImages)
@@ -164,9 +163,9 @@ const PageA = (props) => {
 
     // let [top] = gallery.filter(img => img.top)
     // console.log("currentTop: ", selTop)
-    let currentTopIdx = gallery.findIndex((obj => selTop.name == obj.name));
+    let currentTopIdx = gallery.findIndex((obj => selTop.name === obj.name));
     gallery[currentTopIdx].top = false;
-    let newSelTopIdx = gallery.findIndex((obj => imgObj.name == obj.name));
+    let newSelTopIdx = gallery.findIndex((obj => imgObj.name === obj.name));
     gallery[newSelTopIdx].top = true;
 
     setSelTop(imgObj)
@@ -177,9 +176,9 @@ const PageA = (props) => {
     // {console.log("@a_selTop", selTop.name)
     // console.log("@a_selBot", selBot.name)
     // console.log("***from gallery***")
-    let [galtop] = gallery.filter(imgObj => imgObj.top === true)
+    // let [galtop] = gallery.filter(imgObj => imgObj.top === true)
     // console.log("top: ", galtop.name)
-    let [galbot] = gallery.filter(imgObj => imgObj.bot === true)
+    // let [galbot] = gallery.filter(imgObj => imgObj.bot === true)
     // console.log("bot: ", galbot.name)
   }
 

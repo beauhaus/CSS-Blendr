@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
@@ -103,9 +103,9 @@ const ImageViewer = () => {
                     <PhotoGallery />
                 }
             {galleryOpenVal? 
-                <button className={'gallery-switch-btn open'} onClick={galleryOpener}><p>&#x2713;</p></button>
+                <button className={'gallery-switch-btn open'} onClick={galleryOpener}><span role="img">&#x2713;</span></button>
             :
-            <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><p>&#x2B1B;</p></button>
+            <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><span  role="img">&#x2B1B;</span></button>
             }
             {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
             </ImageViewerWrapper>

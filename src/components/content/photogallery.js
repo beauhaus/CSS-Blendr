@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, useState } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import styled from 'styled-components'
 import { gsap } from "gsap";
 import { ModeContext } from '../../pages/page-a'

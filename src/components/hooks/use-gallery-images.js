@@ -33,6 +33,7 @@ const useGalleryImages = () => {
     top: (idx === rand1 ? true : false),
     bot: (idx === rand2 ? true : false),
     img: node.image,
+    tag: `default_image`,
     url: node.URL
   }))
 }

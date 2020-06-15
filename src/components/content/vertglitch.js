@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from 'react'
-import { gsap, SteppedEase } from "gsap"; //  , Power4, Expo
+import { gsap } from "gsap"; //  , Power4, Expo
 import { ModeContext } from '../../pages/page-a'
-import GlitchGif from '../../../static/images/glitchgif.gif'
+// import GlitchGif from '../../../static/images/glitchgif.gif'
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components'
 

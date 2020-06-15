@@ -120,3 +120,19 @@ var imageFlipper=(displayArray) => {
   return displayArray;
 }
 imageFlipper(displayArray)
+
+
+
+
+## React Hook useEffect has a missing dependency:
+To disable the rule you would write it like
+
+```javascript
+useEffect(() => {
+   // other code
+   ...
+
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []) 
+
+```

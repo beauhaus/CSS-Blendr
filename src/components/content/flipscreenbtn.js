@@ -56,7 +56,7 @@ const FlipScreenWrap = styled.button`
 `
 
 const FlipScreenBtn = () => {
-    const {flipTriggerVal,flipTriggerHandler, selTop, selBot, gallery} = useContext(ModeContext);
+    const {flipTriggerVal,flipTriggerHandler, selTop, selBot} = useContext(ModeContext);
 
     let flipArrows = useRef(null)
 

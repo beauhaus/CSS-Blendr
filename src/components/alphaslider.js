@@ -1,4 +1,4 @@
-import React, { Component, useState, setState } from 'react'
+import React, {useState } from 'react'
 import styled from 'styled-components';
 
 const sliderStyles = (props) => {
@@ -46,6 +46,7 @@ h1 {
 }
 
 input[type=range]{
+    -webkit-tap-highlight-color: transparent;
     &::-webkit-slider-runnable-track {
         width: var(--alpha-slider-width);
         height: var(--alpha-slider-height);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 import { ModeContext } from '../../pages/page-a'
 
