@@ -1,6 +1,6 @@
 import React from 'react';
 import TestImgCard  from '../components/test/testimgcard'
-import testImage from '../images/faviconmaster.png';
+import testImage from '../../images/gallery-images/socrates.jpg';
 import styled from 'styled-components';
 
 
