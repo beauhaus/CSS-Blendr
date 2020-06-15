@@ -10,54 +10,64 @@ const sliderStyles = (props) => {
 }
 
 const StyledSlider = styled.div`
---alpha-slider-width: 52vh; 
---alpha-slider-height: 30vw; 
+/* width & height are reversed given rotation */
+--alpha-slider-width: 50vh;
+--alpha-slider-height: 35vw; 
 --alpha-slider-thumb-width: 5vw; 
 --alpha-slider-thumb-height: 2vh;
 
-${'' /* border: 1px dashed #fff; */}
-
-width: var(--alpha-slider-width);
-height: var(--alpha-slider-height);
-${'' /* margin-top: 22vh auto 0 -24vh; */}
-${'' /* padding: 2% 0; */}
-position: absolute;
-top: 18vh;
-
-left: calc(-1* var(--alpha-slider-height));
-z-index: 11;
-display: flex;
-justify-content: center;
-align-items: center;
+margin: auto;
 transform: rotate(270deg);
+-moz-transform: rotate(270deg);
+width: 50vh;
+height: 35vw;
+${'' /* border-top: 1px solid lightgreen; */}
+position: absolute;
+top: 32%;
+left: -10%;
+
+${'' /* top: 18vh; */}
+
+${'' /* left: calc(-1* var(--alpha-slider-height)); */}
+${'' /* bottom: 1vw; */}
+z-index: 11;
+
+${'' /* transform-origin: center left; */}
+${'' /* transform: rotate(270deg); */}
 background: rgba(255, 255,255,1);
-${props=> sliderStyles(props)}
+display: grid;
 h1 {
     position: absolute;
-    top: 0;
+    top: 100%;
     right: 0;
+    border: 1px dashed yellow;
     transform: rotate(90deg);
-    width: var(--alpha-slider-height);
-    height: var(--alpha-slider-height);
+    ${'' /* width: var(--alpha-slider-height);
+    height: var(--alpha-slider-height); */}
     font-weight: 100;
     font-size: 2rem;
     color: #fff;
-    z-index: -1;
+    ${'' /* z-index: -1; */}
 }
 
 input[type=range]{
+    ${props=> sliderStyles(props)}
+
+    ${'' /* transform-origin: center top; */}
     -webkit-tap-highlight-color: transparent;
+  
     &::-webkit-slider-runnable-track {
         width: var(--alpha-slider-width);
         height: var(--alpha-slider-height);
-        background: transparent;
+        background: fuchsia;
         cursor: pointer;
     }
     &::-moz-range-track {
         width: var(--alpha-slider-width);
         height: var(--alpha-slider-height);
-        background: transparent;
+        background: fuchsia;
         cursor: pointer;
+        margin: auto;
     }
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -67,6 +77,7 @@ input[type=range]{
         background: rgba(255, 255,255,0.1);
         height: var(--alpha-slider-height);
         border-radius: 0;
+        border-width: 0; // ok on phones?
         cursor: pointer;
     }
     &::-moz-range-thumb {
@@ -85,7 +96,7 @@ input[type=range]{
 
 const AlphaSlider = () => {
 
-    const [value, setValue] = useState(50)
+    const [value, setValue] = useState(50);
 
     const handleOnChange = (e) => {
         console.log("onChange: ", e.target.value);
@@ -94,7 +105,7 @@ const AlphaSlider = () => {
     }
 
     return (
-        <StyledSlider opacity={value}>
+        <StyledSlider className="alpha-slider" opacity={value}>
             <input
                 type="range"
                 min={0}

@@ -4,14 +4,15 @@ import AlphaSlider from '../alphaslider'
 // export const BlendrDataContext = createContext();
 
 const TestImgCardWrapper = styled.div`
-box-shadow: inset 0 0 0 4px slategrey;
-position: relative;
+  box-shadow: inset 0 0 0 4px slategrey;
+  position: relative;
   background: pink;
   width: 96%;
   height: 53vh;
   margin: 10vh auto;
-  padding: 2%;
-
+  ${'' /* padding: 2%; */}
+  overflow: hidden;
+  display: grid;
   img {
     width: 100%;
     height: 100%;
