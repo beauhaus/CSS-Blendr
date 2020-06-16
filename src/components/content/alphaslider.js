@@ -21,7 +21,7 @@ const SliderContainer = styled.div`
     ${'' /* border: 1px dashed lightgreen; */}
 `
 
-const StyledSlider2 = styled(ReactSlider)`
+const StyledSlider = styled(ReactSlider)`
     height: 100%;
     width: 20vw;
 `;
@@ -55,9 +55,6 @@ const StyledThumb = styled.div`
     }
 `;
 
-
-/************************************ */
-
 const StyledTrack = styled.div`
     top: 0;
     bottom: 0;
@@ -78,7 +75,7 @@ const Track = (props, state) => (
     />
 );
 
-const AlphaSlider2 = () => {
+const AlphaSlider = () => {
 
     const [value, setValue] = useState(50);
 
@@ -103,7 +100,7 @@ const AlphaSlider2 = () => {
         <SliderContainer className="alpha-slider" 
         containerVal={value}
         >
-            <StyledSlider2
+            <StyledSlider
                 defaultValue={[50]}
                 renderTrack={Track}
                 renderThumb={Thumb}
@@ -117,4 +114,4 @@ const AlphaSlider2 = () => {
     )
 }
 
-export default AlphaSlider2;
+export default AlphaSlider;

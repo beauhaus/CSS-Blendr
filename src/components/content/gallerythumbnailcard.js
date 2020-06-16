@@ -13,6 +13,9 @@ const StyledThumbCardBtn = styled.button`
         box-shadow: 0px 0px 5px 5px coral;
     }
     .gatsby-image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
     }
@@ -28,21 +31,17 @@ const StyledThumbCardBtn = styled.button`
 `
 
 const GalleryThumbnailCardBtn = ({ imgObj }) => {
-    const { thumbClicker} = useContext(ModeContext);
-
+    const { thumbNailClicker} = useContext(ModeContext);
     return (
         <StyledThumbCardBtn className={imgObj.top && "selected-img-top"}
-            onClick={() => thumbClicker(imgObj)}
+            onClick={() => thumbNailClicker(imgObj)}
         >
             <Image
                 fluid={imgObj.img.fluid}
                 alt={imgObj.name}
             />
-            {/* {imgObj.top && <p>top</p>} */}
         </StyledThumbCardBtn>
-
     )
-
 }
 
 export default GalleryThumbnailCardBtn;

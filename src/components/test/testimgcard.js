@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import AlphaSlider from '../alphaslider2'
+// import AlphaSlider from '../content/alphaslider'
 // export const BlendrDataContext = createContext();
 
 const TestImgCardWrapper = styled.div`
@@ -31,8 +31,8 @@ const TestImgCard = (props) => {
     //     setCombinedImageArray
     //   }}>
       <TestImgCardWrapper className="test-img-card">
-        <img src={props.img} alt="figure that's fun"/>
-        <AlphaSlider/>
+        {/* <img src={props.img} alt="figure that's fun"/>
+        <AlphaSlider/> */}
       </TestImgCardWrapper>
   )
 };

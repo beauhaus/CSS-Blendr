@@ -6,7 +6,7 @@ import { ModeContext } from '../../pages/page-a'
 
 import VertGlitch from './vertglitch'
 import PhotoGallery from './photogallery'
-import AlphaSlider from '../alphaslider';
+import AlphaSlider from './alphaslider';
 
 
 const ImageViewerWrapper = styled.div`
