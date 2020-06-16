@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { gsap, Back } from "gsap"; //  , Power4, Expo
@@ -76,8 +76,16 @@ const Track = (props, state) => (
 );
 
 const AlphaSlider = () => {
-
     const [value, setValue] = useState(50);
+    
+    // let tgt = useRef(null)
+    // useEffect(()=> {
+    //   gsap.set(tgt, { y:25})
+    //   const tl = gsap.timeline({ defaults: { delay: .3 } })   
+    //   tl.to(tgt, { duration: .2, y: 0 }, '-=0')
+    // },[dep])
+    // ref={elem => tgt = elem}
+
 
     const handleChange = (val) => {
         console.log("onChange: ", val);

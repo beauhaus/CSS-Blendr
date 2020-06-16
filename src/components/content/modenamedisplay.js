@@ -9,7 +9,6 @@ import {ModeContext} from '../../pages/page-a'
 const ModeNameContainer = styled.div`
   width: 50%;
   position: absolute;
-
   bottom:0;
   left: 25%;
   border-radius: 5px 5px 0 0;
@@ -31,10 +30,6 @@ const ModeNameDisplay = () => {
     gsap.set(txtBox, { y:25})
     const tl = gsap.timeline({ defaults: { delay: .3 } })   
     tl.to(txtBox, { duration: .2, y: 0 }, '-=0')
-    console.log("a");
-    return ( )=> {
-      console.log("b");
-    }
   },[mode])
 
   return (

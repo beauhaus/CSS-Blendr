@@ -159,7 +159,7 @@ const PageA = (props) => {
     setGalleryOpenVal(!galleryOpenVal)
   }
 
-  const thumbClicker = (imgObj) => {
+  const thumbNailClicker = (imgObj) => {
 
     // let [top] = gallery.filter(img => img.top)
     // console.log("currentTop: ", selTop)
@@ -199,9 +199,9 @@ const PageA = (props) => {
         setSelTop,
         setSelBot,
         imgFlipper,
-        thumbClicker
+        thumbNailClicker
       }}>
-      <PageAWrapper className="page-a-wrapper" >
+      <PageAWrapper className="page-a-page-wrapper" >
         <PanelBG />
         <hr />
         <section className="panel-section">

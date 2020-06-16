@@ -23,7 +23,7 @@ const ImageViewerWrapper = styled.div`
 
         margin: 1vh auto;
         display: grid;
-        overflow: hidden;
+        overflow: scroll;
         position: relative;
         padding: 0;
         z-index: 1;
