@@ -14,45 +14,41 @@ const SliderContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0.5vw;
-    height: 98%;
-    margin: 1% 0;
+    height: 100%;
+    margin: 0;
     width: 20vw;
     ${props=> sliderContainerStyles(props)}
+    ${'' /* border: 1px dashed lightgreen; */}
 `
 
 const StyledSlider2 = styled(ReactSlider)`
-    width: 100%;
-    height: 25px;
     height: 100%;
     width: 20vw;
-    ${'' /* background: pink; */}
 `;
 
 const StyledThumb = styled.div`
     ${'' /* line-height: 25px; */}
     width: 100%;
-    height: 5px;
-    text-align: left;
+    height: 20%;
     color: #fff;
     text-shadow: 1px 1px 0 #777;
     position: relative;
     background: transparent;
+    ${'' /* outline: 1px solid #fff; */}
+    ${'' /* outline: 1px solid #fff; */}
+    outline: none;
     cursor: grab;
-        outline: none;
     .offset-insert {
         position: absolute;
-        top: -1vh;
-        left: 100%;
+        bottom: 20%;
+        left: 80%;
         font-weight: 100;
         letter-spacing: 0.1rem;
         background: transparent;
         width: 100%;
-        height: 3vh;
-        border: 1px solid #fff;
-        border-left-width:2px;
-        border-width: 0;
-        padding-left: 5px;
-        margin-left: 2px;
+        height: 50%;
+        margin: auto;
+        ${'' /* border: 1px solid orange; */}
     }
     &:active {
         border-width: 0;
