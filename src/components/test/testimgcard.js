@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import AlphaSlider from '../alphaslider'
+import AlphaSlider from '../alphaslider2'
 // export const BlendrDataContext = createContext();
 
 const TestImgCardWrapper = styled.div`
