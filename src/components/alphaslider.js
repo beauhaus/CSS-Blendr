@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
 import styled from 'styled-components';
 
-const sliderStyles = (props) => {
+const sliderContainerStyles = (props) => {
     console.log("p>SS: ", props)
     return (`
     opacity: calc(${props.opacity}/100);
@@ -51,7 +51,7 @@ h1 {
 }
 
 input[type=range]{
-    ${props=> sliderStyles(props)}
+    ${props=> sliderContainerStyles(props)}
 
     ${'' /* transform-origin: center top; */}
     -webkit-tap-highlight-color: transparent;
