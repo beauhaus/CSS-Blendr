@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 
-const sliderContainerStyles = (props) => {
-    return (`
-    background: linear-gradient(0deg, rgba(255, 255, 255, ${props.containerVal / 100}), #fff ${props.containerVal}%,transparent ${props.containerVal}%, transparent 100%);
-`)
-}
+// const sliderContainerStyles = (props) => {
+//     return (`
+//     background: linear-gradient(0deg, rgba(255, 255, 255, ${props.containerVal / 100}), #fff ${props.containerVal}%,transparent ${props.containerVal}%, transparent 100%);
+// `)
+// }
 
 const SliderContainer = styled.div`
     position: absolute;
@@ -19,7 +19,7 @@ const SliderContainer = styled.div`
     z-index: 20;
     opacity: 0;
 
-    ${props => sliderContainerStyles(props)}
+    ${'' /* ${props => sliderContainerStyles(props)} */}
 `
 
 const StyledSlider = styled(ReactSlider)`
@@ -31,12 +31,13 @@ const StyledThumb = styled.div`
     width: 100%;
     height: 20%;
     color: #fff;
-    text-shadow: 1px 1px 0 #777;
     position: relative;
-    background: transparent;
-    outline: none;
+    background: white;
     cursor: grab;
+    outline: 1px solid #fff;
+    box-shadow: 3px 3px 3px 0 #000;
     .offset-insert {
+    text-shadow: 1px 1px 0 #777;
         position: absolute;
         bottom: 20%;
         left: 80%;
