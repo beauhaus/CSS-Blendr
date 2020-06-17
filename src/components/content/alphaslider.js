@@ -1,12 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 
 const sliderContainerStyles = (props) => {
-    console.log("p>SS: ", props)
     return (`
-    background: linear-gradient(0deg, rgba(255, 255, 255, ${props.containerVal/100}), #fff ${props.containerVal}%,transparent ${props.containerVal}%, transparent 100%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, ${props.containerVal / 100}), #fff ${props.containerVal}%,transparent ${props.containerVal}%, transparent 100%);
 `)
 }
 
@@ -17,8 +16,10 @@ const SliderContainer = styled.div`
     height: 100%;
     margin: 0;
     width: 20vw;
-    ${props=> sliderContainerStyles(props)}
-    ${'' /* border: 1px dashed lightgreen; */}
+    z-index: 20;
+    opacity: 0;
+
+    ${props => sliderContainerStyles(props)}
 `
 
 const StyledSlider = styled(ReactSlider)`
@@ -27,15 +28,12 @@ const StyledSlider = styled(ReactSlider)`
 `;
 
 const StyledThumb = styled.div`
-    ${'' /* line-height: 25px; */}
     width: 100%;
     height: 20%;
     color: #fff;
     text-shadow: 1px 1px 0 #777;
     position: relative;
     background: transparent;
-    ${'' /* outline: 1px solid #fff; */}
-    ${'' /* outline: 1px solid #fff; */}
     outline: none;
     cursor: grab;
     .offset-insert {
@@ -48,7 +46,6 @@ const StyledThumb = styled.div`
         width: 100%;
         height: 50%;
         margin: auto;
-        ${'' /* border: 1px solid orange; */}
     }
     &:active {
         border-width: 0;
@@ -63,58 +60,85 @@ const StyledTrack = styled.div`
 const Thumb = (props, state) => (
     <StyledThumb
         {...props}><span
-        className="offset-insert">{state.valueNow}%</span>
+            className="offset-insert">{state.valueNow}%</span>
     </StyledThumb>
 );
 
-const Track = (props, state) => (
-    <StyledTrack
-        {...props}
-        index={state.index}
-        onChange={() => console.log('p> track onChange value:', props)}
-    />
-);
+const Track = (props, state) => {
+    return (
+        <StyledTrack
+            {...props}
+            index={state.index}
+            onChange={() => console.log('p> track onChange value:', props)}
+        />
+    )
+};
 
 const AlphaSlider = () => {
-    const [value, setValue] = useState(50);
+    const [value, setValue] = useState(100);
+    // const [afterVal, setAfterVal] = useState('');
+    // const [beforeValue, setBeforeValue] = useState('');
+    const [sliderOpenToggle, setSliderOpenToggle] = useState(false);
+    const [sliderCloseToggle, setSliderCloseToggle] = useState(false); //after value
+    const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //after value
     
-    // let tgt = useRef(null)
-    // useEffect(()=> {
-    //   gsap.set(tgt, { y:25})
-    //   const tl = gsap.timeline({ defaults: { delay: .3 } })   
-    //   tl.to(tgt, { duration: .2, y: 0 }, '-=0')
-    // },[dep])
-    // ref={elem => tgt = elem}
 
+    let slider = useRef(null)
+    // let slider = useRef(null)
+
+    useEffect(()=> {
+      gsap.set(slider, { opacity: 0})
+      const tl = gsap.timeline({ defaults: { delay: 0 } })   
+      tl.to(slider, { duration: 1, opacity: 1 }, '-=0')
+      tl.to(slider, { duration: 2, opacity: 0, delay: 2 }, '-=0')
+      
+    },[sliderOpenToggle, sliderBeforeToggle])
+    
+    // useEffect(()=> {
+    //     gsap.set(slider, { opacity: 1})
+    //     const tl = gsap.timeline({ defaults: { delay: .3 } })   
+    //     tl.to(slider, { duration: 2, opacity: 0 }, '-=0')
+    //   },[sliderCloseToggle])
+  
+  
+    
+
+    const handleSliderClick = () => {
+        console.log("CLICK!!: ");
+        setSliderOpenToggle(!sliderOpenToggle)
+    }
 
     const handleChange = (val) => {
-        console.log("onChange: ", val);
+        console.log("FUCK!!: ", val);
         setValue(val)
         // return value;
     }
     const handleBefore = (val) => {
         console.log("before: ", val);
-        // setValue(e.target.value)
+        // setBeforeValue(e.target.value)
         // return value;
+        setSliderBeforeToggle(!sliderBeforeToggle)
     }
     const handleAfter = (val) => {
         console.log("after", val)
-        // console.log("onChange: ", val);
-        // setValue(e.target.value)
-        // return value;
+        setSliderCloseToggle(!sliderCloseToggle)
     }
-
+    
+    
     return (
-        <SliderContainer className="alpha-slider" 
-        containerVal={value}
+        <SliderContainer className="slider-container"
+            onTouchStart={handleSliderClick}
+            onClick={handleSliderClick}
+            containerVal={value}
+            ref={elem => slider = elem}
         >
             <StyledSlider
-                defaultValue={[50]}
+                defaultValue={[100]}
                 renderTrack={Track}
                 renderThumb={Thumb}
-                onBeforeChange={(val)=>handleBefore(val)}
+                onBeforeChange={(val) => handleBefore(val)}
                 onChange={handleChange}
-                onAfterChange={(val)=>handleAfter(val)}
+                onAfterChange={(val) => handleAfter(val)}
                 orientation="vertical"
                 invert
             />
