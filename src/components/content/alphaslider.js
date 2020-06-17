@@ -89,8 +89,8 @@ const AlphaSlider = () => {
     useEffect(()=> {
       gsap.set(slider, { opacity: 0})
       const tl = gsap.timeline({ defaults: { delay: 0 } })   
-      tl.to(slider, { duration: 1, opacity: 1 }, '-=0')
-      tl.to(slider, { duration: 2, opacity: 0, delay: 2 }, '-=0')
+      tl.to(slider, { duration: .5, opacity: 1 }, '-=0')
+      tl.to(slider, { duration: 1, opacity: 0, delay: 2 }, '-=0')
       
     },[sliderOpenToggle, sliderBeforeToggle])
     
@@ -109,7 +109,7 @@ const AlphaSlider = () => {
     }
 
     const handleChange = (val) => {
-        console.log("FUCK!!: ", val);
+        // console.log("FUCK!!: ", val);
         setValue(val)
         // return value;
     }

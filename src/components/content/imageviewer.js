@@ -13,6 +13,7 @@ const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
         /* --base-btn-color: */
         width: 96%;
+        height: 96%;
         grid-column: 1;
         grid-row: 1;
         border-radius: 12px;
@@ -46,7 +47,7 @@ const ImageViewerWrapper = styled.div`
             z-index: -2;
             ${'' /* margin: auto; */}
             width: 100%;
-            height: auto;
+            height: 50%;
         }
         .vert-glitch {
             position: absolute;
@@ -91,7 +92,7 @@ const ImageViewer = () => {
     return (
         <>
             <ImageViewerWrapper className="img-viewer" >
-                <svg className="image-container" viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+                <svg className="image-container" viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                     <g>
                         <image className="img-back" width="100%" height="100%" xlinkHref={selBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
                         <image className="img-front" width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
