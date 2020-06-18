@@ -11,7 +11,6 @@ const Header = () => (
             <TopNavBtn/>
             <Link className="b-link" to="/page-e">PAGEE</Link>
             <Link className="d-link" to="/page-d">PAGED</Link>
-
         </header>
     );
 

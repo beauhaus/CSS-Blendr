@@ -81,47 +81,52 @@ const AlphaSlider = () => {
     // const [beforeValue, setBeforeValue] = useState('');
     const [sliderOpenToggle, setSliderOpenToggle] = useState(false);
     const [sliderCloseToggle, setSliderCloseToggle] = useState(false); //after value
-    const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //after value
+    const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //before value
     
 
     let slider = useRef(null)
     // let slider = useRef(null)
 
     useEffect(()=> {
+        console.log("* open&before")
       gsap.set(slider, { opacity: 0})
       const tl = gsap.timeline({ defaults: { delay: 0 } })   
       tl.to(slider, { duration: .5, opacity: 1 }, '-=0')
-      tl.to(slider, { duration: 1, opacity: 0, delay: 2 }, '-=0')
+    //   tl.to(slider, { duration: 1, opacity: 0, delay: 2 }, '-=0')
       
-    },[sliderOpenToggle, sliderBeforeToggle])
+    },[sliderBeforeToggle, sliderOpenToggle])
     
-    // useEffect(()=> {
-    //     gsap.set(slider, { opacity: 1})
-    //     const tl = gsap.timeline({ defaults: { delay: .3 } })   
-    //     tl.to(slider, { duration: 2, opacity: 0 }, '-=0')
-    //   },[sliderCloseToggle])
+    useEffect(()=> {
+        console.log("UE* (SliderCloseTggle)")
+        gsap.set(slider, { opacity: 1})
+        const tl = gsap.timeline({ defaults: { delay: 0 } })   
+        // tl.to(slider, { duration: .5, opacity: 1 }, '-=0')
+        tl.to(slider, { duration: .5, opacity: 0, delay: 2 }, '-=0')
+        
+    },[sliderCloseToggle])
   
   
     
 
     const handleSliderClick = () => {
-        console.log("CLICK!!: ");
+        // console.log("CLICK!!: ");
         setSliderOpenToggle(!sliderOpenToggle)
     }
 
-    const handleChange = (val) => {
-        // console.log("FUCK!!: ", val);
+    //necessary for feeding new values but not for gsap transitions
+    const handleChange = (val) => { 
+        // console.log("change: ");
         setValue(val)
         // return value;
     }
     const handleBefore = (val) => {
-        console.log("before: ", val);
+        console.log("before");
         // setBeforeValue(e.target.value)
         // return value;
         setSliderBeforeToggle(!sliderBeforeToggle)
     }
     const handleAfter = (val) => {
-        console.log("after", val)
+        console.log("after")
         setSliderCloseToggle(!sliderCloseToggle)
     }
     

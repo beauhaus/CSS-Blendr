@@ -172,15 +172,7 @@ const PageA = (props) => {
     return gallery
   }
 
-  if (gallery && selBot && selTop) {
-    // {console.log("@a_selTop", selTop.name)
-    // console.log("@a_selBot", selBot.name)
-    // console.log("***from gallery***")
-    // let [galtop] = gallery.filter(imgObj => imgObj.top === true)
-    // console.log("top: ", galtop.name)
-    // let [galbot] = gallery.filter(imgObj => imgObj.bot === true)
-    // console.log("bot: ", galbot.name)
-  }
+
 
 
   return (
@@ -205,10 +197,12 @@ const PageA = (props) => {
         <PanelBG />
         <hr />
         <section className="panel-section">
+        {/* Why this condition? */}
         {(selTop && selBot) && <ImageViewer className="img-viewer" />}
+        {/* <ImageViewer className="img-viewer" /> */}
           <div className="blend-ctrl-btns" >
-            <CyclerBtn />
-            <FlipScreenBtn />
+            {/* <CyclerBtn />
+            <FlipScreenBtn /> */}
           </div>
         </section>
       </PageAWrapper>
