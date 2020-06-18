@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 
-// const sliderContainerStyles = (props) => {
-//     return (`
-//     background: linear-gradient(0deg, rgba(255, 255, 255, ${props.containerVal / 100}), #fff ${props.containerVal}%,transparent ${props.containerVal}%, transparent 100%);
-// `)
-// }
+const sliderContainerStyles = (props) => {
+    return (`
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0), #fff 100%);
+`)
+}
 
 const SliderContainer = styled.div`
     position: absolute;
@@ -18,8 +18,7 @@ const SliderContainer = styled.div`
     width: 20vw;
     z-index: 20;
     opacity: 0;
-
-    ${'' /* ${props => sliderContainerStyles(props)} */}
+    ${'' /* border: 1px solid yellow; */}
 `
 
 const StyledSlider = styled(ReactSlider)`
@@ -29,17 +28,17 @@ const StyledSlider = styled(ReactSlider)`
 
 const StyledThumb = styled.div`
     width: 100%;
-    height: 20%;
+    height: 12%;
     color: #fff;
     position: relative;
-    background: white;
+    background: rgba(255,255,255,0.5);
     cursor: grab;
     outline: 1px solid #fff;
     box-shadow: 3px 3px 3px 0 #000;
-    .offset-insert {
+    ${'' /* .offset-insert {
     text-shadow: 1px 1px 0 #777;
         position: absolute;
-        bottom: 20%;
+        bottom: 10%;
         left: 80%;
         font-weight: 100;
         letter-spacing: 0.1rem;
@@ -47,7 +46,7 @@ const StyledThumb = styled.div`
         width: 100%;
         height: 50%;
         margin: auto;
-    }
+    } */}
     &:active {
         border-width: 0;
     }
@@ -56,6 +55,17 @@ const StyledThumb = styled.div`
 const StyledTrack = styled.div`
     top: 0;
     bottom: 0;
+    left: 4vw;
+    width: 2vw;
+    ${'' /* border: 1px solid purple; */}
+    ${'' /* background: brown; */}
+    ${props => sliderContainerStyles(props)}
+    &.track-1 {
+        display: none;
+    }
+    &.track-0 {
+        top: 2vh;
+    }
 `;
 
 const Thumb = (props, state) => (
@@ -66,10 +76,12 @@ const Thumb = (props, state) => (
 );
 
 const Track = (props, state) => {
+    
     return (
         <StyledTrack
             {...props}
             index={state.index}
+            containerVal={state.value}
             onChange={() => console.log('p> track onChange value:', props)}
         />
     )
@@ -89,9 +101,9 @@ const AlphaSlider = () => {
 
     useEffect(()=> {
         console.log("* open&before")
-      gsap.set(slider, { opacity: 0})
+      gsap.set(slider, { opacity: 1})
       const tl = gsap.timeline({ defaults: { delay: 0 } })   
-      tl.to(slider, { duration: .5, opacity: 1 }, '-=0')
+      tl.to(slider, { duration: .3, opacity: 1 }, '-=0')
     //   tl.to(slider, { duration: 1, opacity: 0, delay: 2 }, '-=0')
       
     },[sliderBeforeToggle, sliderOpenToggle])
@@ -100,8 +112,7 @@ const AlphaSlider = () => {
         console.log("UE* (SliderCloseTggle)")
         gsap.set(slider, { opacity: 1})
         const tl = gsap.timeline({ defaults: { delay: 0 } })   
-        // tl.to(slider, { duration: .5, opacity: 1 }, '-=0')
-        tl.to(slider, { duration: .5, opacity: 0, delay: 2 }, '-=0')
+        tl.to(slider, { duration: .5, opacity: 0, delay: 1 }, '-=0')
         
     },[sliderCloseToggle])
   
@@ -135,7 +146,7 @@ const AlphaSlider = () => {
         <SliderContainer className="slider-container"
             onTouchStart={handleSliderClick}
             onClick={handleSliderClick}
-            containerVal={value}
+            // containerVal={value}
             ref={elem => slider = elem}
         >
             <StyledSlider
