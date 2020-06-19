@@ -46,23 +46,19 @@ const PageAWrapper = styled.div`
         .gallery-switch-btn {
             width: 13vw;
             height: 13vw;
-            ${'' /* background: transparent; */}
             position: absolute;
-            top: 2vw;
-            right: 2vw;
+            top: 0;
+            right: 0;
             z-index: 10;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 6px;
-            border: 1px solid lightgreen;
-
-            &.open {
-                background-color: rgba(28, 241, 28, 0.1);
-                p {
-                color: lightgreen;
-                }
+            
+            svg {
+              width: 60%;
+              height: 60%;
             }
+
             &.closed {
               width: 13vw;
               height: 13vw;

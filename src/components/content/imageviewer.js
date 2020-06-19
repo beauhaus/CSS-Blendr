@@ -92,7 +92,7 @@ const [topImageAlpha, setTopImageAlpha] = useState('')
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
     }, [flipTriggerVal])
-    
+
     useEffect(() => {
         setTopImageAlpha(topAlphaVal)
     }, [topAlphaVal])
@@ -112,9 +112,23 @@ const [topImageAlpha, setTopImageAlpha] = useState('')
                     <PhotoGallery />
                 }
             {galleryOpenVal? 
-                <button className={'gallery-switch-btn open'} onClick={galleryOpener}><span role="img">&#x2713;</span></button>
+                <button className={'gallery-switch-btn open'} onClick={galleryOpener}>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                
+                <path fill="#828282" d="M0 0h300v300H0z"/>
+                <path fill="#fff" d="M160 160h120v120H160zM160 20h120v120H160zM20 20h120v120H20zM20 160h120v120H20z"/>
+                <path fill="#66de98" strokeWidth="15" stroke="#00d800" d="M6.09 182.74c30.56 17.39 56.73 32.07 76.37 42.71 48.56-74.32 122.9-145.51 208.94-215.27C204.1 101.99 133.38 196.22 93.74 295c-26.86-46.63-56.35-82.96-87.65-112.26z" />
+                
+                </svg>
+                </button>
             :
-            <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><span  role="img">&#x2B1B;</span></button>
+            <button className={'gallery-switch-btn closed'} onClick={galleryOpener}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                    <path fill="#4d4d4d" d="M0 0h300v300H0z"/>
+                    <path fill="#fff" d="M160 160h120v120H160zM160 20h120v120H160zM20 20h120v120H20zM20 160h120v120H20z"/>
+                </svg>
+            </button>
             }
             {!galleryOpenVal && <AlphaSlider className="alpha-slider"  />}
             </ImageViewerWrapper>
