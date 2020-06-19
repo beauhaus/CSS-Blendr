@@ -114,6 +114,7 @@ const PageA = (props) => {
   const [selTop, setSelTop] = useState('');
   const [selBot, setSelBot] = useState('');
   const [btReset, setBtReset] = useState('');
+  const [topAlphaVal, setTopAlphaVal] = useState(100);
 
   useEffect(() => {
     setGallery(galleryImages)
@@ -191,18 +192,19 @@ const PageA = (props) => {
         setSelTop,
         setSelBot,
         imgFlipper,
-        thumbNailClicker
+        thumbNailClicker,
+        topAlphaVal, 
+        setTopAlphaVal
+
       }}>
       <PageAWrapper className="page-a-page-wrapper" >
         <PanelBG />
         <hr />
         <section className="panel-section">
-        {/* Why this condition? */}
         {(selTop && selBot) && <ImageViewer className="img-viewer" />}
-        {/* <ImageViewer className="img-viewer" /> */}
           <div className="blend-ctrl-btns" >
-            {/* <CyclerBtn />
-            <FlipScreenBtn /> */}
+            <CyclerBtn />
+            <FlipScreenBtn />
           </div>
         </section>
       </PageAWrapper>
@@ -213,28 +215,3 @@ const PageA = (props) => {
 export default PageA;
 
 
-
-/*
-========== mutate myArray ===============
-
-//Initailize array of objects.
-let myArray = [
-  {id: 0, name: "Jhon"},
-  {id: 1, name: "Sara"},
-  {id: 2, name: "Domnic"},
-  {id: 3, name: "Bravo"}
-],
-
-//Find index of specific object using findIndex method.
-objIndex = myArray.findIndex((obj => obj.id == 1));
-
-//Log object to Console.
-console.log("Before update: ", myArray[objIndex])
-
-//Update object's name property.
-myArray[objIndex].name = "Laila"
-
-//Log object to console again.
-console.log("After update: ", myArray[objIndex])
-
-*/

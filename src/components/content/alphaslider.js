@@ -1,12 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { gsap, Back } from "gsap"; //  , Power4, Expo
+import { ModeContext } from '../../pages/page-a'
 
 // const sliderContainerStyles = (props) => (`background: rgba(255,255,255,${props.containerVal / 100});`)
 const sliderContainerStyles = (props) => {
-    console.log("styles val: ", props.containerVal);
-    return(`background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,${props.containerVal / 100}) 100%);`)}
+    return (`background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,${props.containerVal / 100}) 100%);`)
+}
 
 const SliderContainer = styled.div`
     position: absolute;
@@ -53,7 +54,7 @@ const StyledThumb = styled.div`
     &:active {
         border-width: 0;
     }
-    .st3{fill:#fff}.st4{fill:#4f4f4f}
+
 
 `;
 
@@ -77,22 +78,15 @@ const StyledTrack = styled.div`
     }
 `;
 
-const Thumb = (props, state) => {
+const Thumb = (props, state, topAlphaVal) => {
+
+
     return (
         <StyledThumb containerVal={state.value} {...props}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="70%" viewBox="0 0 58.13 58.13">
-  
-  <g id="opacityicon_1_">
-    <path fill="#828282" d="M38.42 43.1H5.68C3.09 43.1 1 41.01 1 38.42V5.68C1 3.09 3.09 1 5.68 1h32.74C41 1 43.1 3.09 43.1 5.68v32.74c0 2.59-2.09 4.68-4.68 4.68z"/>
-    <path d="M52.45 57.13H19.71c-2.58 0-4.68-2.09-4.68-4.68V19.71c0-2.58 2.09-4.68 4.68-4.68h32.74c2.58 0 4.68 2.09 4.68 4.68v32.74c0 2.59-2.09 4.68-4.68 4.68z" className="st3"/>
-    <path d="M15.03 19.71H43.1v-4.68H19.71c-2.58 0-4.68 2.1-4.68 4.68z" className="st3"/>
-    <path d="M15.03 19.71H43.1v4.68H15.03z" className="st4"/>
-    <path d="M15.03 24.39H43.1v4.68H15.03z" className="st3"/>
-    <path d="M15.03 29.07H43.1v4.68H15.03z" className="st4"/>
-    <path d="M15.03 33.74H43.1v4.68H15.03z" className="st3"/>
-    <path d="M15.03 43.1h23.39c2.58 0 4.68-2.09 4.68-4.68H15.03v4.68z" className="st4"/>
-  </g>
-</svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="60%" viewBox="0 0 300.26 300.26">
+                <path fill="#828282" stroke="#000" strokeWidth="5"  d="M101.93 297.76c-14.7 0-26.67-11.96-26.67-26.67V101.93c0-14.7 11.96-26.67 26.67-26.67H271.1c14.7 0 26.67 11.96 26.67 26.67V271.1c0 14.7-11.96 26.67-26.67 26.67H101.93z" />
+                <path fill="#fff" stroke="#fff" strokeWidth="10" fillOpacity={state.value / 100} d="M29.43 225.26c-14.7 0-26.67-11.96-26.67-26.67V29.43c0-14.7 11.96-26.67 26.67-26.67H198.6c14.7 0 26.67 11.96 26.67 26.67V198.6c0 14.7-11.96 26.67-26.67 26.67H29.43z" />
+            </svg>
         </StyledThumb>
     )
 };
@@ -109,8 +103,11 @@ const Track = (props, state) => {
     )
 };
 
-const AlphaSlider = ({topAlphaVal, setTopAlphaVal}) => {
-    const [value, setValue] = useState(100);
+const AlphaSlider = () => {
+    const { topAlphaVal,
+        setTopAlphaVal
+    } = useContext(ModeContext);
+    // const [value, setValue] = useState(100);
     // const [afterVal, setAfterVal] = useState('');
     // const [beforeValue, setBeforeValue] = useState('');
     const [sliderOpenToggle, setSliderOpenToggle] = useState(false);
@@ -118,32 +115,27 @@ const AlphaSlider = ({topAlphaVal, setTopAlphaVal}) => {
     const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //before value
 
 
-    let slider = useRef(null)
+    let sliderTrack = useRef(null)
 
     useEffect(() => {
         // console.log("* open&before")
-        gsap.set(slider, { opacity: 1 })
+        gsap.set(sliderTrack, { opacity: 0 })
         const tl = gsap.timeline({ defaults: { delay: 0 } })
-        tl.to(slider, { duration: .3, opacity: 1 }, '-=0')
+        tl.to(sliderTrack, { duration: .3, opacity: 1 }, '-=0')
     }, [sliderBeforeToggle, sliderOpenToggle])
 
     useEffect(() => {
-        gsap.set(slider, { opacity: 1 })
+        gsap.set(sliderTrack, { opacity: 1 })
         const tl = gsap.timeline({ defaults: { delay: 0 } })
-        tl.to(slider, { duration: .5, opacity: 0, delay: 1 }, '-=0')
+        tl.to(sliderTrack, { duration: .5, opacity: 0, delay: 1 }, '-=0')
     }, [sliderCloseToggle])
 
-
-
-
     const handleSliderClick = () => {
-        // console.log("CLICK!!: ");
         setSliderOpenToggle(!sliderOpenToggle)
     }
 
-    //necessary for feeding new values but not for gsap transitions
+    //necessary for feeding new values to parent container
     const handleChange = (val) => {
-        // console.log("change: ", val);
         setTopAlphaVal(val)
     }
     const handleBefore = (val) => {
@@ -159,7 +151,7 @@ const AlphaSlider = ({topAlphaVal, setTopAlphaVal}) => {
         <SliderContainer className="slider-container"
             onTouchStart={handleSliderClick}
             onClick={handleSliderClick}
-            ref={elem => slider = elem}
+            ref={elem => sliderTrack = elem}
         >
             <StyledSlider
                 defaultValue={[100]}
@@ -170,6 +162,7 @@ const AlphaSlider = ({topAlphaVal, setTopAlphaVal}) => {
                 onAfterChange={(val) => handleAfter(val)}
                 orientation="vertical"
                 invert
+                topAlphaVal={topAlphaVal}
             />
         </SliderContainer>
     )

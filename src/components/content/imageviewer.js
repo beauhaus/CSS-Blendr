@@ -71,14 +71,16 @@ const ImageViewerWrapper = styled.div`
 `
 
 const ImageViewer = () => {
-const [topAlphaVal, setTopAlphaVal] = useState(100);
     const { mode,
         flipTriggerVal,
         galleryOpener,
         selTop,
         selBot,
         galleryOpenVal,
+        topAlphaVal
     } = useContext(ModeContext);
+const [topImageAlpha, setTopImageAlpha] = useState('')
+
 
     let botImage = useRef(null)
     let topImage = useRef(null)
@@ -90,6 +92,10 @@ const [topAlphaVal, setTopAlphaVal] = useState(100);
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
     }, [flipTriggerVal])
+    
+    useEffect(() => {
+        setTopImageAlpha(topAlphaVal)
+    }, [topAlphaVal])
 
     return (
         <>
@@ -97,7 +103,7 @@ const [topAlphaVal, setTopAlphaVal] = useState(100);
                 <svg className="image-container" viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                     <g>
                         <image className="img-back" width="100%" height="100%" xlinkHref={selBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
-                        <image className="img-front" width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
+                        <image className="img-front" opacity={topImageAlpha/100} width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
                     </g>
                 </svg>
                 <ModeNameDisplay />
@@ -110,7 +116,7 @@ const [topAlphaVal, setTopAlphaVal] = useState(100);
             :
             <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><span  role="img">&#x2B1B;</span></button>
             }
-            {!galleryOpenVal && <AlphaSlider className="alpha-slider" topAlphaVal={topAlphaVal} setTopAlphaVal={setTopAlphaVal} />}
+            {!galleryOpenVal && <AlphaSlider className="alpha-slider"  />}
             </ImageViewerWrapper>
 
 

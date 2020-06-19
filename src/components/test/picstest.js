@@ -145,10 +145,7 @@ const PicsTest = () => {
                 <div className="control">
                     <label htmlFor="cover" className="cover">Choose Image File</label>
                     <input type="file" id="cover"
-                    // onChange={e => getFile(e.target.files)} 
-
                     />
-                    {/* {console.log("testPICSTEST.js: ", test)} */}
                 </div>
                 <input type="submit" value="Submit" />
             </form>
