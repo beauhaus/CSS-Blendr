@@ -12,13 +12,12 @@ const sliderContainerStyles = (props) => {
 const SliderContainer = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100%;
     margin: 0;
     width: 7vh;
     z-index: 20;
     opacity: 0;
-    ${'' /* border: 1px solid yellow; */}
 `
 
 const StyledSlider = styled(ReactSlider)`

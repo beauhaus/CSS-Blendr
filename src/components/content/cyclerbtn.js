@@ -14,7 +14,6 @@ const CyclerBtnWrapper = styled.button`
     width: 35vw;
     box-shadow: 2px 2px 6px -3px #ddd, 
     -3px -3px 4px -2px #000;
-    ${'' /* border: 1px solid yellow; */}
       & > svg {  
       height: 100%;
       width: 100%;

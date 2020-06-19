@@ -48,7 +48,7 @@ const PageAWrapper = styled.div`
             height: 13vw;
             position: absolute;
             top: 0;
-            right: 0;
+            left: 0;
             z-index: 10;
             display: flex;
             justify-content: center;

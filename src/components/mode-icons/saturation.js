@@ -26,7 +26,6 @@ const SaturationWrapper = styled.g`
     .st19{fill:none;stroke:#fff;stroke-width:3;}
 
     text {
-        fill: yellow;
         font-size: 4rem;
     }
 `

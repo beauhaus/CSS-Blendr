@@ -29,7 +29,6 @@ const FlipScreenWrap = styled.button`
             height: 93%;
             opacity: .9;
             margin: auto;
-            background: yellow;
             background: linear-gradient(90deg, #2C3021 0%, #545D49 50%, #5F6B57 100%);
         }   
     .line-grid{
