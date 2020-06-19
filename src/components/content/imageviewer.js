@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext, useState } from 'react';
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
@@ -24,7 +24,8 @@ const ImageViewerWrapper = styled.div`
 
         margin: 1vh auto;
         display: grid;
-        overflow: scroll;
+        ${'' /* overflow: scroll; // ??? */}
+        overflow: hidden;
         position: relative;
         padding: 0;
         z-index: 1;
@@ -70,12 +71,13 @@ const ImageViewerWrapper = styled.div`
 `
 
 const ImageViewer = () => {
+const [topAlphaVal, setTopAlphaVal] = useState(100);
     const { mode,
         flipTriggerVal,
         galleryOpener,
         selTop,
         selBot,
-        galleryOpenVal
+        galleryOpenVal,
     } = useContext(ModeContext);
 
     let botImage = useRef(null)
@@ -108,7 +110,7 @@ const ImageViewer = () => {
             :
             <button className={'gallery-switch-btn closed'} onClick={galleryOpener}><span  role="img">&#x2B1B;</span></button>
             }
-            {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
+            {!galleryOpenVal && <AlphaSlider className="alpha-slider" topAlphaVal={topAlphaVal} setTopAlphaVal={setTopAlphaVal} />}
             </ImageViewerWrapper>
 
 
