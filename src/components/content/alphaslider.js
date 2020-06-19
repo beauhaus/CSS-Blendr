@@ -83,7 +83,7 @@ const Thumb = (props, state, topAlphaVal) => {
 
     return (
         <StyledThumb containerVal={state.value} {...props}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="60%" viewBox="0 0 300.26 300.26">
+            <svg xmlns="http://www.w3.org/2000/svg" className="img-viewer-icon" viewBox="0 0 300 300">
                 <path fill="#828282" stroke="#000" strokeWidth="5"  d="M101.93 297.76c-14.7 0-26.67-11.96-26.67-26.67V101.93c0-14.7 11.96-26.67 26.67-26.67H271.1c14.7 0 26.67 11.96 26.67 26.67V271.1c0 14.7-11.96 26.67-26.67 26.67H101.93z" />
                 <path fill="#fff" stroke="#fff" strokeWidth="10" fillOpacity={state.value / 100} d="M29.43 225.26c-14.7 0-26.67-11.96-26.67-26.67V29.43c0-14.7 11.96-26.67 26.67-26.67H198.6c14.7 0 26.67 11.96 26.67 26.67V198.6c0 14.7-11.96 26.67-26.67 26.67H29.43z" />
             </svg>

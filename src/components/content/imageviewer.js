@@ -66,8 +66,14 @@ const ImageViewerWrapper = styled.div`
         left: 0;
         background: red;
     }
-    
-   
+    .iconCheckmark {
+        animation: 1s checkFadeIn ease-in-out;
+    }
+
+@keyframes checkFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 `
 
 const ImageViewer = () => {
@@ -79,11 +85,13 @@ const ImageViewer = () => {
         galleryOpenVal,
         topAlphaVal
     } = useContext(ModeContext);
-const [topImageAlpha, setTopImageAlpha] = useState('')
+    const [topImageAlpha, setTopImageAlpha] = useState('')
 
 
     let botImage = useRef(null)
     let topImage = useRef(null)
+    // let iconCheckmark = useRef(null)
+
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl
@@ -103,34 +111,20 @@ const [topImageAlpha, setTopImageAlpha] = useState('')
                 <svg className="image-container" viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                     <g>
                         <image className="img-back" width="100%" height="100%" xlinkHref={selBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
-                        <image className="img-front" opacity={topImageAlpha/100} width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
+                        <image className="img-front" opacity={topImageAlpha / 100} width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
                     </g>
                 </svg>
                 <ModeNameDisplay />
                 <VertGlitch />
-                {galleryOpenVal &&
-                    <PhotoGallery />
-                }
-            {galleryOpenVal? 
+                {galleryOpenVal && <PhotoGallery />}
                 <button className={'gallery-switch-btn open'} onClick={galleryOpener}>
-                
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-                
-                <path fill="#828282" d="M0 0h300v300H0z"/>
-                <path fill="#fff" d="M160 160h120v120H160zM160 20h120v120H160zM20 20h120v120H20zM20 160h120v120H20z"/>
-                <path fill="#66de98" strokeWidth="15" stroke="#00d800" d="M6.09 182.74c30.56 17.39 56.73 32.07 76.37 42.71 48.56-74.32 122.9-145.51 208.94-215.27C204.1 101.99 133.38 196.22 93.74 295c-26.86-46.63-56.35-82.96-87.65-112.26z" />
-                
-                </svg>
-                </button>
-            :
-            <button className={'gallery-switch-btn closed'} onClick={galleryOpener}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
-                    <path fill="#4d4d4d" d="M0 0h300v300H0z"/>
-                    <path fill="#fff" d="M160 160h120v120H160zM160 20h120v120H160zM20 20h120v120H20zM20 160h120v120H20z"/>
-                </svg>
-            </button>
-            }
-            {!galleryOpenVal && <AlphaSlider className="alpha-slider"  />}
+                        <svg xmlns="http://www.w3.org/2000/svg" className="img-viewer-icon" viewBox="0 0 300 300">
+                            <path fill="#828282" d="M0 0h300v300H0z" />
+                            <path fill="#fff" d="M160 160h120v120H160zM160 20h120v120H160zM20 20h120v120H20zM20 160h120v120H20z" />
+                            {galleryOpenVal && <path className="iconCheckmark" fill="#66de98" strokeWidth="15" stroke="#00d800" d="M6.09 182.74c30.56 17.39 56.73 32.07 76.37 42.71 48.56-74.32 122.9-145.51 208.94-215.27C204.1 101.99 133.38 196.22 93.74 295c-26.86-46.63-56.35-82.96-87.65-112.26z" />}
+                        </svg>
+                    </button>
+                {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
             </ImageViewerWrapper>
 
 

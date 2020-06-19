@@ -53,24 +53,17 @@ const PageAWrapper = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            
-            svg {
-              width: 60%;
-              height: 60%;
-            }
 
             &.closed {
               width: 13vw;
               height: 13vw;
               top: 0;
-              border: 1p solid #bcbcbc;
+              border: 1px solid #bcbcbc;
               right: 0;
               margin: 0;
               border-radius: 0;
               border-width: 0;
-              p {
-                ${'' /* display: none; */}
-              }
+
             }
 
             p {
@@ -158,8 +151,6 @@ const PageA = (props) => {
 
   const thumbNailClicker = (imgObj) => {
 
-    // let [top] = gallery.filter(img => img.top)
-    // console.log("currentTop: ", selTop)
     let currentTopIdx = gallery.findIndex((obj => selTop.name === obj.name));
     gallery[currentTopIdx].top = false;
     let newSelTopIdx = gallery.findIndex((obj => imgObj.name === obj.name));

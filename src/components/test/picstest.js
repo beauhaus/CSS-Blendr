@@ -144,13 +144,11 @@ const PicsTest = () => {
             <form onSubmit={getPostInfo}>
                 <div className="control">
                     <label htmlFor="cover" className="cover">Choose Image File</label>
-                    <input type="file" id="cover"
-                    />
+                    <input type="file" id="cover" />
                 </div>
                 <input type="submit" value="Submit" />
             </form>
             {usrImageData}
-
         </>
     )
 

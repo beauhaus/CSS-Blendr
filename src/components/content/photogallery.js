@@ -38,9 +38,7 @@ const PhotoGallery = () => {
         ref={elem => displayGallery = elem}>
             {galleryOpenVal &&
                 gallery.map(imgObj => (
-                    <GalleryThumbnailCard key={imgObj.name}
-                        imgObj={imgObj}
-                    />
+                    <GalleryThumbnailCard key={imgObj.name} imgObj={imgObj} />
                 ))}
         </PhotoGalleryWrapper>
     )
