@@ -77,7 +77,7 @@ const PicsTest = () => {
     }, [defaultImages, usrImages])
     return (
         <>
-            <form onSubmit={submitUsrImageFile}>
+            <form className="picstester-form" onSubmit={submitUsrImageFile}>
                 <div className="control">
                     <label htmlFor="cover" className="cover">Choose a file</label>
                     <input type="file" id="cover" required onChange={e => getUsrImageFile(e.target.files)} />

@@ -78,7 +78,7 @@ body {
     }
 }
 
-@-webkit-keyframes fadeout {
+@-webkit-keyframes fadeOut {
     0% {
         opacity: 1
     }
@@ -88,13 +88,32 @@ body {
     }
 }
 
-@keyframes fadeout {
+@keyframes fadeOut {
     0% {
         opacity: 1
     }
 
     100% {
         opacity: 0;
+    }
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
@@ -151,3 +170,6 @@ input[type=range]::-ms-track {
     height: 50%;
 }
 /* for custom styles */
+.picstester-form {
+    margin-top: 20vh;
+}
