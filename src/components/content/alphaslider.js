@@ -29,7 +29,10 @@ const StyledSlider = styled(ReactSlider)`
 `;
 
 const StyledThumb = styled.div`
-    width: 100%;
+    width: 14vh;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 7vh;
     color: #fff;
     position: relative;
@@ -37,11 +40,16 @@ const StyledThumb = styled.div`
     ${'' /* border: 1px solid #fff; */}
     outline: none;
     border-radius: 7px;
-    display: flex;
+    ${'' /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */}
       &:active {
         border-width: 0;
+    }
+    svg {
+        grid-column: 2;
+        ${'' /* border: 1px solid red; */}
+        margin: 25%;
     }
 `;
 
@@ -90,8 +98,6 @@ const StyledTrack = styled.div`
 `;
 
 const Track = (props, state) => {
-    // console.log("T:S", state);
-    // console.log("T:P", props);
     return (
         <StyledTrack
             {...props}
@@ -107,10 +113,10 @@ const AlphaSlider = () => {
     } = useContext(ModeContext);
 
     const [sliderOpenToggle, setSliderOpenToggle] = useState(false);
-    const [sliderCloseToggle, setSliderCloseToggle] = useState(false); //after value
-    const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //before value
+    // const [sliderCloseToggle, setSliderCloseToggle] = useState(false); //after value
+    // const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //before value
 
-    const [tester, setTester] = useState(false);
+    const [alphaToggle, setAlphaToggle] = useState(false);
 
     const handleSliderClick = () => {
         console.log('handleSliderClick');
@@ -127,33 +133,24 @@ const AlphaSlider = () => {
     const handleBefore = (val) => {
         console.log('handleBefore');
         // setOpacityVal(!opacityVal)
-        setTester(true)
+        setAlphaToggle(true)
 
-        setSliderBeforeToggle(!sliderBeforeToggle)
+        // setSliderBeforeToggle(!sliderBeforeToggle)
     }
     const handleAfter = (val) => {
         console.log("after")
-        setTester(false)
+        setAlphaToggle(false)
         // setSliderCloseToggle(!sliderCloseToggle)
     }
-    const mouseDnHandler = (val) => {
-        console.log('mouseDN');
 
-        // console.log("after")
-        // setSliderCloseToggle(!sliderCloseToggle)
-    }
-    useEffect(() => {
-        // setOpacityVal(!opacityVal)
-    }, [sliderCloseToggle, sliderBeforeToggle]);
     return (
         <SliderContainer className="slider-container"
             onTouchStart={handleBefore}
-            // onTouchStart={mouseDnHandler}
             onClick={handleSliderClick}
         >
             <StyledSlider
                 defaultValue={[topAlphaVal]}
-                trackClassName={tester ? "testA" : "testB"}
+                trackClassName={alphaToggle ? "testA" : "testB"}
                 renderTrack={Track}
                 renderThumb={Thumb}
                 onBeforeChange={(val) => handleBefore(val)}

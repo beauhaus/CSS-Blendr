@@ -74,6 +74,17 @@ const ImageViewerWrapper = styled.div`
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+.alphaval-display {
+    position:absolute;
+    top: 0;
+    left: 0;
+    padding: 30%;
+    color: #fff;
+    font-weight: 100;
+    font-size: 6rem;
+    width: 100%;
+    height: 100%;
+}
 `
 
 const ImageViewer = () => {
@@ -90,7 +101,7 @@ const ImageViewer = () => {
 
     let botImage = useRef(null)
     let topImage = useRef(null)
-    // let iconCheckmark = useRef(null)
+    let alphavalDisplay = useRef(null)
 
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
@@ -103,6 +114,12 @@ const ImageViewer = () => {
 
     useEffect(() => {
         setTopImageAlpha(topAlphaVal)
+    }, [topAlphaVal])
+
+    useEffect(() => {
+        const tl = gsap.timeline({ defaults: { delay: 0 } })
+        tl
+            .to(alphavalDisplay, { duration: .3, opacity: 0 }, '-=0')
     }, [topAlphaVal])
 
     return (
@@ -124,7 +141,9 @@ const ImageViewer = () => {
                             {galleryOpenVal && <path className="iconCheckmark" fill="#66de98" strokeWidth="15" stroke="#00d800" d="M6.09 182.74c30.56 17.39 56.73 32.07 76.37 42.71 48.56-74.32 122.9-145.51 208.94-215.27C204.1 101.99 133.38 196.22 93.74 295c-26.86-46.63-56.35-82.96-87.65-112.26z" />}
                         </svg>
                     </button>
-                {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
+                    {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
+                    {!galleryOpenVal && <h1 className="alphaval-display" ref={elem => alphavalDisplay = elem}>{topAlphaVal}%</h1>}
+                
             </ImageViewerWrapper>
 
 
@@ -133,9 +152,3 @@ const ImageViewer = () => {
 
 export default ImageViewer;
 
-/*
-
-<path fill="#828282" d="M275 300H25c-13.81 0-25-11.19-25-25V25C0 11.19 11.19 0 25 0h250c13.81 0 25 11.19 25 25v250c0 13.81-11.19 25-25 25z"/>
-    <path d="M265 280h-90c-8.28 0-15-6.72-15-15v-90c0-8.28 6.72-15 15-15h90c8.28 0 15 6.72 15 15v90c0 8.28-6.72 15-15 15zM265 140h-90c-8.28 0-15-6.72-15-15V35c0-8.28 6.72-15 15-15h90c8.28 0 15 6.72 15 15v90c0 8.28-6.72 15-15 15zM125 140H35c-8.28 0-15-6.72-15-15V35c0-8.28 6.72-15 15-15h90c8.28 0 15 6.72 15 15v90c0 8.28-6.72 15-15 15zM125 280H35c-8.28 0-15-6.72-15-15v-90c0-8.28 6.72-15 15-15h90c8.28 0 15 6.72 15 15v90c0 8.28-6.72 15-15 15z" class="st1"/>
-
-    */
