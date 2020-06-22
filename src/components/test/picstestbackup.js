@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useReducer } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import { createUsrImageDB, shortRand } from './apputils'
 import { BlendrDataContext } from '../../pages/page-d'
 
@@ -14,7 +14,9 @@ const PicsTest = () => {
     /******** STATE **********/
     const [postImageURL, setImageURL] = useState('');
     const [usrImages, setUsrImages] = useState('');
-    const [fileName, setFileName] = useState('')
+    const [selectedFile, setSelectedFile] = useState('')
+
+    /********REFACTOR*********/
     //set the database 
     const db = createUsrImageDB();
 
@@ -29,38 +31,6 @@ const PicsTest = () => {
         getStoredImageFiles();
     }, [])
 
-    // read the file and decode it
-    const getUsrImageFile = (e) => {
-        setFileName(e[0].name)
-        let reader = new FileReader();
-        reader.readAsDataURL(e[0])
-        reader.onload = (e) => {
-            setImageURL(reader.result);
-        }
-    }
-
-    //submit (Add Image w/ standard properties)
-    const submitUsrImageFile = (e) => {
-        e.preventDefault();
-
-        if (postImageURL !== '') {
-            let imageFile = {
-                id: shortRand(),
-                url: postImageURL,
-                top: false,
-                bot: false,
-                tag: "usr-image",
-                fileName
-            }
-
-            db.usrImages.add(imageFile).then(async () => {
-                //retrieve all usrImages inside the db
-                let allUsrImages = await db.usrImages.toArray();
-                // set the usrImages
-                setUsrImages(allUsrImages);
-            });
-        }
-    }
 
     const deleteUsrImage = async (id) => {
         db.usrImages.delete(id);
@@ -75,22 +45,67 @@ const PicsTest = () => {
             ...defaultImages
         ])
     }, [defaultImages, usrImages])
+
+
+    /***************************************************/
+    const fileInput = useRef(null)
+
+    const fileSelectedHandler = e => {
+        console.log("fsh", e.target.files[0].name);
+        
+        setSelectedFile(e.target.files[0].name)
+        let reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0])
+        reader.onload = (e) => {
+            setImageURL(reader.result);
+        }
+    }
+
+    const fileUploadHandler = (event) => {
+        event.preventDefault();
+        if (postImageURL !== '') {
+            let imageFile = {
+                id: shortRand(),
+                url: postImageURL,
+                top: false,
+                bot: false,
+                tag: "usr-image",
+                selectedFile
+            }
+
+            db.usrImages.add(imageFile).then(async () => {
+                //retrieve all usrImages inside the db
+                let allUsrImages = await db.usrImages.toArray();
+                // set the usrImages
+                setUsrImages(allUsrImages);
+            });
+        }
+    }
+
     return (
         <>
-            <form className="picstester-form" onSubmit={submitUsrImageFile}>
-                <div className="control">
-                    <label htmlFor="cover" className="cover">Choose a file</label>
-                    <input type="file" id="cover" required onChange={e => getUsrImageFile(e.target.files)} />
-                </div>
-                {fileName && <input type="submit" value="Upload" />}
-            </form>
+        <form className="picstester-form" >
+        <div className="control">
+            <input 
+                style={{display:'none'}}
+                type="file"
+                required
+                onChange={fileSelectedHandler}
+                ref={fileInput}
+            />
+            <button type="button" onClick={()=>fileInput.current.click()}>SELECT</button>
+            
+        </div>
+        {selectedFile && <button type="button" onClick={fileUploadHandler}>UP!</button>}
+    </form>
 
-            {combinedImageArray.length ?
-                <PictureCard imageArray={combinedImageArray} deleteUsrImage={deleteUsrImage} />
-                :
-                ''
-            }
-        </>
+    {combinedImageArray.length ?
+        <PictureCard imageArray={combinedImageArray} deleteUsrImage={deleteUsrImage} />
+        :
+        ''
+    }
+</>
+      
     )
 }
 
