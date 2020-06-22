@@ -104,6 +104,7 @@ const PageA = (props) => {
   const [selBot, setSelBot] = useState('');
   const [btReset, setBtReset] = useState('');
   const [topAlphaVal, setTopAlphaVal] = useState(100);
+  const [alphaToggle, setAlphaToggle] = useState(false);
 
   useEffect(() => {
     setGallery(galleryImages)
@@ -181,8 +182,9 @@ const PageA = (props) => {
         imgFlipper,
         thumbNailClicker,
         topAlphaVal, 
-        setTopAlphaVal
-
+        setTopAlphaVal,
+        alphaToggle,
+        setAlphaToggle
       }}>
       <PageAWrapper className="page-a-page-wrapper" >
         <PanelBG />

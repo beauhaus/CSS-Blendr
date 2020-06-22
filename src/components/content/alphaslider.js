@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
-import { gsap, Back } from "gsap"; //  , Power4, Expo
 import { ModeContext } from '../../pages/page-a'
 
 // const trackStyles = (props) => (`background: rgba(255,255,255,${props.containerVal / 100});`)
@@ -70,9 +69,6 @@ const Thumb = (props, state) => {
     )
 };
 
-
-
-
 const StyledTrack = styled.div`
     top: 0;
     bottom: 0;
@@ -109,38 +105,28 @@ const Track = (props, state) => {
 
 const AlphaSlider = () => {
     const { topAlphaVal,
-        setTopAlphaVal
+        setTopAlphaVal,
+        alphaToggle,
+        setAlphaToggle
     } = useContext(ModeContext);
 
     const [sliderOpenToggle, setSliderOpenToggle] = useState(false);
-    // const [sliderCloseToggle, setSliderCloseToggle] = useState(false); //after value
-    // const [sliderBeforeToggle, setSliderBeforeToggle] = useState(false); //before value
 
-    const [alphaToggle, setAlphaToggle] = useState(false);
 
     const handleSliderClick = () => {
         console.log('handleSliderClick');
-
         setSliderOpenToggle(!sliderOpenToggle)
     }
 
     //necessary for feeding new values to parent container
     const handleChange = (val) => {
-        console.log('handleChange');
-
         setTopAlphaVal(val)
     }
     const handleBefore = (val) => {
-        console.log('handleBefore');
-        // setOpacityVal(!opacityVal)
         setAlphaToggle(true)
-
-        // setSliderBeforeToggle(!sliderBeforeToggle)
     }
     const handleAfter = (val) => {
-        console.log("after")
         setAlphaToggle(false)
-        // setSliderCloseToggle(!sliderCloseToggle)
     }
 
     return (

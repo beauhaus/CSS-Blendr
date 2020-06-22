@@ -5,10 +5,11 @@ import { ModeContext } from '../../pages/page-a'
 import './flipimgpairs.scss'
 
 const FlipImagePairs = () => {
-    const { mode, flipTriggerVal, selBot, imgFlipper, selTop,topAlphaVal } = useContext(ModeContext);
+    const { mode, flipTriggerVal, selBot, imgFlipper, selTop,topAlphaVal, alphaToggle } = useContext(ModeContext);
     let topImage = useRef(null)
     let botImage = useRef(null)
     let imgEffect = useRef(null)
+
 
     /* affordance animation (arrows) for changing modes */
     useEffect(() => {
@@ -36,7 +37,8 @@ const FlipImagePairs = () => {
             </svg>
             <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
                 <image opacity={topAlphaVal/100} width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" ref={elem => topImage = elem} />
-                <rect id="test1" stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} />
+                <rect  stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} />
+                {alphaToggle &&<text x="150" y="350" width="100%" height="100%" className="flip-scrn-top-alpha-display">{topAlphaVal}%</text>}
             </svg>
         </>
 
