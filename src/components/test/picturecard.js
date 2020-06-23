@@ -42,8 +42,8 @@ const PictureCard = ({ imageArray, deleteUsrImage }) => {
     return (
         <StyledPicCard className="usrImages-container">
             {imageArray.map(usrImage => (
-                <div className={`user-image img-${usrImage.id}`} key={usrImage.id || usrImage.name}>
-                    <img src={usrImage.url} alt={usrImage.fileName} />
+                <div className={`user-image img-${usrImage.name}`} key={usrImage.id || usrImage.name}>
+                    <img src={usrImage.url} alt={usrImage.name} />
                     {usrImage.tag==="usr-image" && <button className="delete" onClick={() => deleteUsrImage(usrImage.id)}><p>X</p></button>}
                 </div>
             )
