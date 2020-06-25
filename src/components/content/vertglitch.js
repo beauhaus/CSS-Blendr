@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react'
 import { gsap } from "gsap"; //  , Power4, Expo
-import { ModeContext } from '../../pages/page-a'
+import { BlenderAppContext } from '../../pages/page-a'
 // import GlitchGif from '../../../static/images/glitchgif.gif'
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components'
@@ -37,7 +37,7 @@ const VertGlitch = () => {
 
     const glitchAnimImage = data.file.image.fixed;
 
-    const { mode } = useContext(ModeContext)
+    const { mode } = useContext(BlenderAppContext)
     let botGlitch = useRef(null) // 0%
     let centerGlitch = useRef(null) // 10%
     let topGlitch = useRef(null) // 20%

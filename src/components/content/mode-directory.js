@@ -1,6 +1,6 @@
 import React from 'react'
 import './modedirectory.scss'
-// import {ModeContext} from '???'
+// import {BlenderAppContext} from '???'
 
 const ModeDirectory = ({mode, idx}) => {
 

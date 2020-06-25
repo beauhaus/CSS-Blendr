@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Image from 'gatsby-image'
-import { ModeContext } from '../../pages/page-a'
+import { BlenderAppContext } from '../../pages/page-a'
 import styled from 'styled-components'
 
 const StyledThumbCardBtn = styled.button`
@@ -13,7 +13,7 @@ const StyledThumbCardBtn = styled.button`
 `
 
 const GalleryThumbnailCardBtn = ({ imgObj }) => {
-    const { thumbNailClicker} = useContext(ModeContext);
+    const { thumbNailClicker} = useContext(BlenderAppContext);
     return (
         <StyledThumbCardBtn id="img-btn" className={imgObj.top && "selected-img-top"}
             onClick={() => thumbNailClicker(imgObj)}

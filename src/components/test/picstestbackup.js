@@ -49,6 +49,9 @@ const PicsTest = () => {
             }
         }
         getStoredImageFiles();
+        // line below ought to be this, but dependency may interfere with uploads (??)
+        // }, [db.usrImages])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -64,7 +67,7 @@ const PicsTest = () => {
             ...usrImages,
             ...defaultImages
         ])
-    }, [defaultImages, usrImages])
+    }, [defaultImages, usrImages, setCombinedImageArray])
 
 
     /***************************************************/
@@ -72,50 +75,47 @@ const PicsTest = () => {
 
     const fileSelectedHandler = e => {
 
+        if (e.target.files[0]) {
+            console.log("file selected");
+            setSelectedFileName(e.target.files[0].name)
 
-        setSelectedFileName(e.target.files[0].name)
-
-        let reader = new FileReader();
-        reader.onload = (e) => {
-
-            setNewImageURL(reader.result);
-        }
-
-        reader.readAsDataURL(e.target.files[0])
-        // fileUploadHandler()
-        // 
-    }
-    useEffect(() => {
-        fileUploadHandler(newImageURL)
-    }, [newImageURL])
-
-    const fileUploadHandler = (url) => {
-
-        // event.preventDefault();
-
-        if (url !== '') {
-
-            let imageFile = {
-                id: shortRand(),
-                url,
-                top: false,
-                bot: false,
-                tag: "usr-image",
-                name: selectedFileName
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                setNewImageURL(reader.result);
             }
 
-            db.usrImages.add(imageFile).then(async () => {
-                //retrieve all usrImages inside the db
-
-                let allUsrImages = await db.usrImages.toArray();
-                // set the usrImages
-                setUsrImages(allUsrImages);
-
-            });
+            reader.readAsDataURL(e.target.files[0])
         }
-        // setSelectedFileName('')
-        // setNewImageURL('')
     }
+    useEffect(() => {
+        const fileUploadHandler = (url) => {
+
+            // event.preventDefault();
+
+            if (url !== '') {
+
+                let imageFile = {
+                    id: shortRand(),
+                    url,
+                    top: false,
+                    bot: false,
+                    tag: "usr-image",
+                    name: selectedFileName
+                }
+
+                db.usrImages.add(imageFile).then(async () => {
+                    //retrieve all usrImages inside the db
+                    let allUsrImages = await db.usrImages.toArray();
+                    // set the usrImages
+                    setUsrImages(allUsrImages);
+
+                });
+            }
+        }
+        fileUploadHandler(newImageURL)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [newImageURL])
+
 
     return (
         <>

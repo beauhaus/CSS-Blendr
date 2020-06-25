@@ -27,7 +27,7 @@ const useMdx = () => {
   return resultArray;
 }
 
-export const ModeContext = createContext();
+export const BlenderAppContext = createContext();
 
 const PageAWrapper = styled.div`
 /* TODO: this image doesn't 'contain' the panel */
@@ -44,8 +44,8 @@ const PageAWrapper = styled.div`
         grid-template-rows: 53vh 22vh 10vh;
 
         .gallery-switch-btn {
-            width: 13vw;
-            height: 13vw;
+            width: 33%;
+            height: 12vh;
             position: absolute;
             top: 0;
             left: 0;
@@ -53,12 +53,16 @@ const PageAWrapper = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-
+            svg {
+              height: 10vh;
+              width: 10vh;
+              margin: 1vh;
+            }
             &.closed {
-              width: 13vw;
-              height: 13vw;
+              height: 10vh;
+              width: 10vh;
               top: 0;
-              border: 1px solid #bcbcbc;
+              border: 1px solid green;
               right: 0;
               margin: 0;
               border-radius: 0;
@@ -108,7 +112,7 @@ const PageA = (props) => {
 
   useEffect(() => {
     setGallery(galleryImages)
-    // console.log('setGall', gallery.length)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -135,7 +139,7 @@ const PageA = (props) => {
   // mode display in browser tab
   useEffect(() => {
     document.title = `CSS Blendr - ${modesArray[modeNum]}`
-  }, [])
+  }, [modeNum, modesArray])
 
   const modeSelectHandler = () => {
     setModeNum((modeNum + 1) % 16)
@@ -165,7 +169,7 @@ const PageA = (props) => {
 
 
   return (
-    <ModeContext.Provider
+    <BlenderAppContext.Provider
       value={{
         mode: modesArray[modeNum],
         modeNum,
@@ -181,7 +185,7 @@ const PageA = (props) => {
         setSelBot,
         imgFlipper,
         thumbNailClicker,
-        topAlphaVal, 
+        topAlphaVal,
         setTopAlphaVal,
         alphaToggle,
         setAlphaToggle
@@ -190,17 +194,15 @@ const PageA = (props) => {
         <PanelBG />
         <hr />
         <section className="panel-section">
-        {(selTop && selBot) && <ImageViewer className="img-viewer" />}
+          {(selTop && selBot) && <ImageViewer className="img-viewer" />}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
             <FlipScreenBtn />
           </div>
         </section>
       </PageAWrapper>
-    </ModeContext.Provider>
+    </BlenderAppContext.Provider>
   )
 };
 
 export default PageA;
-
-

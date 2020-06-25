@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useContext } from 'react'
 import { gsap, Back } from "gsap"; //  , Power4, Expo
-import { ModeContext } from '../../pages/page-a'
+import { BlenderAppContext } from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
 const FlipImagePairs = () => {
-    const { mode, flipTriggerVal, selBot, imgFlipper, selTop,topAlphaVal, alphaToggle } = useContext(ModeContext);
+    const { mode, flipTriggerVal, selBot, imgFlipper, selTop,topAlphaVal, alphaToggle } = useContext(BlenderAppContext);
     let topImage = useRef(null)
     let botImage = useRef(null)
     let imgEffect = useRef(null)
@@ -28,6 +28,7 @@ const FlipImagePairs = () => {
             .call(imgFlipper)
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [flipTriggerVal])
     
     return (

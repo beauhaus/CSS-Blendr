@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
-import {ModeContext} from '../../pages/page-a'
+import {BlenderAppContext} from '../../pages/page-a'
 
 
 const IncrementWrapper = styled.svg`
@@ -41,7 +41,7 @@ const IncrementWrapper = styled.svg`
 }
 `
 const Incrementor = () => {
-  const {modeNum} = useContext(ModeContext);
+  const {modeNum} = useContext(BlenderAppContext);
 
   return (
     <IncrementWrapper className="incrementor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
@@ -63,7 +63,7 @@ const Incrementor = () => {
         <path className={modeNum > 11 ? `inc-light-on` : ''} d="M339.95 134.42l-18.61 9.18c5.06 10.8 8.72 22.38 10.74 34.53l22.69-3.27c-2.96-14.06-7.92-27.65-14.82-40.44z" />
         <path className={modeNum > 12 ? `inc-light-on` : ''} d="M333.91 200.2c0 6.81-.51 13.5-1.5 20.03l24.43 4.25c1.79-14.8 1.43-29.47-.96-43.72l-22.95 3.3c.64 5.3.98 10.68.98 16.14z" />
         <path className={modeNum > 13 ? `inc-light-on` : ''} d="M356.01 230.43l-24.63-4.29c-2.38 12.06-6.37 23.54-11.76 34.19l23.64 12.54c6.27-14.03 10.5-28.27 12.75-42.44z" />
-        <path className={modeNum > 14 ? `inc-light-on` : ''} d="M316.79 265.62c-5.99 10.64-15.4 22.38-23.97 30.95l20.08 20.61c11.06-11.92 21.6-26.14 27.81-38.88l-23.92-12.68z" /> */}
+        <path className={modeNum > 14 ? `inc-light-on` : ''} d="M316.79 265.62c-5.99 10.64-15.4 22.38-23.97 30.95l20.08 20.61c11.06-11.92 21.6-26.14 27.81-38.88l-23.92-12.68z" />
       </g>
 
       <g className="glow-lights">

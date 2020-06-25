@@ -32,20 +32,20 @@ return db;
 
 }
 
-const usrPicsReducer = (state, action) => {
-  switch (action.type) {
-    case 'POPULATE_PICS':
-      return action.pics
-    case 'ADD_PIC':
-      return [
-        ...state,
-        { title: action.title, text: action.text }
-      ]
-    case 'REMOVE_PIC':
-      return state.filter((pic) => pic.title !== action.title) // pic.id?
-    default:
-      return state
-  }
-}
+// const usrPicsReducer = (state, action) => {
+//   switch (action.type) {
+//     case 'POPULATE_PICS':
+//       return action.pics
+//     case 'ADD_PIC':
+//       return [
+//         ...state,
+//         { title: action.title, text: action.text }
+//       ]
+//     case 'REMOVE_PIC':
+//       return state.filter((pic) => pic.title !== action.title) // pic.id?
+//     default:
+//       return state
+//   }
+// }
 
 export {createUsrImageDB, shortRand};

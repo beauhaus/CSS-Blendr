@@ -1,6 +1,6 @@
 import React, {useEffect, useRef,useContext } from 'react';
 import { gsap } from "gsap"; //  , Power4, Expo
-import {ModeContext} from '../../pages/page-a'
+import {BlenderAppContext} from '../../pages/page-a'
 
 import styled from 'styled-components'
 import FlipImagePairs from './flipimagepairs'
@@ -55,7 +55,7 @@ const FlipScreenWrap = styled.button`
 `
 
 const FlipScreenBtn = () => {
-    const {flipTriggerVal,flipTriggerHandler, selTop, selBot} = useContext(ModeContext);
+    const {flipTriggerVal,flipTriggerHandler, selTop, selBot} = useContext(BlenderAppContext);
 
     let flipArrows = useRef(null)
 

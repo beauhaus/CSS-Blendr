@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
-import {ModeContext} from '../../pages/page-a'
+import {BlenderAppContext} from '../../pages/page-a'
 
 import NormalIcon from '../mode-icons/normal'
 import ScreenIcon from '../mode-icons/screen'
@@ -34,7 +34,7 @@ const ModeIconsGroup = styled.svg`
   }
 `
 const ModeIcons = () => {
-  const {modeNum} = useContext(ModeContext);
+  const {modeNum} = useContext(BlenderAppContext);
 
   const renderIcon = (param) => {
     switch (param) {

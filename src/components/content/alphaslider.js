@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect, useContext } from 'react'
+import React, { useState,  useContext } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
-import { ModeContext } from '../../pages/page-a'
+import { BlenderAppContext } from '../../pages/page-a'
+import OpacitySliderIcon from '../util-icons/opacityicon'
 
 // const trackStyles = (props) => (`background: rgba(255,255,255,${props.containerVal / 100});`)
 const trackStyles = (props) => {
@@ -55,16 +56,7 @@ const StyledThumb = styled.div`
 const Thumb = (props, state) => {
     return (
         <StyledThumb  {...props}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="img-viewer-icon" viewBox="0 0 300 300">
-                <path fill="#828282" d="M200 225H25c-13.81 0-25-11.19-25-25V25C0 11.19 11.19 0 25 0h175c13.81 0 25 11.19 25 25v175c0 13.81-11.19 25-25 25z" />
-                <path d="M275 300H100c-13.81 0-25-11.19-25-25V100c0-13.81 11.19-25 25-25h175c13.81 0 25 11.19 25 25v175c0 13.81-11.19 25-25 25z" fill="#fff" />
-                <path d="M75 100h150V75H100c-13.81 0-25 11.19-25 25z" fill="#fff" />
-                <path d="M75 100h150v25H75z" fill="4f4f4f" />
-                <path d="M75 125h150v25H75z" fill="#fff" />
-                <path d="M75 150h150v25H75z" fill="4f4f4f" />
-                <path d="M75 175h150v25H75z" fill="#fff" />
-                <path d="M75 225h125c13.81 0 25-11.19 25-25H75v25z" fill="4f4f4f" />
-            </svg>
+            <OpacitySliderIcon/>
         </StyledThumb>
     )
 };
@@ -108,7 +100,7 @@ const AlphaSlider = () => {
         setTopAlphaVal,
         alphaToggle,
         setAlphaToggle
-    } = useContext(ModeContext);
+    } = useContext(BlenderAppContext);
 
     const [sliderOpenToggle, setSliderOpenToggle] = useState(false);
 

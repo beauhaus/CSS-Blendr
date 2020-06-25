@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext } from 'react'
 import { gsap } from "gsap";
 import styled from 'styled-components';
 import 'typeface-iceland'
-import {ModeContext} from '../../pages/page-a'
+import {BlenderAppContext} from '../../pages/page-a'
 
 // import { useStaticQuery } from 'gatsby';
 
@@ -23,7 +23,7 @@ const ModeNameContainer = styled.div`
 `
 
 const ModeNameDisplay = () => {
-  const {mode} = useContext(ModeContext);
+  const {mode} = useContext(BlenderAppContext);
 
   let txtBox = useRef(null)
   useEffect(()=> {

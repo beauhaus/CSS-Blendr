@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ModeIcons from './modeicons'
 // import { graphql, useStaticQuery } from 'gatsby';
 import Incrementor from './incrementor'
-import {ModeContext} from '../../pages/page-a'
+import {BlenderAppContext} from '../../pages/page-a'
 
 const CyclerBtnWrapper = styled.button`
     position: relative;  
@@ -21,7 +21,7 @@ const CyclerBtnWrapper = styled.button`
      
 `
 const CyclerBtn = () => {
-  const {modeSelectHandler} = useContext(ModeContext);
+  const {modeSelectHandler} = useContext(BlenderAppContext);
   return (
     <CyclerBtnWrapper className="cycler" aria-label="mode-cycler" onClick={modeSelectHandler} >
         <ModeIcons />

@@ -1,6 +1,6 @@
 import React from 'react';
-import TestImgCard  from '../components/test/testimgcard'
-import testImage from '../../images/gallery-images/socrates.jpg';
+// import TestImgCard  from '../components/test/testimgcard'
+// import testImage from '../../images/gallery-images/socrates.jpg';
 import styled from 'styled-components';
 
 
@@ -15,7 +15,15 @@ export default (props) => {
   // console.log("MODES in C: ", modes)
   return (
     <PageEWrapper className="page-c-wrapper">
-      <TestImgCard img={testImage} />
+
+    <h1>PAGE E</h1>
+    <h1>PAGE E</h1>
+    <h1>PAGE E</h1>
+    <h1>PAGE E</h1>
+    <h1>PAGE E</h1>
+    <h1>PAGE E</h1>
+    <h1>PAGE E</h1>
+      {/* <TestImgCard img={testImage} /> */}
     </PageEWrapper>
   )
 };
