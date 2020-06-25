@@ -7,6 +7,7 @@ const StyledImageGridIcon = styled.svg`
     opacity: 1;
     width: 100%;
     height: 100%;
+    
     path {
         transform-origin: 50% 50%;      
         -webkit-backface-visibility: hidden;
@@ -20,10 +21,12 @@ const ImageGridIcon = () => {
 
     let switchIcon = useRef(null)
     useEffect(() => {
-        const tl = gsap.timeline({ defaults: { rotateZ: 0  } })
+        const tl = gsap.timeline({ defaults: { rotate: 0  } })
+        gsap.set(switchIcon, { transformOrigin: '50% 50%' })
+
         galleryOpenVal ? 
-        tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotateZ: 135, attr: { fill: '#beecff' }}, '-=0'):
-        tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotateZ: 0, attr: { fill: '#fff' }}, '-=0')
+        tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotate: 135, attr: { fill: '#beecff' }}, '-=0'):
+        tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotate: 0, attr: { fill: '#fff' }}, '-=0')
     }, [galleryOpenVal])
     
     return (
