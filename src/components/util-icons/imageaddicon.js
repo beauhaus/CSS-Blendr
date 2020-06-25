@@ -15,7 +15,7 @@ const ImageAddIcon = () => {
     const { galleryOpenVal
     } = useContext(BlenderAppContext);
     return (
-        <StyledImageAddIcon className="img-viewer-icon" viewBox="0 0 300 300" width="100%" height="100%" preserveAspectRatio="none">
+        <StyledImageAddIcon viewBox="0 0 300 300" width="100%" height="100%" preserveAspectRatio="none">
                 <path fill="#000" d="M1.91 0h300v300h-300z" opacity=".05" />
                 <linearGradient id="SVGID_1_" x1="1.9072" x2="301.9072" y1="150" y2="150" gradientTransform="rotate(-90 151.9072 150)" gradientUnits="userSpaceOnUse">
                     <stop offset="0" stopOpacity=".5" />

@@ -14,7 +14,9 @@ const ImageGridIcon = () => {
     return (
         <StyledImageGridIcon className="gallery-switch-btn-icon" viewBox="0 0 300 300" width="100%" height="100%">
           <path fill="#fff" d="M300 148H152V0h-4v148H0v4h148v148h4V152h148z"/>
-
+           {galleryOpenVal &&
+            <path fill="lightblue" d="M300 148H152V0h-4v148H0v4h148v148h4V152h148z"/>
+             }
         </StyledImageGridIcon>
     )
 }
