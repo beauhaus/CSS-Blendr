@@ -62,12 +62,11 @@ const PageAWrapper = styled.div`
               height: 10vh;
               width: 10vh;
               top: 0;
-              border: 1px solid green;
+              ${'' /* border: 1px solid green; */}
               right: 0;
               margin: 0;
               border-radius: 0;
               border-width: 0;
-
             }
 
             p {

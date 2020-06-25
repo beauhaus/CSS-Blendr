@@ -8,10 +8,9 @@ const StyledImageGridIcon = styled.svg`
     width: 100%;
     height: 100%;
     path {
-       transform-origin: 50% 50%;
-       ${'' /* fill: ; */}
-       ${'' /* fill: transparent; */}
-       ${'' /* fillColor: '#beecff'  */}
+        transform-origin: 50% 50%;      
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 `
 

@@ -37,7 +37,6 @@ const PhotoGallery = () => {
 
     return (
         <>
-
         <CustomImagePanel/>
         <PhotoGalleryWrapper className="photo-gallery-container" 
         ref={elem => displayGallery = elem}>
