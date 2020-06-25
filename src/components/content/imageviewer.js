@@ -7,8 +7,7 @@ import { BlenderAppContext } from '../../pages/page-a'
 import VertGlitch from './vertglitch'
 import PhotoGallery from './photogallery'
 import AlphaSlider from './alphaslider';
-import GalleryGridIcon from '../util-icons/gallerygridicon'
-
+import GallerySwitchIcon from '../util-icons/galleryswitchicon'
 
 const ImageViewerWrapper = styled.div`
         background: #f0ebe8;
@@ -120,7 +119,6 @@ const ImageViewer = () => {
     useEffect(() => {
         setTopImageAlpha(topAlphaVal)
     }, [topAlphaVal])
-
     return (
         <>
             <ImageViewerWrapper className="img-viewer" >
@@ -134,7 +132,7 @@ const ImageViewer = () => {
                 {/* <VertGlitch /> */}
                 {galleryOpenVal && <PhotoGallery />}
                 <button className={'gallery-switch-btn open'} onClick={galleryOpener}>
-                    <GalleryGridIcon/>
+                    <GallerySwitchIcon/>
                 </button>
                 {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
                 {!galleryOpenVal && <h1 className="alphaval-display">{alphaToggle && `${topAlphaVal}%`}</h1>}
