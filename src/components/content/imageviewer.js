@@ -131,7 +131,7 @@ const ImageViewer = () => {
                     </g>
                 </svg>
                {!galleryOpenVal && <ModeNameDisplay />}
-                <VertGlitch />
+                {/* <VertGlitch /> */}
                 {galleryOpenVal && <PhotoGallery />}
                 <button className={'gallery-switch-btn open'} onClick={galleryOpener}>
                     <GalleryGridIcon/>
