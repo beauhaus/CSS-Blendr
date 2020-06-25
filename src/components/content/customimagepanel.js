@@ -12,21 +12,19 @@ const CustomImagePanelWrap = styled.section`
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
-        .add-img-btn {
+        .cust-img-container-ctr {
           grid-column: 2;
-          width: 10vh;
-          height: 10vh;
-          border-radius: 12px;
-          border: 1px solid #beecff;
-          position: relative;
-          padding: 0;
-          overflow: hidden;
-          box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
-          margin: auto;
-          .test-icon {
-            grid-column: 3;
-            border: 1px solid coral;
+          width: 100%;
+          height: 100%;
+          button {
+            border-radius: 12px;
+            border: 1px solid #beecff;
             position: relative;
+            box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+            width: 10vh;
+            height: 10vh;
+            margin: 1vh auto;
+            overflow: hidden;
           }
         }
 `;
@@ -34,7 +32,10 @@ const CustomImagePanel = () => {
   return (
     <CustomImagePanelWrap className="custom-img-panel">
         <CustomPanelBG/>
-        <button className="add-img-btn"><ImageAddIcon/></button>
+        <div className="cust-img-container-ctr">
+        <button ><ImageAddIcon/></button>
+        </div>
+        
         <div className="test-icon">ICON2</div>
     </CustomImagePanelWrap>
   )

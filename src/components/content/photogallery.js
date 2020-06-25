@@ -42,7 +42,6 @@ const PhotoGallery = () => {
         <PhotoGalleryWrapper className="photo-gallery-container" 
         ref={elem => displayGallery = elem}>
         {/* <CustomPanelBG/> */}
-        <div className="temp"></div>
             {galleryOpenVal &&
                 gallery.map(imgObj => (
                     <GalleryThumbnailCard key={imgObj.name} imgObj={imgObj} />
