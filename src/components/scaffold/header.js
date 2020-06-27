@@ -6,7 +6,7 @@ import Link from 'gatsby-link';
 const Header = () => (
         <header className="header-wrapper">
             <TopNavBtn/>
-            <Link className="b-link" to="/page-e">PAGEE</Link>
+            <Link className="b-link" to="/page-b">PAGE B</Link>
             <Link className="d-link" to="/page-d">PAGED</Link>
         </header>
     );

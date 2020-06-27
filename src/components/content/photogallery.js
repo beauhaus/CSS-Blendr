@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { gsap } from "gsap";
 import { BlenderAppContext } from '../../pages/page-a'
 import GalleryThumbnailCard from './gallerythumbnailcard'
-import CustomImagePanel from './customimagepanel'
+
 // import CustomPanelBG from '../util-icons/custompanelbg'
 
 const PhotoGalleryWrapper = styled.div`
@@ -11,10 +11,13 @@ const PhotoGalleryWrapper = styled.div`
     width: 100%;
     max-height: 100%;
     position: absolute;
-    top: 12vh;
+    ${'' /* top: 12vh; */}
+    top: 0;
     left: 0;
+    grid-row: 2;
     padding: 2%;
     background: var(--photo-gallery-bg);
+    background: transparent;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 0;
@@ -37,7 +40,6 @@ const PhotoGallery = () => {
 
     return (
         <>
-        <CustomImagePanel/>
         <PhotoGalleryWrapper className="photo-gallery-container" 
         ref={elem => displayGallery = elem}>
         {/* <CustomPanelBG/> */}

@@ -7,12 +7,14 @@ import PaintIcon from '../util-icons/painticon'
 const CustomImagePanelWrap = styled.section`
         width: 100%;
         height: 12vh;
+        grid-row: 1;
         position: absolute;
         top: 0;
         left: 0;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
+        z-index: -2;
         .cust-img-container-ctr {
           grid-column: 2;
           width: 100%;

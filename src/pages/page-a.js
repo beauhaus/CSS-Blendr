@@ -190,10 +190,9 @@ const PageA = (props) => {
         setAlphaToggle
       }}>
       <PageAWrapper className="page-a-page-wrapper" >
-        <PanelBG />
-        <hr />
+        {/* <PanelBG /> TODO: edit*/}
         <section className="panel-section">
-          {(selTop && selBot) && <ImageViewer className="img-viewer" />}
+          {(selTop && selBot) && <ImageViewer />}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
             <FlipScreenBtn />

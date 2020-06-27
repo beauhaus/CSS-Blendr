@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useContext, useState } from 'react';
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 import styled from 'styled-components'
 import ModeNameDisplay from './modenamedisplay'
+import CustomImagePanel from './customimagepanel'
+
 import { BlenderAppContext } from '../../pages/page-a'
 
 import VertGlitch from './vertglitch'
@@ -10,14 +12,14 @@ import AlphaSlider from './alphaslider';
 import GallerySwitchIcon from '../util-icons/galleryswitchicon'
 
 const ImageViewerWrapper = styled.div`
-        background: #f0ebe8;
+        ${'' /* background: yellow; */}
         /* --base-btn-color: */
         width: 96%;
         height: 96%;
         grid-column: 1;
         grid-row: 1;
         border-radius: 12px;
-        background: var(--base-btn-color);
+        ${'' /* background: var(--base-btn-color); */}
         box-shadow: inset 1px 1px 2px 0 #000,
         1px 1px 2px 0 #fff,
         -1px -1px 2px 0 #000;
@@ -25,6 +27,8 @@ const ImageViewerWrapper = styled.div`
         margin: 1vh auto;
         display: grid;
         ${'' /* overflow: scroll; // ??? */}
+        grid-template-columns: 1fr;
+        grid-template-rows: 12vh 41vh;
         overflow: hidden;
         position: relative;
         padding: 0;
@@ -40,15 +44,16 @@ const ImageViewerWrapper = styled.div`
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -2;
         }
-        svg .image-container { 
+        .image-container { 
             position: absolute;
             top: 0;
             left: 0;
             z-index: -2;
-            ${'' /* margin: auto; */}
             width: 100%;
-            height: 50%;
+            grid-row: 1/3;
+            display: none; //TODO: edit
         }
         .vert-glitch {
             position: absolute;
@@ -64,7 +69,7 @@ const ImageViewerWrapper = styled.div`
         display: absolute;
         top:0;
         left: 0;
-        background: red;
+        background: red; //TODO: ???
     }
     .iconCheckmark {
         animation: 1s checkFadeIn ease-in-out;
@@ -128,14 +133,15 @@ const ImageViewer = () => {
                         <image className="img-front" opacity={topImageAlpha / 100} width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" style={{ mixBlendMode: mode }} ref={elem => topImage = elem} />
                     </g>
                 </svg>
-               {!galleryOpenVal && <ModeNameDisplay />}
+                {/* {!galleryOpenVal && <ModeNameDisplay />} TODO: edit */}
                 {/* <VertGlitch /> */}
+                {galleryOpenVal && <CustomImagePanel />}
                 {galleryOpenVal && <PhotoGallery />}
-                <button className={'gallery-switch-btn open'} onClick={galleryOpener}>
-                    <GallerySwitchIcon/>
-                </button>
-                {!galleryOpenVal && <AlphaSlider className="alpha-slider" />}
+                {/* {!galleryOpenVal && <AlphaSlider className="alpha-slider" />} */}
                 {!galleryOpenVal && <h1 className="alphaval-display">{alphaToggle && `${topAlphaVal}%`}</h1>}
+                <button className={'gallery-switch-btn open'} onClick={galleryOpener}>
+                    <GallerySwitchIcon />
+                </button>
 
             </ImageViewerWrapper>
 

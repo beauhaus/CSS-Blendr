@@ -48,7 +48,6 @@ const StyledThumb = styled.div`
     }
     svg {
         grid-column: 2;
-        ${'' /* border: 1px solid red; */}
         margin: 25%;
     }
 `;
