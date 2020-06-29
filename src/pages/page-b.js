@@ -14,7 +14,7 @@ const PageBWrapper = styled.div`
   background: linear-gradient( 35deg, whitesmoke 0%, darkgrey 70%);
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 13vh 51vh 22vh 14vh;
+  grid-template-rows: 13vh 51vh 20vh 16vh;
 
   .outer-frame-container {
     grid-row: 2;
@@ -32,8 +32,8 @@ const PageBWrapper = styled.div`
     .circle {
       background: lightgreen;
       box-shadow: inset 0px 0px 0px 1vh fuchsia;
-      height: 22vh;
-      width: 22vh;
+      height: 20vh;
+      width: 20vh;
       border-radius: 100%;
       margin: 0 auto;
     }
