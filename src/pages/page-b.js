@@ -24,12 +24,19 @@ const PageBWrapper = styled.div`
   }
   .blend-controls {
     grid-row: 3;
-    border: 1px solid coral;
+    ${'' /* border: 1px solid coral; */}
     width: 100%;
     height: 100%;
     color: #fff;
     position: relative;
-
+    .circle {
+      background: lightgreen;
+      box-shadow: inset 0px 0px 0px 1vh fuchsia;
+      height: 22vh;
+      width: 22vh;
+      border-radius: 100%;
+      margin: 0 auto;
+    }
   }
 `
 
@@ -71,7 +78,9 @@ const PageB = (props) => {
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
-        <div className="blend-controls">ctrls</div>
+        <div className="blend-controls">
+          <div className="circle">circle</div>
+        </div>
       </PageBWrapper>
     </AppContext.Provider>
 
