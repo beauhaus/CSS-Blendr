@@ -14,7 +14,7 @@ const PageBWrapper = styled.div`
   background: linear-gradient( 35deg, whitesmoke 0%, darkgrey 70%);
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 13vh 53vh 24vh 10vh;
+  grid-template-rows: 13vh 51vh 24vh 12vh;
 
   .outer-frame-container {
     grid-row: 2;
@@ -29,7 +29,7 @@ const PageBWrapper = styled.div`
     height: 100%;
     color: #fff;
     position: relative;
-    
+
   }
 `
 

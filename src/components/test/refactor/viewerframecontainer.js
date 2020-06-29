@@ -18,7 +18,7 @@ const StyledViewerFrameContainer = styled.div`
     height: 100%; */}
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 8vh 45vh;
+    grid-template-rows: 8vh 43vh;
 `
 const ViewerFrameContainer = () => {
   return (
