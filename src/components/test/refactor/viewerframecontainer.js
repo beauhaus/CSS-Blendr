@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import ImagePairs from './imagepairs'
 import AddImageBtn from './addImagebtn'
-import AlphaBtn from './alphabtn'
+// import AlphaBtn from './alphabtn'
+import AlphaSlider from './alphaslider'
 import CutomImagePanel from './customimagepanel'
 import TapModeBtn from './tapmodebtn'
 import AlphaValDisplay from './alphavaldisplay'
@@ -22,7 +23,8 @@ const ViewerFrameContainer = () => {
     <StyledViewerFrameContainer className="viewer-frame-container">
       <ImagePairs/>
       <AddImageBtn/>
-      <AlphaBtn/>
+      {/* <AlphaBtn/> */}
+      <AlphaSlider/>
       <CutomImagePanel/>
       <TapModeBtn/>
       <AlphaValDisplay/>

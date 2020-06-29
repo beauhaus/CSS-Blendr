@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledOpacityIcon = styled.svg`
-    opacity: 1;
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
 `
 
 const OpacityIcon = () => (

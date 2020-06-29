@@ -46,7 +46,8 @@ const PageB = (props) => {
   const [addImageMode, setAddImageMode] = useState(false)
   const [paintMode, setPaintMode] = useState(false)
   const [uploadMode, setUploadMode] = useState(false)
-
+  const [topAlphaVal, setTopAlphaVal] = useState(100);
+  const [alphaToggle, setAlphaToggle] = useState(false);
   // console.clear();
   
   const alphaBtnHandler = () => {
@@ -70,7 +71,11 @@ const PageB = (props) => {
         addImageMode,
         setAddImageMode,
         paintMode,
-        setPaintMode
+        setPaintMode,
+        topAlphaVal,
+        setTopAlphaVal,
+        alphaToggle,
+        setAlphaToggle
       }}>
       <PanelBG />
       <PageBWrapper className="page-b-wrapper">
