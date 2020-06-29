@@ -7,6 +7,8 @@ width: 100vw;
 position: absolute;
 top:0;
 left: 0;
+bottom: 0;
+right: 0;
 `;
 const PanelBG = () => {
   return (
@@ -27,7 +29,6 @@ const PanelBG = () => {
             <feDistantLight azimuth='20' elevation='14' />
           </feDiffuseLighting>
         </filter>
-     
         <rect className="moz-BG-fix" x="0" y="0" height="100%" width="100%" filter="url(#brushed-steel-texture-moz)" />
         <rect className="standard-BG" x="0" y="0" height="100%" width="100%" filter="url(#brushed-steel-texture)" />
         <radialGradient id="reflection-grad" cx="-6" cy="-8" r="780" gradientTransform="matrix(.4348 .9005 -.4308 .208 -6.8376 -.9329)" gradientUnits="userSpaceOnUse">

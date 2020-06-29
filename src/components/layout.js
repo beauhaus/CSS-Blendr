@@ -3,6 +3,7 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import {Helmet} from 'react-helmet'
 
 import './layout.scss';
+import PanelBG from '../components/content/panelbg'
 import Header from './scaffold/header'
 import useSiteMetadata from './hooks/use-site-metadata';
  
@@ -22,6 +23,7 @@ const Layout = ({ children, location }) => {
             <title>CSS Blendr</title>
             <meta name={title} content={description}/>
         </Helmet>
+        <PanelBG/>
             <Header currentPath={location.pathname}/>
                 <TransitionGroup component={null}>
                     <Transition key={location.pathname} timeout={{ enter: 1500, exit: 1500 }}>

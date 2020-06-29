@@ -42,7 +42,7 @@ const PageAWrapper = styled.div`
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 53vh 22vh 10vh;
-
+        
         .gallery-switch-btn {
             width: 33%;
             height: 12vh;
