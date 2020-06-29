@@ -11,7 +11,7 @@ const StyledAddImageBtn = styled.button`
     border-radius: 8px;
     width: 25%;
     height: 8vh;
-    border: 1px dashed #000;
+    ${'' /* border: 1px dashed #000; */}
     background: transparent;
 `
 

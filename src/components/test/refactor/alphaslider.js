@@ -2,7 +2,6 @@ import React, { useState,  useContext } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { AppContext } from './../../../pages/page-b'
-// import OpacitySliderIcon from '../util-icons/opacityicon'
 import OpacitySliderIcon from '../../util-icons/opacityicon'
 
 const trackStyles = (props) => {
@@ -131,7 +130,6 @@ const AlphaSlider = () => {
         </>
     )
 }
-// renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
 
 export default AlphaSlider;
 

@@ -10,7 +10,7 @@ const StyledAlphaBtn = styled.button`
     border-radius: 8px;
     width: 100%;
     height: 100%;
-    border: 1px dashed brown;
+    ${'' /* border: 1px dashed brown; */}
 `
 const AlphaBtn = (props) => {
     const {

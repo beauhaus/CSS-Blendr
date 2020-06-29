@@ -12,10 +12,14 @@ const StyledTapModeBtn = styled.button`
 
 const TapModeBtn = (props) => {
     const {
-        tapModeBtnHandler,
-        addImageMode
+        addImageMode,
+        setTapMode,
+        tapMode
     } = useContext(AppContext);
     console.log(">TapModeBtn", props);
+    const tapModeBtnHandler = () => {
+        setTapMode(!tapMode)
+      }
     return (
         <>
             {!addImageMode && 

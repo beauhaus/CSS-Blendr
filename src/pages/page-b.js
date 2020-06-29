@@ -1,7 +1,10 @@
 import React, { useState, createContext } from 'react';
 import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+
 import DecorFrame from '../components/test/refactor/decorframe'
 import ViewerFrameContainer from '../components/test/refactor/viewerframecontainer'
+import BlendControls from '../components/test/refactor/blendcontrols'
 import PanelBG from '../components/content/panelbg'
 
 export const AppContext = createContext();
@@ -14,7 +17,7 @@ const PageBWrapper = styled.div`
   background: linear-gradient( 35deg, whitesmoke 0%, darkgrey 70%);
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 13vh 51vh 20vh 16vh;
+  grid-template-rows: 13vh 50vh 1vh 20vh 16vh;
 
   .outer-frame-container {
     grid-row: 2;
@@ -22,47 +25,28 @@ const PageBWrapper = styled.div`
     position: relative;
     margin: 0 3vw;
   }
-  .blend-controls {
-    grid-row: 3;
-    ${'' /* border: 1px solid coral; */}
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    position: relative;
-    .circle {
-      background: lightgreen;
-      box-shadow: inset 0px 0px 0px 1vh fuchsia;
-      height: 20vh;
-      width: 20vh;
-      border-radius: 100%;
-      margin: 0 auto;
-    }
-  }
 `
 
 const PageB = (props) => {
+  const modesArray = useMdx();
   const [tapMode, setTapMode] = useState(false)
-  const [alphaModifyMode, setAlphaModifyMode] = useState(false)
   const [addImageMode, setAddImageMode] = useState(false)
   const [paintMode, setPaintMode] = useState(false)
   const [uploadMode, setUploadMode] = useState(false)
   const [topAlphaVal, setTopAlphaVal] = useState(100);
   const [alphaToggle, setAlphaToggle] = useState(false);
+  const [modeNum, setModeNum] = useState(0);
+
   // console.clear();
   
-  const alphaBtnHandler = () => {
-    setAlphaModifyMode(!alphaModifyMode)
-  }
-  const tapModeBtnHandler = () => {
-    setTapMode(!tapMode)
-  }
+  
 
   return (
     <AppContext.Provider
       value={{
-        alphaBtnHandler,
-        tapModeBtnHandler,
-        alphaModifyMode,
+        mode: modesArray[modeNum],
+        modeNum,
+        setModeNum,
         imageArray,
         tapMode,
         setTapMode,
@@ -83,9 +67,11 @@ const PageB = (props) => {
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
-        <div className="blend-controls">
-          <div className="circle">circle</div>
-        </div>
+        {/* <div className="blend-controls">
+          <div className="btn1">1</div>
+          <div className="btn2">2</div>
+        </div> */}
+        <BlendControls/>
       </PageBWrapper>
     </AppContext.Provider>
 
@@ -93,7 +79,21 @@ const PageB = (props) => {
   )
 };
 
-
+const useMdx = () => {
+  const data = useStaticQuery(graphql`
+  query {
+    allMdx(sort: {fields: frontmatter___display_order}) {
+      nodes {
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+`)
+  const resultArray = data.allMdx.nodes.map(item => item.frontmatter.title)
+  return resultArray;
+}
 const imageArray = [
   { id: 101, name: "testImg1" },
   { id: 102, name: "testImg2" },

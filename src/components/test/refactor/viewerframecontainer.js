@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import ImagePairs from './imagepairs'
 import AddImageBtn from './addImagebtn'
-// import AlphaBtn from './alphabtn'
 import AlphaSlider from './alphaslider'
-import CutomImagePanel from './customimagepanel'
+import CustomImagePanel from './customimagepanel'
 import TapModeBtn from './tapmodebtn'
-import AlphaValDisplay from './alphavaldisplay'
-import ModeNameDiaplay from './modenamedisplay'
+// import AlphaValDisplay from './alphavaldisplay'
+import ModeNameDisplay from './modenamedisplay'
 import ThumbnailsGrid from './thumbnailsgrid'
 import PaintWidget from './paintwidget'
 
@@ -21,14 +20,13 @@ const StyledViewerFrameContainer = styled.div`
 const ViewerFrameContainer = () => {
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
+      <TapModeBtn/>
+      <AlphaSlider/>
+      <ModeNameDisplay/>
       <ImagePairs/>
       <AddImageBtn/>
-      {/* <AlphaBtn/> */}
-      <AlphaSlider/>
-      <CutomImagePanel/>
-      <TapModeBtn/>
-      <AlphaValDisplay/>
-      <ModeNameDiaplay/>
+      <CustomImagePanel/>
+      {/* <AlphaValDisplay/> */}
       <ThumbnailsGrid/>
       <PaintWidget/>
     </StyledViewerFrameContainer>

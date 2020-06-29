@@ -11,9 +11,9 @@ const StyledAlphaValDisplay = styled.div`
     z-index: 4;
     top: 20%;
     left: 20%;
-    border: 1px dashed navy;
+    ${'' /* border: 1px dashed navy; */}
     p {
-      border: 1px dashed yellow;
+      ${'' /* border: 1px dashed yellow; */}
       margin: auto;
       text-align: center;
       color: #fff;
