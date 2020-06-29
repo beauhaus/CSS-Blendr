@@ -8,11 +8,12 @@ const StyledGridBtn = styled.button`
     position: relative;
     z-index: 3;
     border-radius: 4px;
-    width: 100%;
+    width: 25%;
     height: 100%;
-    color: #fff;
-    background: fuchsia;
+    color: #000;
+    background: transparent;
     border-radius: 8px;
+    border: 1px dashed #fff;
 `
 
 const GridBtn = (props) => {

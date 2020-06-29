@@ -8,10 +8,11 @@ const StyledAddImageBtn = styled.button`
     top: 0;
     left: 0;
     z-index: 3;
-    border-radius: 4px;
-    width: 10%;
-    height: 10%;
-    outline: 1px solid red;
+    border-radius: 8px;
+    width: 25%;
+    height: 8vh;
+    border: 1px dashed #000;
+    background: transparent;
 `
 
 const AddImageBtn = (props) => {

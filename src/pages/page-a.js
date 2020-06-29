@@ -42,7 +42,7 @@ const PageAWrapper = styled.div`
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 53vh 22vh 10vh;
-        
+
         .gallery-switch-btn {
             width: 33%;
             height: 12vh;
@@ -90,6 +90,7 @@ const PageAWrapper = styled.div`
             align-items: center;
             padding: 0 2vw;
             margin-top: 1vh;
+            border: 1px dashed yellow;
         }
 
     }

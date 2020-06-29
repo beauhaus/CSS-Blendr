@@ -5,10 +5,9 @@ import { AppContext } from '../../../pages/page-b'
 const StyledThumbnailsGrid = styled.section`
     grid-row: 2;
     grid-column: 1/-1;
-    background: transparent;
+    background: #888;
     padding: 1vh 4vw;
     display: grid;
-    ${'' /* display: none; */}
     grid-template-columns: repeat(3, 25vw);
     grid-template-rows: repeat(20, 25vw);
     grid-gap: 1rem;

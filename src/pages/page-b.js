@@ -16,11 +16,20 @@ const PageBWrapper = styled.div`
   grid-template-columns: 100vw;
   grid-template-rows: 13vh 53vh 24vh 10vh;
 
-  .frame-container {
+  .outer-frame-container {
     grid-row: 2;
     border-radius: 10px;
     position: relative;
-    margin: 0 2vw;
+    margin: 0 3vw;
+  }
+  .blend-controls {
+    grid-row: 3;
+    border: 1px solid coral;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    position: relative;
+    
   }
 `
 
@@ -31,7 +40,7 @@ const PageB = (props) => {
   const [paintMode, setPaintMode] = useState(false)
   const [uploadMode, setUploadMode] = useState(false)
 
-  console.clear();
+  // console.clear();
   
   const alphaBtnHandler = () => {
     setAlphaModifyMode(!alphaModifyMode)
@@ -44,7 +53,6 @@ const PageB = (props) => {
     <AppContext.Provider
       value={{
         alphaBtnHandler,
-        // uploadImgBtnHandler,
         tapModeBtnHandler,
         alphaModifyMode,
         imageArray,
@@ -59,10 +67,11 @@ const PageB = (props) => {
       }}>
       <PanelBG />
       <PageBWrapper className="page-b-wrapper">
-        <div className="frame-container">
+        <div className="outer-frame-container">
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
+        <div className="blend-controls">ctrls</div>
       </PageBWrapper>
     </AppContext.Provider>
 

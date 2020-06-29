@@ -7,9 +7,10 @@ const StyledAlphaBtn = styled.button`
     grid-row: 1;
     position: relative;
     z-index: 3;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 100%;
     height: 100%;
+    border: 1px dashed brown;
 `
 const AlphaBtn = (props) => {
     const {
