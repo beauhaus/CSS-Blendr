@@ -11,11 +11,8 @@ import ThumbnailsGrid from './thumbnailsgrid'
 import PaintWidget from './paintwidget'
 
 const StyledViewerFrameContainer = styled.div`
-    ${'' /* background: pink; */}
     border-radius: 10px;
     overflow: hidden;
-    ${'' /* width: 100%;
-    height: 100%; */}
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 8vh 43vh;
