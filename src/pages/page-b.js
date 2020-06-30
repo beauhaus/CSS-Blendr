@@ -67,10 +67,6 @@ const PageB = (props) => {
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
-        {/* <div className="blend-controls">
-          <div className="btn1">1</div>
-          <div className="btn2">2</div>
-        </div> */}
         <BlendControls/>
       </PageBWrapper>
     </AppContext.Provider>

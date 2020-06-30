@@ -20,12 +20,8 @@ const StyledBlendControls = styled.div`
 `
 
 const BlendControls = (props) => {
-    const {
-        addBtnHandler,
-    } = useContext(AppContext);
-    console.log(">BlendControls", props);
+  
     return (
-
         <StyledBlendControls className="BlendControls">
             <FlipImageBtn/>
             <CycleModeBtn/>

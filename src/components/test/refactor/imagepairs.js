@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import Glitch from './glitchcomp'
 
 import { AppContext } from '../../../pages/page-b'
-import Glitch from '../../../../images/images_util/newglitch2.jpg'
 import Eye from '../../../../images/gallery-images/eye.jpg'
 import Rouge from '../../../../images/gallery-images/rouge.jpg'
 import Woman from '../../../../images/gallery-images/woman.jpg'
@@ -47,13 +47,12 @@ const StyledImagePairs = styled.div`
              }
     }
 `
-
 const ImagePairs = () => {
-    const { addImageMode } = useContext(AppContext);
+    const { addImageMode, modeNum } = useContext(AppContext);
     return (!addImageMode ? <StyledImagePairs className="image-pairs">
         <img className="img1" src={Eye} alt="testtesttesttest" />
         <img className="img2" src={Rouge} alt="test2test2test2test2" />
-        <img className="glitch-img" src={Glitch} alt="test3test3test3test3" />
+        <Glitch/>
     </StyledImagePairs> : '')
 };
 
