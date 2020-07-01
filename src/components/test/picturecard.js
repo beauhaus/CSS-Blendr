@@ -22,11 +22,11 @@ button.delete {
     position: absolute;
     top: 0;
     right: 0;
-    border: 1px solid #ff7b7b;
+    border: 1px solid lightgreen;
     padding: 1rem;
     opacity: 0.6;
     p {
-        color: #ff7b7b;
+        color: lightgreen;
         text-shadow: 1px 1px 1px #000;
         font-size: 2rem;
     }

@@ -28,13 +28,14 @@ const ImageForm = styled.form`
 const FileInputBtnContainer = () => {
     const {
         defaultImages,
-        combinedImageArray,
+        usrImages,
+        setUsrImages,
         setCombinedImageArray
     } = useContext(AppContext);
 
     /******** STATE **********/
     const [newImageURL, setNewImageURL] = useState('');
-    const [usrImages, setUsrImages] = useState('');
+    // const [usrImages, setUsrImages] = useState('');
     const [selectedFileName, setSelectedFileName] = useState('')
 
     /********REFACTOR*********/
@@ -126,18 +127,8 @@ const FileInputBtnContainer = () => {
                 ref={fileInput}
             />
             <FileInputBtn fileInput={fileInput} />
-            {/* {selectedFileName && <button type="button" onClick={fileUploadHandleNamer}>UP!</button>} */}
         </ImageForm>
     )
 }
 
 export default FileInputBtnContainer;
-
-
-// {
-//     combinedImageArray.length ?
-//     <PictureCard imageArray={combinedImageArray} deleteUsrImage={deleteUsrImage} />
-//     :
-//     ''
-// }
- 

@@ -192,6 +192,7 @@ const PageA = (props) => {
       }}>
       <PageAWrapper className="page-a-page-wrapper" >
         {/* <PanelBG /> TODO: edit*/}
+        
         <section className="panel-section">
           {(selTop && selBot) && <ImageViewer />}
           <div className="blend-ctrl-btns" >

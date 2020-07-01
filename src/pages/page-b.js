@@ -41,12 +41,22 @@ const PageB = (props) => {
   const [flipTriggerVal, setFlipTriggerVal] = useState(false)
   const [combinedImageArray, setCombinedImageArray] = useState([])
   const [defaultImages, setDefaultImages] = useState([])
+  const [usrImages, setUsrImages] = useState('');
+
   // console.clear();
 
   useEffect(() => { //TODO: necessary?!?!
     setDefaultImages(nativeGalleryImages)
-       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    setCombinedImageArray([
+      ...usrImages,
+      ...defaultImages
+    ])
+  }, [defaultImages, usrImages, setCombinedImageArray])
+
 
   return (
     <AppContext.Provider
@@ -54,14 +64,14 @@ const PageB = (props) => {
         mixMode: mixModesArray[mixModeNum],
         mixModeNum,
         setMixModeNum,
-        imageArray,
         flipTriggerVal,
         setFlipTriggerVal,
-        defaultImages,
         combinedImageArray,
         setCombinedImageArray,
         defaultImages,
         setDefaultImages,
+        usrImages,
+        setUsrImages,
 
         tapMode,
         setTapMode,
@@ -82,7 +92,7 @@ const PageB = (props) => {
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
-        <BlendControls/>
+        <BlendControls />
       </PageBWrapper>
     </AppContext.Provider>
 
@@ -105,22 +115,7 @@ const useMdx = () => {
   const resultArray = data.allMdx.nodes.map(item => item.frontmatter.title)
   return resultArray;
 }
-const imageArray = [
-  { id: 101, name: "testImg1" },
-  { id: 102, name: "testImg2" },
-  { id: 103, name: "testImg3" },
-  { id: 104, name: "testImg4" },
-  { id: 105, name: "testImg5" },
-  { id: 106, name: "testImg6" },
-  { id: 107, name: "testImg7" },
-  { id: 108, name: "testImg8" },
-  { id: 109, name: "testImg9" },
-  { id: 1010, name: "testImg10" },
-  { id: 1011, name: "testImg11" },
-  { id: 1012, name: "testImg12" },
-  { id: 1013, name: "testImg13" },
-  { id: 1014, name: "testImg14" }
 
-]
+
 
 export default PageB;

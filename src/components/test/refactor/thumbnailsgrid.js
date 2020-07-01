@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
-
+import ThumbnailCard from './thumbnailcard'
 const StyledThumbnailsGrid = styled.section`
     grid-row: 2;
     grid-column: 1/-1;
@@ -15,31 +15,42 @@ const StyledThumbnailsGrid = styled.section`
     justify-content: space-around;
     overflow: scroll;
     position: relative;
-    z-index: 0;
-    button.thumbnail-btn {
-      background: coral;
-      width: 100%;
-      height: 100%;
-      span{
+    ${'' /* z-index: 0; */}
+    & button {
+        position: relative;
         width: 100%;
         height: 100%;
-      }
     }
+    & >div .usr-img-delete {  /*delete btn */
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid yellow;
+    }
+    img {
+            width: 100%;
+            height: 100%;
+        }
+
 `
 
-const ThumbnailsGrid = (props) => {
+const ThumbnailsGrid = () => {
     const {
-        imageArray,
+        combinedImageArray,
         addImageMode
     } = useContext(AppContext);
-    const imgClickHandler = (payload) => {
-        console.log(payload)
-      }
+
       return (
         <>
             {addImageMode &&
                 <StyledThumbnailsGrid className="thumbnails-grid">
-                    {imageArray.map(item => <button className="thumbnail-btn" key={item.id} name={item.name} onClick={() => imgClickHandler(item.name)}><span>{item.name}</span></button>)}
+                    {combinedImageArray.map(imgObj =>(
+                        <ThumbnailCard
+                        className="thumbnail-btn"
+                        key={imgObj.name}
+                        imgObj={imgObj}
+                        />
+                        ) )}
                 </StyledThumbnailsGrid>
             }
         </>

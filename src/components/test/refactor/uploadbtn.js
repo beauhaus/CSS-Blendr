@@ -12,7 +12,7 @@ const StyledUploadBtn = styled.button`
     height: 100%;
     background: transparent;
     border-radius: 8px;
-    border: 1px dashed #fff;
+    ${'' /* border: 1px dashed #fff; */}
 `
 
 const UploadBtn = (props) => {
