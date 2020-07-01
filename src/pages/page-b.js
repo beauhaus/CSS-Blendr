@@ -42,6 +42,9 @@ const PageB = (props) => {
   const [combinedImageArray, setCombinedImageArray] = useState([])
   const [defaultImages, setDefaultImages] = useState([])
   const [usrImages, setUsrImages] = useState('');
+  const [newImageURL, setNewImageURL] = useState('');
+  const [selectedFileName, setSelectedFileName] = useState('')
+  const [testState, setTestState] = useState('NO!');
 
   // console.clear();
 
@@ -72,7 +75,13 @@ const PageB = (props) => {
         setDefaultImages,
         usrImages,
         setUsrImages,
-
+        newImageURL,
+        setNewImageURL,
+        selectedFileName,
+        setSelectedFileName,
+        testState,
+        setTestState,
+        
         tapMode,
         setTapMode,
         uploadMode,

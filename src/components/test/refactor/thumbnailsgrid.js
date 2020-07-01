@@ -47,7 +47,7 @@ const ThumbnailsGrid = () => {
                     {combinedImageArray.map(imgObj =>(
                         <ThumbnailCard
                         className="thumbnail-btn"
-                        key={imgObj.name}
+                        key={imgObj.id}
                         imgObj={imgObj}
                         />
                         ) )}

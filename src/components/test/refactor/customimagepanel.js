@@ -15,6 +15,19 @@ const StyledCustomImagePanel = styled.div`
     display: flex;
     justify-content: flex-end;
     box-shadow: 0 5px 5px -5px #000;
+    .img-file-form {
+        position: relative;
+        z-index: 3;
+        border-radius: 4px;
+        width: 25%;
+        height: 100%;
+        background: transparent;
+        border-radius: 8px;
+        border: 1px dashed fuchsia;
+        input {
+            display: none;
+        }
+    }
 `
 const CustomImagePanel = () => {
     const {

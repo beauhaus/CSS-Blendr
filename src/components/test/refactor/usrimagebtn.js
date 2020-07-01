@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
-// import { AppContext } from '../'
+import { AppContext } from '../../../pages/page-b'
+import { db } from '../apputils'
+
 import styled from 'styled-components'
 
 const StyledUsrImgBtnContainer = styled.div`
@@ -19,13 +21,23 @@ const StyledUsrImgBtnContainer = styled.div`
 `
 
 const UsrImgBtn = ({ imgObj }) => {
+    const {
+        setUsrImages
+    } = useContext(AppContext);
+
     const imgClickHandler = (payload) => {
         console.log("payload: ", payload)
     }
 
-    const deleteUsrImage = () => {
-        console.log("Delete usr image")
-    }
+    const deleteUsrImage = async (id) => {
+        db.usrImages.delete(id);
+        let allUsrImages = await db.usrImages.toArray();
+        // //(re)set the usrImage array
+        setUsrImages(allUsrImages);
+        console.log("DELETE", id);
+        // setTestState("YAEH!")
+        // console.log(testState)
+      }
 
     {/* TODO: add desc: key/val to objects */}
 

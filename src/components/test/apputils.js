@@ -1,4 +1,11 @@
 import Dexie from 'dexie';
+import React, { useContext } from 'react'
+import {AppContext} from '../../pages/page-b'
+
+// const {
+//   testState,
+//   setTestState
+// } = useContext(AppContext);
 
 //RANDOM NUMBER GENERATOR
 const RNG = () => {
@@ -23,29 +30,25 @@ const RNG = () => {
   //create db store
   db.version(1).stores({
     //a table cust named usrImages...1st csv value is "primary key"
-    usrImages: "id, fileName, url, tag, top, bot"
+    usrImages: "id, name, url, tag, top, bot,img"
   })
   db.open().catch((err) => {
     console.log("db err: ", err.stack || err);
   })
 return db;
-
 }
 
-// const usrPicsReducer = (state, action) => {
-//   switch (action.type) {
-//     case 'POPULATE_PICS':
-//       return action.pics
-//     case 'ADD_PIC':
-//       return [
-//         ...state,
-//         { title: action.title, text: action.text }
-//       ]
-//     case 'REMOVE_PIC':
-//       return state.filter((pic) => pic.title !== action.title) // pic.id?
-//     default:
-//       return state
-//   }
-// }
+const db =createUsrImageDB();
 
-export {createUsrImageDB, shortRand};
+
+
+// const testUpload=(newImgUrl)=>{
+
+//   console.log("hellow")
+
+// }
+ //set the database 
+//  const db = createUsrImageDB();
+// console.log("db: ", db)
+
+export {createUsrImageDB, shortRand, db};

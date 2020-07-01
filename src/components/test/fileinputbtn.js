@@ -2,7 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledFileInputBtn = styled.button`
-    opacity: 1;
+            ${'' /* border: 1px solid fuchsia; */}
+            height: 100%;
+            svg {
+                width: 7vh;
+                height: 7vh;
+            }
+        
 `
 
 const FileInputBtn = ({ fileInput }) => {
