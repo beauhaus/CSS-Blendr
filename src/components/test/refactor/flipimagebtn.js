@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../../../pages/page-b'
+import { AppContext } from '../../../pages/page-b'
 
 const StyledFlipImageBtn = styled.button`
     border-radius: 12px;
@@ -10,17 +10,24 @@ const StyledFlipImageBtn = styled.button`
         height: 20vh;
     }
 `
-
 const FlipImageBtn = (props) => {
     const {
-        addBtnHandler,
+        flipTriggerVal,
+        setFlipTriggerVal
     } = useContext(AppContext);
-    console.log(">FlipImageBtn", props);
-    return (
-        <StyledFlipImageBtn className="flip-img-btn">flip
 
+    const flipTriggerHandler = () => {
+        setFlipTriggerVal(!flipTriggerVal)
+    }
+
+    return (
+        <StyledFlipImageBtn
+            className="flip-img-btn"
+            onClick={flipTriggerHandler}
+        >
+            {flipTriggerVal && "true"}
         </StyledFlipImageBtn>
     )
 };
 
-export default FlipImageBtn; 
+export default FlipImageBtn;

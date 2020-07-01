@@ -1,20 +1,22 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
-import { createUsrImageDB, shortRand } from './apputils'
-import { BlendrDataContext } from '../../pages/page-d'
+import { createUsrImageDB, shortRand } from '../apputils'
+import { AppContext } from '../../../pages/page-b'
 import styled from 'styled-components'
-import PictureCard from './picturecard'
-import FileInputBtn from './fileinputbtn'
+// import PictureCard from '../picturecard'
+import FileInputBtn from '../fileinputbtn'
 
 const ImageForm = styled.form`
-    height: 10vh;
-    display: flex;
-    margin-top: 20vh;
-    align-items: center;
-        border: 2px dashed fuchsia;
+        position: relative;
+        z-index: 3;
+        border-radius: 4px;
+        width: 25%;
+        height: 100%;
+        background: transparent;
+        border-radius: 8px;
+        border: 1px dashed fuchsia;
         button {
             ${'' /* border: 1px solid fuchsia; */}
             height: 100%;
-            width: 20%;
             svg {
                 width: 7vh;
                 height: 7vh;
@@ -23,12 +25,12 @@ const ImageForm = styled.form`
 `
 
 
-const CustImgForm = () => {
+const FileInputBtnContainer = () => {
     const {
         defaultImages,
         combinedImageArray,
         setCombinedImageArray
-    } = useContext(BlendrDataContext);
+    } = useContext(AppContext);
 
     /******** STATE **********/
     const [newImageURL, setNewImageURL] = useState('');
@@ -88,18 +90,16 @@ const CustImgForm = () => {
     }
     useEffect(() => {
         const fileUploadHandler = (url) => {
-
             // event.preventDefault();
-
             if (url !== '') {
-
                 let imageFile = {
                     id: shortRand(),
                     url,
                     top: false,
                     bot: false,
                     tag: "usr-image",
-                    name: selectedFileName
+                    name: selectedFileName,
+                    img: null //no processed url (not using Gatsby-Image)
                 }
 
                 db.usrImages.add(imageFile).then(async () => {
@@ -117,26 +117,27 @@ const CustImgForm = () => {
 
 
     return (
-        <>
-            <ImageForm className="img-file-form" >
-                <input
-                    style={{ display: 'none' }}
-                    type="file"
-                    required
-                    onChange={fileSelectedHandler}
-                    ref={fileInput}
-                />
-                <FileInputBtn fileInput={fileInput} />
-                {/* {selectedFileName && <button type="button" onClick={fileUploadHandleNamer}>UP!</button>} */}
-            </ImageForm>
-            {combinedImageArray.length ?
-                <PictureCard imageArray={combinedImageArray} deleteUsrImage={deleteUsrImage} />
-                :
-                ''
-            }
-        </>
-
+        <ImageForm className="img-file-form" >
+            <input
+                style={{ display: 'none' }}
+                type="file"
+                required
+                onChange={fileSelectedHandler}
+                ref={fileInput}
+            />
+            <FileInputBtn fileInput={fileInput} />
+            {/* {selectedFileName && <button type="button" onClick={fileUploadHandleNamer}>UP!</button>} */}
+        </ImageForm>
     )
 }
 
-export default CustImgForm;
+export default FileInputBtnContainer;
+
+
+// {
+//     combinedImageArray.length ?
+//     <PictureCard imageArray={combinedImageArray} deleteUsrImage={deleteUsrImage} />
+//     :
+//     ''
+// }
+ 

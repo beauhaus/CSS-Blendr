@@ -13,15 +13,17 @@ const StyledCycleModeBtn = styled.button`
 
 const CycleModeBtn = (props) => {
     const {
-        modeNum,
-        setModeNum
+        mixModeNum,
+        setMixModeNum,
+        mixMode
     } = useContext(AppContext);
 
     const modeSelectHandler = () => {
-        setModeNum((modeNum + 1) % 16)
+        setMixModeNum((mixModeNum + 1) % 16)
       }
     return (
-        <StyledCycleModeBtn onClick={modeSelectHandler} className="cycle-mode-btn">{modeNum}
+        <StyledCycleModeBtn onClick={modeSelectHandler} className="cycle-mode-btn">
+        {mixMode}
         </StyledCycleModeBtn>
     )
 };

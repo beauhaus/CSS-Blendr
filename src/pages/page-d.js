@@ -15,7 +15,6 @@ height: 200vh;
 
 const PageD = () => {
   const nativeGalleryImages = useGalleryImages();
-
   const [combinedImageArray, setCombinedImageArray] = useState([])
   const [defaultImages, setDefaultImages] = useState([])
   useEffect(() => {

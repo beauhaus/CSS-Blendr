@@ -1,7 +1,8 @@
 import React,{useContext} from 'react'
 import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
-import UploadBtn from './uploadbtn'
+// import UploadBtn from './uploadbtn'
+import FileInputBtnContainer from './fileinputbtncontainer'
 import PaintBtn from './paintbtn'
 import GridBtn from './gridbtn'
 
@@ -23,7 +24,8 @@ const CustomImagePanel = () => {
         <>
             {addImageMode && <StyledCustomImagePanel className="cust-img-panel">
                 <GridBtn/>
-                <UploadBtn/>
+                {/* <UploadBtn/> */}
+                <FileInputBtnContainer/>
                 <PaintBtn/>
             </StyledCustomImagePanel>}
         </>

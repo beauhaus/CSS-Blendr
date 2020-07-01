@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+
 import ImagePairs from './imagepairs'
 import AddImageBtn from './addImagebtn'
 import AlphaSlider from './alphaslider'
@@ -15,9 +16,10 @@ const StyledViewerFrameContainer = styled.div`
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 8vh 43vh;
+    grid-template-rows: 8vh 42vh;
 `
 const ViewerFrameContainer = () => {
+
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
       <TapModeBtn/>

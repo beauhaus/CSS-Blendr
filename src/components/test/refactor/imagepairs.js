@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Glitch from './glitchcomp'
-
 import { AppContext } from '../../../pages/page-b'
 import Eye from '../../../../images/gallery-images/eye.jpg'
 import Rouge from '../../../../images/gallery-images/rouge.jpg'
-import Woman from '../../../../images/gallery-images/woman.jpg'
+// import Woman from '../../../../images/gallery-images/woman.jpg'
+
 const StyledImagePairs = styled.div`
     position: absolute;
     border-radius: 11px;    
@@ -49,11 +49,13 @@ const StyledImagePairs = styled.div`
 `
 const ImagePairs = () => {
     const { addImageMode, modeNum } = useContext(AppContext);
-    return (!addImageMode ? <StyledImagePairs className="image-pairs">
-        <img className="img1" src={Eye} alt="testtesttesttest" />
-        <img className="img2" src={Rouge} alt="test2test2test2test2" />
-        <Glitch/>
-    </StyledImagePairs> : '')
+    return (!addImageMode ?
+        <StyledImagePairs className="image-pairs">
+            <img className="img1" src={Eye} alt="testtesttesttest" />
+            <img className="img2" src={Rouge} alt="test2test2test2test2" />
+            <Glitch />
+        </StyledImagePairs> :
+        '')
 };
 
-export default ImagePairs; 
+export default ImagePairs;

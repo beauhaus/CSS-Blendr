@@ -1,7 +1,7 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
-
+import useGalleryImages from '../components/hooks/use-gallery-images'
 import DecorFrame from '../components/test/refactor/decorframe'
 import ViewerFrameContainer from '../components/test/refactor/viewerframecontainer'
 import BlendControls from '../components/test/refactor/blendcontrols'
@@ -28,26 +28,41 @@ const PageBWrapper = styled.div`
 `
 
 const PageB = (props) => {
-  const modesArray = useMdx();
+  const mixModesArray = useMdx();
+  const nativeGalleryImages = useGalleryImages();
+
   const [tapMode, setTapMode] = useState(false)
   const [addImageMode, setAddImageMode] = useState(false)
   const [paintMode, setPaintMode] = useState(false)
   const [uploadMode, setUploadMode] = useState(false)
   const [topAlphaVal, setTopAlphaVal] = useState(100);
   const [alphaToggle, setAlphaToggle] = useState(false);
-  const [modeNum, setModeNum] = useState(0);
-
+  const [mixModeNum, setMixModeNum] = useState(0);
+  const [flipTriggerVal, setFlipTriggerVal] = useState(false)
+  const [combinedImageArray, setCombinedImageArray] = useState([])
+  const [defaultImages, setDefaultImages] = useState([])
   // console.clear();
-  
-  
+
+  useEffect(() => { //TODO: necessary?!?!
+    setDefaultImages(nativeGalleryImages)
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
   return (
     <AppContext.Provider
       value={{
-        mode: modesArray[modeNum],
-        modeNum,
-        setModeNum,
+        mixMode: mixModesArray[mixModeNum],
+        mixModeNum,
+        setMixModeNum,
         imageArray,
+        flipTriggerVal,
+        setFlipTriggerVal,
+        defaultImages,
+        combinedImageArray,
+        setCombinedImageArray,
+        defaultImages,
+        setDefaultImages,
+
         tapMode,
         setTapMode,
         uploadMode,
