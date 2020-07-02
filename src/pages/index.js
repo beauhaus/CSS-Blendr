@@ -59,7 +59,7 @@ h1 {
 `
 const INDEXJS = () => (
   <IdxWrapper className="idx-container">
-    <PanelBG />
+    {/* <PanelBG /> */}
 
     <section className="landing-section">
       <LandingLogo />

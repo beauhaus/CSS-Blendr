@@ -32,11 +32,8 @@ const UsrImgBtn = ({ imgObj }) => {
     const deleteUsrImage = async (id) => {
         db.usrImages.delete(id);
         let allUsrImages = await db.usrImages.toArray();
-        // //(re)set the usrImage array
+        //(re)set the usrImage array
         setUsrImages(allUsrImages);
-        console.log("DELETE", id);
-        // setTestState("YAEH!")
-        // console.log(testState)
       }
 
     {/* TODO: add desc: key/val to objects */}

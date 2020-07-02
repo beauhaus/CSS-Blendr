@@ -61,6 +61,7 @@ const VertGlitch = () => {
             preserveAspectRatio="none"
 
         >
+        
 
             <linearGradient id="vertGrad" x1="50%" x2="50%" y1="100%" y2="0" >
                 <stop offset="0%" stopColor="#000" id="bottom" />

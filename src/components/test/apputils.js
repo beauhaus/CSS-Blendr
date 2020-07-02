@@ -1,11 +1,4 @@
 import Dexie from 'dexie';
-import React, { useContext } from 'react'
-import {AppContext} from '../../pages/page-b'
-
-// const {
-//   testState,
-//   setTestState
-// } = useContext(AppContext);
 
 //RANDOM NUMBER GENERATOR
 const RNG = () => {
@@ -39,16 +32,5 @@ return db;
 }
 
 const db =createUsrImageDB();
-
-
-
-// const testUpload=(newImgUrl)=>{
-
-//   console.log("hellow")
-
-// }
- //set the database 
-//  const db = createUsrImageDB();
-// console.log("db: ", db)
 
 export {createUsrImageDB, shortRand, db};

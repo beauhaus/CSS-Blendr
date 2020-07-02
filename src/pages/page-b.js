@@ -5,7 +5,7 @@ import useGalleryImages from '../components/hooks/use-gallery-images'
 import DecorFrame from '../components/test/refactor/decorframe'
 import ViewerFrameContainer from '../components/test/refactor/viewerframecontainer'
 import BlendControls from '../components/test/refactor/blendcontrols'
-import PanelBG from '../components/content/panelbg'
+import NoiseBG from '../components/content/noisebg'
 
 export const AppContext = createContext();
 
@@ -95,7 +95,7 @@ const PageB = (props) => {
         alphaToggle,
         setAlphaToggle
       }}>
-      <PanelBG />
+      <NoiseBG />
       <PageBWrapper className="page-b-wrapper">
         <div className="outer-frame-container">
           <DecorFrame />
