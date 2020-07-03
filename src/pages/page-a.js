@@ -9,7 +9,6 @@ import useGalleryImages from '../components/hooks/use-gallery-images'
 
 // import { topBotFlipper } from '../components/hooks/use-image-selector'
 
-// import TestComponent from '../components/testcomponent'
 
 const useMdx = () => {
   const data = useStaticQuery(graphql`

@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
+import { AppContext } from '../../../pages/page-b'
 
 import ImagePairs from './imagepairs'
 import AddImageBtn from './addImagebtn'
@@ -20,13 +21,16 @@ const StyledViewerFrameContainer = styled.div`
     position: relative;
 `
 const ViewerFrameContainer = () => {
-
+  const {
+    selBot,
+    selTop
+} = useContext(AppContext);
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
       <TapModeBtn/>
       <AlphaSlider/>
       <ModeNameDisplay/>
-      <ImagePairs/>
+      {(selBot && selTop) && <ImagePairs/>}
       <AddImageBtn/>
       <CustomImagePanel/>
       <AlphaValDisplay/>
