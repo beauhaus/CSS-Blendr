@@ -1,24 +1,33 @@
 import React, { useEffect, useRef, useContext } from 'react'
 import { gsap, Back } from "gsap"; //  , Power4, Expo
-import { BlenderAppContext } from '../../pages/page-a'
+import { AppContext } from '../../../pages/page-b'
 
 import './flipimgpairs.scss'
 
 
 const FlipImagePairs = () => {
-    const { mode, flipTriggerVal, selBot, imgFlipper, selTop,topAlphaVal, alphaToggle } = useContext(BlenderAppContext);
+    const { mixMode, flipTriggerVal, selBot, selTop,topAlphaVal, alphaToggle, combinedImageArray, btReset, setBtReset } = useContext(AppContext);
     let topImage = useRef(null)
     let botImage = useRef(null)
     let imgEffect = useRef(null)
 
-
+    const imgFlipper = () => {
+        combinedImageArray.forEach(imgObj => {
+          if (imgObj.top !== imgObj.bot) {
+            imgObj.top = !imgObj.top;
+            imgObj.bot = !imgObj.bot;
+          }
+        })
+        setBtReset(!btReset)
+        return combinedImageArray;
+      }
     /* affordance animation (arrows) for changing modes */
     useEffect(() => {
         gsap.set(imgEffect, { opacity: 0 })
         const tl = gsap.timeline({ defaults: { delay: 0 } })
         tl.to(imgEffect, { duration: .1, opacity: .7 }, '-=0')
         tl.to(imgEffect, { duration: 1, opacity: 0 }, '-=0')
-    }, [mode])
+    }, [mixMode])
 
     /*slide-out animation */
     useEffect(() => {

@@ -62,7 +62,6 @@ const PageB = (props) => {
     let [bot] = combinedImageArray.filter(img => img.bot)
     setSelTop(top)
     setSelBot(bot)
-    console.log("T&B set", combinedImageArray)
   }, [combinedImageArray, btReset, selTop, selBot])
 
 
@@ -98,7 +97,8 @@ const PageB = (props) => {
         selBot,
         setSelTop,
         setSelBot,
-        
+        btReset,
+        setBtReset,
         tapMode,
         setTapMode,
         uploadMode,

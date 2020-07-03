@@ -1,0 +1,30 @@
+.top-img, .bot-img {
+  position: absolute;
+  width: 30vw;
+  height: 13vh;
+  transform: skew(0deg, 0deg) rotateX(46deg);
+}
+.top-img {
+top: 1vh;
+left: 4.5vw;
+transform: skew(0deg, 0deg) rotateX(41deg);
+filter: drop-shadow(6px 22px 2px rgba(0,0,0,0.3));
+}
+
+.bot-img {
+  top: 6vh;
+  right: 5vw;
+}
+
+.effect-animating-img {
+  stroke-dasharray: 40 20;
+  stroke: #fff;
+  stroke-width:5;
+  // display: none;
+  // filter:  hue(50%);
+}
+.flip-scrn-top-alpha-display {
+  fill: #fff;
+  font-size: 50vw;
+  font-weight: 100;
+}

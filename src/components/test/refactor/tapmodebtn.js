@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 
 const StyledTapModeBtn = styled.button`
- grid-row:1/-1;
+    grid-row:1/-1;
     grid-column: 1/-1;
     background: transparent;
     position: relative;
     z-index: 2;
+    color: transparent;
 `
 
 const TapModeBtn = (props) => {
@@ -23,7 +24,7 @@ const TapModeBtn = (props) => {
     return (
         <>
             {!addImageMode && 
-            <StyledTapModeBtn onClick={tapModeBtnHandler} className="tap-mode-btn"/>}
+            <StyledTapModeBtn onClick={tapModeBtnHandler} className="tap-mode-btn">tapmode</StyledTapModeBtn>}
         </>
     )
 };
