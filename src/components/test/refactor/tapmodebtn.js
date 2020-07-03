@@ -16,14 +16,14 @@ const TapModeBtn = (props) => {
         setTapMode,
         tapMode
     } = useContext(AppContext);
-    console.log(">TapModeBtn", props);
+
     const tapModeBtnHandler = () => {
         setTapMode(!tapMode)
       }
     return (
         <>
             {!addImageMode && 
-            <StyledTapModeBtn onClick={tapModeBtnHandler} className="tap-mode-btn">TAPMODE</StyledTapModeBtn>}
+            <StyledTapModeBtn onClick={tapModeBtnHandler} className="tap-mode-btn"/>}
         </>
     )
 };

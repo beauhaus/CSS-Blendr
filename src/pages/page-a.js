@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import PanelBG from '../components/content/panelbg'
+// import PanelBG from '../components/content/panelbg'
 import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
 import ImageViewer from '../components/content/imageviewer'
@@ -155,7 +155,6 @@ const PageA = (props) => {
   }
 
   const thumbNailClicker = (imgObj) => {
-
     let currentTopIdx = gallery.findIndex((obj => selTop.name === obj.name));
     gallery[currentTopIdx].top = false;
     let newSelTopIdx = gallery.findIndex((obj => imgObj.name === obj.name));

@@ -6,7 +6,7 @@ const StyledFileInputBtn = styled.button`
 `
 
 const FileInputBtn = ({ fileInput }) => {
-    console.log("filinput");
+    console.log("filinput2");
     return (
         <StyledFileInputBtn className="select-img-btn" type="button" onClick={() => fileInput.current.click()}>
             <svg xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 300 300">

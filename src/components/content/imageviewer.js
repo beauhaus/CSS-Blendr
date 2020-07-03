@@ -53,7 +53,7 @@ const ImageViewerWrapper = styled.div`
             z-index: -2;
             width: 100%;
             grid-row: 1/3;
-            display: none; //TODO: edit
+            ${'' /* display: none; //TODO: edit */}
         }
         .vert-glitch {
             position: absolute;

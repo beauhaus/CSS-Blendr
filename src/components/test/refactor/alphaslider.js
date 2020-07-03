@@ -81,8 +81,8 @@ const Track = (props, state) => {
 const AlphaSlider = () => {
     const { topAlphaVal,
         setTopAlphaVal,
-        alphaToggle,
-        setAlphaToggle,
+        alphaModifyMode,
+        setAlphaModifyMode,
         tapMode,
         addImageMode
     } = useContext(AppContext);
@@ -100,10 +100,12 @@ const AlphaSlider = () => {
         setTopAlphaVal(val)
     }
     const handleBefore = (val) => {
-        setAlphaToggle(true)
+        console.log('beforeClick');
+
+        setAlphaModifyMode(true)
     }
     const handleAfter = (val) => {
-        setAlphaToggle(false)
+        setAlphaModifyMode(false)
     }
 
     return (
@@ -115,7 +117,7 @@ const AlphaSlider = () => {
         >
             <StyledSlider
                 defaultValue={[topAlphaVal]}
-                trackClassName={alphaToggle ? "trackA" : "trackB"}
+                trackClassName={alphaModifyMode ? "trackA" : "trackB"}
                 renderTrack={Track}
                 renderThumb={Thumb}
                 onBeforeChange={(val) => handleBefore(val)}
@@ -133,3 +135,31 @@ const AlphaSlider = () => {
 
 export default AlphaSlider;
 
+/******************PREVIOUS SLIDER CODE */
+
+/*
+
+
+    const handleSliderClick = () => {
+        console.log('handleSliderClick');
+        setSliderOpenToggle(!sliderOpenToggle)
+    }
+
+    //necessary for feeding new values to parent container
+    const handleChange = (val) => {
+        setTopAlphaVal(val)
+    }
+    const handleBefore = (val) => {
+        setAlphaToggle(true)
+    }
+    const handleAfter = (val) => {
+        setAlphaToggle(false)
+    }
+********************
+
+( in viewer: display trigger)
+        {!galleryOpenVal && <h1 className="alphaval-display">{alphaToggle && `${topAlphaVal}%`}</h1>}
+( in flipview: display trigger)
+        {alphaToggle &&<text x="150" y="350" width="100%" height="100%" className="flip-scrn-top-alpha-display">{topAlphaVal}%</text>}
+
+*/

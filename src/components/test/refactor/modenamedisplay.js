@@ -18,7 +18,7 @@ const ModeNameDiaplay = (props) => {
         tapMode,
         addImageMode
     } = useContext(AppContext);
-    console.log(">ModeNameDiaplay", props);
+
     return (
         <>
         {(tapMode && !addImageMode) && <StyledModeNameDiaplay className="mode-name-display">Soft-light</StyledModeNameDiaplay>}

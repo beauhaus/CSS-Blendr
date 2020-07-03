@@ -18,8 +18,8 @@ const NoiseBGWrap = styled.div`
     filter: url(#test-filter);
   }
   #gradient-overlay {
-    mix-blend-mode: darken;
-    opacity: 0.5;
+    mix-blend-mode: overlay;
+    opacity: 0.7;
   }
 `;
 const NoiseBG = () => {
@@ -28,7 +28,7 @@ const NoiseBG = () => {
       <svg className="panel-svg" width="100%" viewBox="0 0 500 1000" preserveAspectRatio="none">
         
         <filter id='test-filter'>
-          <feGaussianBlur  stdDeviation="25 0"  colorInterpolationFilters="sRGB"/>
+          <feGaussianBlur  stdDeviation="35 0"  colorInterpolationFilters="sRGB"/>
         </filter>
         <image y="0" id="bg-img-a" xlinkHref={NoiseImg} width="100%" height="100%"  preserveAspectRatio="none"/>
         <image y="250" id="bg-img-b" xlinkHref={NoiseImg} width="100%" height="100%"  preserveAspectRatio="none"/>

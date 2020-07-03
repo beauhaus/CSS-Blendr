@@ -3,21 +3,17 @@ import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 
 const StyledAlphaValDisplay = styled.div`
- width: 60%;
-    height: 60%;
-    ${'' /* margin: 10%; */}
-    display: grid;
+    width: 100%;
+    height: 50%;
+    margin: auto;
+    display: relative;
+    text-align: center;
     position: absolute;
-    z-index: 4;
-    top: 20%;
-    left: 20%;
-    ${'' /* border: 1px dashed navy; */}
-    p {
-      ${'' /* border: 1px dashed yellow; */}
-      margin: auto;
-      text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h2 {
       color: #fff;
-      width: 100%;
       font-weight: 100;
       height: auto;
       font-size: 12rem;
@@ -27,11 +23,12 @@ const StyledAlphaValDisplay = styled.div`
 const AlphaValDisplay = (props) => {
     const {
         alphaModifyMode,
-        addImageMode
+        addImageMode,
+        topAlphaVal
     } = useContext(AppContext);
     return (
         <>
-            {(alphaModifyMode && !addImageMode) && <StyledAlphaValDisplay className="alphaVal-display"><p>89%</p></StyledAlphaValDisplay>}
+            {(alphaModifyMode && !addImageMode) && <StyledAlphaValDisplay className="alphaVal-display"><h2>{topAlphaVal}%</h2></StyledAlphaValDisplay>}
         </>
     )
 };

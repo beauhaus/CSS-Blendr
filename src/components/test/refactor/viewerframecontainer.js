@@ -6,7 +6,7 @@ import AddImageBtn from './addImagebtn'
 import AlphaSlider from './alphaslider'
 import CustomImagePanel from './customimagepanel'
 import TapModeBtn from './tapmodebtn'
-// import AlphaValDisplay from './alphavaldisplay'
+import AlphaValDisplay from './alphavaldisplay'
 import ModeNameDisplay from './modenamedisplay'
 import ThumbnailsGrid from './thumbnailsgrid'
 import PaintWidget from './paintwidget'
@@ -17,6 +17,7 @@ const StyledViewerFrameContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 8vh 42vh;
+    position: relative;
 `
 const ViewerFrameContainer = () => {
 
@@ -28,7 +29,7 @@ const ViewerFrameContainer = () => {
       <ImagePairs/>
       <AddImageBtn/>
       <CustomImagePanel/>
-      {/* <AlphaValDisplay/> */}
+      <AlphaValDisplay/>
       <ThumbnailsGrid/>
       <PaintWidget/>
     </StyledViewerFrameContainer>

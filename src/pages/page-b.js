@@ -12,7 +12,7 @@ export const AppContext = createContext();
 const PageBWrapper = styled.div`
   background: fuchsia;
   width: 100vw;
-  height: 100vh; //?
+  height: 100vh;
   max-height: 100vh;
   background: linear-gradient( 35deg, whitesmoke 0%, darkgrey 70%);
   display: grid;
@@ -36,7 +36,7 @@ const PageB = (props) => {
   const [paintMode, setPaintMode] = useState(false)
   const [uploadMode, setUploadMode] = useState(false)
   const [topAlphaVal, setTopAlphaVal] = useState(100);
-  const [alphaToggle, setAlphaToggle] = useState(false);
+  const [alphaModifyMode, setAlphaModifyMode] =useState(false);
   const [mixModeNum, setMixModeNum] = useState(0);
   const [flipTriggerVal, setFlipTriggerVal] = useState(false)
   const [combinedImageArray, setCombinedImageArray] = useState([])
@@ -45,6 +45,9 @@ const PageB = (props) => {
   const [newImageURL, setNewImageURL] = useState('');
   const [selectedFileName, setSelectedFileName] = useState('')
   const [testState, setTestState] = useState('NO!');
+  const [selTop, setSelTop] = useState('');
+  const [selBot, setSelBot] = useState('');
+  const [btReset, setBtReset] = useState('');
 
   // console.clear();
 
@@ -52,6 +55,16 @@ const PageB = (props) => {
     setDefaultImages(nativeGalleryImages)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    // setting selTop & selBot
+    let [top] = combinedImageArray.filter(img => img.top)
+    let [bot] = combinedImageArray.filter(img => img.bot)
+    setSelTop(top)
+    setSelBot(bot)
+    console.log("T&B set", combinedImageArray)
+  }, [combinedImageArray, btReset, selTop, selBot])
+
 
   useEffect(() => {
     setCombinedImageArray([
@@ -81,6 +94,10 @@ const PageB = (props) => {
         setSelectedFileName,
         testState,
         setTestState,
+        selTop,
+        selBot,
+        setSelTop,
+        setSelBot,
         
         tapMode,
         setTapMode,
@@ -92,8 +109,8 @@ const PageB = (props) => {
         setPaintMode,
         topAlphaVal,
         setTopAlphaVal,
-        alphaToggle,
-        setAlphaToggle
+        alphaModifyMode,
+        setAlphaModifyMode
       }}>
       <NoiseBG />
       <PageBWrapper className="page-b-wrapper">

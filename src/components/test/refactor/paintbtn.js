@@ -25,7 +25,6 @@ const PaintBtn = (props) => {
     const paintImgBtnHandler = () => {
         setPaintMode(true)
         setUploadMode(false);
-        console.log(">PaintBtn clicked");
       }
     return (<StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>PAINT</StyledPaintBtn>
     )

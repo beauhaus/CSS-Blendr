@@ -25,7 +25,6 @@ const GridBtn = (props) => {
     const gridBtnHandler = () => {
         setPaintMode(false)
         setUploadMode(false);
-        console.log(">GridBtn clicked");
       }
     return (<StyledGridBtn className="paint-img-btn" onClick={gridBtnHandler}>GRID</StyledGridBtn>
     )

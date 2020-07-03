@@ -26,11 +26,10 @@ const AddImageBtn = (props) => {
         setAddImageMode(!addImageMode)
         setPaintMode(false)
       }
-    console.log(">AddImageBtn", props);
-    return (tapMode? 
-        <StyledAddImageBtn className="add-img-btn" onClick={addBtnHandler}>{addImageMode?`x`:`+`}</StyledAddImageBtn>
-        :
-        ''
+    return (
+        <>
+        {tapMode && <StyledAddImageBtn className="add-img-btn" onClick={addBtnHandler}>{addImageMode?`x`:`+`}</StyledAddImageBtn>}
+        </>
     )
 };
 
