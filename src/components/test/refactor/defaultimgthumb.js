@@ -1,23 +1,35 @@
 import React, { useContext } from 'react'
 import Image from 'gatsby-image'
-// import { AppContext } from '../'
+import { AppContext } from '../../../pages/page-b'
 import styled from 'styled-components'
 
-const StyledDefaultImgBtn= styled.button`
+const StyledDefaultImgThumb= styled.button`
     & image {
         width: 100%;
         height: 100%;
     }
 `
 
-const DefaultImgBtn = ({ imgObj }) => {
+const DefaultImgThumb = ({ imgObj }) => {
+    const {
+        setUsrImages,
+        setSelTop,
+        selTop,
+        combinedImageArray,
+        setCombinedImageArray
+    } = useContext(AppContext);
 
-    const imgClickHandler = (payload) => {
-        console.log("payload: ", payload)
-    }
+    const imgClickHandler = (imgObj) => {
+    let currentTopIdx = combinedImageArray.findIndex((obj => selTop.name === obj.name));
+    combinedImageArray[currentTopIdx].top = false;
+    let newSelTopIdx = combinedImageArray.findIndex((obj => imgObj.name === obj.name));
+    combinedImageArray[newSelTopIdx].top = true;
+    setSelTop(imgObj)
+    // setCombinedImageArray()
+}
 
     return (
-        <button onClick={(imgObj) => imgClickHandler(imgObj)}>
+        <button onClick={() => imgClickHandler(imgObj)}>
             <Image
                 fluid={imgObj.img.fluid}
                 alt={imgObj.name}
@@ -26,7 +38,7 @@ const DefaultImgBtn = ({ imgObj }) => {
     )
 }
 
-export default DefaultImgBtn;
+export default DefaultImgThumb;
 
 /*
             <button className="delete" onClick={() => deleteUsrImage(usrImage.id)}><p>X</p></button>

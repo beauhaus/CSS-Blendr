@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../../pages/page-b'
+import DefaultGridIcon from './icon-components/defaultgridicon';
+// import AddImgIcon from './addimageicon'
+// import AddImageBtn from './addImagebtn';
 
 const StyledGridBtn = styled.button`
-    ${'' /* grid-column: 4/5;
-    grid-row: 1; */}
     position: relative;
     z-index: 3;
     border-radius: 4px;
@@ -26,7 +27,9 @@ const GridBtn = (props) => {
         setPaintMode(false)
         setUploadMode(false);
       }
-    return (<StyledGridBtn className="paint-img-btn" onClick={gridBtnHandler}>GRID</StyledGridBtn>
+    return (<StyledGridBtn className="paint-img-btn" onClick={gridBtnHandler}>
+    <DefaultGridIcon/>
+    </StyledGridBtn>
     )
 };
 

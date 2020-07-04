@@ -1,7 +1,7 @@
 import React, {  useEffect, useContext, useRef } from 'react'
 import { shortRand,db } from '../apputils'
 import { AppContext } from '../../../pages/page-b'
-import FileInputBtn from '../fileinputbtn'
+import FileInputBtn from './fileinputbtn'
 
 const FileInputBtnContainer = () => {
     const {
@@ -49,6 +49,7 @@ const FileInputBtnContainer = () => {
             }
             reader.readAsDataURL(e.target.files[0])
         }
+        // setSelectedFileName('')
     }
 
     useEffect(() => {
@@ -74,8 +75,10 @@ const FileInputBtnContainer = () => {
             }
         }
         fileUploadHandler(newImageURL)
+        // setSelectedFileName('')
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [newImageURL])
+    }, [selectedFileName])
 
 
     return (

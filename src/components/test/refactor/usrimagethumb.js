@@ -4,7 +4,7 @@ import { db } from '../apputils'
 
 import styled from 'styled-components'
 
-const StyledUsrImgBtnContainer = styled.div`
+const StyledUsrImgThumbContainer = styled.div`
     position: relative;
     button.usr-img-delete {
         min-width: 38px;
@@ -20,14 +20,15 @@ const StyledUsrImgBtnContainer = styled.div`
     }
 `
 
-const UsrImgBtn = ({ imgObj }) => {
+const UsrImgThumb = ({ imgObj }) => {
     const {
-        setUsrImages
+        setUsrImages,
+        setSelTop,
+        selTop,
+        combinedImageArray
     } = useContext(AppContext);
 
-    const imgClickHandler = (payload) => {
-        console.log("payload: ", payload)
-    }
+
 
     const deleteUsrImage = async (id) => {
         db.usrImages.delete(id);
@@ -37,15 +38,22 @@ const UsrImgBtn = ({ imgObj }) => {
       }
 
     {/* TODO: add desc: key/val to objects */}
+    const imgClickHandler = (imgObj) => {
 
+        let currentTopIdx = combinedImageArray.findIndex((obj => selTop.name === obj.name));
+        combinedImageArray[currentTopIdx].top = false;
+        let newSelTopIdx = combinedImageArray.findIndex((obj => imgObj.name === obj.name));
+        combinedImageArray[newSelTopIdx].top = true;
+        setSelTop(imgObj)
+      }
     return (
-        <StyledUsrImgBtnContainer>
-            <button className="usr-img-btn" onClick={(imgObj) => imgClickHandler(imgObj)}>
+        <StyledUsrImgThumbContainer>
+            <button className="usr-img-btn" value={imgObj} onClick={() => imgClickHandler(imgObj)}>
                 <img src={imgObj.url} alt={imgObj.name} />
             </button>
             <button className="usr-img-delete" onClick={() => deleteUsrImage(imgObj.id)}><p>X</p></button>
-        </StyledUsrImgBtnContainer>
+        </StyledUsrImgThumbContainer>
     )
 }
 
-export default UsrImgBtn;
+export default UsrImgThumb;

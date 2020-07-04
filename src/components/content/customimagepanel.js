@@ -49,7 +49,7 @@ const CustomImagePanelWrap = styled.section`
 const CustomImagePanel = () => {
   return (
     <CustomImagePanelWrap className="custom-img-panel">
-        <CustomPanelBG/>
+        {/* <CustomPanelBG/> */}
         <div className="cust-img-container-ctr">
         <button ><ImageAddIcon/></button>
         </div>

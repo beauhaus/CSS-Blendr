@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../../pages/page-b'
-
+import SwitchImgIcon from './switchimgicon'
 // modify enter / confirm/cancel
-const StyledAddImageBtn = styled.button`
+const StyledSwitchImageBtn = styled.button`
     position: absolute;
     top: 0;
     left: 0;
@@ -12,9 +12,12 @@ const StyledAddImageBtn = styled.button`
     width: 25%;
     height: 8vh;
     background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
-const AddImageBtn = (props) => {
+const SwitchImageBtn = (props) => {
     const {
         tapMode,
         addImageMode,
@@ -28,9 +31,11 @@ const AddImageBtn = (props) => {
       }
     return (
         <>
-        {tapMode && <StyledAddImageBtn className="add-img-btn" onClick={addBtnHandler}>{addImageMode?`x`:`+`}</StyledAddImageBtn>}
+        {tapMode && <StyledSwitchImageBtn className="switch-img-btn" onClick={addBtnHandler}>
+            <SwitchImgIcon/>
+        </StyledSwitchImageBtn>}
         </>
     )
 };
 
-export default AddImageBtn; 
+export default SwitchImageBtn; 

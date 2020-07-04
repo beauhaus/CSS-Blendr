@@ -44,7 +44,6 @@ const PageB = (props) => {
   const [usrImages, setUsrImages] = useState('');
   const [newImageURL, setNewImageURL] = useState('');
   const [selectedFileName, setSelectedFileName] = useState('')
-  const [testState, setTestState] = useState('NO!');
   const [selTop, setSelTop] = useState('');
   const [selBot, setSelBot] = useState('');
   const [btReset, setBtReset] = useState('');
@@ -91,8 +90,6 @@ const PageB = (props) => {
         setNewImageURL,
         selectedFileName,
         setSelectedFileName,
-        testState,
-        setTestState,
         selTop,
         selBot,
         setSelTop,

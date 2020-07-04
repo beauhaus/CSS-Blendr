@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // import PanelBG from '../components/content/panelbg'
 import CyclerBtn from '../components/content/cyclerbtn'
 import FlipScreenBtn from '../components/content/flipscreenbtn'
-import ImageViewer from '../components/content/imageviewer'
+// import ImageViewer from '../components/content/imageviewer'
 import useGalleryImages from '../components/hooks/use-gallery-images'
 
 // import { topBotFlipper } from '../components/hooks/use-image-selector'
@@ -192,7 +192,7 @@ const PageA = (props) => {
         {/* <PanelBG /> TODO: edit*/}
         
         <section className="panel-section">
-          {(selTop && selBot) && <ImageViewer />}
+          {/* {(selTop && selBot) && <ImageViewer />} */}
           <div className="blend-ctrl-btns" >
             <CyclerBtn />
             <FlipScreenBtn />

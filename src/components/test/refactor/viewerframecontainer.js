@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 
 import ImagePairs from './imagepairs'
-import AddImageBtn from './addImagebtn'
+import SwitchImgBtn from './switchImagebtn'
 import AlphaSlider from './alphaslider'
-import CustomImagePanel from './customimagepanel'
+import ImageMenuPanel from './imagemenunav'
 import TapModeBtn from './tapmodebtn'
 import AlphaValDisplay from './alphavaldisplay'
 import ModeNameDisplay from './modenamedisplay'
 import ThumbnailsGrid from './thumbnailsgrid'
 import PaintWidget from './paintwidget'
+import ImageChangeSwitchBtn from './switchImagebtn'
 
 const StyledViewerFrameContainer = styled.div`
     border-radius: 10px;
@@ -23,7 +24,8 @@ const StyledViewerFrameContainer = styled.div`
 const ViewerFrameContainer = () => {
   const {
     selBot,
-    selTop
+    selTop,
+    addImageMode
 } = useContext(AppContext);
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
@@ -31,8 +33,8 @@ const ViewerFrameContainer = () => {
       <AlphaSlider/>
       <ModeNameDisplay/>
       {(selBot && selTop) && <ImagePairs/>}
-      <AddImageBtn/>
-      <CustomImagePanel/>
+      <SwitchImgBtn/>
+      {addImageMode &&<ImageMenuPanel/>}
       <AlphaValDisplay/>
       <ThumbnailsGrid/>
       <PaintWidget/>

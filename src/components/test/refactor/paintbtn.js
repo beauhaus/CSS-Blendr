@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../../pages/page-b'
+import PaintIcon from './icon-components/painticon'
 
 const StyledPaintBtn = styled.button`
     ${'' /* grid-column: 4/5;
@@ -26,8 +27,11 @@ const PaintBtn = (props) => {
         setPaintMode(true)
         setUploadMode(false);
       }
-    return (<StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>PAINT</StyledPaintBtn>
+    return (<StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>
+        <PaintIcon/>
+    </StyledPaintBtn>
     )
 };
+
 
 export default PaintBtn; 

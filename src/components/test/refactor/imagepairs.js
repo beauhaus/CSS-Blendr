@@ -12,14 +12,17 @@ const StyledImagePairs = styled.div`
     width: 100%;
     height: 100%;
     z-index: 0;
-    background: linear-gradient(135deg, steelblue 0%, PeachPuff 25%, PeachPuff 50%, LightSalmon 75%, steelblue 100%);
+    background: transparent;
     overflow: hidden;
-    .img1, .img2 {
+    .img-back, .img-front {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        border-radius: 11px;  
+        ${'' /* display: none;   */}
+        overflow: hidden;
     }
     .glitch-img {
         position: absolute;
@@ -60,7 +63,7 @@ const ImagePairs = () => {
     }, [flipTriggerVal])
 
     return (
-        <StyledImagePairs>
+        <StyledImagePairs className="styled-img-pairs">
         <svg className="image-container" viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
                 <g>
                     <image
