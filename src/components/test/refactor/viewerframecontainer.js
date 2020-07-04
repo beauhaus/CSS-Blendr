@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 
 import ImagePairs from './imagepairs'
-import SwitchImgBtn from './switchImagebtn'
+import SwitchImgBtn from './switchimagebtn'
 import AlphaSlider from './alphaslider'
 import ImageMenuPanel from './imagemenunav'
 import TapModeBtn from './tapmodebtn'
@@ -11,7 +11,6 @@ import AlphaValDisplay from './alphavaldisplay'
 import ModeNameDisplay from './modenamedisplay'
 import ThumbnailsGrid from './thumbnailsgrid'
 import PaintWidget from './paintwidget'
-import ImageChangeSwitchBtn from './switchImagebtn'
 
 const StyledViewerFrameContainer = styled.div`
     border-radius: 10px;
