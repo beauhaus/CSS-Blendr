@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext} from 'react'
 import { gsap, Back } from "gsap"; //  , Power4, Expo
 import { AppContext } from '../../../pages/page-b'
 import styled from 'styled-components'
-import './flip-img-pairs.scss'
+// import './flip-img-pairs.scss'
 
 const StyledFlipImagePairs = styled.div`
     top: 3%;
@@ -39,10 +39,22 @@ const StyledFlipImagePairs = styled.div`
         background: lightgreen;
         transform: rotateX(41deg);
     }
+    .flip-alpha-display {
+        position: absolute;
+        top: 20%;
+        left: 8%;
+        width: 70%;
+        height: 30%;
+        transform: rotateX(41deg);
+        color: #fff;
+        font-size: 4rem;
+        font-weight: 200;
+        text-shadow: 1px 1px 2px #000;
+    }
 `
 
 const FlipImagePairs = () => {
-    const { mixMode, flipTriggerVal, selBot, selTop,topAlphaVal, alphaToggle, combinedImageArray, btReset, setBtReset } = useContext(AppContext);
+    const { mixMode, topAlphaVal, flipTriggerVal, selBot, selTop,alphaModifyMode, addImageMode, combinedImageArray, btReset, setBtReset } = useContext(AppContext);
     let topImage = useRef(null)
     let botImage = useRef(null)
     let imgEffect = useRef(null)
@@ -78,18 +90,11 @@ const FlipImagePairs = () => {
     }, [flipTriggerVal])
     
     return (
-        <StyledFlipImagePairs>
-            {/* <svg className="bot-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image width="100%" height="100%" xlinkHref={selBot.url} preserveAspectRatio="none" ref={elem => botImage = elem} />
-            </svg> */}
-            {/* <svg className="top-img" x="0" y="0" viewBox="0 0 700 500" >
-                <image opacity={topAlphaVal/100} width="100%" height="100%" xlinkHref={selTop.url} preserveAspectRatio="none" ref={elem => topImage = elem} />
-                <rect  stroke="lightgreen" strokeWidth="45" width="100%" height="100%" fill="lightgreen" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }} />
-                {alphaToggle &&<text x="150" y="350" width="100%" height="100%" className="flip-scrn-top-alpha-display">{topAlphaVal}%</text>}
-            </svg> */}
+        <StyledFlipImagePairs className="flip-image-pairs-container">
             <img className="bot-image" src={selBot.url} alt="nice pic"  ref={elem => botImage = elem} />
-            <img className="top-image" src={selTop.url} alt="nicer pic"  ref={elem => topImage = elem} />
+            <img className="top-image" src={selTop.url} alt="nicer pic"  ref={elem => topImage = elem} style={{ opacity: `${topAlphaVal/100}` }}/>
             <div className="top-image-effect" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }}></div>
+            {(alphaModifyMode && !addImageMode) && <h2 className="flip-alpha-display">{topAlphaVal}%</h2>}
         </StyledFlipImagePairs>
 
     )
