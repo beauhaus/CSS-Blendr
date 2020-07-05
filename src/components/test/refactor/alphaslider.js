@@ -1,8 +1,8 @@
-import React, { useState,  useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components';
 import ReactSlider from "react-slider";
 import { AppContext } from './../../../pages/page-b'
-import OpacitySliderIcon from '../../util-icons/opacityicon'
+import OpacitySliderIcon from './icon-components/opacityicon'
 
 const trackStyles = (props) => {
     return (`
@@ -26,6 +26,8 @@ const StyledSlider = styled(ReactSlider)`
 `;
 
 const StyledThumb = styled.div`
+padding-top:0.5vh;
+padding-right: 2vw;
     width: 100%;
     height: 8vh;
     position: relative;
@@ -46,7 +48,7 @@ const StyledThumb = styled.div`
 const Thumb = (props, state) => {
     return (
         <StyledThumb  {...props}>
-            <OpacitySliderIcon/>
+            <OpacitySliderIcon />
         </StyledThumb>
     )
 };
@@ -54,7 +56,7 @@ const Thumb = (props, state) => {
 const StyledTrack = styled.div`
     top: 0;
     bottom: 0;
-    right: 2vw;
+    right: 4vw;
     width: 8vw;
     transform: translateY(8vh);
     &.trackA-0 {
@@ -91,7 +93,6 @@ const AlphaSlider = () => {
 
 
     const handleSliderClick = () => {
-        console.log('handleSliderClick');
         setSliderOpenToggle(!sliderOpenToggle)
     }
 
@@ -100,8 +101,6 @@ const AlphaSlider = () => {
         setTopAlphaVal(val)
     }
     const handleBefore = (val) => {
-        console.log('beforeClick');
-
         setAlphaModifyMode(true)
     }
     const handleAfter = (val) => {
@@ -110,56 +109,27 @@ const AlphaSlider = () => {
 
     return (
         <>
-        {(tapMode && !addImageMode)? 
-    <SliderContainer className="slider-container"
-            onTouchStart={handleBefore}
-            onClick={handleSliderClick}
-        >
-            <StyledSlider
-                defaultValue={[topAlphaVal]}
-                trackClassName={alphaModifyMode ? "trackA" : "trackB"}
-                renderTrack={Track}
-                renderThumb={Thumb}
-                onBeforeChange={(val) => handleBefore(val)}
-                onChange={handleChange}
-                onAfterChange={(val) => handleAfter(val)}
-                orientation="vertical"
-                invert
-                topAlphaVal={topAlphaVal}
-            />
-        </SliderContainer>:
-        ''}
+            {(tapMode && !addImageMode) ?
+                <SliderContainer className="slider-container"
+                    onTouchStart={handleBefore}
+                    onClick={handleSliderClick}
+                >
+                    <StyledSlider
+                        defaultValue={[topAlphaVal]}
+                        trackClassName={alphaModifyMode ? "trackA" : "trackB"}
+                        renderTrack={Track}
+                        renderThumb={Thumb}
+                        onBeforeChange={(val) => handleBefore(val)}
+                        onChange={handleChange}
+                        onAfterChange={(val) => handleAfter(val)}
+                        orientation="vertical"
+                        invert
+                        topAlphaVal={topAlphaVal}
+                    />
+                </SliderContainer> :
+                ''}
         </>
     )
 }
 
 export default AlphaSlider;
-
-/******************PREVIOUS SLIDER CODE */
-
-/*
-
-
-    const handleSliderClick = () => {
-        console.log('handleSliderClick');
-        setSliderOpenToggle(!sliderOpenToggle)
-    }
-
-    //necessary for feeding new values to parent container
-    const handleChange = (val) => {
-        setTopAlphaVal(val)
-    }
-    const handleBefore = (val) => {
-        setAlphaToggle(true)
-    }
-    const handleAfter = (val) => {
-        setAlphaToggle(false)
-    }
-********************
-
-( in viewer: display trigger)
-        {!galleryOpenVal && <h1 className="alphaval-display">{alphaToggle && `${topAlphaVal}%`}</h1>}
-( in flipview: display trigger)
-        {alphaToggle &&<text x="150" y="350" width="100%" height="100%" className="flip-scrn-top-alpha-display">{topAlphaVal}%</text>}
-
-*/

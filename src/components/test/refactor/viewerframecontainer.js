@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 
 import ImagePairs from './imagepairs'
-import SwitchImgBtn from './switchimagebtn'
+import SwitchImgBtn from './switchimgbtn'
 import AlphaSlider from './alphaslider'
 import ImageMenuPanel from './imagemenunav'
 import TapModeBtn from './tapmodebtn'

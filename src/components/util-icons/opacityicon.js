@@ -4,18 +4,22 @@ import styled from 'styled-components'
 const StyledOpacityIcon = styled.svg`
     height: 100%;
     width: 100%;
+    opacity: 0.8;
+    .st0{fill:#fff; stroke:#fff; stroke-width: 2;}
+    .st1{fill:#fff; }
 `
 
 const OpacityIcon = () => (
     <StyledOpacityIcon viewBox="0 0 300 300" width="100%" height="100%">
-                <path fill="#828282" d="M200 225H25c-13.81 0-25-11.19-25-25V25C0 11.19 11.19 0 25 0h175c13.81 0 25 11.19 25 25v175c0 13.81-11.19 25-25 25z" />
-                <path d="M275 300H100c-13.81 0-25-11.19-25-25V100c0-13.81 11.19-25 25-25h175c13.81 0 25 11.19 25 25v175c0 13.81-11.19 25-25 25z" fill="#fff" />
-                <path d="M75 100h150V75H100c-13.81 0-25 11.19-25 25z" fill="#fff" />
-                <path d="M75 100h150v25H75z" fill="4f4f4f" />
-                <path d="M75 125h150v25H75z" fill="#fff" />
-                <path d="M75 150h150v25H75z" fill="4f4f4f" />
-                <path d="M75 175h150v25H75z" fill="#fff" />
-                <path d="M75 225h125c13.81 0 25-11.19 25-25H75v25z" fill="4f4f4f" />
+        <filter id="opacity-shadow">
+            <feDropShadow dx="-4" dy="-4" stdDeviation="4" floodColor="#000" />
+        </filter>
+
+        <g filter="url(#opacity-shadow)">
+            <path d="M208 5c8.28 0 15 6.72 15 15v188c0 8.28-6.72 15-15 15H20c-8.28 0-15-6.72-15-15V20c0-8.28 6.72-15 15-15h188m0-5H20C8.97 0 0 8.97 0 20v188c0 11.03 8.97 20 20 20h188c11.03 0 20-8.97 20-20V20c0-11.03-8.97-20-20-20z" class="st0" />
+            <path d="M280 77c8.28 0 15 6.72 15 15v188c0 8.28-6.72 15-15 15H92c-8.28 0-15-6.72-15-15V92c0-8.28 6.72-15 15-15h188m0-5H92c-11.03 0-20 8.97-20 20v188c0 11.03 8.97 20 20 20h188c11.03 0 20-8.97 20-20V92c0-11.03-8.97-20-20-20z" class="st0" />
+            <path d="M113.5 113.5H77V92c0-8.28 6.72-15 15-15h21.5v36.5zM208 223h-21.5v-36.5H223V208c0 8.28-6.72 15-15 15zM150 77h36.5v36.5H150zM186.5 113.5H223V150h-36.5zM113.5 113.5H150V150h-36.5zM150 150h36.5v36.5H150zM77 150h36.5v36.5H77zM113.5 186.5H150V223h-36.5z" class="st1" />
+        </g>
     </StyledOpacityIcon>
 )
 

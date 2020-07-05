@@ -46,21 +46,3 @@ const PaintIcon = () => {
     )
 }
 export default PaintIcon;
-
-
-/*
-
-
-357 bytes → 220 bytes 61.62%
-<svg xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 300 300">
-  <defs/>
-  <style>
-    .st1{fill:#fff}
-  </style>
-  <g id="open_1_">
-    <path fill="#4d4d4d" d="M0 0h300v300H0z"/>
-    <path d="M160 160h120v120H160zM160 20h120v120H160zM20 20h120v120H20zM20 160h120v120H20z" class="st1"/>
-  </g>
-</svg>
-
-*/

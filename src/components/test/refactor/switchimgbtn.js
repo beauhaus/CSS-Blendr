@@ -25,7 +25,6 @@ const SwitchImageBtn = (props) => {
         setPaintMode
     } = useContext(AppContext);
     const addBtnHandler = () => {
-        console.log("addBtnHandler clicked!")
         setAddImageMode(!addImageMode)
         setPaintMode(false)
       }

@@ -8,7 +8,6 @@ const StyledFileInputBtn = styled.button`
 `
 
 const FileInputBtn = ({ fileInput }) => {
-    console.log("filinput2");
     return (
         <StyledFileInputBtn className="select-img-btn" type="button" onClick={() => fileInput.current.click()}>
             <ImgUploadIcon/>

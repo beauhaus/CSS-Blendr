@@ -1,14 +1,16 @@
-.top-img, .bot-img {
+.top-img,
+.bot-img {
   position: absolute;
   width: 30vw;
-  height: 13vh;
+  height: 12vh;
   transform: skew(0deg, 0deg) rotateX(46deg);
 }
+
 .top-img {
-top: 1vh;
-left: 4.5vw;
-transform: skew(0deg, 0deg) rotateX(41deg);
-filter: drop-shadow(6px 22px 2px rgba(0,0,0,0.3));
+  top: 1vh;
+  left: 4.5vw;
+  transform: skew(0deg, 0deg) rotateX(41deg);
+  filter: drop-shadow(6px 12px 2px rgba(0, 0, 0, 0.5));
 }
 
 .bot-img {
@@ -19,10 +21,9 @@ filter: drop-shadow(6px 22px 2px rgba(0,0,0,0.3));
 .effect-animating-img {
   stroke-dasharray: 40 20;
   stroke: #fff;
-  stroke-width:5;
-  // display: none;
-  // filter:  hue(50%);
+  stroke-width: 5;
 }
+
 .flip-scrn-top-alpha-display {
   fill: #fff;
   font-size: 50vw;
