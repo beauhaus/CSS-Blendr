@@ -1,5 +1,5 @@
 import React, {  useEffect, useContext, useRef } from 'react'
-import { shortRand,db } from '../apputils'
+import { shortRand,db } from './hooks/use-gallery-images'
 import { AppContext } from '../../../pages/page-b'
 import FileInputBtn from './fileinputbtn'
 
@@ -16,18 +16,18 @@ const FileInputBtnContainer = () => {
     } = useContext(AppContext);
 
     //get all usrImages from db
-    useEffect(() => {
-        const getStoredImageFiles = async () => {
-            let usrImages = await db.usrImages.toArray();
-            if (usrImages) {
-                setUsrImages(usrImages)
-            }
-        }
-        getStoredImageFiles();
-        // line below ought to be this, but dependency may interfere with uploads (??)
-        // }, [db.usrImages])
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // useEffect(() => {
+    //     const getStoredImageFiles = async () => {
+    //         let usrImages = await db.usrImages.toArray();
+    //         if (usrImages) {
+    //             setUsrImages(usrImages)
+    //         }
+    //     }
+    //     getStoredImageFiles();
+    //     // line below ought to be this, but dependency may interfere with uploads (??)
+    //     // }, [db.usrImages])
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
 
     useEffect(() => {
         setCombinedImageArray([
