@@ -29,11 +29,10 @@ const useGalleryImages = () => {
 
   // "src:" is a direct, unprocessed link to image
   // "img:" is for gatsby-image -> fluid=(img.fluid)
+  // TODO: add alt description for each image
   return imgArray.map((node, idx) => ({
     id: shortRand(), //shortrand() TODO: call shortRand()
     name: node.name,
-    top: (idx === rand1 ? true : false),
-    bot: (idx === rand2 ? true : false),
     img: node.image, //gatsby-image fluid
     tag: `default_image`,
     url: node.URL // base: 64

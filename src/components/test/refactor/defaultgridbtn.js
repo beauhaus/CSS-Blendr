@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../../../pages/page-b'
+import { AppContext } from '../../../pages/page-b'
 import DefaultGridIcon from './icon-components/defaultgridicon';
 // import AddImgIcon from './addimageicon'
 // import AddImageBtn from './addImagebtn';
 
-const StyledGridBtn = styled.button`
+const StyledDefaultGridBtn = styled.button`
     position: relative;
     z-index: 3;
     border-radius: 4px;
@@ -17,20 +17,22 @@ const StyledGridBtn = styled.button`
     ${'' /* border: 1px dashed #fff; */}
 `
 
-const GridBtn = (props) => {
+const DefaultGridBtn = (props) => {
     const {
-        setUploadMode,
-        setPaintMode
+        setUsrImgMode,
+        setPaintMode,
+        setGridMode
     } = useContext(AppContext);
-    
+
     const gridBtnHandler = () => {
         setPaintMode(false)
-        setUploadMode(false);
-      }
-    return (<StyledGridBtn className="paint-img-btn" onClick={gridBtnHandler}>
-    <DefaultGridIcon/>
-    </StyledGridBtn>
+        setUsrImgMode(false)
+        setGridMode(true)
+    }
+    return (<StyledDefaultGridBtn className="default-img-grid-btn" onClick={gridBtnHandler}>
+        <DefaultGridIcon />
+    </StyledDefaultGridBtn>
     )
 };
 
-export default GridBtn; 
+export default DefaultGridBtn; 

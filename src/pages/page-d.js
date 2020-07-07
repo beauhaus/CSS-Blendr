@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import PicsTester from '../components/test/picstestbackup'
+// import PicsTester from '../components/test/picstestbackup'
 import useGalleryImages from '../components/hooks/use-gallery-images'
 
 
@@ -30,7 +30,7 @@ const PageD = () => {
         setCombinedImageArray
       }}>
       <PageDWrapper className="page-d-wrapper">
-        <PicsTester />
+        {/* <PicsTester /> */}
       </PageDWrapper>
     </BlendrDataContext.Provider>
   )

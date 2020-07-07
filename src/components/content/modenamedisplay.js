@@ -33,7 +33,7 @@ const ModeNameDisplay = () => {
   },[mode])
 
   return (
-    <ModeNameContainer  className={`mode-name-container`}
+    <ModeNameContainer className={`mode-name-container`}
     ref={elem => txtBox = elem}>
       <h1 width="100%" height="100%">{mode}</h1>
     </ModeNameContainer>

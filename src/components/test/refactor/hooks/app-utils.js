@@ -19,11 +19,11 @@ const RNG = () => {
 
 // set USRIMAGE DATABASE
  const createUsrImageDB = () => {
-  const db = new Dexie("UsrImageDB")
+  const db = new Dexie("UsrImagesDB")
   //create db store
   db.version(1).stores({
     //a table cust named usrImages...1st csv value is "primary key"
-    usrImages: "id, name, url, tag, top, bot,img"
+    usrImages: "id, name, url, tag"
   })
   db.open().catch((err) => {
     console.log("db err: ", err.stack || err);

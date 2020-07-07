@@ -21,12 +21,17 @@ const SwitchImageBtn = (props) => {
     const {
         tapMode,
         addImageMode,
+        setGridMode,
         setAddImageMode,
-        setPaintMode
+        setPaintMode,
+        setUsrImgMode
     } = useContext(AppContext);
+
     const addBtnHandler = () => {
         setAddImageMode(!addImageMode)
+        setGridMode(true)
         setPaintMode(false)
+        setUsrImgMode(false)
       }
     return (
         <>

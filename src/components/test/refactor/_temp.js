@@ -14,8 +14,7 @@ const TEMP = (props) => {
     return (
 
         <StyledTEMP className="TEMP">
-
-
+            
         </StyledTEMP>
     )
 };

@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useContext} from 'react'
-import { gsap, Back } from "gsap"; //  , Power4, Expo
+import { gsap, Back } from "gsap";
 import { AppContext } from '../../../pages/page-b'
 import styled from 'styled-components'
-// import './flip-img-pairs.scss'
 
 const StyledFlipImagePairs = styled.div`
     top: 3%;
@@ -11,41 +10,39 @@ const StyledFlipImagePairs = styled.div`
     width: 94%;
     position: absolute;
     perspective: 200px;
-    
     img {
-
         position: absolute;
-        width: 70%;
-        height: 70%;
+        width: 65%;
+        height: 65%;
     }
-    .top-image {
+    .top-image-flip {
         top: 0%;
         left: 8%;
-        transform: rotateX(41deg);
+        transform: rotateX(44deg);
+        box-shadow: 18px 35px 10px -15px rgba(0,0,0,0.5);
     }
     .bot-image {
-        top: 20%;
+        top: 25%;
         right: 10%;
         transform: rotateX(46deg);
-        
     }
-    .top-image-effect {
+    .top-image-flip-effect {
         position: absolute;
         top: 0%;
         left: 8%;
-        width: 70%;
-        height: 70%;
+        width: 65%;
+        height: 65%;
         border: 2px solid yellow;
         background: lightgreen;
-        transform: rotateX(41deg);
+        transform: rotateX(44deg);
     }
-    .flip-alpha-display {
+    .alpha-display-flip {
         position: absolute;
         top: 20%;
         left: 8%;
         width: 70%;
         height: 30%;
-        transform: rotateX(41deg);
+        transform: rotateX(43deg);
         color: #fff;
         font-size: 4rem;
         font-weight: 200;
@@ -54,21 +51,17 @@ const StyledFlipImagePairs = styled.div`
 `
 
 const FlipImagePairs = () => {
-    const { mixMode, topAlphaVal, flipTriggerVal, selBot, selTop,alphaModifyMode, addImageMode, combinedImageArray, btReset, setBtReset } = useContext(AppContext);
+    const { mixMode, topAlphaVal, currentTop, currentBot, flipTriggerVal, alphaModifyMode, addImageMode, defaultImageArray, setCurrentTop, setCurrentBot } = useContext(AppContext);
     let topImage = useRef(null)
     let botImage = useRef(null)
     let imgEffect = useRef(null)
+    // console.log("CurrentTop: ", currentTop)
 
     const imgFlipper = () => {
-        combinedImageArray.forEach(imgObj => {
-          if (imgObj.top !== imgObj.bot) {
-            imgObj.top = !imgObj.top;
-            imgObj.bot = !imgObj.bot;
-          }
-        })
-        setBtReset(!btReset)
-        return combinedImageArray;
-      }
+        setCurrentTop(currentBot)
+        setCurrentBot(currentTop)
+    }
+
     /* affordance animation (arrows) for changing modes */
     useEffect(() => {
         gsap.set(imgEffect, { opacity: 0 })
@@ -91,12 +84,12 @@ const FlipImagePairs = () => {
     
     return (
         <StyledFlipImagePairs className="flip-image-pairs-container">
-            <img className="bot-image" src={selBot.url} alt="nice pic"  ref={elem => botImage = elem} />
-            <img className="top-image" src={selTop.url} alt="nicer pic"  ref={elem => topImage = elem} style={{ opacity: `${topAlphaVal/100}` }}/>
-            <div className="top-image-effect" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }}></div>
-            {(alphaModifyMode && !addImageMode) && <h2 className="flip-alpha-display">{topAlphaVal}%</h2>}
+        {/* {console.log("top /bot: ", currentTop.name, currentBot.name)} */}
+            <img className="bot-image" src={currentBot.url} alt="nice pic"  ref={elem => botImage = elem} />
+            <img className="top-image-flip" src={''|| currentTop.url} alt="nicer pic"  ref={elem => topImage = elem} style={{ opacity: `${topAlphaVal/100}` }}/>
+            <div className="top-image-flip-effect" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }}></div>
+            {(alphaModifyMode && !addImageMode) && <h2 className="alpha-display-flip">{topAlphaVal}%</h2>}
         </StyledFlipImagePairs>
-
     )
 }
 

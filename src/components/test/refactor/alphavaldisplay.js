@@ -17,6 +17,7 @@ const StyledAlphaValDisplay = styled.div`
       font-weight: 100;
       height: auto;
       font-size: 12rem;
+      text-shadow: 1px 1px 2px #000;
     }
 `
 

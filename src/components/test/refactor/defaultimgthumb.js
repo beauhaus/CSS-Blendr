@@ -12,24 +12,18 @@ const StyledDefaultImgThumb= styled.button`
 
 const DefaultImgThumb = ({ imgObj }) => {
     const {
-        setUsrImages,
-        setSelTop,
-        selTop,
-        combinedImageArray,
-        setCombinedImageArray
+        currentTop,
+        setCurrentTop,
+        setCurrentBot
     } = useContext(AppContext);
 
+    //This replaces topimage
     const imgClickHandler = (imgObj) => {
-    let currentTopIdx = combinedImageArray.findIndex((obj => selTop.name === obj.name));
-    combinedImageArray[currentTopIdx].top = false;
-    let newSelTopIdx = combinedImageArray.findIndex((obj => imgObj.name === obj.name));
-    combinedImageArray[newSelTopIdx].top = true;
-    setSelTop(imgObj)
-    // setCombinedImageArray()
-}
+        setCurrentTop(imgObj)
+    }
 
     return (
-        <button onClick={() => imgClickHandler(imgObj)}>
+        <button className="default-img-btn img-btn" onClick={() => imgClickHandler(imgObj)}>
             <Image
                 fluid={imgObj.img.fluid}
                 alt={imgObj.name}
@@ -39,26 +33,3 @@ const DefaultImgThumb = ({ imgObj }) => {
 }
 
 export default DefaultImgThumb;
-
-/*
-            <button className="delete" onClick={() => deleteUsrImage(usrImage.id)}><p>X</p></button>
-             {usrImage.tag==="usr-image" && <button className="delete" onClick={() => deleteUsrImage(usrImage.id)}><p>X</p></button>}
-
-<StyledThumbCard className={imgObj.top && "selected-img-top"}
-            onClick={() => thumbNailClicker(imgObj)}
-            onClick={() => divClick(imgObj)}
-        >
-            {imgObj.tag === "usr-image" ?
-                <img src={imgObj.url} alt={imgObj.name} /> :
-                <Image
-                    fluid={imgObj.img.fluid}
-                    alt={imgObj.name}
-                />
-                <button id="test-usr-image-btn" src={imgObj.url}alt={imgObj.name} />
-
-            }
-
-        </StyledThumbCard>
-
-
-        */

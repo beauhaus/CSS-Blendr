@@ -4,7 +4,6 @@ import { BlenderAppContext } from '../../pages/page-a'
 
 import './flipimgpairs.scss'
 
-
 const FlipImagePairs = () => {
     const { mode, flipTriggerVal, selBot, imgFlipper, selTop,topAlphaVal, alphaToggle } = useContext(BlenderAppContext);
     let topImage = useRef(null)

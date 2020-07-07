@@ -5,7 +5,7 @@ import ImgMenuNavBG from './icon-components/customnavbg'
 
 import FileInputBtnContainer from './fileinputbtncontainer'
 import PaintBtn from './paintbtn'
-import DefaultGridBtn from './gridbtn'
+import DefaultGridBtn from './defaultgridbtn'
 
 const StyledImageMenuNav = styled.nav`
     grid-row: 1;
@@ -40,18 +40,7 @@ const StyledImageMenuNav = styled.nav`
             border-radius: 7px;
         }
     }
-    ${'' /* .switch-img-icon-frame-container {
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .switch-img-icon-frame {
-            width: 7vh;
-            height: 7vh;
-            border: 1px solid #beecff;
-            border-radius: 7px;
-        }
-    } */}
+
     .img-file-form {
         position: relative;
         z-index: 3;
@@ -71,7 +60,6 @@ const ImageMenuNav = () => {
     return (
         <StyledImageMenuNav className="img-menu-panel">
                 <ImgMenuNavBG/>
-                
                 <DefaultGridBtn/>
                 <FileInputBtnContainer/>
                 <PaintBtn/>

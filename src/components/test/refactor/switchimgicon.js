@@ -57,7 +57,7 @@ const SwitchImgIcon = () => {
                         stroke="#fff"
                         ref={elem => switchIconCross = elem}
                     />
-                <path ref={elem => switchIconFrame = elem} id="frame" fill="#beecff" stroke="#beecff" strokeWidth="3" d="M250 4c25.41 0 46 20.59 46 46v200c0 25.41-20.59 46-46 46H50c-25.41 0-46-20.59-46-46V50C4 24.59 24.59 4 50 4h200m0-4H50C22.43 0 0 22.43 0 50v200c0 27.57 22.43 50 50 50h200c27.57 0 50-22.43 50-50V50c0-27.57-22.43-50-50-50z" />
+                <path ref={elem => switchIconFrame = elem} id="frame" fill="#beecff" stroke="#beecff" strokeWidth="1.5" d="M250 4c25.41 0 46 20.59 46 46v200c0 25.41-20.59 46-46 46H50c-25.41 0-46-20.59-46-46V50C4 24.59 24.59 4 50 4h200m0-4H50C22.43 0 0 22.43 0 50v200c0 27.57 22.43 50 50 50h200c27.57 0 50-22.43 50-50V50c0-27.57-22.43-50-50-50z" />
             </svg>
         </StyledSwitchImgIcon>
     )

@@ -19,13 +19,13 @@ const StyledPaintBtn = styled.button`
 
 const PaintBtn = (props) => {
     const {
-        setUploadMode,
+        setUsrImgMode,
         setPaintMode
     } = useContext(AppContext);
     
     const paintImgBtnHandler = () => {
         setPaintMode(true)
-        setUploadMode(false);
+        setUsrImgMode(false);
       }
     return (<StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>
         <PaintIcon/>

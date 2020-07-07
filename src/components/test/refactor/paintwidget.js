@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 
 const StyledPaintWidget = styled.div`
-  background: brown;
+  background: #d8c8a6;
     grid-row: 2;
     grid-column: 1/-1;
     position: relative;

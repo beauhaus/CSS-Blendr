@@ -1,12 +1,19 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../pages/page-b'
-import { db } from '../apputils'
+import { db } from './hooks/app-utils'
 
 import styled from 'styled-components'
 
 const StyledUsrImgThumbContainer = styled.div`
-    position: relative;
+    ${'' /* position: relative; */}
+    img {
+        width: 100%;
+        height: 100%;
+    }
     button.usr-img-delete {
+        position: absolute;
+        top: 0;
+        left: 0;
         min-width: 38px;
         min-height: 38px;
         width: 40%;
@@ -22,10 +29,7 @@ const StyledUsrImgThumbContainer = styled.div`
 
 const UsrImgThumb = ({ imgObj }) => {
     const {
-        setUsrImages,
-        setSelTop,
-        selTop,
-        combinedImageArray
+        setUsrImgArray
     } = useContext(AppContext);
 
 
@@ -33,22 +37,15 @@ const UsrImgThumb = ({ imgObj }) => {
     const deleteUsrImage = async (id) => {
         db.usrImages.delete(id);
         let allUsrImages = await db.usrImages.toArray();
-        //(re)set the usrImage array
-        setUsrImages(allUsrImages);
+        // //(re)set the usrImage array
+        setUsrImgArray(allUsrImages);
       }
-
+const imgClickHandler = () => console.log("img clicked!")
     {/* TODO: add desc: key/val to objects */}
-    const imgClickHandler = (imgObj) => {
-
-        let currentTopIdx = combinedImageArray.findIndex((obj => selTop.name === obj.name));
-        combinedImageArray[currentTopIdx].top = false;
-        let newSelTopIdx = combinedImageArray.findIndex((obj => imgObj.name === obj.name));
-        combinedImageArray[newSelTopIdx].top = true;
-        setSelTop(imgObj)
-      }
+   
     return (
         <StyledUsrImgThumbContainer>
-            <button className="usr-img-btn" value={imgObj} onClick={() => imgClickHandler(imgObj)}>
+            <button className="usr-img-btn img-btn" value={imgObj} onClick={() => imgClickHandler(imgObj)}>
                 <img src={imgObj.url} alt={imgObj.name} />
             </button>
             <button className="usr-img-delete" onClick={() => deleteUsrImage(imgObj.id)}><p>X</p></button>

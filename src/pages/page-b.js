@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
-import useGalleryImages from '../components/hooks/use-gallery-images'
+import useGalleryImages from '../components/test/refactor/hooks/use-gallery-images'
 import DecorFrame from '../components/test/refactor/decorframe'
 import ViewerFrameContainer from '../components/test/refactor/viewerframecontainer'
 import BlendControls from '../components/test/refactor/blendcontrols'
@@ -39,39 +39,22 @@ const PageB = (props) => {
   const [alphaModifyMode, setAlphaModifyMode] =useState(false);
   const [mixModeNum, setMixModeNum] = useState(0);
   const [flipTriggerVal, setFlipTriggerVal] = useState(false)
-  const [combinedImageArray, setCombinedImageArray] = useState([])
-  const [defaultImages, setDefaultImages] = useState([])
+  const [defaultImageArray, setDefaultImageArray] = useState([])
   const [usrImages, setUsrImages] = useState('');
+  const [usrImgArray, setUsrImgArray] = useState([]);
   const [newImageURL, setNewImageURL] = useState('');
   const [selectedFileName, setSelectedFileName] = useState('')
-  const [selTop, setSelTop] = useState('');
-  const [selBot, setSelBot] = useState('');
-  const [btReset, setBtReset] = useState('');
-
-  // console.clear();
+  const [currentTop, setCurrentTop] = useState({});
+  const [currentBot, setCurrentBot] = useState({});
+  const [usrImgMode, setUsrImgMode] = useState('');
+  const [gridMode, setGridMode] = useState('');
 
   useEffect(() => { //TODO: necessary?!?!
-    setDefaultImages(nativeGalleryImages)
+    setDefaultImageArray(nativeGalleryImages)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => {
-    // setting selTop & selBot
-    let [top] = combinedImageArray.filter(img => img.top)
-    let [bot] = combinedImageArray.filter(img => img.bot)
-    setSelTop(top)
-    setSelBot(bot)
-  }, [combinedImageArray, btReset, selTop, selBot])
-
-
-  useEffect(() => {
-    setCombinedImageArray([
-      ...usrImages,
-      ...defaultImages
-    ])
-  }, [defaultImages, usrImages, setCombinedImageArray])
-
-
+  
   return (
     <AppContext.Provider
       value={{
@@ -80,22 +63,27 @@ const PageB = (props) => {
         setMixModeNum,
         flipTriggerVal,
         setFlipTriggerVal,
-        combinedImageArray,
-        setCombinedImageArray,
-        defaultImages,
-        setDefaultImages,
+        defaultImageArray,
+        setDefaultImageArray,
         usrImages,
         setUsrImages,
         newImageURL,
         setNewImageURL,
         selectedFileName,
         setSelectedFileName,
-        selTop,
-        selBot,
-        setSelTop,
-        setSelBot,
-        btReset,
-        setBtReset,
+        usrImgMode,
+        setUsrImgMode,
+        setGridMode,
+        gridMode,
+        usrImgArray, 
+        setUsrImgArray,
+
+        currentTop,
+        currentBot,
+        setCurrentTop,
+        setCurrentBot,
+
+
         tapMode,
         setTapMode,
         uploadMode,
@@ -115,6 +103,7 @@ const PageB = (props) => {
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
+       {console.log("usrImgMode: ", usrImgMode)}
         <BlendControls />
       </PageBWrapper>
     </AppContext.Provider>

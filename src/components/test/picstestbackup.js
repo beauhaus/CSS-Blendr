@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
-import { createUsrImageDB, shortRand } from './apputils'
+// import { createUsrImageDB, shortRand } from './apputils'
 import { BlendrDataContext } from '../../pages/page-d'
 import styled from 'styled-components'
 import PictureCard from './picturecard'
@@ -37,21 +37,21 @@ const CustImgForm = () => {
 
     /********REFACTOR*********/
     //set the database 
-    const db = createUsrImageDB();
+    // const db = createUsrImageDB();
 
     //get all usrImages from db
-    useEffect(() => {
-        const getStoredImageFiles = async () => {
-            let usrImages = await db.usrImages.toArray();
-            if (usrImages) {
-                setUsrImages(usrImages)
-            }
-        }
-        getStoredImageFiles();
-        // line below ought to be this, but dependency may interfere with uploads (??)
-        // }, [db.usrImages])
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // useEffect(() => {
+    //     const getStoredImageFiles = async () => {
+    //         let usrImages = await db.usrImages.toArray();
+    //         if (usrImages) {
+    //             setUsrImages(usrImages)
+    //         }
+    //     }
+    //     getStoredImageFiles();
+    //     // line below ought to be this, but dependency may interfere with uploads (??)
+    //     // }, [db.usrImages])
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
 
 
     const deleteUsrImage = async (id) => {
@@ -61,12 +61,12 @@ const CustImgForm = () => {
         setUsrImages(allUsrImages);
     }
 
-    useEffect(() => {
-        setCombinedImageArray([
-            ...usrImages,
-            ...defaultImages
-        ])
-    }, [defaultImages, usrImages, setCombinedImageArray])
+    // useEffect(() => {
+    //     setCombinedImageArray([
+    //         ...usrImages,
+    //         ...defaultImages
+    //     ])
+    // }, [defaultImages, usrImages, setCombinedImageArray])
 
 
     /***************************************************/
@@ -86,34 +86,34 @@ const CustImgForm = () => {
             reader.readAsDataURL(e.target.files[0])
         }
     }
-    useEffect(() => {
-        const fileUploadHandler = (url) => {
+    // useEffect(() => {
+    //     const fileUploadHandler = (url) => {
 
-            // event.preventDefault();
+    //         // event.preventDefault();
 
-            if (url !== '') {
+    //         if (url !== '') {
 
-                let imageFile = {
-                    id: shortRand(),
-                    url,
-                    top: false,
-                    bot: false,
-                    tag: "usr-image",
-                    name: selectedFileName
-                }
+    //             let imageFile = {
+    //                 id: shortRand(),
+    //                 url,
+    //                 top: false,
+    //                 bot: false,
+    //                 tag: "usr-image",
+    //                 name: selectedFileName
+    //             }
 
-                db.usrImages.add(imageFile).then(async () => {
-                    //retrieve all usrImages inside the db
-                    let allUsrImages = await db.usrImages.toArray();
-                    // set the usrImages
-                    setUsrImages(allUsrImages);
+    //             db.usrImages.add(imageFile).then(async () => {
+    //                 //retrieve all usrImages inside the db
+    //                 let allUsrImages = await db.usrImages.toArray();
+    //                 // set the usrImages
+    //                 setUsrImages(allUsrImages);
 
-                });
-            }
-        }
-        fileUploadHandler(newImageURL)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [newImageURL])
+    //             });
+    //         }
+    //     }
+    //     fileUploadHandler(newImageURL)
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [newImageURL])
 
 
     return (

@@ -2,15 +2,16 @@ import React, {useContext} from 'react'
 import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 
-import ImagePairs from './imagepairs'
+import ImagePairsDisplay from './imagepairsdisplay'
 import SwitchImgBtn from './switchimgbtn'
 import AlphaSlider from './alphaslider'
 import ImageMenuPanel from './imagemenunav'
 import TapModeBtn from './tapmodebtn'
 import AlphaValDisplay from './alphavaldisplay'
 import ModeNameDisplay from './modenamedisplay'
-import ThumbnailsGrid from './thumbnailsgrid'
+import DefaultThumbnailsGrid from './defaultthumbnailsgrid'
 import PaintWidget from './paintwidget'
+import UsrThumbnailsGrid from './usrthumbnailsgrid'
 
 const StyledViewerFrameContainer = styled.div`
     border-radius: 10px;
@@ -22,8 +23,7 @@ const StyledViewerFrameContainer = styled.div`
 `
 const ViewerFrameContainer = () => {
   const {
-    selBot,
-    selTop,
+    currentTop,
     addImageMode
 } = useContext(AppContext);
   return (
@@ -31,12 +31,13 @@ const ViewerFrameContainer = () => {
       <TapModeBtn/>
       <AlphaSlider/>
       <ModeNameDisplay/>
-      {(selBot && selTop) && <ImagePairs/>}
+      {{currentTop} && <ImagePairsDisplay/>}
       <SwitchImgBtn/>
       {addImageMode &&<ImageMenuPanel/>}
       <AlphaValDisplay/>
-      <ThumbnailsGrid/>
+      <DefaultThumbnailsGrid/>
       <PaintWidget/>
+      <UsrThumbnailsGrid/>
     </StyledViewerFrameContainer>
   )
 }

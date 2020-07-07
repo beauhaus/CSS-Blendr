@@ -49,15 +49,15 @@ const StyledImagePairs = styled.div`
     }
 `
 const ImagePairs = () => {
-    const { topAlphaVal, flipTriggerVal, alphaModifyMode, selBot, selTop, mixMode } = useContext(AppContext);
+    const { topAlphaVal, flipTriggerVal, alphaModifyMode,currentBot, currentTop, mixMode } = useContext(AppContext);
 
     let botImage = useRef(null)
     let topImage = useRef(null)
 
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { delay: 0 } })
-        tl.to(topImage, { duration: .3, x: -400 }, '-=0')
-        tl.to(botImage, { duration: .3, x: 400 }, '-=.3')
+        tl.to(topImage, { duration: .3, x: -800 }, '-=0')
+        tl.to(botImage, { duration: .3, x: 800 }, '-=.3')
             .to(botImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=0')
             .to(topImage, { duration: .5, ease: Back.easeInOut.config(1.8), x: 0 }, '-=.5')
     }, [flipTriggerVal])
@@ -70,7 +70,7 @@ const ImagePairs = () => {
                         className="img-back"
                         width="100%"
                         height="100%"
-                        xlinkHref={selBot.url}
+                        xlinkHref={currentBot.url}
                         preserveAspectRatio="none"
                         ref={elem => botImage = elem}
                     />
@@ -79,7 +79,7 @@ const ImagePairs = () => {
                         opacity={topAlphaVal / 100}
                         width="100%"
                         height="100%"
-                        xlinkHref={selTop.url}
+                        xlinkHref={currentTop.url}
                         preserveAspectRatio="none"
                         style={{ mixBlendMode: mixMode }}
                         ref={elem => topImage = elem}
