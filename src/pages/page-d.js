@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import PicsTester from '../components/test/picstestbackup'
-import useGalleryImages from '../components/hooks/use-gallery-images'
+// import useGalleryImages from '../components/hooks/use-gallery-images'
 
 
 export const BlendrDataContext = createContext();
@@ -14,20 +14,20 @@ height: 200vh;
 `
 
 const PageD = () => {
-  const nativeGalleryImages = useGalleryImages();
+  // const nativeGalleryImages = useGalleryImages();
   const [combinedImageArray, setCombinedImageArray] = useState([])
   const [defaultImages, setDefaultImages] = useState([])
-  useEffect(() => {
-    setDefaultImages(nativeGalleryImages)
-       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+  // useEffect(() => {
+  //   setDefaultImages(nativeGalleryImages)
+  //      // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   }, [])
 
   return (
     <BlendrDataContext.Provider
       value={{
-        defaultImages,
-        combinedImageArray,
-        setCombinedImageArray
+        // defaultImages,
+        // combinedImageArray,
+        // setCombinedImageArray
       }}>
       <PageDWrapper className="page-d-wrapper">
         {/* <PicsTester /> */}
