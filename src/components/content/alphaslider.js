@@ -105,7 +105,6 @@ const AlphaSlider = () => {
 
 
     const handleSliderClick = () => {
-        console.log('handleSliderClick');
         setSliderOpenToggle(!sliderOpenToggle)
     }
 

@@ -55,7 +55,6 @@ const FlipImagePairs = () => {
     let topImage = useRef(null)
     let botImage = useRef(null)
     let imgEffect = useRef(null)
-    // console.log("CurrentTop: ", currentTop)
 
     const imgFlipper = () => {
         setCurrentTop(currentBot)
@@ -84,7 +83,6 @@ const FlipImagePairs = () => {
     
     return (
         <StyledFlipImagePairs className="flip-image-pairs-container">
-        {/* {console.log("top /bot: ", currentTop.name, currentBot.name)} */}
             <img className="bot-image" src={currentBot.url} alt="nice pic"  ref={elem => botImage = elem} />
             <img className="top-image-flip" src={''|| currentTop.url} alt="nicer pic"  ref={elem => topImage = elem} style={{ opacity: `${topAlphaVal/100}` }}/>
             <div className="top-image-flip-effect" ref={elem => imgEffect = elem} style={{ mixBlendMode: "screen" }}></div>

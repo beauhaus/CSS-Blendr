@@ -75,7 +75,6 @@ const CustImgForm = () => {
     const fileSelectedHandler = e => {
 
         if (e.target.files[0]) {
-            console.log("file selected");
             setSelectedFileName(e.target.files[0].name)
 
             let reader = new FileReader();

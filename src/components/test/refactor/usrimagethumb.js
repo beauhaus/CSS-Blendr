@@ -29,7 +29,8 @@ const StyledUsrImgThumbContainer = styled.div`
 
 const UsrImgThumb = ({ imgObj }) => {
     const {
-        setUsrImgArray
+        setUsrImgArray,
+        setCurrentTop
     } = useContext(AppContext);
 
 
@@ -40,7 +41,9 @@ const UsrImgThumb = ({ imgObj }) => {
         // //(re)set the usrImage array
         setUsrImgArray(allUsrImages);
       }
-const imgClickHandler = () => console.log("img clicked!")
+const imgClickHandler = (imgObj) => (
+    setCurrentTop(imgObj)
+)
     {/* TODO: add desc: key/val to objects */}
    
     return (

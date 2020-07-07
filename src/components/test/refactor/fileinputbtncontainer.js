@@ -15,7 +15,6 @@ const FileInputBtnContainer = () => {
 
     //get all usrImages from db
     useEffect(() => {
-        console.log("get all")
         const getStoredImageFiles = async () => {
             let usrImages = await db.usrImages.toArray();
             if (usrImages) {
@@ -26,7 +25,7 @@ const FileInputBtnContainer = () => {
         // line below ought to be this, but dependency may interfere with uploads (??)
         // }, [db.usrImages])
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []) //used to be []
+    }, [])
 
     /***************************************************/
     const fileInput = useRef(null)
@@ -46,7 +45,6 @@ const FileInputBtnContainer = () => {
     useEffect(() => {
         const fileUploadHandler = (url) => {
             // event.preventDefault(); //TODO: delete?
-            console.log("YES!");
 
             if (url !== '') {
                 let imageFile = {
@@ -55,7 +53,6 @@ const FileInputBtnContainer = () => {
                     url,
                     tag: "usr-image"
                 }
-                console.log("ImgFile: ", imageFile)
 
                 db.usrImages.add(imageFile).then(async () => {
                     //retrieve all usrImages inside the db

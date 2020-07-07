@@ -29,8 +29,6 @@ const UsrThumbnailsGrid = (props) => {
     return (
         <>
             {usrImgMode && <StyledUsrThumbnailsGrid className="usr-thumbnails-grid">
-            {console.log("usrImgMode: ", usrImgMode)}
-            {console.log("usrImgArray.length: ", usrImgArray.length)}
             {usrImgArray.map(imgObj =>(
                         <UsrThumbnailCard
                         key={imgObj.id}

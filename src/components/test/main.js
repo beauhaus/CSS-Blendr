@@ -21,8 +21,6 @@ const Main = () => {
 
     //read the file and decode it
     const getFile = (e) => {
-        console.log(e)
-
         let reader = new FileReader();
         reader.readAsDataURL(e[0]);
         reader.onload = (e) => {
@@ -31,7 +29,6 @@ const Main = () => {
     }
 
     const deletePost = async (id) => {
-        console.log(id);
         db.posts.delete(id);
         let allPosts = await db.posts.toArray();
         //set the posts

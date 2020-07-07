@@ -8,7 +8,6 @@ import React, {useState} from 'react'
         e.preventDefault()
         setTitle(e.target.value)
         setText(e.target.value)
-        console.log("text: ", text)
         notesDispatch({
             type: 'ADD_NOTE', title, text
         })

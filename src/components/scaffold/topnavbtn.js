@@ -11,7 +11,7 @@ const TopNavBtn = () => {
                 <Link to="/">home</Link>
         </button> :
         <button name="blender-off" className="top-nav-btn btn-off">
-                <Link to="/page-a">pageA</Link>
+                <Link to="/page-b">pageA</Link>
         </button>
     )
 };
