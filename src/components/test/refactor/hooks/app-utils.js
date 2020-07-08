@@ -12,13 +12,13 @@ const RNG = () => {
 };
 
 // Returns a 5 digit random int
- const shortRand = () => {
+const shortRand = () => {
   const result = Math.floor(RNG() * 100000);
   return result;
 };
 
 // set USRIMAGE DATABASE
- const createUsrImageDB = () => {
+const createUsrImageDB = () => {
   const db = new Dexie("UsrImagesDB")
   //create db store
   db.version(1).stores({
@@ -28,9 +28,9 @@ const RNG = () => {
   db.open().catch((err) => {
     console.log("db err: ", err.stack || err);
   })
-return db;
+  return db;
 }
 
-const db =createUsrImageDB();
+const db = createUsrImageDB();
 
-export {createUsrImageDB, shortRand, db};
+export { createUsrImageDB, shortRand, db };

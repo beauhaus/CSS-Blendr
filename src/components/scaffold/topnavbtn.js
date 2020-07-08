@@ -1,17 +1,17 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Link from 'gatsby-link';
 import './topnavbtn.scss'
-import {NavContext} from '../layout'
+import { NavContext } from '../layout'
 
 
 const TopNavBtn = () => {
-    const {currentPath} = useContext(NavContext);
+    const { currentPath } = useContext(NavContext);
     return (currentPath !== "/" ?
         <button name="blender-on" className="top-nav-btn btn-on">
-                <Link to="/">home</Link>
+            <Link to="/">home</Link>
         </button> :
         <button name="blender-off" className="top-nav-btn btn-off">
-                <Link to="/page-b">pageA</Link>
+            <Link to="/page-b">pageA</Link>
         </button>
     )
 };

@@ -6,7 +6,6 @@ import UsrImgBtn from './usrimgbtn'
 const FileInputBtnContainer = () => {
     const {
         setUsrImgArray,
-        usrImageArray,
         newImageURL,
         setNewImageURL,
         selectedFileName,
@@ -39,13 +38,11 @@ const FileInputBtnContainer = () => {
             }
             reader.readAsDataURL(e.target.files[0])
         }
-        // setSelectedFileName('')
+        
     }
 
     useEffect(() => {
         const fileUploadHandler = (url) => {
-            // event.preventDefault(); //TODO: delete?
-
             if (url !== '') {
                 let imageFile = {
                     id: shortRand(),
@@ -63,16 +60,18 @@ const FileInputBtnContainer = () => {
             }
         }
         fileUploadHandler(newImageURL)
-
+        setNewImageURL('')
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [newImageURL])
+    }, [newImageURL, selectedFileName])
+
+            
 
     return (
         <form className="img-file-form" >
             <input
                 type="file"
                 required
-                onChange={fileSelectedHandler}
+                onChange={(e) =>fileSelectedHandler(e)}
                 ref={fileInput}
             />
             <UsrImgBtn fileInput={fileInput}  />
