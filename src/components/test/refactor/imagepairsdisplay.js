@@ -21,35 +21,11 @@ const StyledImagePairs = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 11px;  
-        ${'' /* display: none;   */}
         overflow: hidden;
-    }
-    .glitch-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 2700px;
-        height: 100%;
-        
-        animation: glitchAnim 500ms steps(10) forwards;
-        mix-blend-mode: color-burn; //exclusion
- }
- @keyframes glitchAnim {
-        0% {
-             opacity:1;
-             transform: translate(0%, 0%);
-             }
-        50% {
-             opacity:1; 
-             }
-        100% {
-             opacity:0;
-             transform: translate(-100%, 0%);
-             }
     }
 `
 const ImagePairs = () => {
-    const { topAlphaVal, flipTriggerVal, alphaModifyMode,currentBot, currentTop, mixMode } = useContext(AppContext);
+    const { topAlphaVal, flipTriggerVal, alphaModifyMode,currentBot, currentTop, mixModeNum, mixMode } = useContext(AppContext);
 
     let botImage = useRef(null)
     let topImage = useRef(null)
@@ -86,7 +62,7 @@ const ImagePairs = () => {
                     />
                 </g>
             </svg>
-            <Glitch />
+            {/* <Glitch/> */}
         </StyledImagePairs>
     )
 };

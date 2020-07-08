@@ -39,11 +39,11 @@ const SwitchImgIcon = () => {
 
         addImageMode ?
             tl.to(switchIconCross, { duration: .5, ease: Power1.easeInOut, rotate: 135, attr: { stroke: '#beecff' } }, '-=0')
-               .to(switchIconFrame, { duration: .5, ease: Power1.easeInOut, opacity: 1, attr: { stroke: '#beecff' } }, '-=.2')
+            //    .to(switchIconFrame, { duration: .5, ease: Power1.easeInOut, opacity: 1, attr: { stroke: '#beecff' } }, '-=.2')
             :
             tl
                .to(switchIconCross, { duration: .3, ease: Power1.easeInOut, rotate: 0, attr: { stroke: '#fff' } }, '-=0')
-               .to(switchIconFrame, { duration: .5, ease: Power1.easeInOut, opacity: 0 }, '-=0.3')
+            //    .to(switchIconFrame, { duration: .5, ease: Power1.easeInOut, opacity: 0 }, '-=0.3')
     }, [addImageMode])
 
     return (

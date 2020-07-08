@@ -37,7 +37,8 @@
     "react-transition-group": "^4.0.0",
     "styled-components": "^5.1.0",
     "typeface-fugaz-one": "0.0.72",
-    "typeface-iceland": "0.0.72"
+    "typeface-iceland": "0.0.72",
+    "typeface-rajdhani": "0.0.72"
   },
   "license": "MIT"
 }

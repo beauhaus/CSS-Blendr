@@ -1,23 +1,51 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Glitch from '../../../../images/images_util/newglitch2.jpg'
-import {AppContext} from '../../../pages/page-b'
+import { AppContext } from '../../../pages/page-b'
 
-const StyledGlitchComp = styled.img`
+const StyledGlitchCompB = styled.img`
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2700px;
+        height: 100%;
+        animation: glitchAnim 500ms steps(10) forwards;
+        mix-blend-mode: exclusion;
+`
 
+const StyledGlitchCompA = styled.img`
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2700px;
+        height: 100%;
+        animation: glitchAnim 500ms steps(10) forwards;
+        mix-blend-mode: color-burn;
 `
 
 const GlitchComp = () => {
-    const {
-        mixModeNum
-    } = useContext(AppContext);
+  const {
+    mixModeNum
+  } = useContext(AppContext);
+
   // this ternary allows for rerender upon each click of modecyclebtn
-    return (mixModeNum%2? <StyledGlitchComp
+  return (
+
+    mixModeNum % 2 ?
+      <StyledGlitchCompA
         className="glitch-img"
         src={Glitch}
-        alt="test3test3test3test3" />:
-        
-       <img className="glitch-img" src={Glitch} alt="glitch anim"/>)
+        alt="Glitch animation"
+      />
+      :
+      <StyledGlitchCompB
+        className="glitch-img"
+        src={Glitch}
+        alt="Glitch animation"
+      />
+
+  )
 };
+
 
 export default GlitchComp; 
