@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import PicsTester from '../components/test/picstestbackup'
 // import useGalleryImages from '../components/hooks/use-gallery-images'
+import Comp1 from "../components/test/refactor/icontest/uploadicon";
 
 
 export const BlendrDataContext = createContext();
@@ -21,6 +22,8 @@ const PageD = () => {
   //   setDefaultImages(nativeGalleryImages)
   //      // eslint-disable-next-line react-hooks/exhaustive-deps
   //   }, [])
+  console.log("pageD");
+  
 
   return (
     <BlendrDataContext.Provider
@@ -30,7 +33,7 @@ const PageD = () => {
         // setCombinedImageArray
       }}>
       <PageDWrapper className="page-d-wrapper">
-        {/* <PicsTester /> */}
+      <Comp1 />
       </PageDWrapper>
     </BlendrDataContext.Provider>
   )
