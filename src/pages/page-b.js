@@ -103,7 +103,6 @@ const PageB = (props) => {
           <DecorFrame />
           <ViewerFrameContainer />
         </div>
-       {/* {console.log("usrImgMode: ", usrImgMode)} */}
         <BlendControls />
       </PageBWrapper>
     </AppContext.Provider>

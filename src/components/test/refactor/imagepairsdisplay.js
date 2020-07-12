@@ -62,7 +62,7 @@ const ImagePairs = () => {
                     />
                 </g>
             </svg>
-            {/* <Glitch/> */}
+            <Glitch/>
         </StyledImagePairs>
     )
 };

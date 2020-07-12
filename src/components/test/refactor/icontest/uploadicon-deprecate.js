@@ -24,11 +24,9 @@ padding: 1px;
 `;
 
 const Comp1 = ({ toggle }) => {
-
     let plusRef = useRef(null);
     let mtnRef = useRef(null);
     let cloudRef = useRef(null);
-
 
     useEffect(() => {
         gsap.set(cloudRef, { y: -350, fillOpacity: 0 })
@@ -57,9 +55,8 @@ const Comp1 = ({ toggle }) => {
                     preserveAspectRatio="none"
                 >
                     <filter id="upload-shadow">
-                        <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000" />
+                        <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#000" />
                     </filter>
-
                     <polygon
                         filter="url(#upload-shadow)"
                         className="plus"
@@ -71,7 +68,6 @@ const Comp1 = ({ toggle }) => {
                         className="cloud"
                         d="M395 251.57c0 37.89-29.94 68.43-66.88 68.43H240v-80h40l-80-80-80 80h40v80s-77.22.26-79.78 0C38.04 315.97 5 279.35 5 235.02c0-42.98 31.03-78.52 71.34-84.34 14.84-56.43 65.1-97.96 124.81-97.96 70.64 0 128.08 58.15 129.24 130.33 35.89 1.18 64.61 31.42 64.61 68.52z"
                         ref={elem => (cloudRef = elem)} />
-
                     <path
                         className="mtn"
                         fill="none"
@@ -80,7 +76,6 @@ const Comp1 = ({ toggle }) => {
                         d="M1.91 207.55L101.1 90.52l138.49 179.66 80.47-72.99 82.35 112.29"
                         ref={elem => (mtnRef = elem)}
                     />
-
                 </svg>
             </StyledSVG>
         </>

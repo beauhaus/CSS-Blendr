@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 import 'typeface-rajdhani'
@@ -55,19 +55,19 @@ const ViewerFrameContainer = () => {
   const {
     currentTop,
     addImageMode
-} = useContext(AppContext);
+  } = useContext(AppContext);
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
-      <TapModeBtn/>
-      <AlphaSlider/>
-      <ModeNameDisplay/>
-      {{currentTop} && <ImagePairsDisplay/>}
-      <SwitchImgBtn/>
-      {addImageMode &&<ImageMenuPanel/>}
-      <AlphaValDisplay/>
-      <DefaultThumbnailsGrid/>
-      <PaintWidget/>
-      <UsrThumbnailsGrid/>
+      <TapModeBtn />
+      <AlphaSlider />
+      <ModeNameDisplay />
+      {currentTop  && <ImagePairsDisplay />}
+      <SwitchImgBtn />
+      {addImageMode && <ImageMenuPanel />}
+      <AlphaValDisplay />
+      <DefaultThumbnailsGrid />
+      <PaintWidget />
+      <UsrThumbnailsGrid />
     </StyledViewerFrameContainer>
   )
 }

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 // import PicsTester from '../components/test/picstestbackup'
 // import useGalleryImages from '../components/hooks/use-gallery-images'
-import Comp1 from "../components/test/refactor/icontest/uploadicon";
+// import Comp1 from "../components/test/refactor/icontest/uploadicon";
 
 
 const PageDWrapper = styled.div`
@@ -28,8 +28,8 @@ const PageD = () => {
 
     <PageDWrapper className="page-d-wrapper">
 
-      <Comp1 toggle={iconToggle} />
-      <button onClick={Clicker}>{iconToggle?"true":"false"}</button>
+      {/* <Comp1 toggle={iconToggle} />
+      <button onClick={Clicker}>{iconToggle?"true":"false"}</button> */}
     </PageDWrapper>
   )
 };
