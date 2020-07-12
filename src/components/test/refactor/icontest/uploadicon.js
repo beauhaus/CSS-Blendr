@@ -1,175 +1,89 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { gsap, TweenMax } from "gsap";
+import { gsap, Power4 } from "gsap";
 
 const StyledSVG = styled.div`
-margin: 20vh auto;
-  width: 80vw;
-  height: 40vh;
-  border: 1px solid whitesmoke;
+padding: 1px;
+  margin: 20vh auto;
+  width: 10vh;
+  height: 10vh;
+  border: .5px solid #beecff; 
+  border-radius: 10px;
   svg {
-    stroke: navy;
-    fill: orangered;
-    .cross-arrow {
+    .plus {
        stroke-width: 2;
        stroke: #beecff; 
+       fill: #beecff;
     }
     .cloud {
-        stroke-width: 2;
+        stroke-width: 4;
         fill: #beecff;
         stroke: #beecff;
     }
   }
 `;
 
-const Comp1 = () => {
-    const [toggle, setToggle] = useState("");
+const Comp1 = ({ toggle }) => {
 
-    let polyRef = useRef(null);
-    console.log("upload ran");
+    let plusRef = useRef(null);
+    let mtnRef = useRef(null);
+    let cloudRef = useRef(null);
 
-    const Clicker = () => {
-        return setToggle(!toggle);
-    };
-    // var points = [
-    //     { x: 0, y: 0, endX: 50, endY: 50 },
-    //     { x: 0, y: 0, endX: 100, endY: 50 },
-    //     { x: 0, y: 0, endX: 100, endY: 100 },
-    //     { x: 0, y: 0, endX: 50, endY: 100 }
-    // ];
-    var arrow = [
-        { x: 280, y: 40, endX: 200, endY: 160 },
-        { x: 320, y: 40, endX: 200, endY: 160 },
-        { x: 320, y: 80, endX: 240, endY: 200 },
-        { x: 360, y: 80, endX: 280, endY: 240 },
-        { x: 360, y: 120, endX: 280, endY: 240 },
-        { x: 320, y: 120, endX: 240, endY: 240 },
-        { x: 320, y: 160, endX: 240, endY: 320 },
-        { x: 280, y: 160, endX: 160, endY: 320 },
-        { x: 280, y: 120, endX: 160, endY: 240 },
-        { x: 240, y: 120, endX:120, endY: 240 },
-        { x: 240, y: 80, endX: 120, endY: 240 },
-        { x: 280, y: 80, endX: 160, endY: 200 }
-    ];
-
-    function updateLine() {
-        TweenMax.set(polyRef, {
-            attr: {
-                fill: '#beecff',
-                points:
-                    arrow[0].x +
-                    ", " +
-                    arrow[0].y +
-                    " " +
-                    arrow[1].x +
-                    ", " +
-                    arrow[1].y +
-                    " " +
-                    arrow[2].x +
-                    ", " +
-                    arrow[2].y +
-                    ", " +
-                    arrow[3].x +
-                    ", " +
-                    arrow[3].y +
-                    ", " +
-                    arrow[4].x +
-                    ", " +
-                    arrow[4].y +
-                    ", " +
-                    arrow[5].x +
-                    ", " +
-                    arrow[5].y +
-                    ", " +
-                    arrow[6].x +
-                    ", " +
-                    arrow[6].y +
-                    ", " +
-                    arrow[7].x +
-                    ", " +
-                    arrow[7].y +
-                    ", " +
-                    arrow[8].x +
-                    ", " +
-                    arrow[8].y+
-                    ", " +
-                   arrow[9].x +
-                   ", " +
-                   arrow[9].y+
-                   ", " +
-                  arrow[10].x +
-                  ", " +
-                  arrow[10].y+
-                  ", " +
-                 arrow[11].x +
-                 ", " +
-                 arrow[11].y
-               
-            }
-        });
-        // TweenMax.set(polyRef, {
-        //     attr: {
-        //         points:
-        //             points[0].x +
-        //             ", " +
-        //             points[0].y +
-        //             " " +
-        //             points[1].x +
-        //             ", " +
-        //             points[1].y +
-        //             " " +
-        //             points[2].x +
-        //             ", " +
-        //             points[2].y +
-        //             ", " +
-        //             points[3].x +
-        //             ", " +
-        //             points[3].y
-        //     }
-        // });
-    }
-    // var tl = new TimelineMax({onUpdate:updateLine})
 
     useEffect(() => {
-        const tl = gsap.timeline({ onUpdate: updateLine });
-        if (toggle) {
-            tl.to(
-                arrow,
-                4,
-                {
-                    x: function (index) {
-                        return arrow[index].endX;
-                    },
-                    y: function (index) {
-                        return arrow[index].endY;
-                    }
-                },
-                0
-            );
+        gsap.set(cloudRef, { y: -350, fillOpacity: 0 })
+        const tl = gsap.timeline();
+        if (!toggle) {
+            gsap.set(mtnRef, { y: 0, x: 0, scaleX: 1 }, '-=1')
+            gsap.set(plusRef, { opacity: 1, attr: { points: "280,40 320,40 320,80 360,80 360,120 320,120 320,160 280,160 280,120 240,120 240,80 280,80" } })
+        } else if (toggle) {
+            tl
+                .to(mtnRef, 1.5, { x: -600, y: 400, scaleX: 2, ease: Power4.easeInOut }, '-=0')
+                .to(plusRef, .75, { attr: { points: "200,160 200,160 240,200 280,240 280,240 240,240 240,320 160,320 160,240 120,240 120,240 160,200" }, ease: Power4.easeInOut }, '-=1')
+                .to(cloudRef, 1, { y: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=.7')
+                .to(plusRef, .2, { opacity: 0 }, '-=0')
+                .to(cloudRef, .4, { fillOpacity: 1 }, '-=0')
         }
 
-        console.log("effect used!", toggle);
-    }, [toggle, updateLine]);
+    }, [toggle]);
 
 
     return (
-        <StyledSVG>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 400 400"
-                preserveAspectRatio="none"
-            >
-                <polygon
-                    className="cross-arrow"
-                    ref={elem => (polyRef = elem)}
-                />
-                 <path  
-                 className="cloud"
-                 d="M395 251.57c0 37.89-29.94 68.43-66.88 68.43H240v-80h40l-80-80-80 80h40v80s-77.22.26-79.78 0C38.04 315.97 5 279.35 5 235.02c0-42.98 31.03-78.52 71.34-84.34 14.84-56.43 65.1-97.96 124.81-97.96 70.64 0 128.08 58.15 129.24 130.33 35.89 1.18 64.61 31.42 64.61 68.52z" />
+        <>
+            <StyledSVG>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 400 400"
+                    preserveAspectRatio="none"
+                >
+                    <filter id="upload-shadow">
+                        <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000" />
+                    </filter>
 
-            </svg>
-            <button onClick={Clicker}>Clicker</button>
-        </StyledSVG>
+                    <polygon
+                        filter="url(#upload-shadow)"
+                        className="plus"
+                        ref={elem => (plusRef = elem)}
+                        fillOpacity="1"
+                    />
+                    <path
+                        filter="url(#upload-shadow)"
+                        className="cloud"
+                        d="M395 251.57c0 37.89-29.94 68.43-66.88 68.43H240v-80h40l-80-80-80 80h40v80s-77.22.26-79.78 0C38.04 315.97 5 279.35 5 235.02c0-42.98 31.03-78.52 71.34-84.34 14.84-56.43 65.1-97.96 124.81-97.96 70.64 0 128.08 58.15 129.24 130.33 35.89 1.18 64.61 31.42 64.61 68.52z"
+                        ref={elem => (cloudRef = elem)} />
+
+                    <path
+                        className="mtn"
+                        fill="none"
+                        stroke="#beecff"
+                        strokeWidth="5"
+                        d="M1.91 207.55L101.1 90.52l138.49 179.66 80.47-72.99 82.35 112.29"
+                        ref={elem => (mtnRef = elem)}
+                    />
+
+                </svg>
+            </StyledSVG>
+        </>
     );
 };
 
