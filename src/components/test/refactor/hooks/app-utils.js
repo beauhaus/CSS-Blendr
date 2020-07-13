@@ -17,6 +17,13 @@ const shortRand = () => {
   return result;
 };
 
+const randArrayOf6TwoDigitInts = () => {
+  // const result = Math.floor(RNG() * 100);
+
+  let filledArray = [...new Array(6)].map(() => (Math.floor(RNG() * 100)));
+  return filledArray
+};
+
 // set USRIMAGE DATABASE
 const createUsrImageDB = () => {
   const db = new Dexie("UsrImagesDB")
@@ -33,4 +40,4 @@ const createUsrImageDB = () => {
 
 const db = createUsrImageDB();
 
-export { createUsrImageDB, shortRand, db };
+export { createUsrImageDB, shortRand, randArrayOf6TwoDigitInts, db };

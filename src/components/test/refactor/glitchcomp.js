@@ -3,6 +3,7 @@ import { gsap } from "gsap"; //  , Power4, Expo
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
+import {randArrayOf6TwoDigitInts} from './hooks/app-utils'
 
 const VertGlitchContainerB = styled.svg`
  .glitch-img-container {
@@ -11,6 +12,7 @@ const VertGlitchContainerB = styled.svg`
    #glitch-img2 {
     animation: glitchAnim .5s 0s 2 steps(10) both;
     mix-blend-mode: exclusion;
+    opacity:0.8;
    }
  }
 
@@ -23,6 +25,7 @@ const VertGlitchContainerA = styled.svg`
    #glitch-img {
     animation: glitchAnim .5s 0s 2 steps(10) both;
     mix-blend-mode: difference;
+    opacity:0.8;
 
    }
  }
@@ -51,18 +54,27 @@ const GlitchComp = () => {
   let centerGlitch = useRef(null) // 10%
   let topGlitch = useRef(null) // 20%
   useEffect(() => {
+    console.log("2dig: ", randArrayOf6TwoDigitInts())
+    let randPos = randArrayOf6TwoDigitInts()
     gsap.set(topGlitch, { attr: { 'offset': '0%' } })
     gsap.set(centerGlitch, { attr: { 'offset': '10%' } })
     gsap.set(botGlitch, { attr: { 'offset': '-20%' } })
     const tl = gsap.timeline({ defaults: { delay: 0 } })
     tl
-    .to(topGlitch, { duration: .2, attr: { 'offset': '110%' } }, '-=0')
-    .to(centerGlitch, { duration: .2, attr: { 'offset': '110%' } }, '-=.2')
-    .to(botGlitch, { duration: .3, attr: { 'offset': '100%' } }, '-=.2')
-    .to(topGlitch, { duration: .2, attr: { 'offset': '10%' } }, '-=0')
-    .to(centerGlitch, { duration: .2, attr: { 'offset': '0%' } }, '-=.2')
-    .to(botGlitch, { duration: .2, attr: { 'offset': '-10%' } }, '-=.2')
-}, [mixModeNum])
+    // .to(topGlitch, { duration: .2, attr: { 'offset': '110%' } }, '-=0')
+    // .to(centerGlitch, { duration: .2, attr: { 'offset': '110%' } }, '-=.2')
+    // .to(botGlitch, { duration: .3, attr: { 'offset': '100%' } }, '-=.2')
+    // .to(topGlitch, { duration: .2, attr: { 'offset': '10%' } }, '-=0')
+    // .to(centerGlitch, { duration: .2, attr: { 'offset': '0%' } }, '-=.2')
+    // .to(botGlitch, { duration: .2, attr: { 'offset': '-10%' } }, '-=.2')
+
+    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[0]}%`} }, '-=0')
+    .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[1]}%`} }, '-=.1')
+    .to(botGlitch, { duration: .2, attr: { 'offset': `${randPos[2]}%`} }, '-=.1')
+    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[3]}%`} }, '-=0')
+    .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[4]}%`} }, '-=.1')
+    .to(botGlitch, { duration: .1, attr: { 'offset': `${randPos[5]}%`} }, '-=.1')
+}, [mixModeNum, randArrayOf6TwoDigitInts])
   // this ternary allows for rerender upon each click of modecyclebtn
   return (
     mixModeNum % 2 ?
