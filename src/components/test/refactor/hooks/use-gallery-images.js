@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import {shortRand} from './app-utils'
+import {fiveDigitRand} from './app-utils'
 
 const useGalleryImages = () => {
 
@@ -31,7 +31,7 @@ const useGalleryImages = () => {
   // "img:" is for gatsby-image -> fluid=(img.fluid)
   // TODO: add alt description for each image
   return imgArray.map((node, idx) => ({
-    id: shortRand(), //shortrand() TODO: call shortRand()
+    id: fiveDigitRand(), //fiveDigitRand() TODO: call fiveDigitRand()
     name: node.name,
     img: node.image, //gatsby-image fluid
     tag: `default_image`,

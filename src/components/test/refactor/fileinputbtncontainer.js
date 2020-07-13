@@ -1,5 +1,5 @@
 import React, {  useEffect, useContext, useRef } from 'react'
-import { shortRand,db } from './hooks/app-utils'
+import { fiveDigitRand,db } from './hooks/app-utils'
 import { AppContext } from '../../../pages/page-b'
 import UsrImgBtn from './usrimgbtn'
 
@@ -45,7 +45,7 @@ const FileInputBtnContainer = () => {
         const fileUploadHandler = (url) => {
             if (url !== '') {
                 let imageFile = {
-                    id: shortRand(),
+                    id: fiveDigitRand(),
                     name: selectedFileName,
                     url,
                     tag: "usr-image"

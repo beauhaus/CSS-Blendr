@@ -12,7 +12,7 @@
 // };
 
 // // Returns a 5 digit random int
-//  const shortRand = () => {
+//  const fiveDigitRand = () => {
 //   const result = Math.floor(RNG() * 100000);
 //   return result;
 // };
@@ -33,4 +33,4 @@
 
 // const db =createUsrImageDB();
 
-// export {createUsrImageDB, shortRand, db};
+// export {createUsrImageDB, fiveDigitRand, db};

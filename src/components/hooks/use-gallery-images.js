@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import {shortRand} from '../test/apputils'
+import {fiveDigitRand} from '../test/apputils'
 
 const useGalleryImages = () => {
 
@@ -30,7 +30,7 @@ const useGalleryImages = () => {
   // "src:" is a direct, unprocessed link to image
   // "img:" is for gatsby-image -> fluid=(img.fluid)
   return imgArray.map((node, idx) => ({
-    id: shortRand(), //shortrand() TODO: call shortRand()
+    id: fiveDigitRand(), //fiveDigitRand() TODO: call fiveDigitRand()
     name: node.name,
     top: (idx === rand1 ? true : false),
     bot: (idx === rand2 ? true : false),

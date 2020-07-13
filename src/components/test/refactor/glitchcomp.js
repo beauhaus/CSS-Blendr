@@ -3,14 +3,14 @@ import { gsap } from "gsap"; //  , Power4, Expo
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
-import {randArrayOf6TwoDigitInts} from './hooks/app-utils'
+import {threee2DigitRand} from './hooks/app-utils'
 
 const VertGlitchContainerB = styled.svg`
  .glitch-img-container {
    width: 100%;
    height: 100%;
    #glitch-img2 {
-    animation: glitchAnim .5s 0s 2 steps(10) both;
+    animation: glitchAnim 1s 0s 1 steps(10) both;
     mix-blend-mode: exclusion;
     opacity:0.5;
    }
@@ -23,8 +23,8 @@ const VertGlitchContainerA = styled.svg`
    width: 100%;
    height: 100%;
    #glitch-img {
-    animation: glitchAnim .5s 0s 2 steps(10) both;
-    mix-blend-mode: difference;
+    animation: glitchAnim 1s 0s 1 steps(10) both;
+    mix-blend-mode: exclusion;
     opacity:0.5;
 
    }
@@ -39,7 +39,7 @@ const GlitchComp = () => {
     {
         file(relativeDirectory: {eq: "images_util"}, name: {eq: "glitchcelanim"}) {
           image: childImageSharp {
-            fixed(width: 2700) {
+            fixed(width: 3000) {
               src
             }
           }
@@ -54,8 +54,8 @@ const GlitchComp = () => {
   let centerGlitch = useRef(null) // 10%
   let topGlitch = useRef(null) // 20%
   useEffect(() => {
-    console.log("2dig: ", randArrayOf6TwoDigitInts())
-    let randPos = randArrayOf6TwoDigitInts()
+    console.log("2dig: ", threee2DigitRand())
+    let randPos = threee2DigitRand()
     gsap.set(topGlitch, { attr: { 'offset': '0%' } })
     gsap.set(centerGlitch, { attr: { 'offset': '10%' } })
     gsap.set(botGlitch, { attr: { 'offset': '-20%' } })
@@ -68,13 +68,16 @@ const GlitchComp = () => {
     // .to(centerGlitch, { duration: .2, attr: { 'offset': '0%' } }, '-=.2')
     // .to(botGlitch, { duration: .2, attr: { 'offset': '-10%' } }, '-=.2')
 
-    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[0]}%`} }, '-=0')
+    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[0]+10}%`} }, '-=0')
+    .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[0]}%`} }, '-=.1')
+    .to(botGlitch, { duration: .2, attr: { 'offset': `${randPos[0]-10}%`} }, '-=.1')
+    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[1]+10}%`} }, '-=0')
     .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[1]}%`} }, '-=.1')
-    .to(botGlitch, { duration: .2, attr: { 'offset': `${randPos[2]}%`} }, '-=.1')
-    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[3]}%`} }, '-=0')
-    .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[4]}%`} }, '-=.1')
-    .to(botGlitch, { duration: .1, attr: { 'offset': `${randPos[5]}%`} }, '-=.1')
-}, [mixModeNum, randArrayOf6TwoDigitInts])
+    .to(botGlitch, { duration: .1, attr: { 'offset': `${randPos[1]-10}%`} }, '-=.1')
+    .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[2]+10}%`} }, '-=0')
+    .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[2]}%`} }, '-=.1')
+    .to(botGlitch, { duration: .1, attr: { 'offset': `${randPos[2]-10}%`} }, '-=.1')
+}, [mixModeNum, threee2DigitRand])
   // this ternary allows for rerender upon each click of modecyclebtn
   return (
     mixModeNum % 2 ?
@@ -155,7 +158,7 @@ import styled from 'styled-components'
 const VertGlitchContainer = styled.svg`
 width: 100%;
 height: 100%;
-mix-blend-mode: exclusion;
+mix-blend-mode: soft-light;
 opacity: .5;
  image {
      transform: translate(0, 0);
@@ -281,7 +284,7 @@ const StyledGlitchCompB = styled.img`
         width: 1000%;
         height: 100%;
          animation: glitchAnim 1s steps(10) forwards;
-        mix-blend-mode: exclusion;
+        mix-blend-mode: soft-light;
         `
 
         const StyledGlitchCompA = styled.img`

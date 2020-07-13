@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 
 import Dexie from 'dexie';
 import { BlendrDataContext } from '../../pages/page-d'
-import shortRand from './apputils'
+import fiveDigitRand from './apputils'
 // import useGalleryImages from '../hooks/use-gallery-images'
 
 
@@ -100,7 +100,7 @@ const PicsTest = () => {
         e.preventDefault();
         if (postFile !== '') {
             let post = {
-                id: shortRand(),
+                id: fiveDigitRand(),
                 file: postFile
             }
 

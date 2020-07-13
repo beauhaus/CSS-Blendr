@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
-// import { createUsrImageDB, shortRand } from './apputils'
+// import { createUsrImageDB, fiveDigitRand } from './apputils'
 import { BlendrDataContext } from '../../pages/page-d'
 import styled from 'styled-components'
 import PictureCard from './picturecard'
@@ -93,7 +93,7 @@ const CustImgForm = () => {
     //         if (url !== '') {
 
     //             let imageFile = {
-    //                 id: shortRand(),
+    //                 id: fiveDigitRand(),
     //                 url,
     //                 top: false,
     //                 bot: false,

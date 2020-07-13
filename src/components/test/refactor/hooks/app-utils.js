@@ -12,15 +12,13 @@ const RNG = () => {
 };
 
 // Returns a 5 digit random int
-const shortRand = () => {
+const fiveDigitRand = () => {
   const result = Math.floor(RNG() * 100000);
   return result;
 };
 
-const randArrayOf6TwoDigitInts = () => {
-  // const result = Math.floor(RNG() * 100);
-
-  let filledArray = [...new Array(6)].map(() => (Math.floor(RNG() * 100)));
+const threee2DigitRand = () => {
+  let filledArray = [...new Array(3)].map(() => (Math.floor(RNG() * 100)));
   return filledArray
 };
 
@@ -40,4 +38,4 @@ const createUsrImageDB = () => {
 
 const db = createUsrImageDB();
 
-export { createUsrImageDB, shortRand, randArrayOf6TwoDigitInts, db };
+export { createUsrImageDB, fiveDigitRand, threee2DigitRand, db };
