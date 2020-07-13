@@ -12,7 +12,7 @@ const VertGlitchContainerB = styled.svg`
    #glitch-img2 {
     animation: glitchAnim .5s 0s 2 steps(10) both;
     mix-blend-mode: exclusion;
-    opacity:0.8;
+    opacity:0.5;
    }
  }
 
@@ -25,7 +25,7 @@ const VertGlitchContainerA = styled.svg`
    #glitch-img {
     animation: glitchAnim .5s 0s 2 steps(10) both;
     mix-blend-mode: difference;
-    opacity:0.8;
+    opacity:0.5;
 
    }
  }
