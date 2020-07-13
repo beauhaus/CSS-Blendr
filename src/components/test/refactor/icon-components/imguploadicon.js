@@ -15,7 +15,7 @@ const StyledImageUploadIcon = styled.svg`
        fill: #beecff;
     }
     .cloud {
-        stroke-width: 4;
+        stroke-width: 8;
         fill: #beecff;
         stroke: #beecff;
     }

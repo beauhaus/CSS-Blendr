@@ -14,6 +14,11 @@ const StyledImagePairs = styled.div`
     z-index: 0;
     background: transparent;
     overflow: hidden;
+    .vert-glitch {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     .img-back, .img-front {
         position: absolute;
         top: 0;
