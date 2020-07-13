@@ -141,6 +141,5 @@ useEffect(() => {
 
 add alt text for default images
 animate menu panel icons Paint & Grid Icon
-fill in cycle btn
 css custom vars for colors
 add icon top left

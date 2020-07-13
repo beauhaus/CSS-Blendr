@@ -15,11 +15,11 @@ import UsrThumbnailsGrid from './usrthumbnailsgrid'
 
 const StyledViewerFrameContainer = styled.div`
     border-radius: 10px;
-    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 8vh 42vh;
+    grid-template-rows: 8vh 40vh;
     position: relative;
+    overflow: hidden;
     h2.mode-name-display {
       position: absolute;
       bottom: 2vh;

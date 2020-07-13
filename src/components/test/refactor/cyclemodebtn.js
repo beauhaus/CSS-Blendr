@@ -1,19 +1,25 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../../pages/page-b'
-// import IncrementorLights from './incrementor'
+import IncrementorLights from './incrementorlights'
+import ModeIcons from './modeicons'
 
 
 const StyledCycleModeBtn = styled.button`
-    position: relative;  
+    position: relative;
     padding: 0;
     border-radius: 50%;
-    background: pink;
+    background: #333;
     box-shadow: 2px 2px 6px -3px #ddd, 
     -3px -3px 4px -2px #000;
+    margin: auto;
     &.cycle-mode-btn {
-        width: 20vh;
-        height: 20vh;
+        width: 18vh;
+        height: 18vh;
+        .incrementor-lights {
+            width: 94%;
+            height: 94%;
+        }
     }
 `
 
@@ -29,7 +35,8 @@ const CycleModeBtn = (props) => {
       }
     return (
         <StyledCycleModeBtn className="cycle-mode-btn" aria-label="mode-cycler" onClick={modeSelectHandler}>
-        {mixMode}
+            <IncrementorLights/>
+            <ModeIcons/>
         </StyledCycleModeBtn>
     )
 };

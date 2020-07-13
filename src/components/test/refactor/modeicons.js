@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
-import {BlenderAppContext} from '../../pages/page-a'
+import {AppContext} from '../../../pages/page-b'
 
 import NormalIcon from './mode-icons/normal'
 import ScreenIcon from './mode-icons/screen'
@@ -32,7 +32,7 @@ const ModeIconsGroup = styled.svg`
   }
 `
 const ModeIcons = () => {
-  const {modeNum} = useContext(BlenderAppContext);
+  const {mixModeNum} = useContext(AppContext);
 
   const renderIcon = (param) => {
     switch (param) {
@@ -75,7 +75,7 @@ const ModeIcons = () => {
 
   return (
     <ModeIconsGroup xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-      {renderIcon(modeNum)}
+      {renderIcon(mixModeNum)}
       <radialGradient id="btn-shine" cx="25" cy="25" r="212" gradientUnits="userSpaceOnUse">
         <stop offset="0" stopColor="#fff" stopOpacity=".3" />
         <stop offset="1" stopColor="#fff" stopOpacity="0" />

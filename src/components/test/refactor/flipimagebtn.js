@@ -6,9 +6,6 @@ import { gsap, Back } from "gsap"; //  , Power4, Expo
 import { AppContext } from '../../../pages/page-b'
 
 const StyledFlipImageBtn = styled.button`
-    border-radius: 12px;
-    width: 28vh;
-    height: 20vh;
     position: relative;
     border-radius: 20px; /* 12px*/
     width: 48vw; /* 46?*/

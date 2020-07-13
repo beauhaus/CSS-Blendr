@@ -17,7 +17,7 @@ const PageBWrapper = styled.div`
   background: linear-gradient( 35deg, whitesmoke 0%, darkgrey 70%);
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 13vh 50vh 1vh 20vh 16vh;
+  grid-template-rows: 13vh 48vh 3vh 20vh 16vh;
 
   .outer-frame-container {
     grid-row: 2;
