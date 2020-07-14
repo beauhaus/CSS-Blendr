@@ -21,7 +21,9 @@ const DefaultGridBtn = (props) => {
     const {
         setUsrImgMode,
         setPaintMode,
-        setGridMode
+        setGridMode,
+        usrImgMode,
+        gridMode
     } = useContext(AppContext);
 
     const gridBtnHandler = () => {
@@ -30,7 +32,7 @@ const DefaultGridBtn = (props) => {
         setGridMode(true)
     }
     return (<StyledDefaultGridBtn className="default-img-grid-btn" onClick={gridBtnHandler}>
-        <DefaultGridIcon />
+        <DefaultGridIcon toggle={gridMode}/>
     </StyledDefaultGridBtn>
     )
 };

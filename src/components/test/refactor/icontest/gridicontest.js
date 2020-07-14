@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 import { gsap, Power4 } from "gsap";
 
-const StyledDefaultGridIcon = styled.svg`
-    width: 100%;
-    height: 100%;
-    .inner-shadow {
-        opacity: .2;
-    }
+const StyledSVG = styled.div`
+margin: 20vh auto;
+width: 30vw;
+height: 30vw;
     .st0{
         fill:#828282;
         
@@ -15,10 +13,9 @@ const StyledDefaultGridIcon = styled.svg`
     .st1{
         fill:#aaa;
     }
-`
- 
-const DefaultGridIcon = ({toggle}) => {
-    console.log(toggle? "dgtrue": "dgfalse");
+`;
+
+const GridIconTest = ({ toggle }) => {
     let gradientRef = useRef(null);
     let maskRef = useRef(null);
     
@@ -31,16 +28,19 @@ const DefaultGridIcon = ({toggle}) => {
             .to(maskRef, 1, { opacity: 1, ease: Power4.easeInOut }, '-=.5')
         } else if (toggle) {
             tl
-            .to(gradientRef, 1, { x: 250, ease: Power4.easeInOut }, '-=0')
-            .to(maskRef, .8, { opacity: 0, ease: Power4.easeInOut }, '-=.5')
+            .to(gradientRef, 1.5, { x: 250, ease: Power4.easeInOut }, '-=0')
+            .to(maskRef, 1, { opacity: 0, ease: Power4.easeInOut }, '-=.5')
         }
 
     }, [toggle]);
+
+
     return (
-        <StyledDefaultGridIcon xmlns="http://www.w3.org/2000/svg"
+        <>
+            <StyledSVG className="grid-icon-container">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 400 400"
-                    width="100%"
-                    height="100%"
                     preserveAspectRatio="none"
                 >
                     <filter id="grid-icon-shadow">
@@ -67,11 +67,17 @@ const DefaultGridIcon = ({toggle}) => {
                     y="-400" 
                     ref={elem => gradientRef = elem}
                      />
+                  {/* mask="url(#grid-icon-mask)" */}
+                  {/* <path  d="M219.67 219.67h134v134h-134zM219.67 46.33h134v134h-134zM46.33 46.33h134v134h-134zM46.33 219.67h134v134h-134z" fill="#ccc"/> */}
                   <path fill="#828282" d="M0 0v400h400V0H0zm180.33 353.67h-134v-134h134v134zm0-173.34h-134v-134h134v134zm173.34 173.34h-134v-134h134v134zm0-173.34h-134v-134h134v134z"
                       ref={elem => maskRef = elem} 
                   />
           
-                 </StyledDefaultGridIcon>
-    )
-}
-export default DefaultGridIcon;
+                </svg>
+            </StyledSVG>
+        </>
+    );
+};
+
+export default GridIconTest;
+

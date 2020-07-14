@@ -138,7 +138,7 @@ useEffect(() => {
 ```
 
 ## TODO
-
+rgb(221, 221, 221);
 add alt text for default images
 animate menu panel icons Paint & Grid Icon
 css custom vars for colors

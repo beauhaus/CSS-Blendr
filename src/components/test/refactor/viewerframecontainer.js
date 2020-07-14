@@ -55,7 +55,7 @@ const ViewerFrameContainer = () => {
   const {
     currentTop,
     addImageMode,
-    defaultImageArray
+    
   } = useContext(AppContext);
 
   

@@ -104,6 +104,7 @@ const GlitchComp = () => {
               fill="url(#vertGrad)"
             />
           </mask>
+          
           <image id="glitch-img" xlinkHref={glitchAnimImage.src} width="100%" height="100%" mask="url(#glitch-mask)" />
         </svg>
       </VertGlitchContainerA>
