@@ -142,4 +142,4 @@ useEffect(() => {
 add alt text for default images
 animate menu panel icons Paint & Grid Icon
 css custom vars for colors
-add icon top left
+add home logo top left

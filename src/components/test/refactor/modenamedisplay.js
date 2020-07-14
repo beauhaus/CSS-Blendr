@@ -4,18 +4,16 @@ import {AppContext} from '../../../pages/page-b'
 
 const StyledModeNameDisplay2 = styled.h2`
         color: #222;
-        animation: modeNameUp 5s ease-in-out forwards;
+        animation: modeNameUp 3s ease-in-out forwards;
 `
 const StyledModeNameDisplay = styled.h2`
         color: #222;
         font-weight: bold;
-        animation: modeNameUp 5s ease-in-out forwards;
+        animation: modeNameUp 3s ease-in-out forwards;
     }
     &.display-static {
         color: #eee;
     }
-    
-
 `
 
 const ModeNameDisplay = () => {

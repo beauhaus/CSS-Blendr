@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 import 'typeface-rajdhani'
@@ -49,13 +49,17 @@ const StyledViewerFrameContainer = styled.div`
         filter: blur(15px);
         z-index: 0;
     }
-    }
+ }
 `
 const ViewerFrameContainer = () => {
   const {
     currentTop,
-    addImageMode
+    addImageMode,
+    defaultImageArray
   } = useContext(AppContext);
+
+  
+ 
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
       <TapModeBtn />

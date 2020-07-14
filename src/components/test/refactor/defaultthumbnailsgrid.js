@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect} from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 import DefaultThumbnailCard from './defaultthumbnailcard'
@@ -37,8 +37,19 @@ const DefaultThumbnailsGrid = () => {
     const {
         defaultImageArray,
         addImageMode,
-        gridMode
+        gridMode,
+        setCurrentTop,
+        setCurrentBot
     } = useContext(AppContext);
+
+    useEffect(()=>{
+        let min = 0;
+        let max = defaultImageArray.length;
+        let rand1 = Math.floor(Math.random() * (max - min) + min);
+        let rand2 = Math.floor(Math.random() * (max - min) + min);
+        setCurrentBot(defaultImageArray[rand1])
+        setCurrentTop(defaultImageArray[rand2])
+    },[defaultImageArray])
 
       return (
         <>

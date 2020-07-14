@@ -30,7 +30,6 @@ const PageBWrapper = styled.div`
 const PageB = (props) => {
   const mixModesArray = useMdx();
   const nativeGalleryImages = useGalleryImages();
-
   const [tapMode, setTapMode] = useState(false)
   const [addImageMode, setAddImageMode] = useState(false)
   const [paintMode, setPaintMode] = useState(false)
@@ -51,10 +50,17 @@ const PageB = (props) => {
 
   useEffect(() => { //TODO: necessary?!?!
     setDefaultImageArray(nativeGalleryImages)
+    if(defaultImageArray.length > 0) {
+      setCurrentTop(defaultImageArray[0])
+      // setCurrentBot(defaultImageArray[4])
+      console.log("currentTop: ", currentTop);
+      
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+  }, [setDefaultImageArray])
   
+  // console.log("default ImgArr:",defaultImageArray);
+
   return (
     <AppContext.Provider
       value={{
@@ -77,13 +83,10 @@ const PageB = (props) => {
         gridMode,
         usrImgArray, 
         setUsrImgArray,
-
         currentTop,
         currentBot,
         setCurrentTop,
         setCurrentBot,
-
-
         tapMode,
         setTapMode,
         uploadMode,
@@ -106,8 +109,6 @@ const PageB = (props) => {
         <BlendControls />
       </PageBWrapper>
     </AppContext.Provider>
-
-
   )
 };
 
@@ -126,7 +127,5 @@ const useMdx = () => {
   const resultArray = data.allMdx.nodes.map(item => item.frontmatter.title)
   return resultArray;
 }
-
-
 
 export default PageB;
