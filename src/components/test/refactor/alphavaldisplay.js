@@ -13,7 +13,7 @@ const StyledAlphaValDisplay = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     h2 {
-      color: #fff;
+      color: #ccc;
       font-weight: 100;
       height: auto;
       font-size: 12rem;
@@ -29,7 +29,7 @@ const AlphaValDisplay = (props) => {
     } = useContext(AppContext);
     return (
         <>
-            {(alphaModifyMode && !addImageMode) && <StyledAlphaValDisplay className="alphaVal-display"><h2>{topAlphaVal}%</h2></StyledAlphaValDisplay>}
+            {(alphaModifyMode && !addImageMode) && <StyledAlphaValDisplay className="alphaval-display"><h2>{topAlphaVal}%</h2></StyledAlphaValDisplay>}
         </>
     )
 };

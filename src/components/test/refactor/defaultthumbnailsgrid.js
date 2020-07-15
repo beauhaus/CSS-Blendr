@@ -1,7 +1,7 @@
-import React, { useContext,useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
-import DefaultThumbnailCard from './defaultthumbnailcard'
+import DefaultImgThumb from './defaultimgthumb'
 
 const StyledDefaultThumbnailsGrid = styled.section`
     grid-row: 2;
@@ -24,12 +24,6 @@ const StyledDefaultThumbnailsGrid = styled.section`
             width: 100%;
             height: 100%;
         }
-    .img-btn {
-        box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.6);
-    }
-    .img-btn-selected {
-        box-shadow: none;
-        border: 1px solid orangered;
     }
 `
 
@@ -42,25 +36,25 @@ const DefaultThumbnailsGrid = () => {
         setCurrentBot
     } = useContext(AppContext);
 
-    useEffect(()=>{
+    useEffect(() => {
         let min = 0;
         let max = defaultImageArray.length;
         let rand1 = Math.floor(Math.random() * (max - min) + min);
         let rand2 = Math.floor(Math.random() * (max - min) + min);
         setCurrentBot(defaultImageArray[rand1])
         setCurrentTop(defaultImageArray[rand2])
-    },[defaultImageArray])
+    }, [defaultImageArray])
 
-      return (
+    return (
         <>
             {(addImageMode && gridMode) &&
                 <StyledDefaultThumbnailsGrid className="default-thumbnails-grid">
-                    {defaultImageArray.map(imgObj =>(
-                        <DefaultThumbnailCard
-                        key={imgObj.id}
-                        imgObj={imgObj}
+                    {defaultImageArray.map(imgObj => (
+                        <DefaultImgThumb
+                            key={imgObj.id}
+                            imgObj={imgObj}
                         />
-                        ) )}
+                    ))}
                 </StyledDefaultThumbnailsGrid>
             }
         </>

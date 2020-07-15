@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import styled from 'styled-components'
 import { gsap, Power4 } from "gsap";
+import { AppContext } from '../../../../pages/page-b'
 
 const StyledImageUploadIcon = styled.svg`
     width: 100%;
     height: 100%;
-    
     .inner-shadow {
         opacity: .2;
     }
@@ -21,27 +21,45 @@ const StyledImageUploadIcon = styled.svg`
     }
 `
 
-const ImageUploadIcon = ({ toggle }) => {
+const ImageUploadIcon = () => {
+    const {
+        addImageMode,
+        usrImgMode
+    } = useContext(AppContext);
+
     let plusRef = useRef(null);
     let mtnRef = useRef(null);
     let cloudRef = useRef(null);
 
     useEffect(() => {
-        gsap.set(cloudRef, { y: -350, fillOpacity: 0 })
-        const tl = gsap.timeline();
-        if (!toggle) {
-            gsap.set(mtnRef, { y: 0, x: 0, scaleX: 1 }, '-=1')
-            gsap.set(plusRef, { opacity: 1, attr: { points: "280,40 320,40 320,80 360,80 360,120 320,120 320,160 280,160 280,120 240,120 240,80 280,80" } })
-        } else if (toggle) {
+       const tl = gsap.timeline();
+       if (!usrImgMode) {
             tl
-                .to(mtnRef, 1.5, { x: -600, y: 400, scaleX: 2, ease: Power4.easeInOut }, '-=0')
-                .to(plusRef, .75, { attr: { points: "200,160 200,160 240,200 280,240 280,240 240,240 240,320 160,320 160,240 120,240 120,240 160,200" }, ease: Power4.easeInOut }, '-=1')
-                .to(cloudRef, 1, { y: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=.7')
+                .to(cloudRef, 0, { y: 0, fillOpacity: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=0')
+                .to(cloudRef, 1, { y: -350, ease: "Elastic.easeInOut(1.2, .5)" }, '-=0')
+                .to(plusRef, .8, { opacity: 1 }, '-=.8')
+                .to(plusRef, .8, { attr: { points: "280,40 320,40 320,80 360,80 360,120 320,120 320,160 280,160 280,120 240,120 240,80 280,80" }, ease: Power4.easeInOut }, '-=.8')
+                .to(mtnRef, .8, { x: 0, y: 0, scaleX: 1, ease: Power4.easeInOut }, '-=.8')
+        } else if (usrImgMode) {
+            tl
+                .to(mtnRef, .75, { x: -600, y: 400, scaleX: 2, ease: Power4.easeInOut }, '-=0')
+                .to(plusRef, .4, { attr: { points: "200,160 200,160 240,200 280,240 280,240 240,240 240,320 160,320 160,240 120,240 120,240 160,200" }, ease: Power4.easeInOut }, '-=.5')
+                .to(cloudRef, .5, { y: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=.3')
                 .to(plusRef, .2, { opacity: 0 }, '-=0')
-                .to(cloudRef, .4, { fillOpacity: 1 }, '-=0')
+                .to(cloudRef, .3, { fillOpacity: 1 }, '-=0')
         }
 
-    }, [toggle]);
+    }, [usrImgMode]);
+
+    // only executes on initial load (i.e. sets default positions)
+    useEffect(() => {
+        const tl = gsap.timeline();
+        gsap.set(mtnRef, { y: 0, x: 0, scaleX: 1 })
+        gsap.set(plusRef, { attr: { points: "280,40 320,40 320,80 360,80 360,120 320,120 320,160 280,160 280,120 240,120 240,80 280,80" } })
+        gsap.set(mtnRef, { y: 0, x: 0, scaleX: 1 })
+        gsap.set(cloudRef, { y: -350, fillOpacity: 0 })
+    }, [])
+
     return (
         <StyledImageUploadIcon viewBox="0 0 400 400" width="100%" height="100%" preserveAspectRatio="none">
             <filter id="upload-shadow">

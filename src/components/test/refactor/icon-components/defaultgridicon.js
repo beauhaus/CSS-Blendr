@@ -18,10 +18,10 @@ const StyledDefaultGridIcon = styled.svg`
 `
  
 const DefaultGridIcon = ({toggle}) => {
-    console.log(toggle? "dgtrue": "dgfalse");
+    // console.log(toggle? "dgtrue": "dgfalse");
     let gradientRef = useRef(null);
     let maskRef = useRef(null);
-    
+
     useEffect(() => {
         gsap.set(gradientRef, { x: -600 })
         const tl = gsap.timeline();

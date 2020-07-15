@@ -20,7 +20,8 @@ const StyledPaintBtn = styled.button`
 const PaintBtn = (props) => {
     const {
         setUsrImgMode,
-        setPaintMode
+        setPaintMode,
+        paintMode
     } = useContext(AppContext);
     
     const paintImgBtnHandler = () => {
@@ -28,7 +29,7 @@ const PaintBtn = (props) => {
         setUsrImgMode(false);
       }
     return (<StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>
-        <PaintIcon/>
+        <PaintIcon toggle={paintMode}/>
     </StyledPaintBtn>
     )
 };

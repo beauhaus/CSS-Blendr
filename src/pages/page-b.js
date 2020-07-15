@@ -52,9 +52,6 @@ const PageB = (props) => {
     setDefaultImageArray(nativeGalleryImages)
     if(defaultImageArray.length > 0) {
       setCurrentTop(defaultImageArray[0])
-      // setCurrentBot(defaultImageArray[4])
-      console.log("currentTop: ", currentTop);
-      
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setDefaultImageArray])

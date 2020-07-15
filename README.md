@@ -138,8 +138,9 @@ useEffect(() => {
 ```
 
 ## TODO
-rgb(221, 221, 221);
 add alt text for default images
-animate menu panel icons Paint & Grid Icon
+
 css custom vars for colors
 add home logo top left
+highlights for selected images
+deal with borders for each icon / states

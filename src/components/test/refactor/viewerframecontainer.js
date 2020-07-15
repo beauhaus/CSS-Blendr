@@ -23,17 +23,16 @@ const StyledViewerFrameContainer = styled.div`
     h2.mode-name-display {
       position: absolute;
       bottom: 2vh;
-      ${'' /* height: 8vh; */}
       padding: 1vh 2vh;
       width: 60%;
       left: 20%;
-      color: #ddd;
+      color: #BEECFF;
       text-shadow: 1px 1px 0px #000;
       font-weight: 100;
       font-size: 4rem;
       z-index: 1;
       border-radius: 4px;
-      background: rgba(218, 243, 255, 0.3);
+      background: rgba(221, 221, 221, .7);
       overflow: hidden;
       font: normal 2.5rem "Rajdhani", -apple-system, Segoe UI, Roboto;
       box-shadow: 2px 2px 2px rgba(0,0,0,0.3),
@@ -54,17 +53,14 @@ const StyledViewerFrameContainer = styled.div`
 const ViewerFrameContainer = () => {
   const {
     currentTop,
-    addImageMode,
-    
+    addImageMode    
   } = useContext(AppContext);
 
-  
- 
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
       <TapModeBtn />
       <AlphaSlider />
-      <ModeNameDisplay />
+      {!addImageMode && <ModeNameDisplay />}
       {currentTop  && <ImagePairsDisplay />}
       <SwitchImgBtn />
       {addImageMode && <ImageMenuPanel />}

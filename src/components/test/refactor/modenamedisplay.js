@@ -3,17 +3,14 @@ import styled from 'styled-components';
 import {AppContext} from '../../../pages/page-b'
 
 const StyledModeNameDisplay2 = styled.h2`
-        color: #222;
         animation: modeNameUp 3s ease-in-out forwards;
 `
 const StyledModeNameDisplay = styled.h2`
-        color: #222;
-        font-weight: bold;
         animation: modeNameUp 3s ease-in-out forwards;
     }
-    &.display-static {
+    ${'' /* &.display-static {
         color: #eee;
-    }
+    } */}
 `
 
 const ModeNameDisplay = () => {
@@ -25,18 +22,16 @@ const ModeNameDisplay = () => {
         mixMode
     } = useContext(AppContext);
 
-useEffect(()=>{
-console.log("mixMode useEffect Ran")
-},[mixMode])
+// useEffect(()=>{
+// // console.log("mixMode useEffect Ran")
+// },[mixMode])
     
     return (
         
            (mixModeNum % 2 )? 
            <StyledModeNameDisplay className="mode-name-display">{mixMode}</StyledModeNameDisplay>
            :
-           <StyledModeNameDisplay2 className="mode-name-display">{mixMode}</StyledModeNameDisplay2>
-
-           
+           <StyledModeNameDisplay2 className="mode-name-display">{mixMode}</StyledModeNameDisplay2>          
            )
         };
         
