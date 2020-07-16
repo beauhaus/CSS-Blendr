@@ -25,7 +25,7 @@ const FileInputBtn = ({fileInput}) => {
 
     /* TODO: ternary below will (eventually) switchout button icons */
     return (
-        <StyledFileInputBtn className="select-img-btn" type="button" onClick={usrImgMode ? () => fileInput.current.click(): usrImgBtnClickHandler}>
+        <StyledFileInputBtn  type="button" onClick={usrImgMode ? () => fileInput.current.click(): usrImgBtnClickHandler}>
             <ImgUploadIcon/>
         </StyledFileInputBtn>
     )

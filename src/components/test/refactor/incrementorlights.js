@@ -20,10 +20,10 @@ const IncrementWrapper = styled.svg`
           animation: fadein 500ms ease-in forwards;          
         }
       .glow-lights {
-          fill: var(--inc-light-glow);
+          fill: var(--active-blue);
           filter: url(#blurFilter);
           stroke-width: 3;
-          stroke: var(--inc-light-glow);
+          stroke: var(--active-blue);
           -webkit-animation: fadein 300ms ease-in forwards;
           animation: fadein 300ms ease-in forwards;
       }

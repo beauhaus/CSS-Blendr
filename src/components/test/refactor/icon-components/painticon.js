@@ -30,10 +30,10 @@ const PaintIcon = ({toggle}) => {
         if (!toggle) {
             // gsap.set(mtnRef, { y: 0, x: 0, scaleX: 1 }, '-=1')
                tl
-               .to(brushARef, .2, { fill:'#bcbcbc', ease: Power4.easeInOut },'-=0')
-               .to(brushBRef, .2, { fill:'#bcbcbc', ease: Power4.easeInOut },'-=.2')
-               .to(brushCRef, .2, { fill:'#bcbcbc', ease: Power4.easeInOut },'-=.2')
-               .to(brushDRef, .2, { fill:'#bcbcbc', ease: Power4.easeInOut },'-=.2')
+               .to(brushARef, .2, { fill:'var(--idle-lt-grey)', ease: Power4.easeInOut },'-=0')
+               .to(brushBRef, .2, { fill:'var(--idle-lt-grey)', ease: Power4.easeInOut },'-=.2')
+               .to(brushCRef, .2, { fill:'var(--idle-lt-grey)', ease: Power4.easeInOut },'-=.2')
+               .to(brushDRef, .2, { fill:'var(--idle-lt-grey)', ease: Power4.easeInOut },'-=.2')
                .to(brushShadRef, .5, { opacity:0, ease: Power4.easeInOut })
                
         } else if (toggle) {
@@ -58,7 +58,11 @@ const PaintIcon = ({toggle}) => {
     }, [toggle]);
 
     return (
-        <StyledPaintIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="none">
+        <StyledPaintIcon
+        className={toggle ? 'active-btn': 'idle-btn'}
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 400 400" 
+        preserveAspectRatio="none">
         <path className="brush-shadow" 
             d="M341.07 223.43h-1.46V31.58H70.9V223.43h-1.46v5.09h1.46v10.26c0 17.05 12.67 31.01 28.16 31.01h68.56v72.73c0 .89.03 1.79.09 2.67 1.4 18.71 17.33 33.47 36.78 33.47s35.38-14.75 36.78-33.47c.06-.88.09-1.77.09-2.67v-72.73h70.07c15.5 0 28.17-13.95 28.17-31.01v-10.26h1.46v-5.09z"
             ref={elem => (brushShadRef = elem)}
@@ -82,7 +86,7 @@ const PaintIcon = ({toggle}) => {
           ref={elem => (brushDRef = elem)}
           />
         </g>
-        <path id="handle" fill="#999" stroke="#c6ebfd" strokeWidth="4" 
+        <path id="handle" fill="#9a9a9a" stroke="#c6ebfd" strokeWidth="4" 
         d="M331.67 195.67V229c0 17.05-12.67 31.01-28.17 31.01h-70.07v72.73c0 .89-.03 1.79-.09 2.67-1.4 18.71-17.33 33.47-36.78 33.47s-35.38-14.75-36.78-33.47c-.06-.88-.09-1.77-.09-2.67v-72.73H91.12c-15.49 0-28.16-13.95-28.16-31.01v-33.34c133.59.01 134.36.01 268.71.01z"
         ref={elem => (handleRef = elem)}
         />

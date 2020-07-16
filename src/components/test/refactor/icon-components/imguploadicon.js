@@ -11,8 +11,8 @@ const StyledImageUploadIcon = styled.svg`
     }
     .plus {
        stroke-width: 2;
-       stroke: #beecff; 
-       fill: #beecff;
+       stroke: var(--idle-lt-grey-2); 
+       fill: var(--idle-lt-grey-2);
     }
     .cloud {
         stroke-width: 8;
@@ -36,17 +36,17 @@ const ImageUploadIcon = () => {
        if (!usrImgMode) {
             tl
                 .to(cloudRef, 0, { y: 0, fillOpacity: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=0')
-                .to(cloudRef, 1, { y: -350, ease: "Elastic.easeInOut(1.2, .5)" }, '-=0')
-                .to(plusRef, .8, { opacity: 1 }, '-=.8')
-                .to(plusRef, .8, { attr: { points: "280,40 320,40 320,80 360,80 360,120 320,120 320,160 280,160 280,120 240,120 240,80 280,80" }, ease: Power4.easeInOut }, '-=.8')
-                .to(mtnRef, .8, { x: 0, y: 0, scaleX: 1, ease: Power4.easeInOut }, '-=.8')
+                .to(cloudRef, .5, { y: -350, ease: "Elastic.easeInOut(1.2, .5)" }, '-=0')
+                .to(plusRef, .4, { opacity: 1 }, '-=.4')
+                .to(plusRef, .4, { attr: { points: "280,40 320,40 320,80 360,80 360,120 320,120 320,160 280,160 280,120 240,120 240,80 280,80" }, ease: Power4.easeInOut }, '-=.4')
+                .to(mtnRef, .4, { x: 0, y: 0, scaleX: 1, ease: Power4.easeInOut }, '-=.4')
         } else if (usrImgMode) {
             tl
-                .to(mtnRef, .75, { x: -600, y: 400, scaleX: 2, ease: Power4.easeInOut }, '-=0')
+                .to(mtnRef, .7, { x: -600, y: 400, scaleX: 2, ease: Power4.easeInOut }, '-=0')
                 .to(plusRef, .4, { attr: { points: "200,160 200,160 240,200 280,240 280,240 240,240 240,320 160,320 160,240 120,240 120,240 160,200" }, ease: Power4.easeInOut }, '-=.5')
-                .to(cloudRef, .5, { y: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=.3')
-                .to(plusRef, .2, { opacity: 0 }, '-=0')
-                .to(cloudRef, .3, { fillOpacity: 1 }, '-=0')
+                .to(cloudRef, .4, { y: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=.3')
+                .to(plusRef, .3, { opacity: 0 }, '-=.1')
+                .to(cloudRef, .2, { fillOpacity: 1 }, '-=.2')
         }
 
     }, [usrImgMode]);
@@ -61,7 +61,12 @@ const ImageUploadIcon = () => {
     }, [])
 
     return (
-        <StyledImageUploadIcon viewBox="0 0 400 400" width="100%" height="100%" preserveAspectRatio="none">
+        <StyledImageUploadIcon 
+        className={usrImgMode ? 'active-btn': 'idle-btn'}
+        viewBox="0 0 400 400"
+        width="100%"
+        height="100%"
+        preserveAspectRatio="none">
             <filter id="upload-shadow">
                 <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#000" />
             </filter>
@@ -94,8 +99,8 @@ const ImageUploadIcon = () => {
             <path
                 className="mtn"
                 fill="none"
-                stroke="#beecff"
-                strokeWidth="5"
+                stroke="var(--idle-lt-grey-2)"
+                strokeWidth="8"
                 d="M1.91 207.55L101.1 90.52l138.49 179.66 80.47-72.99 82.35 112.29"
                 ref={elem => (mtnRef = elem)}
             />

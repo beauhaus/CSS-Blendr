@@ -39,6 +39,15 @@ $test: rgba(209, 93, 219, 0.5);
 
 // --photo-gallery-bg: linear-gradient(45deg, rgb(29, 128, 141) 0%, rgb(69, 87, 165) 100%);
 --photo-gallery-bg: #707070;
+
+
+/****APP COLORS****/
+--active-blue: #beecff;
+--active-orange: #F27457;
+--active-orange-2: #ff5f3b;
+--idle-lt-grey: #bcbcbc;
+--idle-lt-grey-2: #dbdbdb;
+// var(----idle-lt-grey);
 }
 
 .test {
@@ -46,7 +55,7 @@ $test: rgba(209, 93, 219, 0.5);
         // base:
         fill:  #b3a090;
         //basedark: 
-        fill: #f8f1ee;
+        fill: var(--active-blue);
         //baselight:
         fill: hsl(120, 100%, 42%);
         fill: teal;

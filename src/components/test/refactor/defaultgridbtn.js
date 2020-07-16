@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 import DefaultGridIcon from './icon-components/defaultgridicon';
-// import AddImgIcon from './addimageicon'
-// import AddImageBtn from './addImagebtn';
 
 const StyledDefaultGridBtn = styled.button`
     position: relative;
@@ -14,7 +12,6 @@ const StyledDefaultGridBtn = styled.button`
     color: #000;
     background: transparent;
     border-radius: 8px;
-    ${'' /* border: 1px dashed #fff; */}
 `
 
 const DefaultGridBtn = (props) => {
@@ -31,9 +28,12 @@ const DefaultGridBtn = (props) => {
         setUsrImgMode(false)
         setGridMode(true)
     }
-    return (<StyledDefaultGridBtn className="default-img-grid-btn" onClick={gridBtnHandler}>
-        <DefaultGridIcon toggle={gridMode}/>
-    </StyledDefaultGridBtn>
+    // className={(currentTop.id === imgObj.id)? 'img-selected': 'default-img'}
+
+    return (
+        <StyledDefaultGridBtn  onClick={gridBtnHandler}>
+            <DefaultGridIcon toggle={gridMode} />
+        </StyledDefaultGridBtn>
     )
 };
 

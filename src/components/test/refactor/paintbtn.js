@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../../../pages/page-b'
+import { AppContext } from '../../../pages/page-b'
 import PaintIcon from './icon-components/painticon'
 
 const StyledPaintBtn = styled.button`
-    ${'' /* grid-column: 4/5;
-    grid-row: 1; */}
     position: relative;
     z-index: 3;
     border-radius: 4px;
@@ -21,16 +19,19 @@ const PaintBtn = (props) => {
     const {
         setUsrImgMode,
         setPaintMode,
-        paintMode
+        paintMode,
+        setGridMode
     } = useContext(AppContext);
-    
+
     const paintImgBtnHandler = () => {
         setPaintMode(true)
-        setUsrImgMode(false);
-      }
-    return (<StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>
-        <PaintIcon toggle={paintMode}/>
-    </StyledPaintBtn>
+        setUsrImgMode(false)
+        setGridMode(false)
+    }
+    return (
+        <StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>
+            <PaintIcon toggle={paintMode} />
+        </StyledPaintBtn>
     )
 };
 
