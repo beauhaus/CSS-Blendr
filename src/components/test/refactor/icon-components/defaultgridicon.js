@@ -25,20 +25,20 @@ const DefaultGridIcon = ({toggle}) => {
 
     useEffect(() => {
         gsap.set(gradientRef, { x: -600 })
-        // gsap.set(selectedCard, { fill: 'var(--idle-lt-grey' })
+        gsap.set(selectedCard, { opacity: 0 })
         const tl = gsap.timeline();
         if (!toggle) {
             tl
             .to(gradientRef, 0, { x: -600})
             .to(maskRef, 1, { opacity: 1, ease: Power4.easeInOut }, '-=.5')
-            .to(selectedCard, 1, {strokeOpacity: 0}, '-=0')
+            .to(selectedCard, 1, {opacity: 0})
 
         } else if (toggle) {
             tl
             // .to(selectedCard, 0, { fill: 'var(--idle-lt-grey)', ease: Power4.easeInOut }, '-=.5')
             .to(gradientRef, 1, { x: 250, ease: Power4.easeInOut }, '-=0')
             .to(maskRef, .8, { opacity: 0, ease: Power4.easeInOut }, '-=.5')
-            .to(selectedCard, 1, {strokeOpacity: 1}, '-=0')
+            .to(selectedCard, 1.5, {opacity: 1}, '-=0')
         }
 
     }, [toggle]);
@@ -92,8 +92,15 @@ const DefaultGridIcon = ({toggle}) => {
                     height="130" 
                     y="220"
                     x="220"
+                     />
+                     <rect
+                    width="130" 
+                    height="130" 
+                    y="220"
+                    x="220"
+                    fill="var(--active-orange-2)"
                     stroke="var(--active-orange-2)"
-                    strokeWidth="20" 
+                    strokeWidth="20"
                     ref={elem => selectedCard = elem} 
                      />
           </g>
