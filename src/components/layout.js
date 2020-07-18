@@ -23,7 +23,7 @@ const Layout = ({ children, location }) => {
             <title>CSS Blendr</title>
             <meta name={title} content={description}/>
         </Helmet>
-        {/* <NoiseBG/> */}
+        <NoiseBG/>
             <Header currentPath={location.pathname}/>
                 <TransitionGroup component={null}>
                     <Transition key={location.pathname} timeout={{ enter: 1500, exit: 1500 }}>

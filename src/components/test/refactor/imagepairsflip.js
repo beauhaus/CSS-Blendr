@@ -10,6 +10,7 @@ const StyledFlipImagePairs = styled.div`
     width: 94%;
     position: absolute;
     perspective: 200px;
+    ${'' /* overflow: hidden; // breaks 3d in iOs safari */}
     img {
         position: absolute;
         width: 65%;
@@ -22,6 +23,8 @@ const StyledFlipImagePairs = styled.div`
         box-shadow: 18px 35px 10px -15px rgba(0,0,0,0.5);
     }
     .bot-image {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
         top: 25%;
         right: 10%;
         transform: rotateX(46deg);

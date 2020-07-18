@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 import NoiseImg from '../../../static/images/bgnoise.jpg'
-// import GlitchGif from '../../../static/images/glitchgif.gif'
 
 const NoiseBGWrap = styled.div`
   width: 120vw;

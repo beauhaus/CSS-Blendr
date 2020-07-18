@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const StyledFileInputBtn = styled.button`
             ${'' /* border: 1px solid fuchsia; */}
             height: 100%;
+            ${'' /* overflow: hidden; */}
             svg {
                 width: 7vh;
                 height: 7vh;
