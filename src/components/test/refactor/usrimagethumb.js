@@ -6,6 +6,12 @@ import styled from 'styled-components'
 
 const StyledUsrImgThumbContainer = styled.div`
     ${'' /* position: relative; */}
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.6);
+    &.img-selected {
+        box-shadow: none;
+        border: 1px solid var(--secondary-peach);
+        box-shadow: 0px 0px 0px 3px var(--secondary-peach);
+    }
     img {
         width: 100%;
         height: 100%;
@@ -27,10 +33,17 @@ const StyledUsrImgThumbContainer = styled.div`
     }
 `
 
+
+//     & image {
+//         width: 100%;
+//         height: 100%;
+//     }   
+
 const UsrImgThumb = ({ imgObj }) => {
     const {
         setUsrImgArray,
-        setCurrentTop
+        setCurrentTop,
+        currentTop
     } = useContext(AppContext);
 
 
@@ -45,9 +58,9 @@ const imgClickHandler = (imgObj) => (
     setCurrentTop(imgObj)
 )
     {/* TODO: add desc: key/val to objects */}
-   
+    // className={(currentTop.id === imgObj.id)? 'img-selected': 'default-img'}
     return (
-        <StyledUsrImgThumbContainer>
+        <StyledUsrImgThumbContainer className={(currentTop.id === imgObj.id)? 'img-selected': 'uploaded-img'}>
             <button className="usr-img-btn img-btn" value={imgObj} onClick={() => imgClickHandler(imgObj)}>
                 <img src={imgObj.url} alt={imgObj.name} />
             </button>

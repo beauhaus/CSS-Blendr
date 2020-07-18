@@ -5,7 +5,6 @@ import UsrImgThumb from './usrimagethumb'
 
 const StyledUsrThumbnailCard = styled.div`
 position: relative;
-border: 1px solid orange;
 `
 
 const UsrThumbnailCard = ({imgObj}) => {

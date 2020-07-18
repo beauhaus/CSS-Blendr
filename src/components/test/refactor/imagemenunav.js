@@ -20,17 +20,16 @@ const StyledImageMenuNav = styled.nav`
         display: flex;
         justify-content: center;
         align-items: center;
-        
         svg {
             width: 7vh;
             height: 7vh;
             border-radius: 7px;
-            &.active-btn {
+        &.active-btn {
               border: 1px solid var(--active-blue);
             }
             &.idle-btn {
                 border: 1px solid var(--idle-lt-grey);
-                box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.5);
+                box-shadow: 2px 1px 2px 0 rgba(0,0,0,0.5);
             }
         }
     }
@@ -43,6 +42,7 @@ const StyledImageMenuNav = styled.nav`
             width: 7vh;
             height: 7vh;
             border-radius: 7px;
+            
             &.active-btn {
               border: 1px solid var(--active-blue);
             }
@@ -56,7 +56,6 @@ const StyledImageMenuNav = styled.nav`
     .img-file-form {
         position: relative;
         z-index: 3;
-        border-radius: 4px;
         height: 100%;
         background: transparent;
         border-radius: 8px;

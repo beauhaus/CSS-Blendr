@@ -15,9 +15,9 @@ const StyledImageUploadIcon = styled.svg`
        fill: var(--idle-lt-grey-2);
     }
     .cloud {
-        stroke-width: 8;
-        fill: #beecff;
-        stroke: #beecff;
+        stroke-width: 0;
+        fill: var(--active-lt-grey-1);
+        stroke: var(--active-lt-grey-1);           
     }
 `
 

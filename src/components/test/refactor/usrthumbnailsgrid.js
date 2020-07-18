@@ -5,7 +5,7 @@ import { AppContext } from '../../../pages/page-b'
 import UsrThumbnailCard from './usrthumbnailcard'
 
 const StyledUsrThumbnailsGrid = styled.div`
-    background: #a2c4bf;
+    background: #5d5f62;
     grid-row: 2;
     grid-column: 1/-1;
     position: relative;

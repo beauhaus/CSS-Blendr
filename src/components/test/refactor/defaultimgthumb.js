@@ -11,8 +11,8 @@ const StyledDefaultImgThumb= styled.button`
     }   
     &.img-selected {
         box-shadow: none;
-        border: 1px solid orangered;
-        box-shadow: 0px 0px 5px 5px var(--active-orange);
+        border: 1px solid var(--secondary-peach);
+        box-shadow: 0px 0px 0px 3px var(--secondary-peach);
     }
 `
 

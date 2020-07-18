@@ -6,6 +6,7 @@ import { AppContext } from '../../../pages/page-b'
 const StyledFileInputBtn = styled.button`
     height: 100%;
     width: 100%;
+    
 `
 
 const FileInputBtn = ({fileInput}) => {

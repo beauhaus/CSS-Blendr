@@ -98,8 +98,9 @@ const DefaultGridIcon = ({toggle}) => {
                     height="130" 
                     y="220"
                     x="220"
-                    fill="var(--active-orange-2)"
-                    stroke="var(--active-orange-2)"
+                    fill="var(--active-lt-grey-1)"
+                    fillOpacity="0"
+                    stroke="var(--active-lt-grey-1)"
                     strokeWidth="20"
                     ref={elem => selectedCard = elem} 
                      />
