@@ -4,7 +4,9 @@ import {AppContext} from '../../../pages/page-b'
 import UsrImgThumb from './usrimagethumb'
 
 const StyledUsrThumbnailCard = styled.div`
-position: relative;
+    position: relative;
+    width: 100%;
+    height: 100%;
 `
 
 const UsrThumbnailCard = ({imgObj}) => {

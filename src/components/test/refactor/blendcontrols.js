@@ -43,27 +43,10 @@ const StyledBlendControls = styled.div`
             mix-blend-mode: overlay;
             overflow: hidden;
          }
-        ${'' /* .flip-arrows {
-            fill: var(--active-blue);
-        }
-        #arrow-glow {
-            fill: var(--active-blue);
-            stroke: var(--active-blue);
-        }
-        .arrows-second-task {
-            stroke: var(--active-blue);
-            stroke-width: 2;
-            fill:#000;
-        } */}
 `
 
 const BlendControls = () => {
-    // const {
-    //     addImageMode,
-    //     currentTop,
-    //     flipTriggerVal
-    // } = useContext(AppContext);
-
+ 
     return (
         <StyledBlendControls className="BlendControls">
             <div className="flip-img-btn-container">                

@@ -28,10 +28,9 @@ const DefaultGridBtn = (props) => {
         setUsrImgMode(false)
         setGridMode(true)
     }
-    // className={(currentTop.id === imgObj.id)? 'img-selected': 'default-img'}
 
     return (
-        <StyledDefaultGridBtn  onClick={gridBtnHandler}>
+        <StyledDefaultGridBtn className="default-image-grid-btn"  onClick={gridBtnHandler}>
             <DefaultGridIcon toggle={gridMode} />
         </StyledDefaultGridBtn>
     )

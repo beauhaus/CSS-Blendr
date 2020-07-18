@@ -11,9 +11,9 @@ const StyledDecorFrame=styled.div`
     background: transparent;
     border-radius: 12px;
     box-shadow: 3px 3px 5px 0 #fff,
-    -3px -3px 5px  0 #444,
-    inset 1px 1px 2px 0 #000,
-    inset -1px -1px 2px 0 #fff;
+                -3px -3px 5px  0 #444,
+                inset 1px 1px 2px 0 #000,
+                inset -1px -1px 2px 0 #fff;
 `
 const DecorFrame = () => <StyledDecorFrame className="decor-frame"/>
 

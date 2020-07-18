@@ -2,8 +2,7 @@ import React,{useContext} from 'react'
 import styled from 'styled-components'
 import { AppContext } from '../../../pages/page-b'
 import ImgMenuNavBG from './icon-components/customnavbg'
-
-import FileInputBtnContainer from './fileinputbtncontainer'
+import UsrImgGridBtn from './usrimagegridbtn'
 import PaintBtn from './paintbtn'
 import DefaultGridBtn from './defaultgridbtn'
 
@@ -33,36 +32,6 @@ const StyledImageMenuNav = styled.nav`
             }
         }
     }
-    &>form {
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        svg {
-            width: 7vh;
-            height: 7vh;
-            border-radius: 7px;
-            
-            &.active-btn {
-              border: 1px solid var(--active-blue);
-            }
-            &.idle-btn {
-                border: 1px solid var(--idle-lt-grey);
-                box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.5);
-            }
-        }
-    }
-
-    .img-file-form {
-        position: relative;
-        z-index: 3;
-        height: 100%;
-        background: transparent;
-        border-radius: 8px;
-        input {
-            display: none;
-        }
-    }
 `
 const ImageMenuNav = () => {
     const {
@@ -72,7 +41,7 @@ const ImageMenuNav = () => {
         <StyledImageMenuNav className="img-menu-panel">
                 <ImgMenuNavBG/>
                 <DefaultGridBtn/>
-                <FileInputBtnContainer/>
+                <UsrImgGridBtn/>
                 <PaintBtn/>
         </StyledImageMenuNav>
     )

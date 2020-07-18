@@ -1,7 +1,34 @@
 import React, {  useEffect, useContext, useRef } from 'react'
+import styled from 'styled-components'
 import { fiveDigitRand,db } from './hooks/app-utils'
 import { AppContext } from '../../../pages/page-b'
-import UsrImgBtn from './usrimgbtn'
+import ImgUploadBtn from './usrimguploadbtn'
+
+const StyledInputForm = styled.form`
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        padding: 2%;
+    &.img-file-form {
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        border-radius: 8px;
+        input {
+            position: absolute;
+            border: 1px solid red;
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    } 
+`
 
 const FileInputBtnContainer = () => {
     const {
@@ -64,18 +91,17 @@ const FileInputBtnContainer = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newImageURL, selectedFileName])
 
-            
-
     return (
-        <form className="img-file-form" >
+        <StyledInputForm className="img-file-form">
             <input
                 type="file"
                 required
                 onChange={(e) =>fileSelectedHandler(e)}
                 ref={fileInput}
             />
-            <UsrImgBtn fileInput={fileInput}  />
-        </form>
+            <ImgUploadBtn fileInput={fileInput}  />
+            
+        </StyledInputForm>
     )
 }
 

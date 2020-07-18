@@ -29,7 +29,7 @@ const PaintBtn = (props) => {
         setGridMode(false)
     }
     return (
-        <StyledPaintBtn className="paint-img-btn" onClick={paintImgBtnHandler}>
+        <StyledPaintBtn className="paint-img-grid-btn" onClick={paintImgBtnHandler}>
             <PaintIcon toggle={paintMode} />
         </StyledPaintBtn>
     )

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
-
+// import UploadBtn from './usrimguploadbtn'
 import UsrThumbnailCard from './usrthumbnailcard'
+import FileInputBtnContainer from './fileinputbtncontainer'
 
 const StyledUsrThumbnailsGrid = styled.div`
     background: #5d5f62;
@@ -29,12 +30,13 @@ const UsrThumbnailsGrid = (props) => {
     return (
         <>
             {usrImgMode && <StyledUsrThumbnailsGrid className="usr-thumbnails-grid">
+            <FileInputBtnContainer/>
             {usrImgArray.map(imgObj =>(
-                        <UsrThumbnailCard
-                        key={imgObj.id}
-                        imgObj={imgObj}
-                        />
-                        ) )}
+                <UsrThumbnailCard
+                    key={imgObj.id}
+                    imgObj={imgObj}
+                />
+            ) )}
             </StyledUsrThumbnailsGrid>}
         </>
     )

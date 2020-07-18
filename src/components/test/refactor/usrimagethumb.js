@@ -5,16 +5,18 @@ import { db } from './hooks/app-utils'
 import styled from 'styled-components'
 
 const StyledUsrImgThumbContainer = styled.div`
-    ${'' /* position: relative; */}
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
     &.img-selected {
         box-shadow: none;
         border: 1px solid var(--secondary-peach);
         box-shadow: 0px 0px 0px 3px var(--secondary-peach);
     }
-    img {
-        width: 100%;
-        height: 100%;
+    & img {
+        width: 25vw;
+        height: 25vw;
+        object-fit: fill;
     }
     button.usr-img-delete {
         position: absolute;
@@ -32,12 +34,6 @@ const StyledUsrImgThumbContainer = styled.div`
         }
     }
 `
-
-
-//     & image {
-//         width: 100%;
-//         height: 100%;
-//     }   
 
 const UsrImgThumb = ({ imgObj }) => {
     const {
