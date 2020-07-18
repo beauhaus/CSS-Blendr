@@ -25,7 +25,7 @@
 //         gsap.set(switchIcon, { transformOrigin: '50% 50%' })
 
 //         galleryOpenVal ? 
-//         tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotate: 135, attr: { fill: '#beecff' }}, '-=0'):
+//         tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotate: 135, attr: { fill: 'var(--active-blue);' }}, '-=0'):
 //         tl.to(switchIcon, { duration: .5, ease: Power1.easeInOut, rotate: 0, attr: { fill: '#fff' }}, '-=0')
 //     }, [galleryOpenVal])
     

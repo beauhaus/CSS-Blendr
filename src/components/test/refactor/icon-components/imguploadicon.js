@@ -32,7 +32,7 @@ const ImageUploadIcon = () => {
     let cloudRef = useRef(null);
 
     useEffect(() => {
-       const tl = gsap.timeline({delay: 2});
+       const tl = gsap.timeline({delay: 1});
        if (!usrImgMode) {
             tl
                 .to(cloudRef, 0, { y: 0, fillOpacity: 0, ease: "Elastic.easeInOut(1.2, .5)" }, '-=0')

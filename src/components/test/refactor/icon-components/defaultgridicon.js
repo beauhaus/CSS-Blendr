@@ -15,30 +15,50 @@ const StyledDefaultGridIcon = styled.svg`
     .st1{
         fill:var(--idle-lt-grey);
     }
+    .selected-anim {
+        fill: transparent;
+        stroke: var(--idle-lt-grey-2);
+        stroke-width: 20;
+    }
 `
  
 const DefaultGridIcon = ({toggle}) => {
     // console.log(toggle? "dgtrue": "dgfalse");
     let gradientRef = useRef(null);
     let maskRef = useRef(null);
-    let selectedCard = useRef(null);
+    let selectedCardA = useRef(null);
+    let selectedCardB = useRef(null);
+    let selectedCardC = useRef(null);
+    let selectedCardD = useRef(null);
 
     useEffect(() => {
         gsap.set(gradientRef, { x: -600 })
-        gsap.set(selectedCard, { opacity: 0 })
+        gsap.set(selectedCardA, { opacity: 0 })
+        gsap.set(selectedCardB, { opacity: 0 })
+        gsap.set(selectedCardC, { opacity: 0 })
+        gsap.set(selectedCardD, { opacity: 0 })
         const tl = gsap.timeline();
         if (!toggle) {
             tl
             .to(gradientRef, 0, { x: -600})
             .to(maskRef, 1, { opacity: 1, ease: Power4.easeInOut }, '-=.5')
-            .to(selectedCard, 1, {opacity: 0})
+            .to(selectedCardA, 1, {opacity: 0})
+            .to(selectedCardB, 1, {opacity: 0})
+            .to(selectedCardC, 1, {opacity: 0})
+            .to(selectedCardD, 1, {opacity: 0})
 
         } else if (toggle) {
             tl
             // .to(selectedCard, 0, { fill: 'var(--idle-lt-grey)', ease: Power4.easeInOut }, '-=.5')
             .to(gradientRef, 1, { x: 250, ease: Power4.easeInOut }, '-=0')
             .to(maskRef, .8, { opacity: 0, ease: Power4.easeInOut }, '-=.5')
-            .to(selectedCard, 1.5, {opacity: 1}, '-=0')
+            .to(selectedCardA, .2, {opacity: 1}, '-=0')
+            .to(selectedCardA, .2, {opacity: 0}, '-=0')
+            .to(selectedCardB, .3, {opacity: 1}, '-=.2')
+            .to(selectedCardB, .3, {opacity: 0}, '-=0')
+            .to(selectedCardC, .4, {opacity: 1}, '-=.3')
+            .to(selectedCardC, .4, {opacity: 0}, '-=0')
+            .to(selectedCardD, .5, {opacity: 1}, '-=.4')
         }
 
     }, [toggle]);
@@ -65,19 +85,13 @@ const DefaultGridIcon = ({toggle}) => {
                     </linearGradient>
                     <path id="background_1_" d="M0 0h400v400H0z" className="st0"/>
                     <g filter="url(#grid-icon-shadow)">
-                  <rect
-                    className="st1"
-                    width="130" 
-                    height="130" 
-                    y="50"
-                    x="50" 
-                     />
                     <rect
                     className="st1"
                     width="130" 
                     height="130" 
+                    fill="purple"
                     y="50"
-                    x="220" 
+                    x="50" 
                      />
                      <rect
                      className="st1"
@@ -86,6 +100,14 @@ const DefaultGridIcon = ({toggle}) => {
                     y="220"
                     x="50" 
                      />
+                      <rect
+                     className="st1"
+                    width="130" 
+                    height="130" 
+                    x="220"
+                    y="50" 
+                     />
+
                     <rect
                     className="st1"
                     width="130" 
@@ -93,17 +115,40 @@ const DefaultGridIcon = ({toggle}) => {
                     y="220"
                     x="220"
                      />
+                      <rect
+                    className="selected-anim"
+                    width="130" 
+                    height="130" 
+                    y="50"
+                    x="50" 
+                    fill="var(--active-lt-grey-1)"
+                    ref={elem => selectedCardA = elem} 
+                     />
+                    <rect
+                    className="selected-anim"
+                    width="130" 
+                    height="130" 
+                    x="50"
+                    y="220" 
+                    ref={elem => selectedCardC = elem} 
+                     />
+                    <rect
+                    className="selected-anim"
+                    width="130" 
+                    height="130" 
+                    y="50"
+                    x="220" 
+                    ref={elem => selectedCardB = elem} 
+                     />
                      <rect
+                    className="selected-anim"
                     width="130" 
                     height="130" 
                     y="220"
                     x="220"
-                    fill="var(--active-lt-grey-1)"
-                    fillOpacity="0"
-                    stroke="var(--active-lt-grey-1)"
-                    strokeWidth="20"
-                    ref={elem => selectedCard = elem} 
+                    ref={elem => selectedCardD = elem} 
                      />
+
           </g>
                    
   

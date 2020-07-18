@@ -26,7 +26,7 @@ const StyledViewerFrameContainer = styled.div`
       padding: 1vh 2vh;
       width: 60%;
       left: 20%;
-      color: #BEECFF;
+      color: var(--active-blue);;
       text-shadow: 1px 1px 0px #000;
       font-weight: 100;
       font-size: 4rem;

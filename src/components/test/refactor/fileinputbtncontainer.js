@@ -13,7 +13,7 @@ const StyledInputForm = styled.form`
         align-items: center;
         border-radius: 10px;
         overflow: hidden;
-        border: 1px solid #ddd;
+        border: 1px solid var(--secondary-peach);
         padding: 2%;
     &.img-file-form {
         height: 100%;

@@ -21,7 +21,7 @@ const CustomImagePanelWrap = styled.section`
           height: 100%;
           button {
             border-radius: 12px;
-            border: 1px solid #beecff;
+            border: 1px solid var(--active-blue);;
             position: relative;
             box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
             width: 10vh;
@@ -36,7 +36,7 @@ const CustomImagePanelWrap = styled.section`
           height: 100%;
           button {
             border-radius: 12px;
-            border: 1px solid #beecff;
+            border: 1px solid var(--active-blue);;
             position: relative;
             box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
             width: 10vh;
