@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import NoiseImg from '../../../static/images/bgnoise.jpg'
 
 const NoiseBGWrap = styled.div`
-  width: 120vw;
-  height: 100vh; /* TODO: adjust to auto? */
+  ${'' /* width: 120vw;
+  height: auto;  */}
   position: absolute;
   top:0;
   left: -10vw;
   bottom: 0;
   right: 0;
+  height: 100vh;
   ${'' /* border: 1px solid orange; */}
   overflow: hidden;
   image {
@@ -23,7 +24,7 @@ const NoiseBGWrap = styled.div`
 `;
 const NoiseBG = () => {
   return (
-    <NoiseBGWrap>
+    <NoiseBGWrap className="noise-bg">
       <svg className="panel-svg" width="100%" viewBox="0 0 500 1000" preserveAspectRatio="none">
         
         <filter id='test-filter'>

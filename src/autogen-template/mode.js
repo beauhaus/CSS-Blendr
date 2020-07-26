@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// import {Link} from 'gatsby';
+import {Link} from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import './mode.scss';
@@ -19,11 +19,12 @@ query($slug: String!){
 
 const ModeTemplate = ({ data: { mdx: mode } }) => {
   return (
-    <>
-      <h1 className="title">mode Title: {mode.frontmatter.title}</h1>
+    <div className="mode-dir-container">
+      <h1 className="title">{mode.frontmatter.title} mode</h1>
       <hr />
+      <Link to="/page-b">BACK</Link>
       <MDXRenderer>{mode.body}</MDXRenderer>
-    </>
+    </div>
   )
 }
 

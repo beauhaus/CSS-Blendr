@@ -1,6 +1,13 @@
+.mode-dir-container {
+display: grid;
+place-items: center;
+}
+
 .title {
+    font-weight: 100;
+    font-size: 5rem;
     margin: 12vh 2vw;
-    color: #888;
+    color: #eee;
 }
 h3, h4, p, sup{
      text-align: left;

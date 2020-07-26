@@ -12,9 +12,8 @@ const StyledSwitchImageBtn = styled.button`
     width: 25%;
     height: 8vh;
     background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${'' /* display: grid;
+    place-items: center; */}
 `
 
 const SwitchImageBtn = (props) => {

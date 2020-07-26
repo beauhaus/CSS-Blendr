@@ -8,7 +8,29 @@ header.header-wrapper { /*TODO: remove class? */
   height: 12vh;
   z-index: 10;
   padding-top: 1vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  #blender-fav2 {
+    border: 1px solid #fff;
+    width: 10vh;
+    height: 10vh;
+    // background-color: burlywood;
+    // mix-blend-mode: color-burn;
+    display: none;
+  }
   // border: 1px solid #fff;
+  .home-link {
+    // border: 1px solid coral;
+    height: 10vh;
+    img {
+      width:10vh;
+      height: 10vh;
+    }
+  }
+  #blender-fav2 {
+    mix-blend-mode: color-burn;
+  }
   a.b-link {
     border: 1px solid #fff;
     width: 20vw;

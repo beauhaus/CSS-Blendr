@@ -20,35 +20,6 @@ const StyledViewerFrameContainer = styled.div`
     grid-template-rows: 8vh 40vh;
     position: relative;
     overflow: hidden;
-    h2.mode-name-display {
-      position: absolute;
-      bottom: 2vh;
-      padding: 1vh 2vh;
-      width: 60%;
-      left: 20%;
-      color: var(--active-blue);;
-      text-shadow: 1px 1px 0px #000;
-      font-weight: 100;
-      font-size: 4rem;
-      z-index: 1;
-      border-radius: 4px;
-      background: rgba(221, 221, 221, .7);
-      overflow: hidden;
-      font: normal 2.5rem "Rajdhani", -apple-system, Segoe UI, Roboto;
-      box-shadow: 2px 2px 2px rgba(0,0,0,0.3),
-        inset 1px 1px 0 0 rgba(255, 255, 255, 0.5),
-        inset -1px -1px 0 0 rgba(00, 00, 00, 0.5);
-        &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        filter: blur(15px);
-        z-index: 0;
-    }
- }
 `
 const ViewerFrameContainer = () => {
   const {

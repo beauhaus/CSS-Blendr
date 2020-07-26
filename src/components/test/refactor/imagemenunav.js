@@ -16,9 +16,8 @@ const StyledImageMenuNav = styled.nav`
     box-shadow: 0 5px 5px -5px #000;
     &>button {
         width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        place-items: center;
         svg {
             width: 7vh;
             height: 7vh;

@@ -1,12 +1,29 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../../../pages/page-b'
+import { AppContext } from '../../../pages/page-b'
+import { Link } from 'react-scroll'
+import { animateScroll } from 'react-scroll'
+import ReadArticleIcon from './icon-components/readarticleicon'
 
-const StyledModeNameDisplay2 = styled.h2`
-        animation: modeNameUp 3s ease-in-out forwards;
+
+
+/* most styles for this are in index.scss for concision */
+const StyledModeNameDisplay2 = styled.div`
+padding: 0;
+        a {
+            margin: 0;
+            ${'' /* opacity: 0.5; */}
+            }
+
+        animation: modeNameUp 5s ease-in-out forwards;
 `
-const StyledModeNameDisplay = styled.h2`
-        animation: modeNameUp 3s ease-in-out forwards;
+const StyledModeNameDisplay = styled.div`
+padding: 0;
+        a {
+            margin: 0;
+            ${'' /* opacity: 0.5; */}
+            }
+        animation: modeNameUp 5s ease-in-out forwards;
     }
     ${'' /* &.display-static {
         color: #eee;
@@ -21,21 +38,27 @@ const ModeNameDisplay = () => {
         setMixModeNum,
         mixMode
     } = useContext(AppContext);
-
-// useEffect(()=>{
-// // console.log("mixMode useEffect Ran")
-// },[mixMode])
-    
+    // const handleSetActive = () => {
+    //     console.log("set Active");
+    // }
     return (
-        
-           (mixModeNum % 2 )? 
-           <StyledModeNameDisplay className="mode-name-display">{mixMode}</StyledModeNameDisplay>
-           :
-           <StyledModeNameDisplay2 className="mode-name-display">{mixMode}</StyledModeNameDisplay2>          
-           )
-        };
-        
-{/* {(!tapMode && !addImageMode) && <StyledModeNameDisplay className="display-animated">{mixMode}</StyledModeNameDisplay>} */}
-{/* {(tapMode && !addImageMode) && <StyledModeNameDisplay className="display-static">{mixMode}</StyledModeNameDisplay>} */}
-{/* {console.log("tap and !image",tapMode ,addImageMode)} */}
+        (mixModeNum % 2) ?
+            <StyledModeNameDisplay
+                className="mode-name-display"> {mixMode}
+                <Link to={`${mixMode}-article`}
+                    smooth={true}
+                    // onSetActive={console.log('handleSetActive')}
+                    duration={500}><ReadArticleIcon/></Link>
+            </StyledModeNameDisplay>
+            :
+            <StyledModeNameDisplay2
+                className="mode-name-display"> {mixMode}
+                <Link to={`${mixMode}-article`}
+                    smooth={true}
+                    // onSetActive={console.log('handleSetActive')}
+                    duration={500}><ReadArticleIcon/></Link>
+            </StyledModeNameDisplay2>
+    )
+};
+
 export default ModeNameDisplay;

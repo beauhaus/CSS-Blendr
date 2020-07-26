@@ -8,9 +8,9 @@ const StyledInputForm = styled.form`
         position: relative;
         width: 100%;
         height: 100%;
-        display: flex;
+        ${'' /* display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */}
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid var(--secondary-peach);

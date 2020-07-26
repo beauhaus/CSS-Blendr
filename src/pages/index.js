@@ -9,7 +9,8 @@ import LandingLogo from '../components/content/landinglogo'
 
 const IdxWrapper = styled.div`
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
+height: auto;
 overflow: hidden;
 position: relative;
 ${'' /* z-index: 1; */}

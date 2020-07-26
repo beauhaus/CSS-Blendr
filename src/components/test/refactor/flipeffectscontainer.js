@@ -237,7 +237,7 @@ const BlendControls = (props) => {
     }, [ currentTop])
     console.log(addImageMode ? "AddImgMode True" : "AddImgMode FALSE");
     return (
-        <StyledBlendControls className="BlendControls">
+        <StyledBlendControls className="blend-controls">
             <div className="flip-effects-container">
                 <svg xmlns="http://www.w3.org/2000/svg"
                     className="scrn-line-grid"

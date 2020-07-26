@@ -14,7 +14,6 @@ const StyledBlendControls = styled.div`
     height: 100%;
     margin:auto;
     display: flex;
-    justify-content: center;
     
     & button {
       margin: auto;
@@ -48,7 +47,7 @@ const StyledBlendControls = styled.div`
 const BlendControls = () => {
  
     return (
-        <StyledBlendControls className="BlendControls">
+        <StyledBlendControls className="blend-controls">
             <div className="flip-img-btn-container">                
                 <FlipEffectsContainer />
                 <FlipImageBtn />            
