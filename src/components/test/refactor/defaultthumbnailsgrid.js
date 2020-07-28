@@ -4,7 +4,7 @@ import { AppContext } from '../../../pages/page-b'
 import DefaultImgThumb from './defaultimgthumb'
 
 const StyledDefaultThumbnailsGrid = styled.section`
-    grid-row: 2;
+    grid-row: 2/4;
     grid-column: 1/-1;
     background: #888;
     padding: 1vh 4vw;

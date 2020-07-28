@@ -12,12 +12,14 @@ import ModeNameDisplay from './modenamedisplay'
 import DefaultThumbnailsGrid from './defaultthumbnailsgrid'
 import PaintWidget from './paintwidget'
 import UsrThumbnailsGrid from './usrthumbnailsgrid'
+import ReadArticleIcon from './icon-components/readarticleicon'
 
 const StyledViewerFrameContainer = styled.div`
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 8vh 40vh;
+    ${'' /* grid-template-rows: 8vh 40vh; */}
+    grid-template-rows: 8vh 32vh 8vh;
     position: relative;
     overflow: hidden;
 `
@@ -27,10 +29,12 @@ const ViewerFrameContainer = () => {
     addImageMode    
   } = useContext(AppContext);
 
+
   return (
     <StyledViewerFrameContainer className="viewer-frame-container">
       <TapModeBtn />
       <AlphaSlider />
+      <ReadArticleIcon/>
       {!addImageMode && <ModeNameDisplay />}
       {currentTop  && <ImagePairsDisplay />}
       <SwitchImgBtn />

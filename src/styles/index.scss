@@ -257,9 +257,7 @@ test {
       filter: blur(15px);
   }
   a {
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: relative;
     height: 100%;
     z-index: 4;
   }

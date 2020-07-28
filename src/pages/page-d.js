@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-scroll'
-import { animateScroll } from 'react-scroll'
-import { gsap } from "gsap";
+// import { Link } from 'react-scroll'
+// import { animateScroll } from 'react-scroll'
+// import { gsap } from "gsap";
 
 // import GridIconTest from '../components/test/refactor/icontest/gridicontest'
 
@@ -33,7 +33,7 @@ const PageD = () => {
       {/* <GridIconTest toggle={iconToggle}/> */}
       {/* <button onClick={Clicker}>{iconToggle?"true":"false"}</button> */}
       {/* <Comp1 toggle={iconToggle} /> */}
-      <div className="TOC">
+      {/* <div className="TOC">
         <Link to="articleA" smooth={true} duration={500}>ArtA</Link>
         <Link to="articleB" smooth={true} duration={500}>ArtB</Link>
         <Link to="articleC" smooth={true} duration={500}>ArtC</Link>
@@ -55,7 +55,7 @@ const PageD = () => {
       <article id="articleD">
         <p>ArtD</p>
         <button onClick={() => animateScroll.scrollToTop()}>&uarr;</button>
-      </article>
+      </article> */}
 
 
     </PageDWrapper>

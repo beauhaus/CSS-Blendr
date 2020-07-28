@@ -33,7 +33,7 @@ const Header = () => {
             <TopNavBtn />
             <img id="blender-fav2" alt="blender-mark" src={blenderFavicon2.base64}/>
             {/* <Link className="b-link" to="/page-b">PAGE B</Link> */}
-            <Link className="d-link" to="/page-d">PAGED</Link>
+            {/* <Link className="d-link" to="/page-d">PAGED</Link> */}
         </header>
     )
 };

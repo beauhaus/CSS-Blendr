@@ -4,7 +4,7 @@ import { AppContext } from '../../../pages/page-b'
 
 const StyledPaintWidget = styled.div`
   background: #d8c8a6;
-    grid-row: 2;
+    grid-row: 2/4;
     grid-column: 1/-1;
     position: relative;
 `

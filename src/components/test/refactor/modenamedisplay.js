@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 import { Link } from 'react-scroll'
-import { animateScroll } from 'react-scroll'
-import ReadArticleIcon from './icon-components/readarticleicon'
+// import { animateScroll } from 'react-scroll'
+// import ReadArticleIcon from './icon-components/readarticleicon'
 
 
 
@@ -44,19 +44,19 @@ const ModeNameDisplay = () => {
     return (
         (mixModeNum % 2) ?
             <StyledModeNameDisplay
-                className="mode-name-display"> {mixMode}
+                className="mode-name-display"> 
                 <Link to={`${mixMode}-article`}
                     smooth={true}
                     // onSetActive={console.log('handleSetActive')}
-                    duration={500}><ReadArticleIcon/></Link>
+                    duration={500}>{mixMode}</Link>
             </StyledModeNameDisplay>
             :
             <StyledModeNameDisplay2
-                className="mode-name-display"> {mixMode}
+                className="mode-name-display">
                 <Link to={`${mixMode}-article`}
                     smooth={true}
                     // onSetActive={console.log('handleSetActive')}
-                    duration={500}><ReadArticleIcon/></Link>
+                    duration={500}>{mixMode}</Link>
             </StyledModeNameDisplay2>
     )
 };

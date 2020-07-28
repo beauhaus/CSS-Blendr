@@ -7,7 +7,7 @@ import FileInputBtnContainer from './fileinputbtncontainer'
 
 const StyledUsrThumbnailsGrid = styled.div`
     background: #5d5f62;
-    grid-row: 2;
+    grid-row: 2/4;
     grid-column: 1/-1;
     position: relative;
     padding: 1vh 4vw;
