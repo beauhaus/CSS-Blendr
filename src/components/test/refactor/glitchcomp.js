@@ -60,13 +60,7 @@ const GlitchComp = () => {
     gsap.set(botGlitch, { attr: { 'offset': '-20%' } })
     const tl = gsap.timeline({ defaults: { delay: 0 } })
     tl
-      // .to(topGlitch, { duration: .2, attr: { 'offset': '110%' } }, '-=0')
-      // .to(centerGlitch, { duration: .2, attr: { 'offset': '110%' } }, '-=.2')
-      // .to(botGlitch, { duration: .3, attr: { 'offset': '100%' } }, '-=.2')
-      // .to(topGlitch, { duration: .2, attr: { 'offset': '10%' } }, '-=0')
-      // .to(centerGlitch, { duration: .2, attr: { 'offset': '0%' } }, '-=.2')
-      // .to(botGlitch, { duration: .2, attr: { 'offset': '-10%' } }, '-=.2')
-
+    
       .to(topGlitch, { duration: .1, attr: { 'offset': `${randPos[0] + 20}%` } }, '-=0')
       .to(centerGlitch, { duration: .1, attr: { 'offset': `${randPos[0]}%` } }, '-=.1')
       .to(botGlitch, { duration: .2, attr: { 'offset': `${randPos[0] - 20}%` } }, '-=.1')

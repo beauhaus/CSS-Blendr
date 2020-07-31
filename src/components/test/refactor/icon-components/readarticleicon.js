@@ -19,10 +19,14 @@ const StyledReadArticleIcon = styled.div`
     z-index: 3;
     display: grid;
     place-items: center;
+    animation: fadeInOut 6s ease-in-out forwards;
+    &.anim-display {
+
+    }
     svg {
         width: 70%;
         height: 75%;
-        filter: drop-shadow(0px 0px 1px #000);
+        filter: drop-shadow(1px 1px 0px #000);
         ${'' /* border: 1px solid skyblue; */}
     }
 
@@ -39,7 +43,6 @@ const StyledReadArticleIcon = styled.div`
         stroke-width: 10;
         fill: #aaa;
         opacity: 0;
-
         fill: transparent;
     }
 
@@ -101,20 +104,12 @@ const ReadArticleIcon = (props) => {
                     // onSetActive={console.log('handleSetActive')}
                     duration={500}>
             <svg xmlns="http://www.w3.org/2000/svg" overflow="visible" width="100%" height="100%" viewBox="0 0 600 400">
-                <polyline className="icon-book-cover"
+                <polygon className="icon-book-cover"
                     fill="none"
-                    points="540,40, 560,40 560,360, 350,360 300,390 250,360 40,360 40,40 60,40"
+                    points="540,40, 560,40 560,360, 350,360 300,390 250,360 40,360 40,40 250,40 300,70 340,40"
                     ref={elem => (bookCover = elem)}
                 />
-
-                <polygon className="icon-pg-right"
-                    points="300,60 340,30 540,30 540,340 340,340 300,370"
-                    ref={elem => (pageRight = elem)}
-                />
-                <polygon className="icon-pg-left"
-                    points="300,60 260,30 60,30 60,340 260,340 300,370"
-                    ref={elem => (pageLeft = elem)}
-                />
+              
                 <g ref={elem => (pageTextRt = elem)}>
                     <line className="icon-text-rt" x1="340" y1="100" x2="520" y2="100" strokeWidth="20" stroke="#fff" />
                     <line className="icon-text-rt" x1="340" y1="190" x2="520" y2="190" strokeWidth="20" stroke="#fff" />

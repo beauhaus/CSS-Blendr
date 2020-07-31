@@ -8,7 +8,8 @@ import AlphaSlider from './alphaslider'
 import ImageMenuPanel from './imagemenunav'
 import TapModeBtn from './tapmodebtn'
 import AlphaValDisplay from './alphavaldisplay'
-import ModeNameDisplay from './modenamedisplay'
+// import ModeNameDisplay from './modenamedisplay'
+import MixModeDisplay from './mixmodedisplay'
 import DefaultThumbnailsGrid from './defaultthumbnailsgrid'
 import PaintWidget from './paintwidget'
 import UsrThumbnailsGrid from './usrthumbnailsgrid'
@@ -26,7 +27,8 @@ const StyledViewerFrameContainer = styled.div`
 const ViewerFrameContainer = () => {
   const {
     currentTop,
-    addImageMode    
+    addImageMode,
+    readArticleToggle
   } = useContext(AppContext);
 
 
@@ -34,8 +36,8 @@ const ViewerFrameContainer = () => {
     <StyledViewerFrameContainer className="viewer-frame-container">
       <TapModeBtn />
       <AlphaSlider />
-      <ReadArticleIcon/>
-      {!addImageMode && <ModeNameDisplay />}
+      {readArticleToggle && <ReadArticleIcon/>}
+      {!addImageMode && <MixModeDisplay />}
       {currentTop  && <ImagePairsDisplay />}
       <SwitchImgBtn />
       {addImageMode && <ImageMenuPanel />}

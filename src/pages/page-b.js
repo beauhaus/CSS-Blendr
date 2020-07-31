@@ -77,6 +77,7 @@ const PageB = (props) => {
   const [currentBot, setCurrentBot] = useState({});
   const [usrImgMode, setUsrImgMode] = useState('');
   const [gridMode, setGridMode] = useState('');
+  const [readArticleToggle, setReadArticleToggle] = useState(false);
 
   useEffect(() => { //TODO: necessary?!?!
     setDefaultImageArray(nativeGalleryImages)
@@ -125,9 +126,12 @@ const PageB = (props) => {
         topAlphaVal,
         setTopAlphaVal,
         alphaModifyMode,
-        setAlphaModifyMode
+        setAlphaModifyMode,
+        readArticleToggle,
+        setReadArticleToggle
       }}>
       <NoiseBG />
+      {console.log("PGB readArt: ", readArticleToggle)}
       <PageBWrapper className="page-b-wrapper">
         <div className="outer-frame-container">
           <DecorFrame />

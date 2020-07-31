@@ -1,64 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, createContext} from 'react';
 import styled from 'styled-components';
 // import { Link } from 'react-scroll'
 // import { animateScroll } from 'react-scroll'
 // import { gsap } from "gsap";
+import 'typeface-rajdhani'
 
-// import GridIconTest from '../components/test/refactor/icontest/gridicontest'
+
+import MixModeDisplay from '../components/test/refactor/mixmodedisplay'
+
+export const AppContext2 = createContext();
 
 const PageDWrapper = styled.div`
 ${'' /* background: slategrey; */}
 width: 100vw;
 height: auto;
-  .TOC {
-    border: 1px solid #777;
-    box-shadow: 1px 1px 2px 0px #000;
-    width: 80vw;
-    height: auto;
-    margin: 20vw auto;
-    a {
-      margin: 1vh auto
-    }
-  }
+ padding-top: 20vh;
+ display: grid;
+ place-items: center;
+ button {
+   border: 1px solid #fff;
+   background: violet;
+   margin: 2vh;
+ }
+
+
 `
 
 const PageD = () => {
   const [iconToggle, setIconToggle] = useState(false);
-  const Clicker = () => {
-    setIconToggle(!iconToggle);
+  const [mixModNum2, setMixModeNum2] = useState(0);
+  const mixModesArray2 = ["abnormal", "Multiply", "Colour-burn","abnormal", "Multiply","abnormal", "Multiply","abnormal", "Multiply","abnormal", "Multiply", "Colour-burn","abnormal", "Multiply","abnormal", "Multiply","abnormal", "Multiply","abnormal", "Multiply", "Colour-burn","abnormal", "Multiply","abnormal", "Multiply","abnormal", "Multiply"];
+
+  const btnBlockGlitchHandler = () => {
+    setMixModeNum2(mixModNum2+1)
   };
   return (
-
+    <AppContext2.Provider
+    value={{
+      mixMode2: mixModesArray2[mixModNum2],
+      setMixModeNum2
+    }}>
     <PageDWrapper className="page-d-wrapper">
-      {/* <GridIconTest toggle={iconToggle}/> */}
-      {/* <button onClick={Clicker}>{iconToggle?"true":"false"}</button> */}
-      {/* <Comp1 toggle={iconToggle} /> */}
-      {/* <div className="TOC">
-        <Link to="articleA" smooth={true} duration={500}>ArtA</Link>
-        <Link to="articleB" smooth={true} duration={500}>ArtB</Link>
-        <Link to="articleC" smooth={true} duration={500}>ArtC</Link>
-        <Link to="articleD" smooth={true} duration={500}>ArtD</Link>
-      </div>
-      <hr />
-      <article id="articleA">
-        <p>ArtA</p>
-        <button onClick={() => animateScroll.scrollToTop()}>&uarr;</button>
-      </article>
-      <article id="articleB">
-        <p>ArtB</p>
-        <button onClick={() => animateScroll.scrollToTop()}>&uarr;</button>
-      </article>
-      <article id="articleC">
-        <p>ArtC</p>
-        <button onClick={() => animateScroll.scrollToTop()}>&uarr;</button>
-      </article>
-      <article id="articleD">
-        <p>ArtD</p>
-        <button onClick={() => animateScroll.scrollToTop()}>&uarr;</button>
-      </article> */}
-
-
+           <button className="btn-toggle" onClick={btnBlockGlitchHandler}>Toggle Effect</button>
+            <MixModeDisplay toggle={iconToggle} />
     </PageDWrapper>
+    </AppContext2.Provider>
   )
 };
 

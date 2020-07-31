@@ -1,62 +1,100 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../pages/page-b'
 import { Link } from 'react-scroll'
-// import { animateScroll } from 'react-scroll'
+import { gsap } from "gsap"; //  , Power4, Expo
 // import ReadArticleIcon from './icon-components/readarticleicon'
 
 
 
 /* most styles for this are in index.scss for concision */
 const StyledModeNameDisplay2 = styled.div`
-padding: 0;
-        a {
-            margin: 0;
-            ${'' /* opacity: 0.5; */}
-            }
+    padding: 0;
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        fill: #beecff;
+    }
 
-        animation: modeNameUp 5s ease-in-out forwards;
+    a {
+        margin: 0;
+        position: relative;
+        color: #000;
+    }
+    ${'' /* animation: modeNameUp 5s ease-in-out forwards; */}
 `
 const StyledModeNameDisplay = styled.div`
-padding: 0;
-        a {
-            margin: 0;
-            ${'' /* opacity: 0.5; */}
-            }
-        animation: modeNameUp 5s ease-in-out forwards;
+    padding: 0;
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        fill: #beecff;
     }
-    ${'' /* &.display-static {
-        color: #eee;
-    } */}
+
+    a {
+        margin: 0;
+        position: relative;
+        color: #000;
+    }
+    ${'' /* animation: modeNameUp 5s ease-in-out forwards; */}
 `
+
+const Underline = () => {
+    const { mixMode } = useContext(AppContext);
+
+    let underLine = useRef(null)
+
+    useEffect(() => {
+        // gsap.set(underLine, { fill: '#000' } )
+        const tl = gsap.timeline({ delay: .2 })
+        // tl
+        // .to(underLine,1, {  fill: "#beecff" }, '-=0')
+        // .to(underLine,3, { x: "-400" }, '-=0')
+    }, [mixMode])
+
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%"  viewBox="0 0 400 400" preserveAspectRatio="none">
+            <rect width="100%"  ref={elem => underLine = elem} />
+        </svg>
+    )
+}
 
 const ModeNameDisplay = () => {
     const {
-        tapMode,
-        addImageMode,
-        mixModeNum,
-        setMixModeNum,
-        mixMode
+        mixMode,
+        mixModeNum
     } = useContext(AppContext);
-    // const handleSetActive = () => {
-    //     console.log("set Active");
-    // }
+
     return (
         (mixModeNum % 2) ?
             <StyledModeNameDisplay
-                className="mode-name-display"> 
+                className="mode-name-display"
+            >
+                <Underline />
                 <Link to={`${mixMode}-article`}
                     smooth={true}
-                    // onSetActive={console.log('handleSetActive')}
-                    duration={500}>{mixMode}</Link>
+                    duration={500}
+                >
+                    {mixMode}
+                </Link>
             </StyledModeNameDisplay>
             :
             <StyledModeNameDisplay2
-                className="mode-name-display">
+                className="mode-name-display"
+            >
+                <Underline />
                 <Link to={`${mixMode}-article`}
                     smooth={true}
-                    // onSetActive={console.log('handleSetActive')}
-                    duration={500}>{mixMode}</Link>
+                    duration={500}
+                >
+                    {mixMode}
+                </Link>
             </StyledModeNameDisplay2>
     )
 };
