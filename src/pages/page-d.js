@@ -3,12 +3,12 @@ import styled from 'styled-components';
 // import { Link } from 'react-scroll'
 // import { animateScroll } from 'react-scroll'
 // import { gsap } from "gsap";
-import 'typeface-rajdhani'
+// import 'typeface-rajdhani'
 
 
-import MixModeDisplay from '../components/test/refactor/mixmodedisplay'
+// import MixModeDisplay from '../components/test/refactor/mixmodedisplay'
 
-export const AppContext2 = createContext();
+// export const AppContext2 = createContext();
 
 const PageDWrapper = styled.div`
 ${'' /* background: slategrey; */}
@@ -35,16 +35,11 @@ const PageD = () => {
     setMixModeNum2(mixModNum2+1)
   };
   return (
-    <AppContext2.Provider
-    value={{
-      mixMode2: mixModesArray2[mixModNum2],
-      setMixModeNum2
-    }}>
+   
     <PageDWrapper className="page-d-wrapper">
-           <button className="btn-toggle" onClick={btnBlockGlitchHandler}>Toggle Effect</button>
-            <MixModeDisplay toggle={iconToggle} />
+           {/* <button className="btn-toggle" onClick={btnBlockGlitchHandler}>Toggle Effect</button>
+            <MixModeDisplay toggle={iconToggle} /> */}
     </PageDWrapper>
-    </AppContext2.Provider>
   )
 };
 
