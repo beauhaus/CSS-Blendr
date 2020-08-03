@@ -1,47 +1,48 @@
 module.exports = {
   siteMetadata: {
     title: "CSS Blendr",
-    description: "A Web Appliance for learning css mix-blend-modes"
+    description: "A Web Appliance for learning css mix-blend-modes",
   },
   plugins: [
-    'gatsby-plugin-sass',
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-netlify`,
+    "gatsby-plugin-sass",
+    "gatsby-plugin-react-helmet",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         name: "modes",
-        path: "modes"
-      }
+        path: "modes",
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "fonts",
-        path: `${__dirname}/src/fonts/`
-      }
-    }, 
+        path: `${__dirname}/src/fonts/`,
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "images"
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-layout',
-      options: {
-        component: require.resolve('./src/components/layout.js'),
+        path: "images",
       },
     },
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: "gatsby-plugin-layout",
+      options: {
+        component: require.resolve("./src/components/layout.js"),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/layout.js')
-        }
-      }
+          default: require.resolve("./src/components/layout.js"),
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -55,7 +56,7 @@ module.exports = {
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
-      }
-    }
+      },
+    },
   ],
 };
