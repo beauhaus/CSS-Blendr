@@ -78,7 +78,8 @@ const ReadArticleIcon = (props) => {
     gsap.set(pageTextLt, { opacity: 0 });
     gsap.set(bookCover, { stroke: "#fff" });
 
-    const tl = gsap.timeline({ delay: 1 });
+    const tl = gsap.timeline();
+    tl.progress(1);
 
     tl.to(pageTurn, 0.1, { opacity: 1, fill: "#ddd" })
       .to(pageTurn, 0.05, {

@@ -68,7 +68,6 @@ const MixModeDisplay = () => {
     gsap.set(chunkB, { opacity: 1 });
     gsap.set(chunkC, { opacity: 1 });
     gsap.set(underLine, { x: 0, opacity: 1 });
-    gsap.delayedCall(2, iconTriggerOn);
 
     const tl = gsap.timeline();
 
@@ -93,8 +92,8 @@ const MixModeDisplay = () => {
       .to(chunkC, { duration: 0.05, x: 0, opacity: 0 })
 
       .to(underLine, { duration: 3, x: -200, ease: Expo.easeOut }, "+=0.05")
-      .to(modeBG, { duration: 1, opacity: 0 }, "-=0.8");
-    // .to(txtMain, { duration: 2, opacity: 0 }, "+=0");
+      .to(modeBG, { duration: 1, opacity: 0 }, "-=0.8")
+      .call(iconTriggerOn);
   }, [mixMode]);
 
   return (
