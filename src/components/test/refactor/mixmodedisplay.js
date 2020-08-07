@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { gsap, Expo } from "gsap"; //  , Power4, Expo
+import { gsap, Expo } from "gsap";
 import styled from "styled-components";
 import { threee2DigitRand } from "./hooks/app-utils";
 import { AppContext } from "../../../pages/page-b";
@@ -35,13 +35,7 @@ const StyledMixModeDisplay = styled.div`
 `;
 
 const MixModeDisplay = () => {
-  const {
-    mixMode,
-    mixModeNum,
-    setReadArticleToggle,
-    readArticleToggle,
-    setMixModeNum,
-  } = useContext(AppContext);
+  const { mixMode, setReadArticleToggle } = useContext(AppContext);
 
   // console.log("AppContext: ", mixMode)
 
@@ -94,6 +88,7 @@ const MixModeDisplay = () => {
       .to(underLine, { duration: 3, x: -200, ease: Expo.easeOut }, "+=0.05")
       .to(modeBG, { duration: 1, opacity: 0 }, "-=0.8")
       .call(iconTriggerOn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mixMode]);
 
   return (

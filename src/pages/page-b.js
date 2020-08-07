@@ -1,13 +1,12 @@
 import React, { useState, createContext, useEffect } from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
-import { Link } from "react-scroll";
-import { animateScroll } from "react-scroll";
 import useGalleryImages from "../components/test/refactor/hooks/use-gallery-images";
 import DecorFrame from "../components/test/refactor/decorframe";
 import ViewerFrameContainer from "../components/test/refactor/viewerframecontainer";
 import BlendControls from "../components/test/refactor/blendcontrols";
-import NoiseBG from "../components/content/noisebg";
+import NoiseBG from "../components/test/refactor/noisebg";
+
 import MixModeArticle from "../components/test/refactor/mode-article";
 
 export const AppContext = createContext();

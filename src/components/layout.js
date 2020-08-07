@@ -1,37 +1,44 @@
-import React,{createContext } from 'react';
-import { Transition, TransitionGroup } from 'react-transition-group';
-import {Helmet} from 'react-helmet'
+import React, { createContext } from "react";
+import { Transition, TransitionGroup } from "react-transition-group";
+import { Helmet } from "react-helmet";
 
-import './layout.scss';
-import NoiseBG from '../components/content/noisebg'
-import Header from './scaffold/header'
-import useSiteMetadata from './hooks/use-site-metadata';
- 
+import "./layout.scss";
+import NoiseBG from "../components/test/refactor/noisebg";
+import Header from "./scaffold/header";
+import useSiteMetadata from "../components/test/refactor/hooks/use-site-metadata";
 
 export const NavContext = createContext();
 
 const Layout = ({ children, location }) => {
-
-    const {title, description} = useSiteMetadata
-    return (
-        <NavContext.Provider
-        value={{
-          currentPath:location.pathname
-        }}>
-        <Helmet>
-            <html lang="en"/>
-            <title>CSS Blendr</title>
-            <meta name={title} content={description}/>
-        </Helmet>
-        <NoiseBG/>
-            <Header currentPath={location.pathname}/>
-                <TransitionGroup component={null}>
-                    <Transition key={location.pathname} timeout={{ enter: 1500, exit: 1500 }}>
-                        {status => <div className={`page ${status}`}>{children}</div>}
-                    </Transition>
-                </TransitionGroup>
-        </NavContext.Provider>
-    )
+  const { title, description } = useSiteMetadata;
+  return (
+    <NavContext.Provider
+      value={{
+        currentPath: location.pathname,
+      }}
+    >
+      <Helmet>
+        <html lang="en" />
+        <title>CSS Blendr</title>
+        <meta name={title} content={description} />
+      </Helmet>
+      <NoiseBG />
+      <Header currentPath={location.pathname} />
+      <TransitionGroup component={null}>
+        <Transition
+          key={location.pathname}
+          timeout={{ enter: 1500, exit: 1500 }}
+        >
+          {(status) => (
+            <div className={`page ${status}`}>
+              {/* {console.log("status: ", status)} */}
+              {children}
+            </div>
+          )}
+        </Transition>
+      </TransitionGroup>
+    </NavContext.Provider>
+  );
 };
 
 export default Layout;

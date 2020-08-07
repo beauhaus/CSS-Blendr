@@ -1,9 +1,8 @@
-import React, { useContext, useRef, useEffect } from 'react';
-import styled from 'styled-components';
-import ImagePairsFlip from './imagepairsflip'
-import { gsap, Back } from "gsap"; //  , Power4, Expo
+import React, { useContext } from "react";
+import styled from "styled-components";
+import ImagePairsFlip from "./imagepairsflip";
 
-import { AppContext } from '../../../pages/page-b'
+import { AppContext } from "../../../pages/page-b";
 
 const StyledFlipImageBtn = styled.button`
     position: absolute;
@@ -14,9 +13,9 @@ const StyledFlipImageBtn = styled.button`
 
 
     border-radius: 20px; /* 12px*/
-    ${'' /* width: 48vw;  */}
-    ${'' /* height: 100%; */}
-    ${'' /* position: relative; */}
+    ${"" /* width: 48vw;  */}
+    ${"" /* height: 100%; */}
+    ${"" /* position: relative; */}
     background: transparent;
     box-shadow: inset 2px 2px 3px 0 #fff,
             inset -2px -2px 3px 0 #000,
@@ -34,37 +33,37 @@ const StyledFlipImageBtn = styled.button`
         height: 93%;
         opacity: .9;
         margin: auto;
-        ${'' /* background: linear-gradient(90deg, #2C3021 0%, #545D49 50%, #5F6B57 100%); */}
+        ${
+          "" /* background: linear-gradient(90deg, #2C3021 0%, #545D49 50%, #5F6B57 100%); */
+        }
         background: transparent;
         overflow: hidden;
     }   
         
       
     
-`
+`;
 const FlipImageBtn = () => {
-    const {
-        flipTriggerVal,
-        setFlipTriggerVal,
-        addImageMode,
-        currentTop
-    } = useContext(AppContext);
+  const {
+    flipTriggerVal,
+    setFlipTriggerVal,
+    addImageMode,
+    currentTop,
+  } = useContext(AppContext);
 
-    const flipTriggerHandler = () => {
-        setFlipTriggerVal(!flipTriggerVal)
-    }
+  const flipTriggerHandler = () => {
+    setFlipTriggerVal(!flipTriggerVal);
+  };
 
-    return (
-        <StyledFlipImageBtn
-            className="flip-img-btn"
-            className={addImageMode ? 'flip-img-btn-second-task' : 'flip-img-btn'}
-            aria-label="image-flipper"
-            onClick={flipTriggerHandler}
-        >
-            {(currentTop) && <ImagePairsFlip className="img-pairs-flip" />}
-        </StyledFlipImageBtn>
-    )
+  return (
+    <StyledFlipImageBtn
+      className={addImageMode ? "flip-img-btn-second-task" : "flip-img-btn"}
+      aria-label="image-flipper"
+      onClick={flipTriggerHandler}
+    >
+      {currentTop && <ImagePairsFlip className="img-pairs-flip" />}
+    </StyledFlipImageBtn>
+  );
 };
 
 export default FlipImageBtn;
-

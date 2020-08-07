@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
-import styled from 'styled-components';
-import { AppContext } from '../../../pages/page-b'
-import DefaultImgThumb from './defaultimgthumb'
+import React, { useContext, useEffect } from "react";
+import styled from "styled-components";
+import { AppContext } from "../../../pages/page-b";
+import DefaultImgThumb from "./defaultimgthumb";
 
 const StyledDefaultThumbnailsGrid = styled.section`
     grid-row: 2/4;
@@ -25,41 +25,37 @@ const StyledDefaultThumbnailsGrid = styled.section`
             height: 100%;
         }
     }
-`
+`;
 
 const DefaultThumbnailsGrid = () => {
-    const {
-        defaultImageArray,
-        addImageMode,
-        gridMode,
-        setCurrentTop,
-        setCurrentBot
-    } = useContext(AppContext);
+  const {
+    defaultImageArray,
+    addImageMode,
+    gridMode,
+    setCurrentTop,
+    setCurrentBot,
+  } = useContext(AppContext);
 
-    useEffect(() => {
-        let min = 0;
-        let max = defaultImageArray.length;
-        let rand1 = Math.floor(Math.random() * (max - min) + min);
-        let rand2 = Math.floor(Math.random() * (max - min) + min);
-        setCurrentBot(defaultImageArray[rand1])
-        setCurrentTop(defaultImageArray[rand2])
-    }, [defaultImageArray])
+  useEffect(() => {
+    let min = 0;
+    let max = defaultImageArray.length;
+    let rand1 = Math.floor(Math.random() * (max - min) + min);
+    let rand2 = Math.floor(Math.random() * (max - min) + min);
+    setCurrentBot(defaultImageArray[rand1]);
+    setCurrentTop(defaultImageArray[rand2]);
+  }, [defaultImageArray, setCurrentBot, setCurrentTop]);
 
-    return (
-        <>
-            {(addImageMode && gridMode) &&
-                <StyledDefaultThumbnailsGrid className="default-thumbnails-grid">
-                    {defaultImageArray.map(imgObj => (
-                        <DefaultImgThumb
-                            key={imgObj.id}
-                            imgObj={imgObj}
-                        />
-                    ))}
-                </StyledDefaultThumbnailsGrid>
-            }
-        </>
-
-    )
+  return (
+    <>
+      {addImageMode && gridMode && (
+        <StyledDefaultThumbnailsGrid className="default-thumbnails-grid">
+          {defaultImageArray.map((imgObj) => (
+            <DefaultImgThumb key={imgObj.id} imgObj={imgObj} />
+          ))}
+        </StyledDefaultThumbnailsGrid>
+      )}
+    </>
+  );
 };
 
-export default DefaultThumbnailsGrid; 
+export default DefaultThumbnailsGrid;

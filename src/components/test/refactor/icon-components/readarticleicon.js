@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../../../pages/page-b";
-import { gsap, Power4 } from "gsap";
+import { gsap } from "gsap";
 import { Link } from "react-scroll";
 
 const StyledReadArticleIcon = styled.div`
@@ -63,8 +63,6 @@ const ReadArticleIcon = (props) => {
   // console.log(">ReadArticleIcon", props);
 
   let pageTurn = useRef(null);
-  let pageLeft = useRef(null);
-  let pageRight = useRef(null);
   let bookCover = useRef(null);
   let pageTextRt = useRef(null);
   let pageTextLt = useRef(null);

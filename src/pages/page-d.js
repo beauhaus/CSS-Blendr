@@ -1,13 +1,6 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-// import { Link } from 'react-scroll'
-// import { animateScroll } from 'react-scroll'
-// import { gsap } from "gsap";
-// import 'typeface-rajdhani'
 
-// import MixModeDisplay from '../components/test/refactor/mixmodedisplay'
-
-// export const AppContext2 = createContext();
 import RenderTester from "../components/test/refactor/rendertester";
 
 const PageDWrapper = styled.div`
@@ -27,36 +20,36 @@ const PageDWrapper = styled.div`
 
 const PageD = () => {
   const [renderVal, setRenderVal] = useState(0);
-  const [mixModNum2, setMixModeNum2] = useState(0);
-  const mixModesArray2 = [
-    "abnormal",
-    "Multiply",
-    "Colour-burn",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "Colour-burn",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "Colour-burn",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-    "abnormal",
-    "Multiply",
-  ];
+  // const [mixModNum2, setMixModeNum2] = useState(0);
+  // const mixModesArray2 = [
+  //   "abnormal",
+  //   "Multiply",
+  //   "Colour-burn",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "Colour-burn",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "Colour-burn",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  //   "abnormal",
+  //   "Multiply",
+  // ];
 
   const btnClickHandler = () => {
     console.log("clicked");

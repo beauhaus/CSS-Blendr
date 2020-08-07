@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../../pages/page-b";
 import { animateScroll } from "react-scroll";
-import useModes from "../../hooks/use-modes";
-import ModeDirectory from "../../content/mode-directory";
+import useModes from "../refactor/hooks/use-modes";
 
 const StyledModeArticle = styled.article`
   grid-row: 6;
