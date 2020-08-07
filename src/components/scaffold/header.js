@@ -34,7 +34,7 @@ const Header = () => {
       {/* <Link className="home-link" to="/"><button><img id="blender-fav" alt="blendr-mark" src={blenderFavicon.src}/></button></Link> */}
       <TopNavBtn />
       <img id="blender-fav2" alt="blender-mark" src={blenderFavicon2.base64} />
-      {/* <Link className="b-link" to="/page-b">PAGE B</Link> */}
+      {/* <Link className="b-link" to="/application">PAGE B</Link> */}
       {/* <Link className="d-link" to="/page-d">PAGED</Link> */}
     </header>
   );

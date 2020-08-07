@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import "typeface-fugaz-one";
 import "../styles/index.scss";
-import LandingLogo from "../components/test/refactor/landinglogo";
+import LandingLogo from "../components/landinglogo";
 
 const IdxWrapper = styled.div`
   width: 100vw;

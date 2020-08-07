@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import RenderTester from "../components/test/refactor/rendertester";
+import RenderTester from "../components/rendertester";
 
 const PageDWrapper = styled.div`
   ${"" /* background: slategrey; */}

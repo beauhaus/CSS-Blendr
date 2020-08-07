@@ -22,7 +22,7 @@ const ModeTemplate = ({ data: { mdx: mode } }) => {
     <div className="mode-dir-container">
       <h1 className="title">{mode.frontmatter.title} mode</h1>
       <hr />
-      <Link to="/page-b">BACK</Link>
+      <Link to="/application">BACK</Link>
       <MDXRenderer>{mode.body}</MDXRenderer>
     </div>
   )

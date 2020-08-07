@@ -3,9 +3,9 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import { Helmet } from "react-helmet";
 
 import "./layout.scss";
-import NoiseBG from "../components/test/refactor/noisebg";
+import NoiseBG from "../components/noisebg";
 import Header from "./scaffold/header";
-import useSiteMetadata from "../components/test/refactor/hooks/use-site-metadata";
+import useSiteMetadata from "../components/hooks/use-site-metadata";
 
 export const NavContext = createContext();
 
