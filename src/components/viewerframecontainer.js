@@ -8,7 +8,7 @@ import AlphaSlider from "./alphaslider";
 import ImageMenuPanel from "./imagemenunav";
 import TapModeBtn from "./tapmodebtn";
 import AlphaValDisplay from "./alphavaldisplay";
-import MixModeDisplay from "./mixmodedisplay";
+// import MixModeDisplay from "./mixmodedisplay";
 import DefaultThumbnailsGrid from "./defaultthumbnailsgrid";
 import PaintWidget from "./paintwidget";
 import UsrThumbnailsGrid from "./usrthumbnailsgrid";
@@ -33,7 +33,7 @@ const ViewerFrameContainer = () => {
       <TapModeBtn />
       <AlphaSlider />
       {readArticleToggle && <ReadArticleIcon />}
-      {!addImageMode && <MixModeDisplay />}
+      {/* {!addImageMode && <MixModeDisplay />} */}
       {currentTop && <ImagePairsDisplay />}
       <SwitchImgBtn />
       {addImageMode && <ImageMenuPanel />}
